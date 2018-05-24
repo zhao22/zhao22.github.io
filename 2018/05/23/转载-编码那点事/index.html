@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的。这篇文章将的太棒了，转载过来保留着。原文来源于知乎">
+<meta name="description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的,这篇文章讲的太棒了。原文来源于知乎">
 <meta property="og:type" content="article">
 <meta property="og:title" content="(转载)编码那点事">
 <meta property="og:url" content="http://yoursite.com/2018/05/23/转载-编码那点事/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的。这篇文章将的太棒了，转载过来保留着。原文来源于知乎">
+<meta property="og:description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的,这篇文章讲的太棒了。原文来源于知乎">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-23T13:42:41.325Z">
+<meta property="og:updated_time" content="2018-05-24T02:02:11.563Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="(转载)编码那点事">
-<meta name="twitter:description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的。这篇文章将的太棒了，转载过来保留着。原文来源于知乎">
+<meta name="twitter:description" content="内容简介电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的,这篇文章讲的太棒了。原文来源于知乎">
 
 
 
@@ -333,7 +333,7 @@
       
 
       
-        <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><p>电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的。这篇文章将的太棒了，转载过来保留着。<br>原文来源于<a href="https://www.zhihu.com/question/23374078/answer/69732605" target="_blank" rel="noopener">知乎</a><br><a id="more"></a></p>
+        <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><p>电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的,这篇文章讲的太棒了。<br>原文来源于<a href="https://www.zhihu.com/question/23374078/answer/69732605" target="_blank" rel="noopener">知乎</a><br><a id="more"></a></p>
 <h2 id="由电信号到ASCII"><a href="#由电信号到ASCII" class="headerlink" title="由电信号到ASCII"></a>由电信号到ASCII</h2><p>很久很久以前，有一群人，他们决定用8个可以开合的晶体管来组合成不同的状态，以表示世界上的万物。他们看到8个开关状态是好的，于是他们把这称为”<strong>字节</strong>  “。再后来，他们又做了一些可以处理这些字节的机器，机器开动了，可以用字节来组合出很多状态，状态开始变来变去。他们看到这样是好的，于是它们就这机器称为”<strong>计算机</strong>“。<br>开始计算机只在美国用。八位的字节一共可以组合出256(2的8次方)种不同的状态。<br>他们把其中的编号从0开始的32种状态分别规定了特殊的用途，一但终端、打印机遇上约定好的这些字节被传过来时，就要做一些约定的动作：<br>遇上0×10, 终端就换行；<br>遇上0×07, 终端就向人们嘟嘟叫；<br>遇上0x1b, 打印机就打印反白的字，或者终端就用彩色显示字母。<br>他们看到这样很好，于是就把这些0×20以下的字节状态称为”控制码”。他们又把所有的空 格、标点符号、数字、大小写字母分别用连续的字节状态表示，一直编到了第127号，这样计算机就可以用不同字节来存储英语的文字了。大家看到这样，都感觉 很好，于是大家都把这个方案叫做 <strong>ANSI</strong> 的”Ascii”编码（American Standard Code for Information Interchange，美国信息互换标准代码）。当时世界上所有的计算机都用同样的<strong>ASCII</strong>方案来保存英文文字。<br>后来，就像建造巴比伦塔一样，世界各地都开始使用计算机，但是很多国家用的不是英文，他们的字母里有许多是ASCII里没有的，为了可以在计算机保存他们的文字，他们决定采用 127号之后的空位来表示这些新的字母、符号，还加入了很多画表格时需要用下到的横线、竖线、交叉等形状，一直把序号编到了最后一个状态255。从128 到255这一页的字符集被称”<strong>扩展字符集</strong>“。从此之后，贪婪的人类再没有新的状态可以用了，美帝国主义可能没有想到还有第三世界国家的人们也希望可以用到计算机吧！  </p>
 <h2 id="中文的发展历程-GB2312-、-GBK-、-GB18030-DBCS"><a href="#中文的发展历程-GB2312-、-GBK-、-GB18030-DBCS" class="headerlink" title="中文的发展历程:GB2312 、 GBK 、 GB18030(DBCS)"></a>中文的发展历程:GB2312 、 GBK 、 GB18030(DBCS)</h2><p>等中国人们得到计算机时，已经没有可以利用的字节状态来表示汉字，况且有6000多个常用汉字需要保存呢。但是这难不倒智慧的中国人民，我们不客气地把那些127号之后的奇异符号们直接取消掉, 规定：一个小于127的字符的意义与原来相同，但两个大于127的字符连在一起时，就表示一个汉字，前面的一个字节（他称之为高字节）从0xA1用到0xF7，后面一个字节（低字节）从0xA1到0xFE，这样我们就可以组合出大约7000多个简体汉字了。在这些编码里，我们还把数学符号、罗马希腊的字母、日文的假名们都编进去了，连在 ASCII 里本来就有的数字、标点、字母都统统重新编了两个字节长的编码，这就是常说的”全角”字符，而原来在127号以下的那些就叫”半角”字符了。中国人民看到这样很不错，于是就把这种汉字方案叫做 “<strong>GB2312</strong>“。GB2312 是对 ASCII 的中文扩展。  </p>
 <p>但是中国的汉字太多了，我们很快就就发现有许多人的人名没有办法在这里打出来，特别是某些很会麻烦别人的国家领导人。于是我们不得不继续把GB2312 没有用到的码位找出来老实不客气地用上。后来还是不够用，于是干脆不再要求低字节一定是127号之后的内码，只要第一个字节是大于127就固定表示这是一个汉字的开始，不管后面跟的是不是扩展字符集里的内容。结果扩展之后的编码方案被称为 <strong>GBK</strong> 标准，GBK包括了GB2312 的所有内容，同时又增加了近20000个新的汉字（包括繁体字）和符号。 后来少数民族也要用电脑了，于是我们再扩展，又加了几千个新的少数民族的字，GBK扩成了 <strong>GB18030</strong>。从此之后，中华民族的文化就可以在计算机时代中传承了。 中国的程序员们看到这一系列汉字编码的标准是好的，于是通称他们叫做 “<strong>DBCS</strong>“（Double Byte Charecter Set 双字节字符集）。在DBCS系列标准里，最大的特点是两字节长的汉字字符和一字节长的英文字符并存于同一套编码方案里，因此他们写的程序为了支持中文处理，必须要注意字串里的每一个字节的值，如果这个值是大于127的，那么就认为一个双字节字符集里的字符出现了。那时候凡是受过加持，会编程的计算机僧侣们都要每天念下面这个咒语数百遍： “一个汉字算两个英文字符！一个汉字算两个英文字符……”  </p>
@@ -411,6 +411,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/05/23/堆排序实现及数学思考/" rel="prev" title="堆排序实现及数学思考">
+                堆排序实现及数学思考 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -486,7 +490,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
