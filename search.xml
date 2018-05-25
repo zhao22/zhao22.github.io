@@ -3,6 +3,31 @@
   
     
     <entry>
+      <title>idea开发常用指令</title>
+      <link href="/2018/05/25/idea%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+      <url>/2018/05/25/idea%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+      <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>博客介绍 WINDOWS下 Intellj IDEA 原生快捷键。<br>分为 通用指令(大部分IDE都支持的快捷功能)、文件操作指令、项目索引指令三个部分。<br><a id="more"></a></p><h2 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h2><table><thead><tr><th style="text-align:center">快捷键</th><th style="text-align:center">功能</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">CTRL+C</td><td style="text-align:center">复制</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+V</td><td style="text-align:center">粘贴</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+F</td><td style="text-align:center">搜索</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+R</td><td style="text-align:center">替换</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+A</td><td style="text-align:center">全选</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+/</td><td style="text-align:center">注释</td><td style="text-align:center">也可取消注释</td></tr><tr><td style="text-align:center">CTRL+S</td><td style="text-align:center">保存</td><td style="text-align:center">一般不设置支持自动保存</td></tr><tr><td style="text-align:center">SHIFT+ENTER</td><td style="text-align:center">新建一行，光标移至行首</td></tr></tbody></table><h2 id="文件操作指令"><a href="#文件操作指令" class="headerlink" title="文件操作指令"></a>文件操作指令</h2><table><thead><tr><th style="text-align:center">快捷键</th><th style="text-align:center">功能</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">ALT+/</td><td style="text-align:center">查看描述</td><td style="text-align:center">导包、查看错误提示…</td></tr><tr><td style="text-align:center">CTRL+W</td><td style="text-align:center">选择当前单词</td><td style="text-align:center">再次点击依次选择:包含周围符号、方法参数、句子、行、方法体、方法…</td></tr><tr><td style="text-align:center">CTRL+SHIFT+W</td><td style="text-align:center">反选</td><td style="text-align:center">返回CTRL+W的选择</td></tr><tr><td style="text-align:center">CTRL+Y</td><td style="text-align:center">删除当前行</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+X</td><td style="text-align:center">剪切</td><td style="text-align:center">这个单独提出来，因为在没有选择文本的情况下,该操作是剪切当前行,按着比Y方便</td></tr><tr><td style="text-align:center">CTRL+D</td><td style="text-align:center">复制当前行</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+G</td><td style="text-align:center">定位到指定行</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">ALT+↑/↓</td><td style="text-align:center">到上/下个方法</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+SHIFT+[1-0]</td><td style="text-align:center">标记</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+[1-0]</td><td style="text-align:center">快速定位到标记位置</td><td style="text-align:center">飞雷神之术..其实F11的搭配能配置的更多。但按键比较复杂而且一般1-0就够用了</td></tr><tr><td style="text-align:center">ALT+INSERT</td><td style="text-align:center">生成方法</td><td style="text-align:center">getter啊,setter啊,Constructor…</td></tr><tr><td style="text-align:center">CTRL+SHIFT+V</td><td style="text-align:center">剪贴板</td><td style="text-align:center">最近复制的内容都会显示在上面</td></tr><tr><td style="text-align:center">CTRL+B</td><td style="text-align:center">进入</td><td style="text-align:center">可以查看光标位置的类或者方法内容,和CTRL+鼠标左键功能一样</td></tr><tr><td style="text-align:center">ALT+SHIFT+鼠标左键</td><td style="text-align:center">多光标同时操作</td><td style="text-align:center">也可以按住中间滚轮拖动</td></tr></tbody></table><h2 id="项目索引指令"><a href="#项目索引指令" class="headerlink" title="项目索引指令"></a>项目索引指令</h2><table><thead><tr><th style="text-align:center">快捷键</th><th style="text-align:center">功能</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">CTRL+N</td><td style="text-align:center">寻找类</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">CTRL+SHIFT+N</td><td style="text-align:center">寻找文件</td><td style="text-align:center">可以在后面+/寻找文件夹</td></tr><tr><td style="text-align:center">CTRL+SHIFT+F</td><td style="text-align:center">寻找字符串</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">SHIFT * 2</td><td style="text-align:center">全局搜索</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">ALT+F1弹框后ENTER</td><td style="text-align:center">定位到文件所在位置</td><td style="text-align:center"></td></tr><tr><td style="text-align:center">ALT+F1弹框后C</td><td style="text-align:center">在文件夹中打开当前文件</td><td style="text-align:center"></td></tr></tbody></table>]]></content>
+      
+      <categories>
+          
+          <category> Intellj Idea </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Intellj Idea </tag>
+            
+            <tag> 开发工具 </tag>
+            
+            <tag> java </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>堆排序实现及数学思考</title>
       <link href="/2018/05/23/%E5%A0%86%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%80%9D%E8%80%83/"/>
       <url>/2018/05/23/%E5%A0%86%E6%8E%92%E5%BA%8F%E5%AE%9E%E7%8E%B0%E5%8F%8A%E6%95%B0%E5%AD%A6%E6%80%9D%E8%80%83/</url>
