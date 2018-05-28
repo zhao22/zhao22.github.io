@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。 安装windows 下安装点击下载Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我们下载 Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis。   打开一个 cmd 窗口 使用cd命令切换目录到 C:\redis 运行 redi">
+<meta name="description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis初探">
 <meta property="og:url" content="http://yoursite.com/2018/05/25/Redis初探/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。 安装windows 下安装点击下载Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我们下载 Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis。   打开一个 cmd 窗口 使用cd命令切换目录到 C:\redis 运行 redi">
+<meta property="og:description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-05-25T09:34:48.443Z">
+<meta property="og:updated_time" content="2018-05-28T06:28:45.267Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis初探">
-<meta name="twitter:description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。 安装windows 下安装点击下载Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我们下载 Redis-x64-xxx.zip压缩包到 C 盘，解压后，将文件夹重新命名为 redis。   打开一个 cmd 窗口 使用cd命令切换目录到 C:\redis 运行 redi">
+<meta name="twitter:description" content="简介主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考菜鸟教程。">
 
 
 
@@ -376,7 +376,7 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考<a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">菜鸟教程</a>。</p>
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>主要整理redis安装配置,应用场景,基本概念,API及java的使用。部分参考<a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">菜鸟教程</a>。<br><a id="more"></a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="windows-下安装"><a href="#windows-下安装" class="headerlink" title="windows 下安装"></a>windows 下安装</h3><p><a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">点击下载</a><br>Redis 支持 32 位和 64 位。这个需要根据你系统平台的实际情况选择，这里我们下载 <strong>Redis-x64-xxx.zip</strong>压缩包到 C 盘，解压后，将文件夹重新命名为 <strong>redis</strong>。  </p>
 <p>打开一个 cmd 窗口 使用cd命令切换目录到 C:\redis 运行 <strong>redis-server.exe redis.windows.conf</strong>。  </p>
 <p>如果想方便的话，可以把 redis 的路径加到系统的环境变量里，这样就省得再输路径了，后面的那个 redis.windows.conf 可以省略，如果省略，会启用默认的。输入之后，会显示redis界面.<br>这时候另启一个cmd窗口，原来的不要关闭，不然就无法访问服务端了。<br>切换到redis目录下运行 <strong>redis-cli.exe -h 127.0.0.1 -p 6379</strong> 。(客户端)</p>
@@ -558,59 +558,59 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">DEL key</td>
+<td style="text-align:center"><font style="color:red"><strong>DEL</strong></font> key</td>
 <td style="text-align:center">删除</td>
 </tr>
 <tr>
-<td style="text-align:center">DUMP key</td>
+<td style="text-align:center"><font style="color:red"><strong>DUMP</strong></font> key</td>
 <td style="text-align:center">序列化,并返回被序列化的值</td>
 </tr>
 <tr>
-<td style="text-align:center">EXISTS key</td>
+<td style="text-align:center"><font style="color:red"><strong>EXISTS</strong></font> key</td>
 <td style="text-align:center">检查是否存在</td>
 </tr>
 <tr>
-<td style="text-align:center">EXPIRE key seconds</td>
+<td style="text-align:center"><font style="color:red"><strong>EXPIRE</strong></font> key seconds</td>
 <td style="text-align:center">为给定key设置过期时间</td>
 </tr>
 <tr>
-<td style="text-align:center">EXPIREAT key timestamp</td>
+<td style="text-align:center"><font style="color:red"><strong>EXPIREAT</strong></font> key timestamp</td>
 <td style="text-align:center">设置过期时间,接受UNIX时间戳</td>
 </tr>
 <tr>
-<td style="text-align:center">KEYS pattern</td>
+<td style="text-align:center"><font style="color:red"><strong>KEYS</strong></font> pattern</td>
 <td style="text-align:center">查找所有符合给定模式(pattern)的key</td>
 </tr>
 <tr>
-<td style="text-align:center">MOVE key db</td>
+<td style="text-align:center"><font style="color:red"><strong>MOVE</strong></font> key db</td>
 <td style="text-align:center">将当前数据库的 key 移动到指定数据库db当中</td>
 </tr>
 <tr>
-<td style="text-align:center">PERSIST key</td>
+<td style="text-align:center"><font style="color:red"><strong>PERSIST</strong></font> key</td>
 <td style="text-align:center">移除key的过期时间,key将持久保持</td>
 </tr>
 <tr>
-<td style="text-align:center">PTTL key</td>
+<td style="text-align:center"><font style="color:red"><strong>PTTL</strong></font> key</td>
 <td style="text-align:center">以毫秒为单位返回key的剩余的过期时间</td>
 </tr>
 <tr>
-<td style="text-align:center">TTL key</td>
+<td style="text-align:center"><font style="color:red"><strong>TTL</strong></font> key</td>
 <td style="text-align:center">以秒为单位, 返回给定key的剩余生存时间(time to live)</td>
 </tr>
 <tr>
-<td style="text-align:center">RADOMKEY</td>
+<td style="text-align:center"><font style="color:red"><strong>RANDOMKEY</strong></font></td>
 <td style="text-align:center">从当前数据库随机返回一个key</td>
 </tr>
 <tr>
-<td style="text-align:center">RENAME key newkey</td>
+<td style="text-align:center"><font style="color:red"><strong>RENAME</strong></font> key newkey</td>
 <td style="text-align:center">修改key 的名称</td>
 </tr>
 <tr>
-<td style="text-align:center">RENAMENX key newkey</td>
+<td style="text-align:center"><font style="color:red"><strong>RENAMENX</strong></font> key newkey</td>
 <td style="text-align:center">仅当new key 不存在时,将key 改名为 newkey</td>
 </tr>
 <tr>
-<td style="text-align:center">TYPE key</td>
+<td style="text-align:center"><font style="color:red"><strong>TYPE</strong></font> key</td>
 <td style="text-align:center">返回key 所储存的值的类型</td>
 </tr>
 </tbody>
@@ -624,83 +624,83 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">SET key value</td>
+<td style="text-align:center"><font style="color:red"><strong>SET</strong></font> key value</td>
 <td style="text-align:center">设置值</td>
 </tr>
 <tr>
-<td style="text-align:center">GET key</td>
+<td style="text-align:center"><font style="color:red"><strong>GET</strong></font> key</td>
 <td style="text-align:center">获取值</td>
 </tr>
 <tr>
-<td style="text-align:center">GETRANGE key start end</td>
+<td style="text-align:center"><font style="color:red"><strong>GETRANGE</strong></font> key start end</td>
 <td style="text-align:center">返回字符串的子字符(substring)</td>
 </tr>
 <tr>
-<td style="text-align:center">GETSET key value</td>
+<td style="text-align:center"><font style="color:red"><strong>GETSET</strong></font> key value</td>
 <td style="text-align:center">设置值，并返回原值</td>
 </tr>
 <tr>
-<td style="text-align:center">GETBIT key offset</td>
+<td style="text-align:center"><font style="color:red"><strong>GETBIT</strong></font> key offset</td>
 <td style="text-align:center">对 key 所储存的字符串值，获取指定偏移量上的位(bit)</td>
 </tr>
 <tr>
-<td style="text-align:center">MGET key1 [key2..]</td>
+<td style="text-align:center"><font style="color:red"><strong>MGET</strong></font> key1 [key2..]</td>
 <td style="text-align:center">获取所有(一个或多个)给定的值</td>
 </tr>
 <tr>
-<td style="text-align:center">SETBIT key offset value</td>
+<td style="text-align:center"><font style="color:red"><strong>SETBIT</strong></font> key offset value</td>
 <td style="text-align:center">对key 所储存的字符串值,设置或清除指定偏移量上的位(bit)</td>
 </tr>
 <tr>
-<td style="text-align:center">SETEX key seconds value</td>
+<td style="text-align:center"><font style="color:red"><strong>SETEX</strong></font> key seconds value</td>
 <td style="text-align:center">将值value 关联到key,并将key的过期时间设为seconds(以秒为单位)</td>
 </tr>
 <tr>
-<td style="text-align:center">SETNX key value</td>
+<td style="text-align:center"><font style="color:red"><strong>SETNX</strong></font> key value</td>
 <td style="text-align:center">只有在key 不存在时设置key的值</td>
 </tr>
 <tr>
-<td style="text-align:center">SETRANGE key offset value</td>
+<td style="text-align:center"><font style="color:red"><strong>SETRANGE</strong></font> key offset value</td>
 <td style="text-align:center">用value 参数覆写给定key 所储存的字符串值,从偏移量offset开始</td>
 </tr>
 <tr>
-<td style="text-align:center">STRLEN key</td>
+<td style="text-align:center"><font style="color:red"><strong>STRLEN</strong></font> key</td>
 <td style="text-align:center">返回key 所储存的字符串值的长度</td>
 </tr>
 <tr>
-<td style="text-align:center">MSET key value[key value…]</td>
+<td style="text-align:center"><font style="color:red"><strong>MSET</strong></font> key value[key value…]</td>
 <td style="text-align:center">同时设置一个或多个key-value对</td>
 </tr>
 <tr>
-<td style="text-align:center">MSETNX key value[key value]</td>
+<td style="text-align:center"><font style="color:red"><strong>MSETNX</strong></font> key value[key value]</td>
 <td style="text-align:center">同时设置一个或多个key-value对,当且仅当所有给定key 都不存在</td>
 </tr>
 <tr>
-<td style="text-align:center">PSETEX key milliseconds</td>
+<td style="text-align:center"><font style="color:red"><strong>PSETEX</strong></font> key milliseconds</td>
 <td style="text-align:center">这个命令和SETEX命令相似,但它以毫秒为单位设置key的生存时间,而不是像SETEX命令那样,以秒为单位</td>
 </tr>
 <tr>
-<td style="text-align:center">INCR key</td>
+<td style="text-align:center"><font style="color:red"><strong>INCR</strong></font> key</td>
 <td style="text-align:center">将key中储存的数字值增一</td>
 </tr>
 <tr>
-<td style="text-align:center">INCRBY key increment</td>
+<td style="text-align:center"><font style="color:red"><strong>INCRBY</strong></font> key increment</td>
 <td style="text-align:center">将key所储存的值加上给定的增量值(increment)</td>
 </tr>
 <tr>
-<td style="text-align:center">INCRBYFLOAT key increment</td>
+<td style="text-align:center"><font style="color:red"><strong>INCRBYFLOAT</strong></font> key increment</td>
 <td style="text-align:center">将key所储存的值加上给定的浮点增量值(increment)</td>
 </tr>
 <tr>
-<td style="text-align:center">DECR key</td>
+<td style="text-align:center"><font style="color:red"><strong>DECR</strong></font> key</td>
 <td style="text-align:center">将 key 中储存的数字值减一</td>
 </tr>
 <tr>
-<td style="text-align:center">DECRBY key decrement</td>
+<td style="text-align:center"><font style="color:red"><strong>DECRBY</strong></font> key decrement</td>
 <td style="text-align:center">key所储存的值减去给定的减量值(decrement)</td>
 </tr>
 <tr>
-<td style="text-align:center">APPEND key value</td>
+<td style="text-align:center"><font style="color:red"><strong>APPEND</strong></font> key value</td>
 <td style="text-align:center">如果key已经存在并且是一个字符串, APPEND命令将制定的value追加到该key原来值(value)的末尾</td>
 </tr>
 </tbody>
@@ -714,59 +714,59 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">HDEL key field1[field2..]</td>
+<td style="text-align:center"><font style="color:red"><strong>HDEL</strong></font> key field1[field2..]</td>
 <td style="text-align:center">删除一个或多个哈希表字段</td>
 </tr>
 <tr>
-<td style="text-align:center">HEXISTS key field</td>
+<td style="text-align:center"><font style="color:red"><strong>HEXISTS</strong></font>** key field</td>
 <td style="text-align:center">查看哈希表key中,指定的字段是否存在</td>
 </tr>
 <tr>
-<td style="text-align:center">HGET key field</td>
+<td style="text-align:center"><font style="color:red"><strong>HGET</strong></font> key field</td>
 <td style="text-align:center">获取存储在哈希表中指定字段的值</td>
 </tr>
 <tr>
-<td style="text-align:center">HGETALL key</td>
+<td style="text-align:center"><font style="color:red"><strong>HGETALL</strong></font> key</td>
 <td style="text-align:center">获取在哈希表指定key的所有字段和值</td>
 </tr>
 <tr>
-<td style="text-align:center">HINCRBY key field increment</td>
+<td style="text-align:center"><font style="color:red"><strong>HINCRBY</strong></font> key field increment</td>
 <td style="text-align:center">为哈希表key中指定字段的整数值加上增量 increment</td>
 </tr>
 <tr>
-<td style="text-align:center">HINCRBYFLOAT key field increment</td>
+<td style="text-align:center"><font style="color:red"><strong>HINCRBYFLOAT</strong></font> key field increment</td>
 <td style="text-align:center">为哈希表key中指定字段的浮点数值加上增量increment</td>
 </tr>
 <tr>
-<td style="text-align:center">HKEYS key</td>
+<td style="text-align:center"><font style="color:red"><strong>HKEYS</strong></font> key</td>
 <td style="text-align:center">获取所有哈希表中的字段</td>
 </tr>
 <tr>
-<td style="text-align:center">HLEN key</td>
+<td style="text-align:center"><font style="color:red"><strong>HLEN</strong></font> key</td>
 <td style="text-align:center">获取哈希表中字段的数量</td>
 </tr>
 <tr>
-<td style="text-align:center">HMGET key field1 [field2]</td>
+<td style="text-align:center"><font style="color:red"><strong>HMGET</strong></font> key field1 [field2]</td>
 <td style="text-align:center">获取所有给定字段的值</td>
 </tr>
 <tr>
-<td style="text-align:center">HMSET key field1 value1 [field2 value2]</td>
+<td style="text-align:center"><font style="color:red"><strong>HMSET</strong></font> key field1 value1 [field2 value2]</td>
 <td style="text-align:center">同时将多个field-value(域-值)对设置到哈希表key 中</td>
 </tr>
 <tr>
-<td style="text-align:center">HSET key field value</td>
+<td style="text-align:center"><font style="color:red"><strong>HSET</strong></font> key field value</td>
 <td style="text-align:center">将哈希表key中字段field的值设为value</td>
 </tr>
 <tr>
-<td style="text-align:center">HSETNX key field value</td>
+<td style="text-align:center"><font style="color:red"><strong>HSETNX</strong></font> key field value</td>
 <td style="text-align:center">只有在字段field不存在时,设置哈希表字段的值</td>
 </tr>
 <tr>
-<td style="text-align:center">HVALS key</td>
+<td style="text-align:center"><font style="color:red"><strong>HVALS</strong></font> key</td>
 <td style="text-align:center">获取哈希表中所有值</td>
 </tr>
 <tr>
-<td style="text-align:center">HSCAN key cursor[MATCH pattern][COUNT count]</td>
+<td style="text-align:center"><font style="color:red"><strong>HSCAN</strong></font> key cursor[MATCH pattern][COUNT count]</td>
 <td style="text-align:center">迭代哈希表中的键值对</td>
 </tr>
 </tbody>
@@ -780,72 +780,232 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">BLPOP key1[key2] timeout</td>
+<td style="text-align:center"><font style="color:red"><strong>BLPOP</strong></font> key1[key2] timeout</td>
 <td style="text-align:center">移出并获取列表的第一个元素,如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
 </tr>
 <tr>
-<td style="text-align:center">BRPOP key1[key2] timeout</td>
+<td style="text-align:center"><font style="color:red"><strong>BRPOP</strong></font> key1[key2] timeout</td>
 <td style="text-align:center">移出并获取列表的最后一个元素,如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
 </tr>
 <tr>
-<td style="text-align:center">BRPOPLPUSH source destination timeout</td>
+<td style="text-align:center"><font style="color:red"><strong>BRPOPLPUSH</strong></font> source destination timeout</td>
 <td style="text-align:center">从列表中弹出一个值,将弹出的元素插入到另外一个列表中并返回它;如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止</td>
 </tr>
 <tr>
-<td style="text-align:center">LINDEX key index</td>
+<td style="text-align:center"><font style="color:red"><strong>LINDEX</strong></font> key index</td>
 <td style="text-align:center">通过索引获取列表中的元素</td>
 </tr>
 <tr>
-<td style="text-align:center">LINSERT key BEFORE/AFTER pivot value</td>
+<td style="text-align:center"><font style="color:red"><strong>LINSERT</strong></font> key BEFORE/AFTER pivot value</td>
 <td style="text-align:center">在列表的元素前或者后插入元素</td>
 </tr>
 <tr>
-<td style="text-align:center">LLEN key</td>
+<td style="text-align:center"><font style="color:red"><strong>LLEN</strong></font> key</td>
 <td style="text-align:center">获取列表长度</td>
 </tr>
 <tr>
-<td style="text-align:center">LPOP key</td>
+<td style="text-align:center"><font style="color:red"><strong>LPOP</strong></font> key</td>
 <td style="text-align:center">移出并获取列表的第一个元素</td>
 </tr>
 <tr>
-<td style="text-align:center">LPUSH key value1[value2..]</td>
+<td style="text-align:center"><font style="color:red"><strong>LPUSH</strong></font> key value1[value2..]</td>
 <td style="text-align:center">将一个或多个值插入到列表头部</td>
 </tr>
 <tr>
-<td style="text-align:center">LPUSHX key value</td>
+<td style="text-align:center"><font style="color:red"><strong>LPUSHX</strong></font> key value</td>
 <td style="text-align:center">将一个值插入到已存在的列表头部</td>
 </tr>
 <tr>
-<td style="text-align:center">LRANGE key start stop</td>
+<td style="text-align:center"><font style="color:red"><strong>LRANGE</strong></font> key start stop</td>
 <td style="text-align:center">获取列表指定范围内的元素</td>
 </tr>
 <tr>
-<td style="text-align:center">LREM key count value</td>
+<td style="text-align:center"><font style="color:red"><strong>LREM</strong></font> key count value</td>
 <td style="text-align:center">移除列表元素</td>
 </tr>
 <tr>
-<td style="text-align:center">LSET key index value</td>
+<td style="text-align:center"><font style="color:red"><strong>LSET</strong></font> key index value</td>
 <td style="text-align:center">通过索引设置列表元素的值</td>
 </tr>
 <tr>
-<td style="text-align:center">LTRIM key start stop</td>
+<td style="text-align:center"><font style="color:red"><strong>LTRIM</strong></font> key start stop</td>
 <td style="text-align:center">对一个列表进行修剪(trim),就是说,让列表只保留指定区间内的元素,不在指定区间之内的元素都将删除</td>
 </tr>
 <tr>
-<td style="text-align:center">RPOP key</td>
+<td style="text-align:center"><font style="color:red"><strong>RPOP</strong></font> key</td>
 <td style="text-align:center">移除并获取列表最后一个元素</td>
 </tr>
 <tr>
-<td style="text-align:center">RPOPLPUSH source destination</td>
+<td style="text-align:center"><font style="color:red"><strong>RPOPLPUSH</strong></font> source destination</td>
 <td style="text-align:center">移除列表最后一个元素,并将该元素添加到另一个列表并返回</td>
 </tr>
 <tr>
-<td style="text-align:center">RPUSH key value1[value2…]</td>
+<td style="text-align:center"><font style="color:red"><strong>RPUSH</strong></font> key value1[value2…]</td>
 <td style="text-align:center">在列表中添加一个或多个值</td>
 </tr>
 <tr>
-<td style="text-align:center">RPUSHX key value</td>
+<td style="text-align:center"><font style="color:red"><strong>RPUSHX</strong></font> key value</td>
 <td style="text-align:center">为已存在的列表添加值</td>
+</tr>
+</tbody>
+</table>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SADD</strong></font> key member1[member2]</td>
+<td style="text-align:center">向集合添加一个或多个成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SCARD</strong></font> key</td>
+<td style="text-align:center">获取集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SDIFF</strong></font> key1[key2]</td>
+<td style="text-align:center">返回给定所有集合的差集</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SDIFFSTORE</strong></font> destination key1[key2]</td>
+<td style="text-align:center">返回给定所有集合的差集并存储在destination中</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SINTER</strong></font> key1[key2]</td>
+<td style="text-align:center">返回给定所有集合的交集</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SINTERSTORE</strong></font> destination key1[key2]</td>
+<td style="text-align:center">返回给定所有集合的交集并存储在destination中</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SISMEMBER</strong></font> key member</td>
+<td style="text-align:center">判断member 元素是否是集合key 的成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SMEMBERS</strong></font> key</td>
+<td style="text-align:center">返回集合中的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SMOVE</strong></font> source destination member</td>
+<td style="text-align:center">将member元素从source集合移动到destination集合</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SPOP</strong></font> key</td>
+<td style="text-align:center">移除并返回集合中的一个随机元素</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SRANDMEMBER</strong></font> key[count]</td>
+<td style="text-align:center">返回集合中一个或多个随机数</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SREM</strong></font> key member1[member2]</td>
+<td style="text-align:center">移除集合中一个或多个成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SUNION</strong></font> key1[key2]</td>
+<td style="text-align:center">返回所有给定集合的并集</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SUNIONSTORE</strong></font> destination key1[key2]</td>
+<td style="text-align:center">将所有给定集合的并集存储在destination 集合中</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>SSCAN</strong></font> key cursor[MATCH pattern][COUNT count]</td>
+<td style="text-align:center">迭代集合中的元素</td>
+</tr>
+</tbody>
+</table>
+<h3 id="有序集合"><a href="#有序集合" class="headerlink" title="有序集合"></a>有序集合</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZADD</strong></font> key score1 member1[score2 member2]</td>
+<td style="text-align:center">向有序集合添加一个或多个成员,或者更新已存在成员的分数</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZCARD</strong></font> key</td>
+<td style="text-align:center">获取有序集合的成员数</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZCOUNT</strong></font> key min max</td>
+<td style="text-align:center">计算在有序集合中指定区间分数的成员数</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZINCRBY</strong></font> key increment member</td>
+<td style="text-align:center">有序集合中对指定成员的分数加上增量increment</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZINTERSTORE</strong></font> destination numkeys key [key…]</td>
+<td style="text-align:center">计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合key中</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZLEXCOUNT</strong></font> key min max</td>
+<td style="text-align:center">在有序集合中计算指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZRANGE</strong></font> key start stop[WITHSCORES]</td>
+<td style="text-align:center">通过索引区间返回有序集合指定区间的成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZRANGEBYLEX</strong></font> key min max[LIMIT offset count]</td>
+<td style="text-align:center">通过字典区间返回有序集合的成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZRANGEBYSCORE</strong></font> key min max[WITHSCORES]_[LIMIT]</td>
+<td style="text-align:center">通过分数返回有序集合指定区间内的成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZRANK</strong></font> key member</td>
+<td style="text-align:center">返回有序集合中指定成员的索引</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREM</strong></font> key member[member…]</td>
+<td style="text-align:center">移除有序集合中的一个或多个成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREMRANGEBYLEX</strong></font> key min max</td>
+<td style="text-align:center">移除有序集合中给定的字典区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREMRANGEBYRANK</strong></font> key start stop</td>
+<td style="text-align:center">移除有序集合中给定排名区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREMRANGEBYSCORE</strong></font> key min max</td>
+<td style="text-align:center">移除有序集合中给定的分数区间的所有成员</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREVRANGE</strong></font> key start stop [WITHSCORES]</td>
+<td style="text-align:center">返回有序集中指定区间内的成员,通过索引,分数由高到低</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREVRABGEBYSCORE</strong></font> key max min[WITHSCORES]</td>
+<td style="text-align:center">返回有序集中指定分数区间内的成员,分数由高到低排序</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZREVRANK</strong></font> key member</td>
+<td style="text-align:center">返回有序集合中指定成员的排名,有序集成员按分数值递减排序</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZSCORE</strong></font> key member</td>
+<td style="text-align:center">返回有序集中,成员的分数值</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZUNIONSTORE</strong></font> destination numkeys key[key…]</td>
+<td style="text-align:center">计算给定的一个或多个有序集的并集,并存储在新的key中</td>
+</tr>
+<tr>
+<td style="text-align:center"><font style="color:red"><strong>ZSCAN</strong></font> key cursor [MATCH pattern][COUNT count]</td>
+<td style="text-align:center">迭代有序集合中的元素(包括元素成员和元素分值)</td>
 </tr>
 </tbody>
 </table>
@@ -1019,7 +1179,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-下安装"><span class="nav-number">2.1.</span> <span class="nav-text">windows 下安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-下安装"><span class="nav-number">2.2.</span> <span class="nav-text">Linux 下安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数说明"><span class="nav-number">3.2.</span> <span class="nav-text">参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">4.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型API"><span class="nav-number">5.</span> <span class="nav-text">数据类型API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">5.1.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键"><span class="nav-number">5.2.</span> <span class="nav-text">键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">5.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希"><span class="nav-number">5.4.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">5.5.</span> <span class="nav-text">列表</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#windows-下安装"><span class="nav-number">2.1.</span> <span class="nav-text">windows 下安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linux-下安装"><span class="nav-number">2.2.</span> <span class="nav-text">Linux 下安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置"><span class="nav-number">3.</span> <span class="nav-text">配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">3.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数说明"><span class="nav-number">3.2.</span> <span class="nav-text">参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number">4.</span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型API"><span class="nav-number">5.</span> <span class="nav-text">数据类型API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接"><span class="nav-number">5.1.</span> <span class="nav-text">连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键"><span class="nav-number">5.2.</span> <span class="nav-text">键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">5.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希"><span class="nav-number">5.4.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">5.5.</span> <span class="nav-text">列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集合"><span class="nav-number">5.6.</span> <span class="nav-text">集合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有序集合"><span class="nav-number">5.7.</span> <span class="nav-text">有序集合</span></a></li></ol></li></ol></div>
             
 
           </div>
