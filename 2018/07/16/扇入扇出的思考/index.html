@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="原创,基础语法," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="递归介绍递归指的是一个方法在方法体内直接或者间接地调用自身的情况. 递归示例以下是递归和循环的java代码比较:循环:12345public static void printHelloWorldByLoop(String str, int length)&amp;#123;       for(int i = 0; i &amp;lt; length ; i ++)&amp;#123;           System">
+<meta name="description" content="扇入和扇出扇入(fan-in)和扇出(fan-out)是电学的词汇,指门电路的输入端和输出端的关系.软件工程中指模块和模块间的调用关系.我们可以按照不同颗粒度,从模块,类,方法层面思考我们项目的架构设计.扇入：是指直接调用该模块的上级模块的个数。扇入大表示模块的复用程序高.扇出：是指该模块直接调用的下级模块的个数。扇出大表示模块的复杂度高.">
 <meta name="keywords" content="原创,基础语法">
-<meta property="og:type" content="website">
-<meta property="og:title" content="递归的一点归纳">
-<meta property="og:url" content="http://yoursite.com/递归的想法/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="扇入扇出的思考">
+<meta property="og:url" content="http://yoursite.com/2018/07/16/扇入扇出的思考/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="递归介绍递归指的是一个方法在方法体内直接或者间接地调用自身的情况. 递归示例以下是递归和循环的java代码比较:循环:12345public static void printHelloWorldByLoop(String str, int length)&amp;#123;       for(int i = 0; i &amp;lt; length ; i ++)&amp;#123;           System">
+<meta property="og:description" content="扇入和扇出扇入(fan-in)和扇出(fan-out)是电学的词汇,指门电路的输入端和输出端的关系.软件工程中指模块和模块间的调用关系.我们可以按照不同颗粒度,从模块,类,方法层面思考我们项目的架构设计.扇入：是指直接调用该模块的上级模块的个数。扇入大表示模块的复用程序高.扇出：是指该模块直接调用的下级模块的个数。扇出大表示模块的复杂度高.">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-13T08:19:18.305Z">
+<meta property="og:updated_time" content="2018-07-16T13:06:01.917Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="递归的一点归纳">
-<meta name="twitter:description" content="递归介绍递归指的是一个方法在方法体内直接或者间接地调用自身的情况. 递归示例以下是递归和循环的java代码比较:循环:12345public static void printHelloWorldByLoop(String str, int length)&amp;#123;       for(int i = 0; i &amp;lt; length ; i ++)&amp;#123;           System">
+<meta name="twitter:title" content="扇入扇出的思考">
+<meta name="twitter:description" content="扇入和扇出扇入(fan-in)和扇出(fan-out)是电学的词汇,指门电路的输入端和输出端的关系.软件工程中指模块和模块间的调用关系.我们可以按照不同颗粒度,从模块,类,方法层面思考我们项目的架构设计.扇入：是指直接调用该模块的上级模块的个数。扇入大表示模块的复用程序高.扇出：是指该模块直接调用的下级模块的个数。扇出大表示模块的复杂度高.">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/递归的想法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/16/扇入扇出的思考/"/>
 
 
 
 
 
-  <title>递归的一点归纳 | Sean's Blog</title>
+  <title>扇入扇出的思考 | Sean's Blog</title>
   
 
 
@@ -275,42 +275,177 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/16/扇入扇出的思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">递归的一点归纳</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="递归介绍"><a href="#递归介绍" class="headerlink" title="递归介绍"></a>递归介绍</h2><pre><code>递归指的是一个方法在方法体内直接或者间接地调用自身的情况.
-</code></pre><h2 id="递归示例"><a href="#递归示例" class="headerlink" title="递归示例"></a>递归示例</h2><p>以下是递归和循环的java代码比较:<br>循环:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printHelloWorldByLoop</span><span class="params">(String str, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length ; i ++)&#123;</span><br><span class="line">           System.out.println(str);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
-<p>递归:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printByRecursion</span><span class="params">(String str, <span class="keyword">int</span> length)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(length == <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(str);</span><br><span class="line">    printByRecursion(str, --length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="递归应用场景"><a href="#递归应用场景" class="headerlink" title="递归应用场景"></a>递归应用场景</h2><p>递归主要应用在生成<strong>不规则树</strong>的情况.这类情况一般<strong>退出条件明确</strong>,但<strong>循环次数不确定</strong>,并且<strong>循环体内做的事有两种及以上的情况</strong>.<br>绝大多数递归都可以使用循环来实现,但部分更适用于递归的实现转换为循环时就需要<strong>额外的存储</strong>或者对循环条件及循环体的<strong>归纳</strong>.<br>例如多级表头的生成:</p>
-<p><table><br>    <tr><br>        <td colspan="4">一级表头</td><br>    </tr><br>    <tr><br>        <td colspan="2">二级表头1</td><br>        <td colspan="2">二级表头2</td><br>    </tr><br>    <tr><br>        <td colspan="2">三级表头1</td><br>        <td colspan="1">三级表头2</td><br>        <td colspan="1">三级表头3</td><br>    </tr><br>    <tr><br>        <td>…</td><br>        <td>…</td><br>        <td>…</td><br>        <td>…</td><br>    </tr><br></table><br>多级表头的情况下,数据库可能只会有parent_id这样的关联字段,但并不知道一共有多少级的表头,并且每个父节点下面有多少个子节点.<br>那么使用下面的递归伪代码就非常合适:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">treeHeadHandle</span>(<span class="params">id,parentId</span>)</span>&#123;</span><br><span class="line">	doSomethingHereWithId(id, parentId);</span><br><span class="line">	<span class="keyword">var</span> childIds = <span class="string">"SELECT id FROM table WHERE parent_id = "</span> + id;</span><br><span class="line">	<span class="keyword">if</span>(!childIds || childIds.length === <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> childIds)&#123;</span><br><span class="line">		treeHeadHandle(ids[i], id);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>而如果使用循环来解决相同问题的话,就必须额外存储进行状态来判断是否需要停止,并且父子关系必须由存储来处理:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> idToHandle = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">treeHeadHandle</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">	idToHandle.push(&#123;<span class="attr">parentId</span>: <span class="string">""</span>, <span class="attr">id</span>:id&#125;);</span><br><span class="line">	<span class="keyword">while</span>(idToHandle.length &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="keyword">var</span> id = idToHandle[<span class="number">0</span>][<span class="string">"id"</span>];</span><br><span class="line">		<span class="keyword">var</span> parentId = idToHandle[<span class="number">0</span>][<span class="string">"parentId"</span>];</span><br><span class="line">		idToHandle.splice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">		doSomethingHereWithId(id, parentId);</span><br><span class="line">		<span class="keyword">var</span> childIds = <span class="string">"SELECT id FROM table WHERE parent_id = "</span> + id;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> ids)&#123;</span><br><span class="line">			idToHandle.push(&#123;<span class="attr">parentId</span>: id,<span class="attr">id</span>: ids[i]&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其他的情况例如文件夹的遍历,快速排序使用递归都是比较好的选择.</p>
-<h2 id="递归的缺点"><a href="#递归的缺点" class="headerlink" title="递归的缺点"></a>递归的缺点</h2><p>递归更像演绎的思维,一步一步推导最终结果.在实现一些步骤多少和步骤内执行事物不好归纳的时候,更有优势.<br>但递归也有它的缺点,主要在于重复计算和栈的消耗方面.<br>每一次递归,程序都会将当前域放到栈里面.而循环会重复覆盖栈.所以错误的递归程序很有可能导致栈溢出的问题:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.StackOverflowError</span><br></pre></td></tr></table></figure></p>
-<p>部分语言(如C++)的编译器,对尾递归做了优化,即递归方法在父方法的尾部时,会清除之前相关栈的内容,因为子方法操作的数据或者返回值已不会再对该域造成影响.</p>
-
+          <h1 class="post-title" itemprop="name headline">扇入扇出的思考</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-16T19:40:08+08:00">
+                2018-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h2 id="扇入和扇出"><a href="#扇入和扇出" class="headerlink" title="扇入和扇出"></a>扇入和扇出</h2><p><strong>扇入</strong>(fan-in)和<strong>扇出</strong>(fan-out)是电学的词汇,指门电路的输入端和输出端的关系.<br>软件工程中指模块和模块间的调用关系.我们可以按照不同颗粒度,从模块,类,方法层面思考我们项目的架构设计.<br>扇入：是指直接调用该模块的上级模块的个数。扇入大表示模块的复用程序高.<br>扇出：是指该模块直接调用的下级模块的个数。扇出大表示模块的复杂度高.<br><a id="more"></a></p>
+<h2 id="模块应用"><a href="#模块应用" class="headerlink" title="模块应用"></a>模块应用</h2><p>按照项目设计的说法,<strong>底层模块</strong>主要封装整个项目的规约(返回码,配置信息等)和工具类.<br>如果不算上调用项目外jar包,这个模块的<strong>扇出</strong>应该是<strong>0</strong>.<br>而这个模块为了达成项目规约的目的,项目中所有模块都会直接或间接地调用这个模块.所以base模块的<strong>扇入</strong>会较<strong>大</strong>.  </p>
+<p>在此模块的上层,可以进行进一步的细分:<br>对数据库读写的通用封装模块,业务的通用封装模块(公式等底层方法)…</p>
+<p>在其上就涉及具体业务逻辑的封装:<br>这里可能随着业务的复杂,会分成多层.但都要求<strong>扇出</strong>(引用的模块)<strong>尽量的小</strong>.<br>如果引用的模块太多,那么底层代码的迁移都会导致上层代码的相应调整.<br>测试和维护的成本都会提高.此时应该对相关联的底层模块进行合并,或者在其下增加中间模块.并对关联业务设计测试框架.<br>这样底层的模块变动,只用修正中间模块,并通过中间模块对应业务的测试即可.</p>
+<p>而最<strong>顶层</strong>的模块可以有<strong>较大的扇出</strong>,因为到了这里,基本涉及的都是展示和控制.对于错综复杂的内部业务,保持内部未可知的模式,调用的是相应的接口.<br>大部分底层的修改不应该影响到这边的代码.</p>
+<h2 id="方法和类的应用"><a href="#方法和类的应用" class="headerlink" title="方法和类的应用"></a>方法和类的应用</h2><p>方法和类的应用也类似.扇入扇出应尽量的小.<br>但也不是将所有代码合在一起那么简单.<br>也需要结合<strong>单一职责</strong>原则来设计,即类做的事单一,方法做的事也是单一的.如果只是写着玩实现简单的逻辑,那么把代码合在一起,变量之间的调用就会比较轻松.<br>但企业级代码是需要许多人合作,并长期维护的.合理区分代码层次可以使代码更易测试和维护,这里涉及两个极端:</p>
+<ol>
+<li>方法或类做的事太多:<br>由于方法和类做的事太多,那么中间的逻辑必然是可拆分的.这个方法出了问题,我们如果不了解具体数据环境,不能立刻定位到是哪部分逻辑出了问题.为这种方法编写测试框架,也必须为每一套逻辑都写一份整体测试代码.<br>还是应该将逻辑块拆分成多个单一方法,为单一方法编写测试代码,再为整体方法编写测试代码.</li>
+<li>方法层数太多,扇入扇出太复杂:<br>这里和模块的缺点类似,底层的方法略微调整,所有调用的方法都必须随之调整.<br>试想你在改一个老项目,发现某个小BUG出在较底层方法上,导致输出值异常.但同时又有几十个方法在调用这个方法,你如何能确定哪些也因为这个BUG输入了错误的值,而哪些又是其他成员编写的,需要这个错误的值.<br>并且跟代码的时候,为无谓的事钻的太多也是很恶心的.</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/原创/" rel="tag"># 原创</a>
+          
+            <a href="/tags/基础语法/" rel="tag"># 基础语法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/08/递归的想法/index/" rel="next" title="递归的一点归纳">
+                <i class="fa fa-chevron-left"></i> 递归的一点归纳
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -368,7 +503,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -423,7 +558,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归介绍"><span class="nav-number">1.</span> <span class="nav-text">递归介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归示例"><span class="nav-number">2.</span> <span class="nav-text">递归示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归应用场景"><span class="nav-number">3.</span> <span class="nav-text">递归应用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归的缺点"><span class="nav-number">4.</span> <span class="nav-text">递归的缺点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#扇入和扇出"><span class="nav-number">1.</span> <span class="nav-text">扇入和扇出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块应用"><span class="nav-number">2.</span> <span class="nav-text">模块应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法和类的应用"><span class="nav-number">3.</span> <span class="nav-text">方法和类的应用</span></a></li></ol></div>
             
 
           </div>
