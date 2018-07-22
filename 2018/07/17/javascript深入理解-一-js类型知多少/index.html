@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="-javascript," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+<meta name="keywords" content="-javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javascript深入理解(一):js类型知多少">
+<meta property="og:url" content="http://yoursite.com/2018/07/17/javascript深入理解-一-js类型知多少/index.html">
+<meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-22T12:54:06.467Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="javascript深入理解(一):js类型知多少">
+<meta name="twitter:description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/17/javascript深入理解-一-js类型知多少/"/>
+
+
+
+
+
+  <title>javascript深入理解(一):js类型知多少 | Sean's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Sean's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/javascript深入理解-一-js类型知多少/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">javascript深入理解(一):js类型知多少</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-17T14:18:12+08:00">
+                2018-07-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript深入理解/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript深入理解</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一. js的动态语言特性概述<br>二. js的五大基本类型.顺带提到<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">number的浮点型误差及处理</span><br><span class="line">js对象深拷贝</span><br><span class="line">js对象构造器</span><br></pre></td></tr></table></figure></p>
+<p>三. js类型的项目转换<br>四. js的空值<br><a id="more"></a></p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="动态类型语言"><a href="#动态类型语言" class="headerlink" title="动态类型语言:"></a>动态类型语言:</h3><p>js是一门动态类型语言,与静态类型语言使用修饰符来定义变量的类型不同,它可以直接使用var来定义所有的变量,然后根据数据的类型来确定变量的类型.并且在代码运行过程中,变量的类型可以相互转换.<br>来看一段静态类型语言java和js的比较:<br>(java)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> number = <span class="string">"0"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在Java中,以上number变量声明是int型,但赋值是String类型,是无法通过编译的.<br>(javascript)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number = <span class="string">"0"</span>;</span><br><span class="line">number = <span class="number">100</span>;</span><br></pre></td></tr></table></figure></p>
+<p>而在js中,number最开始是String,其后又被转换为了number型.程序员不需要关心变量实际的类型.</p>
+<h3 id="动态语言"><a href="#动态语言" class="headerlink" title="动态语言"></a>动态语言</h3><p>同时,js作为一门解释性语言,他可以在运行时,对对象的属性,方法进行替换和删除.在js中,你可以完全把方法当做使用 function声明的属性.</p>
+<h2 id="js的基本类型"><a href="#js的基本类型" class="headerlink" title="js的基本类型"></a>js的基本类型</h2><p>js共有 number , object , boolean , function , undefined 五种基本类型.我们可以通过typeof进行查看</p>
+<h3 id="number"><a href="#number" class="headerlink" title="number"></a>number</h3><p>js的number类型和静态语言中的数字类型不同,它不区分整型和浮点型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number = <span class="number">1</span>;</span><br><span class="line">number += <span class="number">0.2</span>; <span class="comment">// number = 1.2</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="浮点型误差及处理"><a href="#浮点型误差及处理" class="headerlink" title="浮点型误差及处理"></a>浮点型误差及处理</h4><p>然而,涉及浮点型的运算的时候我们总会不可避免遇到二进制的精度误差,这源于十进制的小数转换到二进制时可能出现除不尽的时候:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.05</span> + <span class="number">0.01</span> <span class="comment">// 0.060000000000000005</span></span><br></pre></td></tr></table></figure></p>
+<p>面对这样的问题,我们可以同时乘上一个数,使运算两边都为整数,运算之后再除以这个数就可以了.</p>
+<h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><p>js的object 我们一般可以使用json格式来声明:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck =&#123;</span><br><span class="line">	name: <span class="string">"Trump"</span>,</span><br><span class="line">	swimming : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" is swimming!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">duck.swimming(); <span class="comment">// Trump is swimming!</span></span><br></pre></td></tr></table></figure></p>
+<p>当然,上面duck的名字也可以在外部取到.<br>但是,这样声明的对象是单例的.也就是说我们无论是对对象的属性还是方法(当然,其实方法在js中也可以看做是属性)进行操作,都会污染原来的对象.重新赋值会覆盖原来的对象.<br>我常用的解决办法有两种:  </p>
+<h4 id="对象深拷贝"><a href="#对象深拷贝" class="headerlink" title="对象深拷贝"></a>对象深拷贝</h4><p>如果对象不是各处都要声明,只是担心污染的话.可以使用深拷贝的方式.JSON为我们提供了很方便的序列化和反序列化的方法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck1 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringfy(duck));</span><br><span class="line">duck1.swimming = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">"a duck named "</span> + <span class="keyword">this</span>.name + <span class="string">" is swimming!"</span>);</span><br><span class="line">&#125;</span><br><span class="line">duck.swimming();<span class="comment">// Trump is swimming!</span></span><br><span class="line">duck1.swimming();<span class="comment">//a duck named Trump is swimming!</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="对象构造器"><a href="#对象构造器" class="headerlink" title="对象构造器"></a>对象构造器</h4><p>如果经常性地需要新建对象,我们可以选择<strong>构造器</strong>方式:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Duck = <span class="function"><span class="keyword">function</span>(<span class="params">name, swimming</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.swimming = swimming;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> duck = <span class="keyword">new</span> Duck(<span class="string">"Trump"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" is swimming!"</span>);</span><br><span class="line">	&#125;); </span><br><span class="line"><span class="keyword">var</span> duck1 = <span class="keyword">new</span> Duck(<span class="string">"Trump"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="string">"a duck named "</span> + <span class="keyword">this</span>.name + <span class="string">" is swimming!"</span>);</span><br><span class="line">	&#125;); </span><br><span class="line">duck.swimming();<span class="comment">// Trump is swimming!</span></span><br><span class="line">duck1.swimming();<span class="comment">//a duck named Trump is swimming!</span></span><br></pre></td></tr></table></figure></p>
+<p>需要注意的一点是:null也是一个对象.</p>
+<h3 id="function"><a href="#function" class="headerlink" title="function"></a>function</h3><p>js function的使用可以和静态语言类似,将function写在方法名前面,作为方法的声明:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">asStaticFunc</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="comment">// do something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不同的是,我们仍然可以把它当做一个属性来用,例如,我们可以将方法作为参数传递,或者输出它:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(a);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params">arg</span>)</span>&#123;</span><br><span class="line">	arg();</span><br><span class="line">&#125;</span><br><span class="line">b(a);</span><br><span class="line"><span class="comment">/*输出: f a()&#123;</span></span><br><span class="line"><span class="comment">			console.log(a);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以用其他属性覆盖掉它:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"asdasd"</span>;</span><br><span class="line">&#125;</span><br><span class="line">a = <span class="number">2</span>;</span><br><span class="line">a();<span class="comment">// Uncaught TypeError: a is not a function</span></span><br></pre></td></tr></table></figure></p>
+<p>我们也可以声明一个匿名函数,把它赋值给一个属性,这个方法我们前面已经用过了:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck =&#123;</span><br><span class="line">	name: <span class="string">"Trump"</span>,</span><br><span class="line">	swimming : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">" is swimming!"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">duck.swimming(); <span class="comment">// Trump is swimming!</span></span><br></pre></td></tr></table></figure></p>
+<p>总之,我们可以将一个函数作为参数传递,也可以随时调用它.区别是调用时需要在后面加上括号.</p>
+<h2 id="js类型的相互转换"><a href="#js类型的相互转换" class="headerlink" title="js类型的相互转换"></a>js类型的相互转换</h2><p>js作为一种弱类型的语言,不需要过分强调类型的转换.但熟悉常用转换,偶尔可以避免一些意想不到的错误.</p>
+<h3 id="number-–-gt-string"><a href="#number-–-gt-string" class="headerlink" title="number –&gt; string"></a>number –&gt; string</h3><p>number 转string 方法比较简单,就是添加一个空字符串,java语言都可以这样使用.用法如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> (<span class="number">5</span> + <span class="string">""</span>)<span class="comment">//string</span></span><br></pre></td></tr></table></figure></p>
+<p>原理是javascript 和java类似,都是把”+”既当加法运算符,也当做字符串连接运算符.在符号两边如果有字符串的话,那么会将两边转换为字符串相连.<br>所以要注意<font color="red">在做加法数学运算时,要确定参数的类型是number</font>.</p>
+<h3 id="string-–-gt-number"><a href="#string-–-gt-number" class="headerlink" title="string –&gt; number"></a>string –&gt; number</h3><p>而string 转number,由于内置的运算操作,会显得简单一些:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="string">"5"</span> * <span class="number">1</span>) <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="string">"5"</span> - <span class="number">0</span>) <span class="comment">// number</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="string">"5"</span> / <span class="number">1</span>) <span class="comment">// number</span></span><br></pre></td></tr></table></figure></p>
+<p>其实除了加法运算,其他的算术运算符单个存在时都仅表示数学运算.所以js会默认将两边转为数字进行运算.<br>但是为了可读性,我们也可以使用js的内置函数:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">parseInt</span>(<span class="string">"500"</span>);<span class="comment">// 整型</span></span><br><span class="line"><span class="built_in">parseFloat</span>(<span class="string">"50.6"</span>)<span class="comment">// 浮点型</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="array-–-gt-string"><a href="#array-–-gt-string" class="headerlink" title="array –&gt; string"></a>array –&gt; string</h3><p>在将数组转换为string类型时,我们可以使用和number转string 一样的方法,或者调用array自带的toString方法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="number">3</span>] + <span class="string">""</span> <span class="comment">// "1,2,3"</span></span><br><span class="line">[<span class="string">"1"</span>, <span class="string">"2"</span>, <span class="number">3</span>].toString()<span class="comment">// "1,2,3"</span></span><br></pre></td></tr></table></figure></p>
+<p>以上两种方法,得到的字符串里,数组元素使用”,”隔开.</p>
+<h4 id="Array-join"><a href="#Array-join" class="headerlink" title="Array.join()"></a>Array.join()</h4><p>使用Array.join(),效果和toString方法一样,也是得到用”,”分隔的字符串:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="number">3</span>].join() <span class="comment">// "1,2,3"</span></span><br></pre></td></tr></table></figure></p>
+<p>我们有时也希望得到不使用分隔符的字符串,可以使用以下方法:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"1"</span>,<span class="string">"2"</span>,<span class="number">3</span>].join(<span class="string">''</span>);<span class="comment">// "123"</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="Array-join-与-拼接字符串的性能测试"><a href="#Array-join-与-拼接字符串的性能测试" class="headerlink" title="Array.join() 与 + 拼接字符串的性能测试"></a>Array.join() 与 + 拼接字符串的性能测试</h4><p>这种方法常用于使用js通过对数据的循环操作得到html信息,据说比起直接使用字符串拼接,性能要高一些,我们来验证一下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> html = <span class="string">""</span>;</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">"String"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++)&#123;</span><br><span class="line">	html += <span class="string">"&lt;li&gt;"</span> + i + <span class="string">"&lt;/li&gt;"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"String"</span>);</span><br><span class="line"><span class="keyword">var</span> html = [];</span><br><span class="line"><span class="built_in">console</span>.time(<span class="string">"Array"</span>);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">1000000</span>; i++)&#123;</span><br><span class="line">	html.push(<span class="string">"&lt;li&gt;"</span>);</span><br><span class="line">	html.push(i);</span><br><span class="line">	html.push(<span class="string">"&lt;/li&gt;"</span>);</span><br><span class="line">&#125;</span><br><span class="line">html.join(<span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"Array"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>以上代码中,执行三次后,分别结果如下:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>: <span class="number">411.670166015625</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">346.830322265625</span>ms</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>: <span class="number">299.099853515625</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">234.591796875</span>ms</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>: <span class="number">282.425048828125</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">202.469970703125</span>ms</span><br></pre></td></tr></table></figure></p>
+<p>可以看到,在三百万次的拼接中,Array.join(‘’)领先String方法<em>15%</em>到<em>28%</em>的性能.<br>我们接着测几组其他的数据:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 300 次</span></span><br><span class="line"><span class="built_in">String</span>: <span class="number">0.02099609375</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">0.038818359375</span>ms</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>: <span class="number">0.022216796875</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">0.041748046875</span>ms</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3万次</span></span><br><span class="line"><span class="built_in">String</span>: <span class="number">1.907958984375</span>ms</span><br><span class="line">   <span class="built_in">Array</span>: <span class="number">3.68603515625</span>ms</span><br><span class="line"></span><br><span class="line">   <span class="built_in">String</span>: <span class="number">2.115966796875</span>ms</span><br><span class="line">   <span class="built_in">Array</span>: <span class="number">3.5419921875</span>ms</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3000万次</span></span><br><span class="line"><span class="built_in">String</span>: <span class="number">4743.997802734375</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">2028.64599609375</span>ms</span><br><span class="line"></span><br><span class="line"><span class="built_in">String</span>: <span class="number">4262.615234375</span>ms</span><br><span class="line"><span class="built_in">Array</span>: <span class="number">2114.52685546875</span>ms</span><br></pre></td></tr></table></figure></p>
+<p>我从300 - 3000万都测过多次.篇幅原因就不一一列上来了.<br>实测发现,少量拼接String的性能高过Array.但到达30万次时,Array的性能就明显好于String 了.3000万次时,String消耗的时间甚至达到了Array的两倍.<br>但实际环境中,十万级的拼接毕竟是少数,具体选择还是应该看业务场景.<br>但js的性能主要与客户端的性能有关,我的机器性能如下:</p>
+<table>
+<thead>
+<tr>
+<th>硬件</th>
+<th>配置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>i7</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>16G</td>
+</tr>
+</tbody>
+</table>
+<h2 id="js-的空值"><a href="#js-的空值" class="headerlink" title="js 的空值"></a>js 的空值</h2><p>js的各种类型都可以当做布尔类型进行运算,但在空值的判断时,一定要小心:</p>
+<h3 id="示例1"><a href="#示例1" class="headerlink" title="示例1"></a>示例1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">""</span> == [] <span class="comment">// true</span></span><br><span class="line"><span class="string">""</span> == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line">[] == <span class="literal">false</span> <span class="comment">// true</span></span><br><span class="line">!!<span class="string">""</span> <span class="comment">// false</span></span><br><span class="line">!![] <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例2"><a href="#示例2" class="headerlink" title="示例2"></a>示例2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"0"</span> == <span class="number">0</span> <span class="comment">// true</span></span><br><span class="line">!!<span class="number">0</span> <span class="comment">// false</span></span><br><span class="line">!!<span class="string">"0"</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h3 id="示例3"><a href="#示例3" class="headerlink" title="示例3"></a>示例3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span> <span class="comment">// object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span> <span class="comment">// undefined</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">null</span> <span class="comment">// true</span></span><br><span class="line"><span class="literal">undefined</span> === <span class="literal">null</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">false</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">undefined</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">false</span> <span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> == <span class="literal">true</span> <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">undefined</span> <span class="comment">// false</span></span><br><span class="line">!!<span class="literal">null</span> <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><p>在 == 运算时, 所有可转换为false 的值,都等于”” 和 0 .此外 还和所有可转换为数值0的字符串相等.<br>null是在执行类似document.getElementById()等获取dom元素失败后返回的参数.是一个对象.<br>undefined 是在元素未定义时, 获取元素的返回值.他的类型就是undefined.<br>这两个值在== 是相等的.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># -javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/16/扇入扇出的思考/" rel="next" title="扇入扇出的思考">
+                <i class="fa fa-chevron-left"></i> 扇入扇出的思考
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/22/javascript深入理解-二-Object属性和prototype原型/" rel="prev" title="javascript深入理解(二):Object属性和prototype原型">
+                javascript深入理解(二):Object属性和prototype原型 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Sean</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态类型语言"><span class="nav-number">2.1.</span> <span class="nav-text">动态类型语言:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态语言"><span class="nav-number">2.2.</span> <span class="nav-text">动态语言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js的基本类型"><span class="nav-number">3.</span> <span class="nav-text">js的基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number"><span class="nav-number">3.1.</span> <span class="nav-text">number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型误差及处理"><span class="nav-number">3.1.1.</span> <span class="nav-text">浮点型误差及处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object"><span class="nav-number">3.2.</span> <span class="nav-text">object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象深拷贝"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象深拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象构造器"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象构造器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function"><span class="nav-number">3.3.</span> <span class="nav-text">function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js类型的相互转换"><span class="nav-number">4.</span> <span class="nav-text">js类型的相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-–-gt-string"><span class="nav-number">4.1.</span> <span class="nav-text">number –&gt; string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-–-gt-number"><span class="nav-number">4.2.</span> <span class="nav-text">string –&gt; number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-–-gt-string"><span class="nav-number">4.3.</span> <span class="nav-text">array –&gt; string</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join"><span class="nav-number">4.3.1.</span> <span class="nav-text">Array.join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join-与-拼接字符串的性能测试"><span class="nav-number">4.3.2.</span> <span class="nav-text">Array.join() 与 + 拼接字符串的性能测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-的空值"><span class="nav-number">5.</span> <span class="nav-text">js 的空值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">5.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">5.2.</span> <span class="nav-text">示例2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例3"><span class="nav-number">5.3.</span> <span class="nav-text">示例3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">5.4.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Sean</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
