@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+<meta name="description" content="带着问题阅读 什么是动态类型语言,什么是动态语言,和静态语言有什么区别? js有哪五种数据类型? 你知道js运算可能出现浮点数误差吗,应该怎么解决? js的对象应该怎么创建,怎样重复创建多个对象,并且相互不会影响?(深拷贝,构造器) js类型潜在的类型转换你知道吗? Array.join(‘’)和+拼接,到底哪个效率更高? js空值判断有哪些隐藏的问题?">
 <meta name="keywords" content="-javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript深入理解(一):js类型知多少">
 <meta property="og:url" content="http://yoursite.com/2018/07/17/javascript深入理解-一-js类型知多少/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+<meta property="og:description" content="带着问题阅读 什么是动态类型语言,什么是动态语言,和静态语言有什么区别? js有哪五种数据类型? 你知道js运算可能出现浮点数误差吗,应该怎么解决? js的对象应该怎么创建,怎样重复创建多个对象,并且相互不会影响?(深拷贝,构造器) js类型潜在的类型转换你知道吗? Array.join(‘’)和+拼接,到底哪个效率更高? js空值判断有哪些隐藏的问题?">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-22T12:54:06.467Z">
+<meta property="og:updated_time" content="2018-07-23T06:29:25.626Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript深入理解(一):js类型知多少">
-<meta name="twitter:description" content="简介一. js的动态语言特性概述二. js的五大基本类型.顺带提到    123number的浮点型误差及处理js对象深拷贝js对象构造器 三. js类型的项目转换四. js的空值">
+<meta name="twitter:description" content="带着问题阅读 什么是动态类型语言,什么是动态语言,和静态语言有什么区别? js有哪五种数据类型? 你知道js运算可能出现浮点数误差吗,应该怎么解决? js的对象应该怎么创建,怎样重复创建多个对象,并且相互不会影响?(深拷贝,构造器) js类型潜在的类型转换你知道吗? Array.join(‘’)和+拼接,到底哪个效率更高? js空值判断有哪些隐藏的问题?">
 
 
 
@@ -376,9 +376,17 @@
       
 
       
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一. js的动态语言特性概述<br>二. js的五大基本类型.顺带提到<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">number的浮点型误差及处理</span><br><span class="line">js对象深拷贝</span><br><span class="line">js对象构造器</span><br></pre></td></tr></table></figure></p>
-<p>三. js类型的项目转换<br>四. js的空值<br><a id="more"></a></p>
-<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="动态类型语言"><a href="#动态类型语言" class="headerlink" title="动态类型语言:"></a>动态类型语言:</h3><p>js是一门动态类型语言,与静态类型语言使用修饰符来定义变量的类型不同,它可以直接使用var来定义所有的变量,然后根据数据的类型来确定变量的类型.并且在代码运行过程中,变量的类型可以相互转换.<br>来看一段静态类型语言java和js的比较:<br>(java)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> number = <span class="string">"0"</span>;</span><br></pre></td></tr></table></figure></p>
+        <h2 id="带着问题阅读"><a href="#带着问题阅读" class="headerlink" title="带着问题阅读"></a>带着问题阅读</h2><ol>
+<li>什么是动态类型语言,什么是动态语言,和静态语言有什么区别?</li>
+<li>js有哪五种数据类型?</li>
+<li>你知道js运算可能出现浮点数误差吗,应该怎么解决?</li>
+<li>js的对象应该怎么创建,怎样重复创建多个对象,并且相互不会影响?(深拷贝,构造器)</li>
+<li>js类型潜在的类型转换你知道吗?</li>
+<li>Array.join(‘’)和+拼接,到底哪个效率更高?</li>
+<li>js空值判断有哪些隐藏的问题?<a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="动态类型语言"><a href="#动态类型语言" class="headerlink" title="动态类型语言:"></a>动态类型语言:</h3>js是一门动态类型语言,与静态类型语言使用修饰符来定义变量的类型不同,它可以直接使用var来定义所有的变量,然后根据数据的类型来确定变量的类型.并且在代码运行过程中,变量的类型可以相互转换.<br>来看一段静态类型语言java和js的比较:<br>(java)<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> number = <span class="string">"0"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <p>在Java中,以上number变量声明是int型,但赋值是String类型,是无法通过编译的.<br>(javascript)<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> number = <span class="string">"0"</span>;</span><br><span class="line">number = <span class="number">100</span>;</span><br></pre></td></tr></table></figure></p>
 <p>而在js中,number最开始是String,其后又被转换为了number型.程序员不需要关心变量实际的类型.</p>
 <h3 id="动态语言"><a href="#动态语言" class="headerlink" title="动态语言"></a>动态语言</h3><p>同时,js作为一门解释性语言,他可以在运行时,对对象的属性,方法进行替换和删除.在js中,你可以完全把方法当做使用 function声明的属性.</p>
@@ -472,8 +480,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/22/javascript深入理解-二-Object属性和prototype原型/" rel="prev" title="javascript深入理解(二):Object属性和prototype原型">
-                javascript深入理解(二):Object属性和prototype原型 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/22/javascript深入理解-二-Object属性和prototype原型/" rel="prev" title="javascript深入理解(二):prototype原型">
+                javascript深入理解(二):prototype原型 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -606,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态类型语言"><span class="nav-number">2.1.</span> <span class="nav-text">动态类型语言:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态语言"><span class="nav-number">2.2.</span> <span class="nav-text">动态语言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js的基本类型"><span class="nav-number">3.</span> <span class="nav-text">js的基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number"><span class="nav-number">3.1.</span> <span class="nav-text">number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型误差及处理"><span class="nav-number">3.1.1.</span> <span class="nav-text">浮点型误差及处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object"><span class="nav-number">3.2.</span> <span class="nav-text">object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象深拷贝"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象深拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象构造器"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象构造器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function"><span class="nav-number">3.3.</span> <span class="nav-text">function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js类型的相互转换"><span class="nav-number">4.</span> <span class="nav-text">js类型的相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-–-gt-string"><span class="nav-number">4.1.</span> <span class="nav-text">number –&gt; string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-–-gt-number"><span class="nav-number">4.2.</span> <span class="nav-text">string –&gt; number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-–-gt-string"><span class="nav-number">4.3.</span> <span class="nav-text">array –&gt; string</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join"><span class="nav-number">4.3.1.</span> <span class="nav-text">Array.join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join-与-拼接字符串的性能测试"><span class="nav-number">4.3.2.</span> <span class="nav-text">Array.join() 与 + 拼接字符串的性能测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-的空值"><span class="nav-number">5.</span> <span class="nav-text">js 的空值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">5.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">5.2.</span> <span class="nav-text">示例2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例3"><span class="nav-number">5.3.</span> <span class="nav-text">示例3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">5.4.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#带着问题阅读"><span class="nav-number">1.</span> <span class="nav-text">带着问题阅读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动态类型语言"><span class="nav-number">2.1.</span> <span class="nav-text">动态类型语言:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态语言"><span class="nav-number">2.2.</span> <span class="nav-text">动态语言</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js的基本类型"><span class="nav-number">3.</span> <span class="nav-text">js的基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number"><span class="nav-number">3.1.</span> <span class="nav-text">number</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型误差及处理"><span class="nav-number">3.1.1.</span> <span class="nav-text">浮点型误差及处理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object"><span class="nav-number">3.2.</span> <span class="nav-text">object</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象深拷贝"><span class="nav-number">3.2.1.</span> <span class="nav-text">对象深拷贝</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象构造器"><span class="nav-number">3.2.2.</span> <span class="nav-text">对象构造器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#function"><span class="nav-number">3.3.</span> <span class="nav-text">function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js类型的相互转换"><span class="nav-number">4.</span> <span class="nav-text">js类型的相互转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#number-–-gt-string"><span class="nav-number">4.1.</span> <span class="nav-text">number –&gt; string</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string-–-gt-number"><span class="nav-number">4.2.</span> <span class="nav-text">string –&gt; number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#array-–-gt-string"><span class="nav-number">4.3.</span> <span class="nav-text">array –&gt; string</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join"><span class="nav-number">4.3.1.</span> <span class="nav-text">Array.join()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-join-与-拼接字符串的性能测试"><span class="nav-number">4.3.2.</span> <span class="nav-text">Array.join() 与 + 拼接字符串的性能测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-的空值"><span class="nav-number">5.</span> <span class="nav-text">js 的空值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例1"><span class="nav-number">5.1.</span> <span class="nav-text">示例1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例2"><span class="nav-number">5.2.</span> <span class="nav-text">示例2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#示例3"><span class="nav-number">5.3.</span> <span class="nav-text">示例3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结论"><span class="nav-number">5.4.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></div>
             
 
           </div>
