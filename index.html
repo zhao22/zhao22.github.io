@@ -283,6 +283,554 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/cmd和shell指令对比-三-进程操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/17/cmd和shell指令对比-三-进程操作/" itemprop="url">cmd和shell指令对比(三):进程操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-17T08:52:54+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="命令速览"><a href="#命令速览" class="headerlink" title="命令速览"></a>命令速览</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">目的</th>
+<th style="text-align:center">linux</th>
+<th style="text-align:center">windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查看内存占用状态</td>
+<td style="text-align:center">top</td>
+<td style="text-align:center">tasklist</td>
+</tr>
+<tr>
+<td style="text-align:center">检测端口占用</td>
+<td style="text-align:center">netstat -tunlp \</td>
+<td style="text-align:center">grep <strong>[端口号]</strong></td>
+<td>netstat -ano \</td>
+<td>findstr <strong>[端口号]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">通过PID查看进程名</td>
+<td style="text-align:center">ps -aux \</td>
+<td style="text-align:center">grep -v grep \</td>
+<td>grep <strong>[PID]</strong></td>
+<td>tasklist \</td>
+<td>findstr <strong>[PID]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">通过PID停止进程</td>
+<td style="text-align:center">kill -999 <strong>[PID]</strong></td>
+<td style="text-align:center">taskkill /PID <strong>[PID]</strong></td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/cmd和shell指令对比-三-进程操作/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/cmd和shell指令对比-二-文件操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/17/cmd和shell指令对比-二-文件操作/" itemprop="url">cmd和shell指令对比(二):文件操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-17T08:52:37+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="命令速览"><a href="#命令速览" class="headerlink" title="命令速览"></a>命令速览</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">目的</th>
+<th style="text-align:center">linux</th>
+<th style="text-align:center">windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">复制文件</td>
+<td style="text-align:center">cp <strong>[源文件]</strong> <strong>[目标文件]</strong></td>
+<td style="text-align:center">copy <strong>[源文件]</strong> <strong>[目标文件]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">移动文件</td>
+<td style="text-align:center">mv <strong>[源文件]</strong> <strong>[目标文件]</strong></td>
+<td style="text-align:center">move <strong>[源文件]</strong> <strong>[目标文件]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">删除文件</td>
+<td style="text-align:center">rm <strong>[文件名]</strong></td>
+<td style="text-align:center">rd /s /q <strong>[文件名]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">新建文件夹</td>
+<td style="text-align:center">mkdir <strong>[文件夹名]</strong></td>
+<td style="text-align:center">mkdir <strong>[文件夹名]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">新建文件</td>
+<td style="text-align:center">touch <strong>[文件]</strong></td>
+<td style="text-align:center">edit <strong>[文件]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">写入文件</td>
+<td style="text-align:center">echo <strong>[内容]</strong> &gt; <strong>[目标文件]</strong></td>
+<td style="text-align:center">echo <strong>[内容]</strong> &gt; <strong>[目标文件]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">追加文件</td>
+<td style="text-align:center">echo <strong>[内容]</strong> &gt;&gt; <strong>[目标文件]</strong></td>
+<td style="text-align:center">echo <strong>[内容]</strong> &gt;&gt; <strong>[目标文件]</strong></td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/cmd和shell指令对比-二-文件操作/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/17/cmd和shell指令对比-一-路径操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/08/17/cmd和shell指令对比-一-路径操作/" itemprop="url">cmd和shell指令对比(一):路径操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-17T08:52:16+08:00">
+                2018-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="命令速览"><a href="#命令速览" class="headerlink" title="命令速览"></a>命令速览</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">目的</th>
+<th style="text-align:center">linux</th>
+<th style="text-align:center">windows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">显示当前路径</td>
+<td style="text-align:center">pwd(Print Working Directory)</td>
+<td style="text-align:center">echo on 状态下自动显示</td>
+</tr>
+<tr>
+<td style="text-align:center">打开目录/更改目录</td>
+<td style="text-align:center">cd <strong>[目录名]</strong></td>
+<td style="text-align:center">cd <strong>[目录名]</strong></td>
+</tr>
+<tr>
+<td style="text-align:center">展示当前目录下的文件</td>
+<td style="text-align:center">ls</td>
+<td style="text-align:center">dir</td>
+</tr>
+<tr>
+<td style="text-align:center">打开文件</td>
+<td style="text-align:center">vi <strong>[文件名]</strong></td>
+<td style="text-align:center">start <strong>[文件名]</strong></td>
+</tr>
+</tbody>
+</table>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/17/cmd和shell指令对比-一-路径操作/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/22/javascript深入理解-二-Object属性和prototype原型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -375,33 +923,18 @@
 
       
         
-          
-            <h2 id="带着问题阅读"><a href="#带着问题阅读" class="headerlink" title="带着问题阅读"></a>带着问题阅读</h2><ol>
+          <h2 id="带着问题阅读"><a href="#带着问题阅读" class="headerlink" title="带着问题阅读"></a>带着问题阅读</h2><ol>
 <li>js是怎样调用属性的,prototype是什么,了解它有什么作用?</li>
 <li>Object对象有哪些默认属性?</li>
 <li>如何操作对象的属性?</li>
-<li>基于prototype完善String,Array等操作方法.(可直接作为js工具类).</li>
-</ol>
-<h2 id="js是怎样调用属性的"><a href="#js是怎样调用属性的" class="headerlink" title="js是怎样调用属性的"></a>js是怎样调用属性的</h2><p>要知道js调用属性的过程,我们需要从构造器说起.<br>我们打开chrome浏览器,输入下面这串代码:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Duck</span>(<span class="params">name, swimming</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.swimming = swimming;</span><br><span class="line">&#125;</span><br><span class="line">Duck.prototype</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	&#123;</span></span><br><span class="line"><span class="comment">		constructor: f Duck(name, swimming)...</span></span><br><span class="line"><span class="comment">		__proto__: ...</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
-<p>我们可以看到,我们新声明的Duck方法,它的prototype是一个对象,里面有两个对象属性,constructor 和 __proto__.</p>
-<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>点开constructor,结构如下图:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>:ƒ Duck(name, swimming)</span><br><span class="line">	// 传入参数</span><br><span class="line">	arguments: null</span><br><span class="line">	// 调用方法</span><br><span class="line">	caller: null</span><br><span class="line">	// 参数长度</span><br><span class="line">	length: 2</span><br><span class="line">	// 方法名</span><br><span class="line">	name: "Duck"</span><br><span class="line">	// 原型</span><br><span class="line">	__proto__</span><br></pre></td></tr></table></figure></p>
-<p>像<strong>Duck</strong>这样带有constructor的变量,就可以使用<strong>new</strong>来给变量赋值.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck = <span class="keyword">new</span> Duck(<span class="string">"Trump"</span>);</span><br><span class="line">duck.constructor; </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ƒ Duck(name, swimming)&#123;</span></span><br><span class="line"><span class="comment">	this.name = name;</span></span><br><span class="line"><span class="comment">	this.swimming = swimming;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure></p>
-<p>我们输出变量的constructor,会发现指向的就是我们得构造器方法.<br>那么__proto__又是什么呢?</p>
-<h3 id="proto"><a href="#proto" class="headerlink" title="__proto__"></a>__proto__</h3><p>在js中,每一个对象都会有这个__proto__对象,并且它是不可变的:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">duck.__proto__ = <span class="number">1</span>;</span><br><span class="line">duck.__proto__ <span class="comment">//&#123;constructor: ƒ...&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>点开duck 的 __proto__,我们会发现和Duck里是一样的.接着再点击Duck的__proto__,<br>我们会得到如下对象:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">__proto__:</span><br><span class="line"><span class="keyword">constructor</span>:ƒ Object()</span><br><span class="line">hasOwnProperty:ƒ hasOwnProperty()</span><br><span class="line">isPrototypeOf:ƒ isPrototypeOf()</span><br><span class="line">propertyIsEnumerable:ƒ propertyIsEnumerable()</span><br><span class="line">toLocaleString:ƒ toLocaleString()</span><br><span class="line">toString:ƒ toString()</span><br><span class="line">valueOf:ƒ valueOf()</span><br><span class="line">__defineGetter__:ƒ __defineGetter__()</span><br><span class="line">__defineSetter__:ƒ __defineSetter__()</span><br><span class="line">__lookupGetter__:ƒ __lookupGetter__()</span><br><span class="line">__lookupSetter__:ƒ __lookupSetter__()</span><br><span class="line">get __proto__:ƒ __proto__()</span><br><span class="line">set __proto__:ƒ __proto__()</span><br></pre></td></tr></table></figure></p>
-<p>其实这些就是Object的基本属性.而在这个对象里面,我们找不到__proto__这个属性了.</p>
-<h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>也就是说,他们之间的关系是:<br>引用(duck) — __proto__ —&gt; Duck — __proto__ —&gt; Object<br>这就是一条原型链.<br>我们在调用duck的属性时,会首先寻找duck有没有定义该属性,然后寻找它的原型Duck有没有定义该属性,然后再依次向上推Duck的原型,直到推到所有对象的最底层原型Object.</p>
-<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><p>刚刚我们说过,在调用duck的属性时,若找不到duck相应的属性,会到它的原型Duck中寻找,但我们之前并没有为Duck提供任意的方法,它只有默认的constructor和__proto__.<br>那么,我们怎么样做,才能为Duck提供一个属性,让所有Duck对象都能调用到它的属性呢,答案就是prototype.js中,每一个使用function声明的方法,都会带有prototype这个属性.<br>我们只要为prototype添加相应的属性,对象在取Duck属性时,就会取prototype中的对应属性.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Duck.prototype.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">"Duck "</span>+ <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line">duck + <span class="string">""</span>; <span class="comment">// Duck Trump</span></span><br></pre></td></tr></table></figure></p>
-<p>以上重写了所有Duck对象的toString 方法,如果duck没有重写toString方法,那么都会toString 方法会默认输出”Duck”加上对象名.</p>
-<h2 id="Object-常用属性"><a href="#Object-常用属性" class="headerlink" title="Object 常用属性"></a>Object 常用属性</h2><h3 id="hasOwnProperty-NaN"><a href="#hasOwnProperty-NaN" class="headerlink" title="hasOwnProperty"></a>hasOwnProperty</h3><p>传入一个字符串,验证这个对象本身是否有这个属性.但不会检查其原型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Duck.prototype.say = <span class="string">"say"</span> </span><br><span class="line">duck.speak = <span class="string">"speak"</span></span><br><span class="line">duck.hasOwnProperty(<span class="string">"say"</span>) <span class="comment">// false</span></span><br><span class="line">duck.hasOwnProperty(<span class="string">"speak"</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="isPrototypeOf-与instanceof的区别"><a href="#isPrototypeOf-与instanceof的区别" class="headerlink" title="isPrototypeOf (与instanceof的区别)"></a>isPrototypeOf (与instanceof的区别)</h3><p>isPrototypeOf 主要是辨别类的原型是否在目标类的原型链上.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(Duck) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">Object</span>.prototype.isPrototypeOf(duck) <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<p>instanceof 实现功能一样,但语句逻辑是对象是否属于某原型.<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">duck instanceOf <span class="built_in">Object</span> <span class="comment">// true</span></span><br><span class="line">Duck instanceOf <span class="built_in">Object</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="propertyIsEnumrable"><a href="#propertyIsEnumrable" class="headerlink" title="propertyIsEnumrable"></a>propertyIsEnumrable</h3><p>这个主要是判断对象的属性是否可枚举.即可循环输出.继承的属性除外.</p>
-<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h3><p>如果是object类型,那么会输出[object Object], 如果是其他类型,会转换为string格式.</p>
-<h3 id="toLocaleString-NaN"><a href="#toLocaleString-NaN" class="headerlink" title="toLocaleString"></a>toLocaleString</h3><p>这个和toString的区别在于它会根据用户所在区域对一些特殊数据做输出优化.<br>比如,日期的输出:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toString() <span class="comment">//"Mon Jul 23 2018 21:01:51 GMT+0800 (中国标准时间)"</span></span><br><span class="line"><span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString() <span class="comment">// "2018/7/23 下午9:02:36"</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="valueOf-NaN"><a href="#valueOf-NaN" class="headerlink" title="valueOf"></a>valueOf</h3><p>得到属性的值.<br>日期输出时会得到对应的Long值.</p>
-<h2 id="js工具类"><a href="#js工具类" class="headerlink" title="js工具类"></a>js工具类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.replaceAll = <span class="function"><span class="keyword">function</span>(<span class="params">sourceStr, targetStr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newStr = <span class="keyword">this</span>;</span><br><span class="line">    <span class="keyword">while</span>(newStr.indexOf(sourceStr) !== <span class="number">-1</span>)&#123;</span><br><span class="line">        newStr = newStr.replace(sourceStr, targetStr);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newStr;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-          
+<li>基于prototype完善String,Array等操作方法.(可直接作为js工具类).</li></ol>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/22/javascript深入理解-二-Object属性和prototype原型/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1320,490 +1853,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/转载-编码那点事/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/23/转载-编码那点事/" itemprop="url">(转载)编码那点事</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T21:14:53+08:00">
-                2018-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h2><p>电脑是如何从电信号转变为英文、数字、符号乃至整个语言系统的,这篇文章讲的太棒了。<br>原文来源于<a href="https://www.zhihu.com/question/23374078/answer/69732605" target="_blank" rel="noopener">知乎</a><br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/23/转载-编码那点事/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/BigDecimal封装/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/23/BigDecimal封装/" itemprop="url">BigDecimal封装</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T20:29:16+08:00">
-                2018-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h2><p>由于以下几点原因，我们需要对BigDecimal 进行封装。使用起来更方便。</p>
-<ol>
-<li>BigDecimal 参数为double 类型时，有可能会出现误差。</li>
-<li>参数为空时，会抛出异常。这里默认为0。</li>
-<li>除法运算时，若结果为无限小数，会抛出异常。</li></ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/23/BigDecimal封装/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/中文阿拉伯数字相互转换/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/23/中文阿拉伯数字相互转换/" itemprop="url">中文阿拉伯数字相互转换</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T13:08:08+08:00">
-                2018-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具类/" itemprop="url" rel="index">
-                    <span itemprop="name">工具类</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h2><p>我们有时会需要将中文和阿拉伯数字相互转换。<br>但中文数字并非单纯像电话号码一样一一对应解读，会出现一百零五万三千零伍拾这样的问题。</p>
-<h3 id="中文解读有趣的例子"><a href="#中文解读有趣的例子" class="headerlink" title="中文解读有趣的例子"></a>中文解读有趣的例子</h3><p>这是我在解读月份时发现的有趣例子。<br>两位数中十的解读:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">情况</th>
-<th style="text-align:center">中文</th>
-<th style="text-align:center">阿拉伯数字</th>
-<th style="text-align:center">解读说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">十在首位</td>
-<td style="text-align:center">十一</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">十解读为1</td>
-</tr>
-<tr>
-<td style="text-align:center">十在中间</td>
-<td style="text-align:center">三十一</td>
-<td style="text-align:center">31</td>
-<td style="text-align:center">十不解读</td>
-</tr>
-<tr>
-<td style="text-align:center">十在末尾</td>
-<td style="text-align:center">二十</td>
-<td style="text-align:center">20</td>
-<td style="text-align:center">十解读为0</td>
-</tr>
-<tr>
-<td style="text-align:center">十单独出现</td>
-<td style="text-align:center">十</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">十解读为10</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<p>并且我的工作环境下，大量数据的录入可能存在数据源填写错误的情况，比如一白〇而时(120)的情况。<br>所以也在Util中加了容错的数组(可自行扩充)判断。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/23/中文阿拉伯数字相互转换/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1847,7 +1903,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1858,7 +1914,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1869,7 +1925,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
