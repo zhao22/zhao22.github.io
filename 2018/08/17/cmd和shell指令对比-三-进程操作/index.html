@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="命令速览   目的 linux windows     查看内存占用状态 top tasklist   检测端口占用 netstat -tunlp \ grep [端口号] netstat -ano \ findstr [端口号]   通过PID查看进程名 ps -aux \ grep -v grep \ grep [PID] tasklist \ findstr [PID]   通过PID停止进">
+<meta name="description" content="命令速览            目的        linux        windows                查看内存占用状态        top        tasklist                检测端口占用        netstat -tunlp| grep [端口号]        netstat -ano | findstr [端口号]">
 <meta name="keywords" content="cmd,shell,linux,操作系统">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cmd和shell指令对比(三):进程操作">
 <meta property="og:url" content="http://yoursite.com/2018/08/17/cmd和shell指令对比-三-进程操作/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="命令速览   目的 linux windows     查看内存占用状态 top tasklist   检测端口占用 netstat -tunlp \ grep [端口号] netstat -ano \ findstr [端口号]   通过PID查看进程名 ps -aux \ grep -v grep \ grep [PID] tasklist \ findstr [PID]   通过PID停止进">
+<meta property="og:description" content="命令速览            目的        linux        windows                查看内存占用状态        top        tasklist                检测端口占用        netstat -tunlp| grep [端口号]        netstat -ano | findstr [端口号]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-20T00:42:07.874Z">
+<meta property="og:updated_time" content="2018-08-21T01:26:47.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cmd和shell指令对比(三):进程操作">
-<meta name="twitter:description" content="命令速览   目的 linux windows     查看内存占用状态 top tasklist   检测端口占用 netstat -tunlp \ grep [端口号] netstat -ano \ findstr [端口号]   通过PID查看进程名 ps -aux \ grep -v grep \ grep [PID] tasklist \ findstr [PID]   通过PID停止进">
+<meta name="twitter:description" content="命令速览            目的        linux        windows                查看内存占用状态        top        tasklist                检测端口占用        netstat -tunlp| grep [端口号]        netstat -ano | findstr [端口号]">
 
 
 
@@ -376,43 +376,7 @@
       
 
       
-        <h2 id="命令速览"><a href="#命令速览" class="headerlink" title="命令速览"></a>命令速览</h2><table>
-<thead>
-<tr>
-<th style="text-align:center">目的</th>
-<th style="text-align:center">linux</th>
-<th style="text-align:center">windows</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">查看内存占用状态</td>
-<td style="text-align:center">top</td>
-<td style="text-align:center">tasklist</td>
-</tr>
-<tr>
-<td style="text-align:center">检测端口占用</td>
-<td style="text-align:center">netstat -tunlp \</td>
-<td style="text-align:center">grep <strong>[端口号]</strong></td>
-<td>netstat -ano \</td>
-<td>findstr <strong>[端口号]</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">通过PID查看进程名</td>
-<td style="text-align:center">ps -aux \</td>
-<td style="text-align:center">grep -v grep \</td>
-<td>grep <strong>[PID]</strong></td>
-<td>tasklist \</td>
-<td>findstr <strong>[PID]</strong></td>
-</tr>
-<tr>
-<td style="text-align:center">通过PID停止进程</td>
-<td style="text-align:center">kill -999 <strong>[PID]</strong></td>
-<td style="text-align:center">taskkill /PID <strong>[PID]</strong></td>
-</tr>
-</tbody>
-</table>
-<a id="more"></a>
+        <h2 id="命令速览"><a href="#命令速览" class="headerlink" title="命令速览"></a>命令速览</h2><p><table><br>    <tr><br>        <th>目的</th><br>        <th>linux</th><br>        <th>windows</th><br>    </tr><br>    <tr><br>        <td>查看内存占用状态</td><br>        <td>top</td><br>        <td>tasklist</td><br>    </tr><br>    <tr><br>        <td>检测端口占用</td><br>        <td>netstat -tunlp| grep <strong>[端口号]</strong></td><br>        <td>netstat -ano | findstr <strong>[端口号]</strong></td><br>    </tr><br>    <tr><br>        <td>通过PID查看进程名</td><br>        <td>ps -aux | grep -v grep | grep <strong>[PID]</strong></td><br>        <td>tasklist | findstr <strong>[PID]</strong></td><br>    </tr><br>    <tr><br>        <td>通过PID停止进程</td><br>        <td>kill -999 <strong>[PID]</strong></td><br>        <td>taskkill /PID <strong>[PID]</strong></td><br>    </tr><br></table><br><a id="more"></a></p>
 <h2 id="PID"><a href="#PID" class="headerlink" title="PID"></a>PID</h2><p>PID(port ID),即系统为端口指定的唯一ID.</p>
 <h2 id="管道"><a href="#管道" class="headerlink" title="管道"></a>管道</h2><p>分析刚才的命令,我们可以看到在检测端口占用,查看具体进程时,都用到了<strong>[|]</strong>符号,这个符号叫做管道.<br>管道(pipe)是在cmd和shell下通用的一个操作符.它的作用是将前面命令得到的结果用于后面的输入.<br>比如shell中 ps -aux | grep <strong>[字符串]</strong>,在管道 <strong>|</strong> 前 <strong>ps -aux</strong>的含义如下:</p>
 <table>
@@ -487,6 +451,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/21/工具类-一-反射类InvokeUtil/" rel="prev" title="工具类(一)反射类InvokeUtil">
+                工具类(一)反射类InvokeUtil <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -563,7 +531,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -585,7 +553,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
