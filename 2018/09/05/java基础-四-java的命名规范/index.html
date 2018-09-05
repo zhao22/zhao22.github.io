@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="命名规范大到项目，小到变量，JAVA必须严格遵守命名规范，才能达到易读易用的的效果。1234567891、 项目名全部小写2、 包名全部小写3、 类名(大驼峰命名)如：public class MyFirstClass&amp;#123;&amp;#125;4、 变量名、方法名(小驼峰命名)如：int index=0;      public void toString()&amp;#123;&amp;#125;5、 静态常量命">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础(四)java的命名规范">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/java基础-四-java的命名规范/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="命名规范大到项目，小到变量，JAVA必须严格遵守命名规范，才能达到易读易用的的效果。1234567891、 项目名全部小写2、 包名全部小写3、 类名(大驼峰命名)如：public class MyFirstClass&amp;#123;&amp;#125;4、 变量名、方法名(小驼峰命名)如：int index=0;      public void toString()&amp;#123;&amp;#125;5、 静态常量命">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-05T02:58:19.399Z">
+<meta property="og:updated_time" content="2018-09-05T10:36:07.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(四)java的命名规范">
+<meta name="twitter:description" content="命名规范大到项目，小到变量，JAVA必须严格遵守命名规范，才能达到易读易用的的效果。1234567891、 项目名全部小写2、 包名全部小写3、 类名(大驼峰命名)如：public class MyFirstClass&amp;#123;&amp;#125;4、 变量名、方法名(小驼峰命名)如：int index=0;      public void toString()&amp;#123;&amp;#125;5、 静态常量命">
 
 
 
@@ -323,6 +326,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -350,7 +375,20 @@
       
 
       
-        
+        <h2 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h2><p>大到项目，小到变量，JAVA必须严格遵守命名规范，才能达到易读易用的的效果。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、 项目名全部小写</span><br><span class="line">2、 包名全部小写</span><br><span class="line">3、 类名(大驼峰命名)</span><br><span class="line">如：public class MyFirstClass&#123;&#125;</span><br><span class="line">4、 变量名、方法名(小驼峰命名)</span><br><span class="line">如：int index=0;</span><br><span class="line">      public void toString()&#123;&#125;</span><br><span class="line">5、 静态常量命名(全大写,以下划线分割)</span><br><span class="line">如： public static String SOME_STATIC_VARIABLE = &quot;1&quot;;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="驼峰命名法"><a href="#驼峰命名法" class="headerlink" title="驼峰命名法"></a>驼峰命名法</h2><p><strong>大驼峰</strong>是指首字母<strong>大</strong>写，如果名称由多个单词组成，每个单词的<strong>首字母都要大写</strong>。<br><strong>小驼峰</strong>是指首字母<strong>小</strong>写，如果名称由多个单词组成，每个单词的<strong>首字母都要大写</strong>。<br>就像驼峰一样，中间重要的部分凸起，以区分冗长的句子。</p>
+<h2 id="变量命名规范"><a href="#变量命名规范" class="headerlink" title="变量命名规范"></a>变量命名规范</h2><p>变量除了应遵循小驼峰命名规范外，还应该遵循以下几点规则：  </p>
+<ol>
+<li>不可以<strong>数字开头</strong>。(编译会报错)  </li>
+<li>不可以使用除下划线<strong>_</strong>和美元符<strong>$</strong>以外的符号。(编译会报错)  </li>
+<li>不可以使用<strong>JAVA关键字</strong>。(编译会报错)  </li>
+<li>避免使用<strong>中文</strong>。  </li>
+<li>避免使用<strong>不知义</strong>的变量（如 a,b,c）。  </li>
+<li>避免使用<strong>15字以上</strong>的变量。  </li>
+</ol>
+<h2 id="JAVA关键字一览"><a href="#JAVA关键字一览" class="headerlink" title="JAVA关键字一览"></a>JAVA关键字一览</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">访问控制</span><br><span class="line">private    protected    public</span><br><span class="line"></span><br><span class="line">类,方法和变量修饰符</span><br><span class="line">abstract    class    extends    final    implements    interface    native    new</span><br><span class="line">static    strictfp    synchronized    transient    volatile</span><br><span class="line">    </span><br><span class="line">程序控制</span><br><span class="line">break    continue    return    do    while    if    else    for    instanceof    switch</span><br><span class="line">case    default</span><br><span class="line">    </span><br><span class="line">异常处理</span><br><span class="line">try    cathc    throw    throws</span><br><span class="line"></span><br><span class="line">包相关</span><br><span class="line">import    package</span><br><span class="line">    </span><br><span class="line">基本类型</span><br><span class="line">boolean    byte    char    double    float    int    long    short    null    true    false</span><br><span class="line"></span><br><span class="line">变量引用</span><br><span class="line">super    this    void</span><br><span class="line">    </span><br><span class="line">保留字</span><br><span class="line">goto    const</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -383,6 +421,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/05/java基础-五-认识基本变量/" rel="prev" title="java基础(五)认识基本变量">
+                java基础(五)认识基本变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -434,8 +476,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -450,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -495,6 +546,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规范"><span class="nav-number">1.</span> <span class="nav-text">命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#驼峰命名法"><span class="nav-number">2.</span> <span class="nav-text">驼峰命名法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量命名规范"><span class="nav-number">3.</span> <span class="nav-text">变量命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JAVA关键字一览"><span class="nav-number">4.</span> <span class="nav-text">JAVA关键字一览</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
