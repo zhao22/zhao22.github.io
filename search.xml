@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title>java基础(四)java的命名规范</title>
+      <link href="/2018/09/05/java%E5%9F%BA%E7%A1%80-%E5%9B%9B-java%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
+      <url>/2018/09/05/java%E5%9F%BA%E7%A1%80-%E5%9B%9B-java%E7%9A%84%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>java基础(三)在eclipse中新建一个java项目</title>
+      <link href="/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%B8%89-%E5%9C%A8eclipse%E4%B8%AD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAjava%E9%A1%B9%E7%9B%AE/"/>
+      <url>/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%B8%89-%E5%9C%A8eclipse%E4%B8%AD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAjava%E9%A1%B9%E7%9B%AE/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>java基础(二)手动编译运行一个java文件</title>
+      <link href="/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAjava%E6%96%87%E4%BB%B6/"/>
+      <url>/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%BA%8C-%E6%89%8B%E5%8A%A8%E7%BC%96%E8%AF%91%E8%BF%90%E8%A1%8C%E4%B8%80%E4%B8%AAjava%E6%96%87%E4%BB%B6/</url>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>java基础(一)环境变量配置</title>
+      <link href="/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%B8%80-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/"/>
+      <url>/2018/09/05/java%E5%9F%BA%E7%A1%80-%E4%B8%80-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE/</url>
+      <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>要想成为一个java开发者，必须搭建开发java的环境。一共可以分为两步：  </p><ol><li>下载安装JDK  </li><li>配置环境变量  </li></ol><h2 id="下载安装JDK"><a href="#下载安装JDK" class="headerlink" title="下载安装JDK"></a>下载安装JDK</h2><h3 id="下载JDK"><a href="#下载JDK" class="headerlink" title="下载JDK"></a>下载JDK</h3><p>点击下面网址进入到JDK下载页面:<br><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank">JDK下载</a><br>在页面中选择<strong>JDK下载</strong>,如下图所示:<br><img src="http://www.ashasean.cn/blog-image/JDKchose1.png" alt="JDK下载"><br>进入后，找到下方JDK的下载部分:  </p><ol><li>点击<strong>Accept License Agreement</strong> –同意许可证书  </li><li>点击<strong>对应你操作系统</strong>的选项，如果是Windows用户就点选Windows开头的，苹果系统点选Mac开头的.<br><img src="http://www.ashasean.cn/blog-image/JDKchose2.png" alt="操作系统选择">  </li></ol><h3 id="安装JDK"><a href="#安装JDK" class="headerlink" title="安装JDK"></a>安装JDK</h3><ol><li>打开下载后的JDK,点击<strong>下一步</strong>，进入如下页面:<br><img src="http://www.ashasean.cn/blog-image/JDKinstall1.png" alt="JDK安装">  </li><li>如图点击<strong>设置</strong>,在<strong>E</strong>盘下新建文件夹<strong>java</strong>,再新建文件夹<strong>jdk</strong>,选择该文件夹，点击确定.请保证左侧路径和我的完全一致后,点击<strong>下一步</strong>自动安装。  </li><li>安装完成后会弹出<strong>Java</strong>安装的提示框,其实是安装我们的JAVA运行环境<strong>JRE</strong>,为保证路径和我一致，请打开刚刚新建的<strong>jdk</strong>,新建<strong>jre</strong>文件夹。并将jre安装在该目录下。  </li><li><strong>注意:</strong> 你也可以选择和我不一样的安装路径。但一般安装路径下<strong>不要含有中文</strong>，以免出现编码错误等问题。并且如果选择了不同的安装路径，那么下面配置环境变量的时候，请在系统变量<strong>Path</strong>下填写自己的<strong>jdk</strong>和<strong>jre</strong>路径下的<strong>bin</strong>文件夹的路径。</li></ol><h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><ol><li>右键点击<strong>我的电脑</strong>,选择<strong>属性</strong>:<br><img src="http://www.ashasean.cn/blog-image/javaenvironment1.png" alt="JAVA环境配置">  </li><li>点击<strong>高级系统设置</strong>:<br><img src="http://www.ashasean.cn/blog-image/javaenvironment2.png" alt="JAVA环境配置">  </li><li>上方选择<strong>高级</strong>, 下方点击<strong>环境变量</strong>:<br><img src="http://www.ashasean.cn/blog-image/javaenvironment3.png" alt="JAVA环境配置">  </li><li>点击下方<strong>新建</strong>,变量名填写<strong>JAVA_HOME</strong>,变量值填写<strong>你的JDK安装路径</strong>.(这个路径下一定会有名叫<strong>bin</strong>的文件夹,请确认后填写)。<br><img src="http://www.ashasean.cn/blog-image/javaenvironment4.png" alt="JAVA环境配置">  </li><li>然后同样在系统变量里找到 <strong>Path</strong>, 按照如图填写JDK和JRE下的bin路径即可。（如果你的JRE路径和我配置的不一样，第二栏可以直接填写JRE的路径).<br><img src="http://www.ashasean.cn/blog-image/javaenvironment5.png" alt="JAVA环境配置">  </li></ol><h2 id="检测安装结果"><a href="#检测安装结果" class="headerlink" title="检测安装结果"></a>检测安装结果</h2><h3 id="正确情况"><a href="#正确情况" class="headerlink" title="正确情况"></a>正确情况</h3><p>以上java的开发环境就配置完成了。我们可以检验一下。按<strong>Win</strong> + <strong>R</strong>弹出运行框,输入<strong>cmd</strong>，敲回车:<br><img src="http://www.ashasean.cn/blog-image/javacheck1.png" alt="JAVA检测结果"><br>依次输入 <strong>java -version</strong> 、 <strong>javac</strong>,结果和我一样，配置就成功了。<br><img src="http://www.ashasean.cn/blog-image/javacheck2.png" alt="JAVA检测结果"> </p><h3 id="异常情况"><a href="#异常情况" class="headerlink" title="异常情况"></a>异常情况</h3><h4 id="Error-could-not-find-java-dll-Error-Could-not-find-Java-SE-Runtime-Environment"><a href="#Error-could-not-find-java-dll-Error-Could-not-find-Java-SE-Runtime-Environment" class="headerlink" title="Error: could not find java.dll / Error: Could not find Java SE Runtime Environment"></a>Error: could not find java.dll / Error: Could not find Java SE Runtime Environment</h4><p>这种情况是JRE安装错误。回到官网重新安装JRE即可。</p><h4 id="’javac’-不是内部或外部命令，也不是可运行的程序"><a href="#’javac’-不是内部或外部命令，也不是可运行的程序" class="headerlink" title="’javac’ 不是内部或外部命令，也不是可运行的程序"></a>’javac’ 不是内部或外部命令，也不是可运行的程序</h4><p>这种情况是JDK环境变量配置错误。请再次确认Path中有没有JDK下bin文件夹的目录。  </p><h2 id="环境变量答疑"><a href="#环境变量答疑" class="headerlink" title="环境变量答疑"></a>环境变量答疑</h2><p>学习过C语言的同学初学JAVA,都会产生疑问，为什么C语言不需要配置环境变量，而JAVA需要？<br>因为系统默认提供了C的编译器，所以C语言可以直接编译运行。<br>而java无论是编译还是运行，都需要调用java 、javac这些非默认系统指令。系统则需要在环境变量中寻找对应指令进行操作。<br>不仅仅是JAVA, Python, Golang等语言也需要配置环境变量。</p>]]></content>
+      
+      <categories>
+          
+          <category> java基础 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>工具类(一)反射类InvokeUtil</title>
       <link href="/2018/08/21/%E5%B7%A5%E5%85%B7%E7%B1%BB-%E4%B8%80-%E5%8F%8D%E5%B0%84%E7%B1%BBInvokeUtil/"/>
       <url>/2018/08/21/%E5%B7%A5%E5%85%B7%E7%B1%BB-%E4%B8%80-%E5%8F%8D%E5%B0%84%E7%B1%BBInvokeUtil/</url>
