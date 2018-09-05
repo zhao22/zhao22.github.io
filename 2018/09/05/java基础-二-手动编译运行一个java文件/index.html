@@ -79,14 +79,27 @@
 
 
 
+<meta name="description" content="java运行原理我们在编辑C语言等编译语言时,编译文件在不同的系统是不能互通的。比如，在Windows编译后的文件，在Linux上是不能直接使用的。这对于编译需要大量时间的大型项目是比较麻烦的。而java会先有JDK的编译器将.java源码文件编译成.class文件。而在不同系统上由对应的JRE运行，这样只要系统内装有JRE，不管是什么系统，都可以运行同一份.class文件了。我们来试一下手动编译">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础(二)手动编译运行一个java文件">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/java基础-二-手动编译运行一个java文件/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="java运行原理我们在编辑C语言等编译语言时,编译文件在不同的系统是不能互通的。比如，在Windows编译后的文件，在Linux上是不能直接使用的。这对于编译需要大量时间的大型项目是比较麻烦的。而java会先有JDK的编译器将.java源码文件编译成.class文件。而在不同系统上由对应的JRE运行，这样只要系统内装有JRE，不管是什么系统，都可以运行同一份.class文件了。我们来试一下手动编译">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-05T02:54:09.558Z">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile1.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile2.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile3.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile4.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile5.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile6.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile7.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile8.png">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/JAVAcompile9.png">
+<meta property="og:updated_time" content="2018-09-05T08:01:08.611Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(二)手动编译运行一个java文件">
+<meta name="twitter:description" content="java运行原理我们在编辑C语言等编译语言时,编译文件在不同的系统是不能互通的。比如，在Windows编译后的文件，在Linux上是不能直接使用的。这对于编译需要大量时间的大型项目是比较麻烦的。而java会先有JDK的编译器将.java源码文件编译成.class文件。而在不同系统上由对应的JRE运行，这样只要系统内装有JRE，不管是什么系统，都可以运行同一份.class文件了。我们来试一下手动编译">
+<meta name="twitter:image" content="http://www.ashasean.cn/blog-image/JAVAcompile1.png">
 
 
 
@@ -323,6 +336,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -350,7 +385,49 @@
       
 
       
-        
+        <h2 id="java运行原理"><a href="#java运行原理" class="headerlink" title="java运行原理"></a>java运行原理</h2><p>我们在编辑C语言等编译语言时,编译文件在不同的系统是不能互通的。比如，在Windows编译后的文件，在Linux上是不能直接使用的。这对于编译需要大量时间的大型项目是比较麻烦的。<br>而java会先有JDK的编译器将.java源码文件编译成.class文件。而在不同系统上由对应的JRE运行，这样只要系统内装有JRE，不管是什么系统，都可以运行同一份.class文件了。<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile1.png" alt="JAVA一次编译示意图"><br>我们来试一下手动编译运行一个java文件。</p>
+<h2 id="编译运行JAVA文件"><a href="#编译运行JAVA文件" class="headerlink" title="编译运行JAVA文件"></a>编译运行JAVA文件</h2><ol>
+<li>在桌面上新建HelloWorld.java. 这是java的源文件:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile2.png" alt="JAVA一次编译示意图">    </li>
+<li><p>用文本编辑器打开文件，填写内容:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Hello World"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>保存后,打开cmd窗口: （前面是当前路径。默认是在当前用户的文件夹下.）<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile3.png" alt="JAVA一次编译示意图">    </p>
+</li>
+<li>输入dir可以查看当前文件夹下的文件：<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile4.png" alt="JAVA一次编译示意图">  </li>
+<li>我们可以看到，里面有个Desktop的文件夹。进入该文件夹，使用cd 命令:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile5.png" alt="JAVA一次编译示意图">    </li>
+<li>此时我们调用javac命令，使用JDK的编译器将.java文件编译成.class文件:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile6.png" alt="JAVA一次编译示意图">    </li>
+<li>编译完成后，桌面多了.class文件:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile7.png" alt="JAVA一次编译示意图">  </li>
+<li>使用java命令，就可以输出Hello World了:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile8.png" alt="JAVA一次编译示意图">  </li>
+</ol>
+<h2 id="java运行环境探索"><a href="#java运行环境探索" class="headerlink" title="java运行环境探索"></a>java运行环境探索</h2><p>我们之前安装的JDK大抵结构如下:<br><img src="http://www.ashasean.cn/blog-image/JAVAcompile9.png" alt="JAVA一次编译示意图">  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模块</th>
+<th style="text-align:center">全称</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">JVM</td>
+<td style="text-align:center">Java virtual machine (java虚拟机)</td>
+<td style="text-align:center">每个系统的虚拟机不同。负责将.class文件转换成系统可识别的文件。</td>
+</tr>
+<tr>
+<td style="text-align:center">JRE</td>
+<td style="text-align:center">Java Runtime Environment (java 运行环境)</td>
+<td style="text-align:center">java运行环境，包括核心库等。</td>
+</tr>
+<tr>
+<td style="text-align:center">JDK</td>
+<td style="text-align:center">Java Develop Kit（java 开发包）</td>
+<td style="text-align:center">包含编译器，调试器。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>JRE</strong>已经提供了完整的java运行环境.客户的电脑上或者服务器上只用安装JRE来运行开发人员打包的.class文件即可。<br>而<strong>JDK</strong>提供了编译器等开发工具，使用javac命令可以将源码编译成.class文件。</p>
+
       
     </div>
     
@@ -384,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/05/java基础-三-在eclipse中新建一个java项目/" rel="prev" title="java基础(三)在eclipse中新建一个java项目">
-                java基础(三)在eclipse中新建一个java项目 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/05/java基础-四-java的命名规范/" rel="prev" title="java基础(四)java的命名规范">
+                java基础(四)java的命名规范 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -438,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -454,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -499,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#java运行原理"><span class="nav-number">1.</span> <span class="nav-text">java运行原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译运行JAVA文件"><span class="nav-number">2.</span> <span class="nav-text">编译运行JAVA文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java运行环境探索"><span class="nav-number">3.</span> <span class="nav-text">java运行环境探索</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
