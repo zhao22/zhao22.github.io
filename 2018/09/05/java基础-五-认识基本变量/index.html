@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Sean&#39;s Blog">
 <meta property="og:description" content="基本数据类型java 中一共有8种基本类型，分别是byte,short,int,long,float,double,char,boolean。    关键字 类型 长度 取值范围     byte 字节型 1个字节 -128~127   short 短整型 2个字节 -2^15~2^15-1   int 整型 4个字节 -2^31~2^31-1   long 长整型 8个字节 -2^63~2^63">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-05T10:35:00.436Z">
+<meta property="og:updated_time" content="2018-09-07T08:35:57.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(五)认识基本变量">
 <meta name="twitter:description" content="基本数据类型java 中一共有8种基本类型，分别是byte,short,int,long,float,double,char,boolean。    关键字 类型 长度 取值范围     byte 字节型 1个字节 -128~127   short 短整型 2个字节 -2^15~2^15-1   int 整型 4个字节 -2^31~2^31-1   long 长整型 8个字节 -2^63~2^63">
@@ -489,7 +489,7 @@
 </tr>
 </tbody>
 </table>
-<p>在方法中敲入下列代码试一下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> v1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> v2 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> v3 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> v4 = <span class="number">1L</span>;</span><br><span class="line"><span class="keyword">float</span> v5 = <span class="number">2.5F</span>;</span><br><span class="line"><span class="keyword">double</span> v6 = <span class="number">3.46</span>;</span><br><span class="line"><span class="keyword">boolean</span> v7 = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">char</span> v8 = <span class="string">'中'</span>;</span><br><span class="line">String v9 = <span class="string">"中国"</span>;</span><br><span class="line">String v10 = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></p>
+<p>在main方法中敲入下列代码试一下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> v1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> v2 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> v3 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> v4 = <span class="number">1L</span>;</span><br><span class="line"><span class="keyword">float</span> v5 = <span class="number">2.5F</span>;</span><br><span class="line"><span class="keyword">double</span> v6 = <span class="number">3.46</span>;</span><br><span class="line"><span class="keyword">boolean</span> v7 = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">char</span> v8 = <span class="string">'中'</span>;</span><br><span class="line">String v9 = <span class="string">"中国"</span>;</span><br><span class="line">String v10 = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></p>
 <p>浮点型变量默认使用<strong>double</strong>存储，而不选用精度不够的<strong>float</strong>存储，所以在声明float的浮点直接量时要在后面接上<strong>F</strong>.<br>现在试试将上面的<strong>F</strong>去掉，编译应该会报错的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TIPS：这类语法错误是无法通过编译的，所以叫编译错误。与之对应的是由参数引起的，在运行时才会产生的错误，叫做运行期错误。</span><br></pre></td></tr></table></figure></p>
 <p>当然，L,F,D使用小写字母也是可以的，但是由于小写的l和1比较类似，所以一般采用大写。  </p>
 <h2 id="基本类型间的强转"><a href="#基本类型间的强转" class="headerlink" title="基本类型间的强转"></a>基本类型间的强转</h2><p>除了boolean类型，其他7个类型都可以相互强转。语法如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> longValue = <span class="number">100L</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>) longValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 100</span></span><br></pre></td></tr></table></figure></p>
@@ -500,6 +500,8 @@
 <p>byte/short在java中范围和int等同。所以不会出现小范围不停循环的问题。</p>
 <h4 id="char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码"><a href="#char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码" class="headerlink" title="char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:"></a>char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> charValue = <span class="string">'中'</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>)charValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 20013</span></span><br></pre></td></tr></table></figure>
 <p>关于编码的更多知识可以看我的另一篇文章 编码的那些事儿。</p>
+<h2 id="同行声明多个变量"><a href="#同行声明多个变量" class="headerlink" title="同行声明多个变量"></a>同行声明多个变量</h2><p>我们也可以在一行内生成多个变量，中间用逗号,分隔:  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>, b = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">int</span> c,d,e;</span><br><span class="line">System.out.println(a + <span class="string">" "</span> + b);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -534,8 +536,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/05/java基础-三-用eclipse写java/" rel="prev" title="java基础(三)用eclipse写java">
-                java基础(三)用eclipse写java <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/05/java基础-六-基础运算符/" rel="prev" title="java基础(六)基础运算符">
+                java基础(六)基础运算符 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -613,7 +615,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -668,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接量"><span class="nav-number">2.</span> <span class="nav-text">直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型间的强转"><span class="nav-number">3.</span> <span class="nav-text">基本类型间的强转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型强转为整型时，会将小数点后的位数强制截掉。"><span class="nav-number">3.0.1.</span> <span class="nav-text">浮点型强转为整型时，会将小数点后的位数强制截掉。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#要转换的值大于当前类型最大-小值时，多出的部分会从另一个极端进行循环。"><span class="nav-number">3.0.2.</span> <span class="nav-text">要转换的值大于当前类型最大/小值时，多出的部分会从另一个极端进行循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码"><span class="nav-number">3.0.3.</span> <span class="nav-text">char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接量"><span class="nav-number">2.</span> <span class="nav-text">直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型间的强转"><span class="nav-number">3.</span> <span class="nav-text">基本类型间的强转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型强转为整型时，会将小数点后的位数强制截掉。"><span class="nav-number">3.0.1.</span> <span class="nav-text">浮点型强转为整型时，会将小数点后的位数强制截掉。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#要转换的值大于当前类型最大-小值时，多出的部分会从另一个极端进行循环。"><span class="nav-number">3.0.2.</span> <span class="nav-text">要转换的值大于当前类型最大/小值时，多出的部分会从另一个极端进行循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码"><span class="nav-number">3.0.3.</span> <span class="nav-text">char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同行声明多个变量"><span class="nav-number">4.</span> <span class="nav-text">同行声明多个变量</span></a></li></ol></div>
             
 
           </div>
