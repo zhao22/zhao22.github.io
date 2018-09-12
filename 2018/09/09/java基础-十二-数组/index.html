@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Sean&#39;s Blog">
 <meta property="og:description" content="什么是数组通过我们之前的学习，要储存一个人的成绩，如果它是整型的话，我们可以用 int score.那如果我们要储存一个班的成绩呢？这个时候就必须使用到数组了。数组就是将同一个类型的一系列数归为一组的数据类型。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-11T08:24:39.149Z">
+<meta property="og:updated_time" content="2018-09-12T03:03:32.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(十二)数组">
 <meta name="twitter:description" content="什么是数组通过我们之前的学习，要储存一个人的成绩，如果它是整型的话，我们可以用 int score.那如果我们要储存一个班的成绩呢？这个时候就必须使用到数组了。数组就是将同一个类型的一系列数归为一组的数据类型。">
@@ -326,6 +326,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,14 +382,40 @@
 <p>第二种方式则是在类型后直接加上中括号:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array;</span><br></pre></td></tr></table></figure></p>
 <p>我们可以只记忆第二种写法。  </p>
 <h2 id="数组的初始化"><a href="#数组的初始化" class="headerlink" title="数组的初始化"></a>数组的初始化</h2><p>如果要初始化一个较小的数组，我们可以使用大括号的形式，元素用逗号,隔开:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array1 = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>这样声明的数组，里面的元素比较清晰。但缺点是如果数组较长，则费时费力，所以java的数组还有另一种声明方式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure></p>
-<p>这种声明方式是比较常见的，系统将会初始化一个长度为5的数组。并且数组中的元素会有默认值。<br>如果是数字类型的数组，默认值是0.<br>如果是char类型的数组，默认值是空格’ ‘。<br>如果是boolean类型的数组，默认值是false。<br>如果是其他类型的数组，默认值是null。</p>
+<p>这样声明的数组，里面的元素比较清晰。但缺点是如果数组较长，则费时费力。<br>所以java的数组还有另一种声明方式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array2 = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">5</span>];</span><br></pre></td></tr></table></figure></p>
+<p>这种声明方式是比较常见的，系统将会初始化一个长度为5的数组。并且数组中的元素会有默认值。  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数组内元素类型</th>
+<th style="text-align:center">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">数字类型</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">char类型</td>
+<td style="text-align:center">空格</td>
+</tr>
+<tr>
+<td style="text-align:center">boolean类型</td>
+<td style="text-align:center">false</td>
+</tr>
+<tr>
+<td style="text-align:center">其他类型</td>
+<td style="text-align:center">null</td>
+</tr>
+</tbody>
+</table>
 <h2 id="数组的赋值和调用"><a href="#数组的赋值和调用" class="headerlink" title="数组的赋值和调用"></a>数组的赋值和调用</h2><p>数组是通过元素的<strong>下标</strong>来调用元素和为元素赋值的。<br>数组的下标从0开始，依次递增，数组最后一个元素的下标是数组的长度-1.<br>比如下面这个数组:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String[] animals = &#123;<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"horse"</span>&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>数组animals的长度为 3.<br>元素”cat”的下标为 0。<br>元素”dog”的下标为 1。<br>元素”horse”的下标为 2。  </p>
 <p>数组的调用格式如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名[下标]</span><br></pre></td></tr></table></figure></p>
 <p>比如，我们要取到animals中的”cat”元素，就应该使用:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String firstAnimal = animals[<span class="number">0</span>];</span><br><span class="line">System.out.println(firstAnimal);</span><br></pre></td></tr></table></figure></p>
 <p>而我们要为数组指定位置赋值，则用如下格式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组名[下标] = 新值</span><br></pre></td></tr></table></figure></p>
-<p>例如，我们想把数组的第一个元素cat变成mouse。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animals[<span class="number">0</span>] = <span class="string">"mouse"</span>;</span><br><span class="line">System.out.println(animals[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure></p>
+<p>例如，我们想把数组的第一个元素cat变成mouse。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">animals[<span class="number">0</span>] = <span class="string">"mouse"</span>;</span><br><span class="line">System.out.println(animals[<span class="number">0</span>]);<span class="comment">// mouse</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="下标越界异常"><a href="#下标越界异常" class="headerlink" title="下标越界异常"></a>下标越界异常</h4><p>学会了调用数组后，我们可以来试着调用超出数组边界的下标，会发生什么情况:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String[] arr = &#123;<span class="string">"cat"</span>, <span class="string">"dog"</span>, <span class="string">"horse"</span>&#125;;</span><br><span class="line">System.out.println(arr[<span class="number">3</span>]);</span><br></pre></td></tr></table></figure></p>
 <p>执行后，我们发现控制台打印了一排红字:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread <span class="string">"main"</span> java.lang.ArrayIndexOutOfBoundsException: <span class="number">3</span></span><br><span class="line">	at practice.ClassA.main(ClassA.java:<span class="number">10</span>)</span><br></pre></td></tr></table></figure></p>
 <p>这就是java中的下标越界异常。  </p>
@@ -498,7 +546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -509,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

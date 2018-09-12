@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="基本数据类型java 中一共有8种基本类型，分别是byte,short,int,long,float,double,char,boolean。    关键字 类型 长度 取值范围     byte 字节型 1个字节 -128~127   short 短整型 2个字节 -2^15~2^15-1   int 整型 4个字节 -2^31~2^31-1   long 长整型 8个字节 -2^63~2^63">
+<meta name="description" content="静态变量，成员变量，静态方法，非静态方法在java中的方法一节我们接触到了static关键字被static修饰的方法就是静态方法，而没有的则是非静态方法。同样的，java中的变量也有static关键字，被static修饰的变量叫做静态变量,没被static修饰的变量叫做成员变量。那么它们有什么区别呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java基础(五)认识基本类型">
-<meta property="og:url" content="http://yoursite.com/2018/09/05/java基础-五-认识基本类型/index.html">
+<meta property="og:title" content="java基础(十四)静态变量与成员变量">
+<meta property="og:url" content="http://yoursite.com/2018/09/12/java基础-十四-静态变量与成员变量/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="基本数据类型java 中一共有8种基本类型，分别是byte,short,int,long,float,double,char,boolean。    关键字 类型 长度 取值范围     byte 字节型 1个字节 -128~127   short 短整型 2个字节 -2^15~2^15-1   int 整型 4个字节 -2^31~2^31-1   long 长整型 8个字节 -2^63~2^63">
+<meta property="og:description" content="静态变量，成员变量，静态方法，非静态方法在java中的方法一节我们接触到了static关键字被static修饰的方法就是静态方法，而没有的则是非静态方法。同样的，java中的变量也有static关键字，被static修饰的变量叫做静态变量,没被static修饰的变量叫做成员变量。那么它们有什么区别呢？">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-11T09:48:08.586Z">
+<meta property="og:updated_time" content="2018-09-12T06:02:19.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java基础(五)认识基本类型">
-<meta name="twitter:description" content="基本数据类型java 中一共有8种基本类型，分别是byte,short,int,long,float,double,char,boolean。    关键字 类型 长度 取值范围     byte 字节型 1个字节 -128~127   short 短整型 2个字节 -2^15~2^15-1   int 整型 4个字节 -2^31~2^31-1   long 长整型 8个字节 -2^63~2^63">
+<meta name="twitter:title" content="java基础(十四)静态变量与成员变量">
+<meta name="twitter:description" content="静态变量，成员变量，静态方法，非静态方法在java中的方法一节我们接触到了static关键字被static修饰的方法就是静态方法，而没有的则是非静态方法。同样的，java中的变量也有static关键字，被static修饰的变量叫做静态变量,没被static修饰的变量叫做成员变量。那么它们有什么区别呢？">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/05/java基础-五-认识基本类型/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/12/java基础-十四-静态变量与成员变量/"/>
 
 
 
 
 
-  <title>java基础(五)认识基本类型 | Sean's Blog</title>
+  <title>java基础(十四)静态变量与成员变量 | Sean's Blog</title>
   
 
 
@@ -286,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/05/java基础-五-认识基本类型/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/12/java基础-十四-静态变量与成员变量/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -303,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java基础(五)认识基本类型</h1>
+          <h1 class="post-title" itemprop="name headline">java基础(十四)静态变量与成员变量</h1>
         
 
         <div class="post-meta">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-05T17:40:31+08:00">
-                2018-09-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-12T10:03:50+08:00">
+                2018-09-12
               </time>
             
 
@@ -338,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java基础/" itemprop="url" rel="index">
-                    <span itemprop="name">java基础</span>
+                  <a href="/categories/java-基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java 基础</span>
                   </a>
                 </span>
 
@@ -375,133 +375,20 @@
       
 
       
-        <h2 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h2><p>java 中一共有<strong>8</strong>种基本类型，分别是byte,short,int,long,float,double,char,boolean。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">关键字</th>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">长度</th>
-<th style="text-align:center">取值范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">字节型</td>
-<td style="text-align:center">1个字节</td>
-<td style="text-align:center">-128~127</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">短整型</td>
-<td style="text-align:center">2个字节</td>
-<td style="text-align:center">-2^15~2^15-1</td>
-</tr>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">整型</td>
-<td style="text-align:center">4个字节</td>
-<td style="text-align:center">-2^31~2^31-1</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">长整型</td>
-<td style="text-align:center">8个字节</td>
-<td style="text-align:center">-2^63~2^63-1</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">单精度浮点型</td>
-<td style="text-align:center">4个字节</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">双精度浮点型</td>
-<td style="text-align:center">8个字节</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">字符型</td>
-<td style="text-align:center">2个字节</td>
-<td style="text-align:center">0~65535</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">布尔型</td>
-<td style="text-align:center">1个字节</td>
-<td style="text-align:center">true false</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="静态变量，成员变量，静态方法，非静态方法"><a href="#静态变量，成员变量，静态方法，非静态方法" class="headerlink" title="静态变量，成员变量，静态方法，非静态方法"></a>静态变量，成员变量，静态方法，非静态方法</h2><p>在<strong>java中的方法</strong>一节我们接触到了static关键字<br>被static修饰的方法就是静态方法，而没有的则是非静态方法。<br>同样的，java中的变量也有static关键字，被static修饰的变量叫做静态变量,没被static修饰的变量叫做成员变量。<br>那么它们有什么区别呢？</p>
 <a id="more"></a>
-<h2 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h2><p>声明一个基本类型变量和String 对象的时候，可以不用使用<strong>new</strong>,而采取直接量的方式。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">直接量描述</th>
-<th style="text-align:center">例子</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">byte/short/int</td>
-<td style="text-align:center">整数直接量(可八,十,十六进制)</td>
-<td style="text-align:center">12</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">整数后加字母L</td>
-<td style="text-align:center">12L</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">数字后加F</td>
-<td style="text-align:center">3.5F</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">浮点型直接量，或在数字后加D</td>
-<td style="text-align:center">0.12</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">布尔直接量</td>
-<td style="text-align:center">true false</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">单引号包含的单个字符</td>
-<td style="text-align:center">‘中’</td>
-</tr>
-<tr>
-<td style="text-align:center">String</td>
-<td style="text-align:center">双引号包含</td>
-<td style="text-align:center">“中国”</td>
-</tr>
-<tr>
-<td style="text-align:center">null</td>
-<td style="text-align:center">引用类型的空指向</td>
-<td style="text-align:center">null</td>
-</tr>
-</tbody>
-</table>
-<p>在main方法中敲入下列代码试一下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">byte</span> v1 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">short</span> v2 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">int</span> v3 = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">long</span> v4 = <span class="number">1L</span>;</span><br><span class="line"><span class="keyword">float</span> v5 = <span class="number">2.5F</span>;</span><br><span class="line"><span class="keyword">double</span> v6 = <span class="number">3.46</span>;</span><br><span class="line"><span class="keyword">boolean</span> v7 = <span class="keyword">true</span>;</span><br><span class="line"><span class="keyword">char</span> v8 = <span class="string">'中'</span>;</span><br><span class="line">String v9 = <span class="string">"中国"</span>;</span><br><span class="line">String v10 = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></p>
-<p>浮点型变量默认使用<strong>double</strong>存储，而不选用精度不够的<strong>float</strong>存储，所以在声明float的浮点直接量时要在后面接上<strong>F</strong>.<br>现在试试将上面的<strong>F</strong>去掉，编译应该会报错的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TIPS：这类语法错误是无法通过编译的，所以叫编译错误。与之对应的是由参数引起的，在运行时才会产生的错误，叫做运行期错误。</span><br></pre></td></tr></table></figure></p>
-<p>当然，L,F,D使用小写字母也是可以的，但是由于小写的l和1比较类似，所以一般采用大写。  </p>
-<h2 id="基本类型间的强转"><a href="#基本类型间的强转" class="headerlink" title="基本类型间的强转"></a>基本类型间的强转</h2><p>除了boolean类型，其他7个类型都可以相互强转。语法如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> longValue = <span class="number">100L</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>) longValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 100</span></span><br></pre></td></tr></table></figure></p>
-<p>但有几点需要注意的地方:</p>
-<h4 id="浮点型强转为整型时，会将小数点后的位数强制截掉。"><a href="#浮点型强转为整型时，会将小数点后的位数强制截掉。" class="headerlink" title="浮点型强转为整型时，会将小数点后的位数强制截掉。"></a>浮点型强转为整型时，会将小数点后的位数强制截掉。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> doubleValue = <span class="number">12.5</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>) doubleValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
-<h4 id="要转换的值大于当前类型最大-小值时，多出的部分会从另一个极端进行循环。"><a href="#要转换的值大于当前类型最大-小值时，多出的部分会从另一个极端进行循环。" class="headerlink" title="要转换的值大于当前类型最大/小值时，多出的部分会从另一个极端进行循环。"></a>要转换的值大于当前类型最大/小值时，多出的部分会从另一个极端进行循环。</h4><p>例如 2147483647 是 int的最大值:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> longValue = <span class="number">2147483647L</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>) longValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 2147483647</span></span><br></pre></td></tr></table></figure></p>
-<p>以上输出的是正常的。但是下面就不一样了:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> longValue = <span class="number">2147483648L</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>) longValue;</span><br><span class="line">System.out.println(intValue); <span class="comment">//-2147483648</span></span><br></pre></td></tr></table></figure></p>
-<p>byte/short在java中范围和int等同。所以不会出现小范围不停循环的问题。</p>
-<h4 id="char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码"><a href="#char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码" class="headerlink" title="char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:"></a>char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> charValue = <span class="string">'中'</span>;</span><br><span class="line"><span class="keyword">int</span> intValue = (<span class="keyword">int</span>)charValue;</span><br><span class="line">System.out.println(intValue);<span class="comment">// 20013</span></span><br></pre></td></tr></table></figure>
-<p>关于编码的更多知识可以看我的另一篇文章 编码的那些事儿。</p>
-<h2 id="同行声明多个变量"><a href="#同行声明多个变量" class="headerlink" title="同行声明多个变量"></a>同行声明多个变量</h2><p>我们也可以在一行内生成多个变量，中间用逗号,分隔:  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>, b = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">int</span> c,d,e;</span><br><span class="line">System.out.println(a + <span class="string">" "</span> + b);</span><br></pre></td></tr></table></figure>
+<h2 id="静态与非静态区别"><a href="#静态与非静态区别" class="headerlink" title="静态与非静态区别"></a>静态与非静态区别</h2><p>我们之前有提到过静态方法是属于整个类的，而非静态方法是属于实例化后的对象的。这句话略微抽象，我们使用例子来介绍一下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String job = <span class="string">"学生"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduceMySelf</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我的名字是"</span> + name + <span class="string">",现在"</span> + grade + <span class="string">"年级"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">introduceJob</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是一个"</span> + job);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在其他类里写一个main方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Student zhangsan = <span class="keyword">new</span> Student();</span><br><span class="line">	zhangsan.name = <span class="string">"张三"</span>;</span><br><span class="line">	zhangsan.grade = <span class="number">2</span>;</span><br><span class="line">	Student lisi = <span class="keyword">new</span> Student();</span><br><span class="line">	lisi.name = <span class="string">"李四"</span>;</span><br><span class="line">	lisi.grade = <span class="number">1</span>;</span><br><span class="line">	Student.introduceJob(); <span class="comment">// 我是一个学生</span></span><br><span class="line">	zhangsan.introduceMySelf(); <span class="comment">// 我的名字是张三，现在2年级</span></span><br><span class="line">	Student.introduceJob();<span class="comment">// 我是一个学生</span></span><br><span class="line">	lisi.introduceMySelf();<span class="comment">// 我的名字是李四，现在1年级</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在这个例子中，不管是张三还是李四，作为一个Student，他的职业只能是学生。在介绍职业时，就应该告诉大家，我是一个学生。<br>这个和具体哪一个学生无关，所以是static的，静态的。<br>但是每个学生的名字，年级是不一样的。张三的名字是张三，李四的名字是李四，这个和具体哪一个学生有关。所以不能用static。<br>静态的方法(变量)，我们通常使用类名.方法(变量)，这是因为这个方法属于整个类。<br>而非静态的方法(变量),我们只能使用对象.方法(变量),因为每个对象做的事可能是不一样的。</p>
+<h4 id="相互调用浅析"><a href="#相互调用浅析" class="headerlink" title="相互调用浅析"></a>相互调用浅析</h4><p>非静态方法可以调用静态方法和变量,上面的Student可以改写成如下形式:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> String job = <span class="string">"学生"</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduceMySelf</span><span class="params">()</span></span>&#123;</span><br><span class="line">		introduceJob();</span><br><span class="line">		System.out.println(<span class="string">"我的名字是"</span> + name + <span class="string">",现在"</span> + grade + <span class="string">"年级"</span> + job);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">introduceJob</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是一个"</span> + job);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们在非静态方法introduceMyself中调用了静态方法introduceJob()和静态变量job。新建对象后输出结果为:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我是一个学生</span><br><span class="line">我的名字是 对象的name,现在 对象的grade 年级学生</span><br></pre></td></tr></table></figure></p>
+<p>这是因为不管是张三还是李四，他都可以取作为一个学生共有的属性，做作为一个学生可以做的事。  </p>
+<p>但是我们可以尝试一下在introduceJob中调用introduceMySelf或者name.<br>我们发现，在静态方法中是无法调用非静态方法的。<br>这是因为，作为一个学生共有的方法，它并不知道实例化后对象具体的信息。它只能做学生做的事，但并不知道真正做这个事的人是张三还是李四。  </p>
+<h2 id="什么是工具类"><a href="#什么是工具类" class="headerlink" title="什么是工具类"></a>什么是工具类</h2><p>在java程序设计时，会设计一些只有静态变量方法的类，用于执行某一方面特定的操作，这种类叫做工具类。<br>比如对日期和时间进行操作的工具类(可能包含日期格式相互转换，日期增减，节假日判断等), 对数字运算的工具类(比如对精度的控制)。<br>我们之前用过的Math和Arrays也是工具类。<br>其中Math是数学工具类，提供随机数，开方等方法。<br>Arrays是数组工具类，提供数组拷贝，排序等方法。  </p>
+<h2 id="this-关键字"><a href="#this-关键字" class="headerlink" title="this 关键字"></a>this 关键字</h2><p>在非静态方法中，this代指当前对象。我们可以使用this.方法和this.变量来调用当前方法和变量。比如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"您好"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">introduceMySelf</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.sayHello();</span><br><span class="line">		System.out.println(<span class="string">"我的名字是"</span> + <span class="keyword">this</span>.name + <span class="string">",现在"</span> + <span class="keyword">this</span>.grade + <span class="string">"年级"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是，在上面这种情况时，我们一般可以省略this,直接使用方法和变量来调用。<br>那么，this一般在什么情况下使用呢?来看一段代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		System.out.println(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayOwnName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="keyword">this</span>.name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Student student = <span class="keyword">new</span> Student();</span><br><span class="line">	student.name = <span class="string">"张三"</span>;</span><br><span class="line">	student.sayName(<span class="string">"李四"</span>);<span class="comment">// 李四</span></span><br><span class="line">	student.sayOwnName(<span class="string">"李四"</span>); <span class="comment">// 张三</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们初始化student对象后，给student的name赋值为张三。但是在调用sayName的时候，给形式参数name赋值为李四，在方法中输出的应该是李四。在形式参数和成员变量同名时，形式参数的优先级高于类的成员变量。那么，我们仍旧想使用我们自己的成员变量怎么办呢？这个时候就使用this.来特指当前类的成员变量。  </p>
+<p>this主要用于对象的成员变量和形式参数同名时，特指对象的成员变量。  </p>
+<p>我们一起来借用this的特性编写一个初始化方法来简化Student对象的初始化。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(String name, <span class="keyword">int</span> grade)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.grade = grade;</span><br><span class="line">		System.out.println(<span class="string">"大家好, 我叫"</span>+ <span class="keyword">this</span>.name + <span class="string">", 是"</span> + <span class="keyword">this</span>.grade + <span class="string">"年级学生"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Student student = <span class="keyword">new</span> Student();</span><br><span class="line">	student.init(<span class="string">"张三"</span>, <span class="number">1</span>); <span class="comment">// 大家好，我叫张三，是一年级学生</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -526,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/05/java基础-四-java的命名规范/" rel="next" title="java基础(四)java的命名规范">
-                <i class="fa fa-chevron-left"></i> java基础(四)java的命名规范
+              <a href="/2018/09/09/java基础-十三-什么是对象/" rel="next" title="java基础(十三)什么是对象">
+                <i class="fa fa-chevron-left"></i> java基础(十三)什么是对象
               </a>
             
           </div>
@@ -536,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/05/java基础-六-基础运算符/" rel="prev" title="java基础(六)基础运算符">
-                java基础(六)基础运算符 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/12/java基础-十五-java的内存模型浅析/" rel="prev" title="java基础(十五)java的内存模型浅析">
+                java基础(十五)java的内存模型浅析 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -670,7 +557,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接量"><span class="nav-number">2.</span> <span class="nav-text">直接量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本类型间的强转"><span class="nav-number">3.</span> <span class="nav-text">基本类型间的强转</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点型强转为整型时，会将小数点后的位数强制截掉。"><span class="nav-number">3.0.1.</span> <span class="nav-text">浮点型强转为整型时，会将小数点后的位数强制截掉。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#要转换的值大于当前类型最大-小值时，多出的部分会从另一个极端进行循环。"><span class="nav-number">3.0.2.</span> <span class="nav-text">要转换的值大于当前类型最大/小值时，多出的部分会从另一个极端进行循环。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码"><span class="nav-number">3.0.3.</span> <span class="nav-text">char字符默认用Unicode编码，如果将char强转为int，会得到它对应的unicode编码:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同行声明多个变量"><span class="nav-number">4.</span> <span class="nav-text">同行声明多个变量</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#静态变量，成员变量，静态方法，非静态方法"><span class="nav-number">1.</span> <span class="nav-text">静态变量，成员变量，静态方法，非静态方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态与非静态区别"><span class="nav-number">2.</span> <span class="nav-text">静态与非静态区别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#相互调用浅析"><span class="nav-number">2.0.1.</span> <span class="nav-text">相互调用浅析</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是工具类"><span class="nav-number">3.</span> <span class="nav-text">什么是工具类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this-关键字"><span class="nav-number">4.</span> <span class="nav-text">this 关键字</span></a></li></ol></div>
             
 
           </div>

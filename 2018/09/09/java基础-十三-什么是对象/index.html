@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 当然这样的变量多起来就会变得异常难管理。毕">
+<meta name="description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 这样的变量多起来就会变得异常难管理。毕竟人">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基础(十三)什么是对象">
 <meta property="og:url" content="http://yoursite.com/2018/09/09/java基础-十三-什么是对象/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 当然这样的变量多起来就会变得异常难管理。毕">
+<meta property="og:description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 这样的变量多起来就会变得异常难管理。毕竟人">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-11T09:58:39.978Z">
+<meta property="og:updated_time" content="2018-09-12T09:15:54.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(十三)什么是对象">
-<meta name="twitter:description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 当然这样的变量多起来就会变得异常难管理。毕">
+<meta name="twitter:description" content="对象之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。当然我们可以另外使用几个数组通过下标相对应来做:12int scores = &amp;#123;97, 96, 94&amp;#125;;String name = &amp;#123;&quot;张三&quot;, &quot;李四&quot;, &quot;王五&quot;&amp;#125;; 这样的变量多起来就会变得异常难管理。毕竟人">
 
 
 
@@ -376,7 +376,7 @@
 
       
         <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>之前的学习，我们如果要储存一组学生的成绩，可以使用一个int型的数组。但是我们怎么将学生的成绩和这个学生的学号，姓名等其他基本信息进行相连呢。<br>当然我们可以另外使用几个数组通过下标相对应来做:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> scores = &#123;<span class="number">97</span>, <span class="number">96</span>, <span class="number">94</span>&#125;;</span><br><span class="line">String name = &#123;<span class="string">"张三"</span>, <span class="string">"李四"</span>, <span class="string">"王五"</span>&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>当然这样的变量多起来就会变得异常难管理。毕竟人可能有学号，性别，班级，年龄。同一个人的成绩又可以分成语文，数学，英语…<br>我们可以新建一个Class叫Student,Student里有学号，性别等属性。而且我们还可以根据系统的需要增加或者删除属性。<br>这时，我们只需要一个Student的数组来管理学生的信息就可以了。<br>简单地说，对象使得数据结构可以灵活地根据系统需求改变。<br><a id="more"></a></p>
+<p>这样的变量多起来就会变得异常难管理。毕竟人可能有学号，性别，班级，年龄。同一个人的成绩又可以分成语文，数学，英语…<br>我们可以新建一个Class叫Student,Student里有学号，性别等属性。而且我们还可以根据系统的需要增加或者删除属性。<br>这时，我们只需要一个Student的数组来管理学生的信息就可以了。<br>简单地说，对象使得数据结构可以灵活地根据系统需求改变。<br><a id="more"></a></p>
 <h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><p>接下来我们一起来设计Student的例子。  </p>
 <h4 id="Class-Student的创建"><a href="#Class-Student的创建" class="headerlink" title="Class Student的创建"></a>Class Student的创建</h4><p>首先新建一个package 叫 objectlearn。 在package中新建一个名叫Student的Class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> objectlearn;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>然后我们根据需要为Student添加属性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 学号</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> no;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 姓名</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 性别</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> String gender;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 分数</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> score;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">"学号:"</span> + no + <span class="string">" 姓名:"</span> + name + <span class="string">" 性别:"</span> + gender + <span class="string">" 分数:"</span> + score;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -387,6 +387,11 @@
 <p>然后我们为对象student赋值:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">student.no = <span class="number">1</span>;</span><br><span class="line">student.name = <span class="string">"张三"</span>;</span><br><span class="line">student.gender = <span class="string">"男"</span>;</span><br><span class="line">student.score = <span class="number">97</span>;</span><br></pre></td></tr></table></figure></p>
 <p>最后我们输出一下这个对象:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(student); <span class="comment">// 学号:1 姓名:张三 性别:男 分数:97</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString"></a>toString</h4><p>toString()方法是java为对象设计的转换为字符串的默认方法。System.out.println()在传入一个自定义类的对象时，会去调用这个对象的toString （）方法。如果没有，则会输出这个对象的地址。  </p>
+<h2 id="对象的引用和实际值"><a href="#对象的引用和实际值" class="headerlink" title="对象的引用和实际值"></a>对象的引用和实际值</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对象类型 对象名 = <span class="keyword">new</span> 对象类型();</span><br></pre></td></tr></table></figure>
+<p>在这个基本的声明中，new 对象类型()新建了一个对象，但实际上是返回了一个地址。而对象名中储存的就是这个地址。在我们调用对象名的时候，是通过变量里面储存的地址找到真正的对象并对其操作。<br>我们将公式中的对象名叫做引用，而 new 对象类型() 才是新建了实际值。</p>
+<h2 id="null-和-NullPointerException"><a href="#null-和-NullPointerException" class="headerlink" title="null 和 NullPointerException"></a>null 和 NullPointerException</h2><p>在对象初始化的时候，我们可以使用null 来给对象进行直接赋值。例如:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student student = <span class="keyword">null</span>;</span><br></pre></td></tr></table></figure></p>
+<p>null是Java中的关键字,它不属于任何类型,是所有引用类型的默认值。在上面这段代码中，我们给student赋值为null，并不会为student开辟内存空间，引用student指向的是空地址。<br>如果我们使用这个student调用它的属性：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">student.name = <span class="string">"张三"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>程序就会报出NullPointerException,并在这一行停止。<br>在大型项目的运行中，NullPointerException是比较常见的情况。通常是由于使用者调用了未赋值的对象。</p>
 
       
     </div>
@@ -420,6 +425,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/12/java基础-十四-静态变量与成员变量/" rel="prev" title="java基础(十四)静态变量与成员变量">
+                java基础(十四)静态变量与成员变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -496,7 +505,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -507,7 +516,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -551,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Student的创建"><span class="nav-number">2.0.1.</span> <span class="nav-text">Class Student的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-方法的创建"><span class="nav-number">2.0.2.</span> <span class="nav-text">main 方法的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象初始化"><span class="nav-number">2.0.3.</span> <span class="nav-text">对象初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.0.4.</span> <span class="nav-text">toString</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number">2.</span> <span class="nav-text">创建对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Class-Student的创建"><span class="nav-number">2.0.1.</span> <span class="nav-text">Class Student的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#main-方法的创建"><span class="nav-number">2.0.2.</span> <span class="nav-text">main 方法的创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象初始化"><span class="nav-number">2.0.3.</span> <span class="nav-text">对象初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#toString-NaN"><span class="nav-number">2.0.4.</span> <span class="nav-text">toString</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的引用和实际值"><span class="nav-number">3.</span> <span class="nav-text">对象的引用和实际值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null-和-NullPointerException"><span class="nav-number">4.</span> <span class="nav-text">null 和 NullPointerException</span></a></li></ol></div>
             
 
           </div>
