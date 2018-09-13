@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sean&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/categories/java-基础/index.html">
+<meta name="description" content="构造器方法在静态变量与成员变量一节中，我们曾经手写过一个init方法如下:123456789public class Student&amp;#123;	public String name;	public int grade;	public void init(String name, int grade)&amp;#123;		this.name = name;		this.grade = grade;		S">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基础(十六)构造器">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/java基础-十六-构造器/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="构造器方法在静态变量与成员变量一节中，我们曾经手写过一个init方法如下:123456789public class Student&amp;#123;	public String name;	public int grade;	public void init(String name, int grade)&amp;#123;		this.name = name;		this.grade = grade;		S">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-13T05:11:22.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sean&#39;s Blog">
+<meta name="twitter:title" content="java基础(十六)构造器">
+<meta name="twitter:description" content="构造器方法在静态变量与成员变量一节中，我们曾经手写过一个init方法如下:123456789public class Student&amp;#123;	public String name;	public int grade;	public void init(String name, int grade)&amp;#123;		this.name = name;		this.grade = grade;		S">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/java-基础/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/java基础-十六-构造器/"/>
 
 
 
 
 
-  <title>Category: java 基础 | Sean's Blog</title>
+  <title>java基础(十六)构造器 | Sean's Blog</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,55 +272,185 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>java 基础<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/java基础-十六-构造器/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/12/java基础-十四-静态变量与成员变量/" itemprop="url">
-              
-                <span itemprop="name">java基础(十四)静态变量与成员变量</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">java基础(十六)构造器</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-12T10:03:50+08:00"
-              content="2018-09-12" >
-          09-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-13T09:18:23+08:00">
+                2018-09-13
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="构造器方法"><a href="#构造器方法" class="headerlink" title="构造器方法"></a>构造器方法</h2><p>在<strong>静态变量与成员变量</strong>一节中，我们曾经手写过一个init方法如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(String name, <span class="keyword">int</span> grade)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.grade = grade;</span><br><span class="line">		System.out.println(<span class="string">"..."</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样我们就能在一个方法中对重要的参数进行赋值，并且进行特定的操作了。<br>其实java 内部已经设计了类似的方法，就是java 的构造器方法。  </p>
+<a id="more"></a>
+<h2 id="构造器方法的语法"><a href="#构造器方法的语法" class="headerlink" title="构造器方法的语法"></a>构造器方法的语法</h2><p>java的构造器方法的方法名必须与类名一致，且不用书写返回值,大概格式如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 类名(参数...)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>以Student类为例:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> grade)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.grade = grade;</span><br><span class="line">		System.out.println(<span class="string">"name:"</span> + name + <span class="string">" grade:"</span> + grade);</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Student student = <span class="keyword">new</span> Student(<span class="string">"张三"</span>, <span class="number">5</span>); <span class="comment">// name: 张三  grade: 5</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在new 实例化对象的时候，传入对应的参数，就会调用Student的构造器方法，执行里面的内容。  </p>
+<p>系统在类没有声明构造器方法时，会隐形地给程序声明一个无参的构造器方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> 类名()&#123;</span><br><span class="line">	<span class="comment">// do nothing</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所以我们才能在不声明构造器方法的情况下，直接实例化对象:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Student student = <span class="keyword">new</span> Student();</span><br></pre></td></tr></table></figure></p>
+<p>但是在我们声明了构造器方法后，默认的无参构造器就会失效,如果还要像上面这样调用，我们必须自己实现无参构造器，如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> String name;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> grade;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(<span class="keyword">int</span> grade)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.grade = grade;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name, <span class="keyword">int</span> grade)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.grade = grade;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>此外，我们还可以和代码一样，根据需要写不同的构造器，虽然方法名相同，但系统会根据参数的不同，选择不同的构造器。这种实现方式，叫做方法的重载。</p>
+<h2 id="方法的重载-overload"><a href="#方法的重载-overload" class="headerlink" title="方法的重载(overload)"></a>方法的重载(overload)</h2><p>在同一个类，或父子类(之后会讲)。两个或以上的方法的方法名一样，但是参数不同，就叫做方法的重载。不同的构造器方法就是典型的重载例子。<br>我们如果看源码，System.out.println和Arrays.copyOf也是通过重载实现的。<br>我们来做一个静态方法的重载:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">Test</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">double</span> a, <span class="keyword">double</span> b)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> a + b + c;</span><br><span class="line">	&#125; </span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		sum(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">		sum(<span class="number">1</span>D, <span class="number">2</span>D);</span><br><span class="line">		sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>sum(1, 2)由于是两个整型int的参数，所以会调用第一个方法。<br>sum(1D, 2D)由于是两个浮点型double的参数，所以会调用第二个方法。<br>sum(1, 2, 3)由于是三个整型int的参数，所以会调用第三个方法。  </p>
+<p>需要注意，以下几种情况不构成重载，会编译错误:</p>
+<ol>
+<li>参数类型对应，但形式参数名不同:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a1)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String a2)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这是因为方法的形式参数只是用于方法内部，形式参数的名字不会影响外部的调用。  </p>
+<ol start="2">
+<li>参数类型对应，返回值不同:<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这是因为程序在调用时，无法检测接受返回值的参数类型。而是调用方法结束后，将方法返回给调用者。<br>而且如果遇到不接收返回值的调用，系统更加无法确定应该调用的方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sum(a, b); <span class="comment">// 这里没有变量接收，所以无法辨别应该调用返回int型的方法，还是调用返回double型的方法</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/12/java基础-十五-java的内存模型浅析/" rel="next" title="java基础(十五)java的内存模型浅析">
+                <i class="fa fa-chevron-left"></i> java基础(十五)java的内存模型浅析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -324,6 +458,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -344,8 +482,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -360,7 +507,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -371,7 +518,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -405,6 +552,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器方法"><span class="nav-number">1.</span> <span class="nav-text">构造器方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造器方法的语法"><span class="nav-number">2.</span> <span class="nav-text">构造器方法的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法的重载-overload"><span class="nav-number">3.</span> <span class="nav-text">方法的重载(overload)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -545,6 +708,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
