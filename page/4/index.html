@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sean&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/转载/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/转载/"/>
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
 
 
 
 
 
-  <title>Tag: 转载 | Sean's Blog</title>
+  <title>Sean's Blog</title>
   
 
 
@@ -140,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -267,55 +268,200 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  
-  
-  
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>转载<small>Tag</small>
-        </h1>
-      </div>
-
+  <section id="posts" class="posts-expand">
+    
       
-        
+
+  
+
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/工具类(三)中文阿拉伯数字相互转换NumberUtil/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/23/转载-编码那点事/" itemprop="url">
-              
-                <span itemprop="name">(转载)编码那点事</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/23/工具类(三)中文阿拉伯数字相互转换NumberUtil/" itemprop="url">工具类(三)中文阿拉伯数字相互转换NumberUtil</a></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-23T21:14:53+08:00"
-              content="2018-05-23" >
-          05-23
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T13:08:08+08:00">
+                2018-05-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具类/" itemprop="url" rel="index">
+                    <span itemprop="name">工具类</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        
+          <h2 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h2><p>我们有时会需要将中文和阿拉伯数字相互转换。<br>但中文数字并非单纯像电话号码一样一一对应解读，会出现一百零五万三千零伍拾这样的问题。</p>
+<h3 id="中文解读有趣的例子"><a href="#中文解读有趣的例子" class="headerlink" title="中文解读有趣的例子"></a>中文解读有趣的例子</h3><p>这是我在解读月份时发现的有趣例子。<br>两位数中十的解读:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">情况</th>
+<th style="text-align:center">中文</th>
+<th style="text-align:center">阿拉伯数字</th>
+<th style="text-align:center">解读说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">十在首位</td>
+<td style="text-align:center">十一</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center">十解读为1</td>
+</tr>
+<tr>
+<td style="text-align:center">十在中间</td>
+<td style="text-align:center">三十一</td>
+<td style="text-align:center">31</td>
+<td style="text-align:center">十不解读</td>
+</tr>
+<tr>
+<td style="text-align:center">十在末尾</td>
+<td style="text-align:center">二十</td>
+<td style="text-align:center">20</td>
+<td style="text-align:center">十解读为0</td>
+</tr>
+<tr>
+<td style="text-align:center">十单独出现</td>
+<td style="text-align:center">十</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center">十解读为10</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>并且我的工作环境下，大量数据的录入可能存在数据源填写错误的情况，比如一白〇而时(120)的情况。<br>所以也在Util中加了容错的数组(可自行扩充)判断。<br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/05/23/工具类(三)中文阿拉伯数字相互转换NumberUtil/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
 
 
           </div>
