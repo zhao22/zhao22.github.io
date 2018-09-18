@@ -86,10 +86,12 @@
 <meta property="og:site_name" content="Sean&#39;s Blog">
 <meta property="og:description" content="继承初探继承属于类与类之间关系的一种。继承自其它类的类叫做子类，被其他类继承的类叫做父类。比如猫和动物，猫属于动物的一种，那么猫就可以继承自动物，此时动物就是父类，猫就是子类。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-17T12:12:51.915Z">
+<meta property="og:image" content="http://www.ashasean.cn/blog-image/classrelation1.png">
+<meta property="og:updated_time" content="2018-09-17T12:28:15.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基础(十七)继承">
 <meta name="twitter:description" content="继承初探继承属于类与类之间关系的一种。继承自其它类的类叫做子类，被其他类继承的类叫做父类。比如猫和动物，猫属于动物的一种，那么猫就可以继承自动物，此时动物就是父类，猫就是子类。">
+<meta name="twitter:image" content="http://www.ashasean.cn/blog-image/classrelation1.png">
 
 
 
@@ -392,7 +394,7 @@
 </li>
 </ol>
 <p>我们发现，即使在Cat中没有声明eat方法，我们在Cat调用eat时，也会自动调用父类的eat方法。  </p>
-<h4 id="继承的复用"><a href="#继承的复用" class="headerlink" title="继承的复用"></a>继承的复用</h4><p>在上面的例子中，Cat类通过继承Animal类获得了Animal的eat方法。如果我们有多个类需要使用同一套属性和方法，就可以思考这些类的联系，为它们创建一个父类。那么我们就只用在父类实现这个方法，而无需在子类中挨个修改。<br>实际上，父类中储存的是所有子类的共性,大致图像如下:  </p>
+<h4 id="继承的复用"><a href="#继承的复用" class="headerlink" title="继承的复用"></a>继承的复用</h4><p>在上面的例子中，Cat类通过继承Animal类获得了Animal的eat方法。如果我们有多个类需要使用同一套属性和方法，就可以思考这些类的联系，为它们创建一个父类。那么我们就只用在父类实现这个方法，而无需在子类中挨个修改。<br>实际上，父类中储存的是所有子类的共性,大致图像如下:<br><img src="http://www.ashasean.cn/blog-image/classrelation1.png" alt="继承关系">  </p>
 <h4 id="继承的关系"><a href="#继承的关系" class="headerlink" title="继承的关系"></a>继承的关系</h4><ol>
 <li><p>java与C++不同，java中的继承是<strong>单继承</strong>:<br>一个类只能继承自一个父类。<br>比如猫类不能同时继承自动物类和猫科动物类。  </p>
 </li>
@@ -416,7 +418,7 @@
 <p>数组类型为Animal,可以添加子类Cat的对象:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Animal[] animals = <span class="keyword">new</span> Animal[<span class="number">1</span>];</span><br><span class="line">	animals[<span class="number">0</span>] = <span class="keyword">new</span> Cat();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="super"><a href="#super" class="headerlink" title="super"></a>super</h4><p>在子类的方法里，可以通过super.[属性/方法]来调用父类的属性和方法。当然很多时候也会被省略。  </p>
 <h4 id="构造器方法调用"><a href="#构造器方法调用" class="headerlink" title="构造器方法调用"></a>构造器方法调用</h4><p>在子类的构造器中，一定会在最前面调用父类的无参构造器。我们来试一下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	Animal()&#123;</span><br><span class="line">		System.out.println(<span class="string">"Animal init"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span>&#123;</span><br><span class="line">	Cat()&#123;</span><br><span class="line">		System.out.println(<span class="string">"Cat init"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Cat(String name)&#123;</span><br><span class="line">		System.out.println(name + <span class="string">"init"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Cat cat = <span class="keyword">new</span> Cat(); <span class="comment">// Animal init \n Cat init</span></span><br><span class="line">		cat = <span class="keyword">new</span> Cat(<span class="string">"Tom"</span>); <span class="comment">// Animal init \n Tom init</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后输出发现，子类无论是哪个构造器方法，都会先调用Animal的无参构造器，输出Animal init。</p>
+<p>最后输出发现，子类无论是哪个构造器方法，都会先调用Animal的无参构造器，输出Animal init。  </p>
 
       
     </div>
@@ -450,6 +452,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/18/java基础-十八-抽象类和接口/" rel="prev" title="java基础(十八)抽象类和接口">
+                java基础(十八)抽象类和接口 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -526,7 +532,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
