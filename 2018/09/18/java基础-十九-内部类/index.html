@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="原创,算法,排序算法," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,23 +79,17 @@
 
 
 
-<meta name="description" content="文章简介堆排序java算法,排序的思想理解以及里面数学部分的思考。">
-<meta name="keywords" content="原创,算法,排序算法">
+<meta name="description" content="为何有内部类如果我们需要一个类不暴露在整个环境下，只在某个类或者方法内局部使用，我们一般使用内部类。比如我们有一个树类，需要树叶类做数据传输，那树叶类完全可以封装在树类的内部。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="堆排序实现及数学思考">
-<meta property="og:url" content="http://yoursite.com/2018/05/23/堆排序实现及数学思考/index.html">
+<meta property="og:title" content="java基础(十九)内部类">
+<meta property="og:url" content="http://yoursite.com/2018/09/18/java基础-十九-内部类/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="文章简介堆排序java算法,排序的思想理解以及里面数学部分的思考。">
+<meta property="og:description" content="为何有内部类如果我们需要一个类不暴露在整个环境下，只在某个类或者方法内局部使用，我们一般使用内部类。比如我们有一个树类，需要树叶类做数据传输，那树叶类完全可以封装在树类的内部。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.ashasean.cn/blog-image/heap1.png">
-<meta property="og:image" content="http://www.ashasean.cn/blog-image/heap2.png">
-<meta property="og:image" content="http://www.ashasean.cn/blog-image/heap3.png">
-<meta property="og:image" content="http://www.ashasean.cn/blog-image/heap4.png">
-<meta property="og:updated_time" content="2018-05-25T03:17:20.799Z">
+<meta property="og:updated_time" content="2018-09-19T03:17:09.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="堆排序实现及数学思考">
-<meta name="twitter:description" content="文章简介堆排序java算法,排序的思想理解以及里面数学部分的思考。">
-<meta name="twitter:image" content="http://www.ashasean.cn/blog-image/heap1.png">
+<meta name="twitter:title" content="java基础(十九)内部类">
+<meta name="twitter:description" content="为何有内部类如果我们需要一个类不暴露在整个环境下，只在某个类或者方法内局部使用，我们一般使用内部类。比如我们有一个树类，需要树叶类做数据传输，那树叶类完全可以封装在树类的内部。">
 
 
 
@@ -125,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/23/堆排序实现及数学思考/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/18/java基础-十九-内部类/"/>
 
 
 
 
 
-  <title>堆排序实现及数学思考 | Sean's Blog</title>
+  <title>java基础(十九)内部类 | Sean's Blog</title>
   
 
 
@@ -292,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/23/堆排序实现及数学思考/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/java基础-十九-内部类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -309,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">堆排序实现及数学思考</h1>
+          <h1 class="post-title" itemprop="name headline">java基础(十九)内部类</h1>
         
 
         <div class="post-meta">
@@ -321,8 +315,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-23T21:53:31+08:00">
-                2018-05-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-18T16:42:16+08:00">
+                2018-09-18
               </time>
             
 
@@ -344,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/java基础/" itemprop="url" rel="index">
+                    <span itemprop="name">java基础</span>
                   </a>
                 </span>
 
@@ -381,42 +375,23 @@
       
 
       
-        <h2 id="文章简介"><a href="#文章简介" class="headerlink" title="文章简介"></a>文章简介</h2><p>堆排序java算法,排序的思想理解以及里面数学部分的思考。<br><a id="more"></a></p>
-<h2 id="java实现"><a href="#java实现" class="headerlink" title="java实现"></a>java实现</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> https://www.cnblogs.com/chengxiao/p/6129630.html </span></span><br><span class="line"><span class="comment"> */</span>  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Heap</span> </span>&#123;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> []arr = &#123;<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">10</span>&#125;;  </span><br><span class="line">        sort(arr);  </span><br><span class="line">        System.out.println(Arrays.toString(arr));  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span> []arr)</span></span>&#123;  </span><br><span class="line">        <span class="comment">//1.构建大顶堆  </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=arr.length/<span class="number">2</span>-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;  </span><br><span class="line">            <span class="comment">//从第一个非叶子结点从下至上，从右至左调整结构  </span></span><br><span class="line">            adjustHeap(arr,i,arr.length);  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//2.调整堆结构+交换堆顶元素与末尾元素  </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=arr.length-<span class="number">1</span>;j&gt;<span class="number">0</span>;j--)&#123;  </span><br><span class="line">            <span class="comment">//将堆顶元素与末尾元素进行交换  </span></span><br><span class="line">            swap(arr,<span class="number">0</span>,j);  </span><br><span class="line">            <span class="comment">//重新对堆进行调整  </span></span><br><span class="line">            adjustHeap(arr,<span class="number">0</span>,j);  </span><br><span class="line">        &#125;  </span><br><span class="line">  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 调整大顶堆（仅是调整过程，建立在大顶堆已构建的基础上） </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> i </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> length </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">adjustHeap</span><span class="params">(<span class="keyword">int</span> []arr,<span class="keyword">int</span> i,<span class="keyword">int</span> length)</span></span>&#123;  </span><br><span class="line">        <span class="comment">//先取出当前元素i  </span></span><br><span class="line">        <span class="keyword">int</span> temp = arr[i];  </span><br><span class="line">        <span class="comment">//从i结点的左子结点开始，也就是2i+1处开始  </span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=i*<span class="number">2</span>+<span class="number">1</span>;k&lt;length;k=k*<span class="number">2</span>+<span class="number">1</span>)&#123;  </span><br><span class="line">            <span class="comment">//如果左子结点小于右子结点，k指向右子结点  </span></span><br><span class="line">            <span class="keyword">if</span>(k+<span class="number">1</span>&lt;length &amp;&amp; arr[k]&lt;arr[k+<span class="number">1</span>])&#123;  </span><br><span class="line">                k++;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="comment">//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）  </span></span><br><span class="line">            <span class="keyword">if</span>(arr[k] &gt;temp)&#123;  </span><br><span class="line">                arr[i] = arr[k];  </span><br><span class="line">                i = k;  </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;  </span><br><span class="line">                <span class="keyword">break</span>;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="comment">//将temp值放到最终的位置  </span></span><br><span class="line">        arr[i] = temp;  </span><br><span class="line">    &#125;  </span><br><span class="line">  </span><br><span class="line">    <span class="comment">/** </span></span><br><span class="line"><span class="comment">     * 交换元素 </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> arr </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> a </span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> b </span></span><br><span class="line"><span class="comment">     */</span>  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> []arr,<span class="keyword">int</span> a ,<span class="keyword">int</span> b)</span></span>&#123;  </span><br><span class="line">        <span class="keyword">int</span> temp=arr[a];  </span><br><span class="line">        arr[a] = arr[b];  </span><br><span class="line">        arr[b] = temp;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="排序思想"><a href="#排序思想" class="headerlink" title="排序思想"></a>排序思想</h2><h3 id="顶堆的概念"><a href="#顶堆的概念" class="headerlink" title="顶堆的概念"></a>顶堆的概念</h3><p>堆排序处理顺序的特点是升序使用大顶堆，降序使用小顶堆。<br><strong>大顶堆</strong>（又叫大根堆，最大堆）：<br>子节点的值一定小于父节点。<br>即下图中，(1)的值大于(2)、(3)的值<br><img src="http://www.ashasean.cn/blog-image/heap1.png" alt="顶堆示意图"><br>有的人觉得升序应该使用小顶堆，这样从上自下依次读取(1)(2)(3)，就是一个升序的数组；<br>这实际上是误解了堆排序的实现方式，因为堆排序没有进行横向排序的。即(2)和(3)没有固定的大小关系。</p>
-<h3 id="堆排序的实现步骤"><a href="#堆排序的实现步骤" class="headerlink" title="堆排序的实现步骤"></a>堆排序的实现步骤</h3><p>将数组看作一个二叉树。数组从左至右依次对应二叉树从上至下从左至右的元素，如下图是一个长度为12的数组对应的二叉树示意图，数字为对应数组的下标。<br><img src="http://www.ashasean.cn/blog-image/heap2.png" alt="二叉树示意图">  </p>
-<ol>
-<li>首先从末尾父节点(5)开始，比较两个子节点和父节点的大小，将最大值和父节点交换。然后按(4)，(3)，(2)，(1)，(0)的顺序一直遍历到根节点。此时得到一个大顶堆。</li>
-<li>在大顶堆中，根节点(0)的值一定是最大值。所以此时将根节点的值置于末尾。【即交换(0)和(11)的值】</li>
-<li>再次基于剩下的元素构建大顶堆，并将根节点值置于当前末尾。。。。</li>
-</ol>
-<p>这样做在第二次开始每一次构建大顶堆时，除开顶层元素a，第二层开始都是构建好的大顶堆，不需比较所有元素，只需要不停交换a和剩下旁支中较大的元素即可。<br>如下图是第二次比较及交换的其中一种情况。<br><img src="http://www.ashasean.cn/blog-image/heap3.png" alt="比较示意图">  </p>
-<h2 id="数学思考"><a href="#数学思考" class="headerlink" title="数学思考"></a>数学思考</h2><h3 id="为什么最末父节点的坐标为array-length-2-1"><a href="#为什么最末父节点的坐标为array-length-2-1" class="headerlink" title="为什么最末父节点的坐标为array.length/2-1?"></a>为什么最末父节点的坐标为array.length/2-1?</h3><p>由于数组的起始坐标为0，我们可以简单地理解一个元素的坐标为它之前元素的总个数。<br>二叉树可按每层的元素个数转换为一个基数为1，比值为2的等比数列（除开叶子层)；<br>可得第n层的元素个数为2^(n-1)<br>1~n层的元素个数和为2^(n-1)-1<br><img src="http://www.ashasean.cn/blog-image/heap4.png" alt="数学运算"><br>以上图为例：<br>此时，最末父节点所在层n为第三层，最末父节点的子节点数count =1；</p>
-<p>由等比数列性质可知：</p>
-<p>该节点之前的元素个数为： 2^(n-1)-1+(x-count)/2;</p>
-<p>该节点之后的元素个数为： 2^(n-1)-1-(x-count)/2-1+x;</p>
-<p>设m = 2^(n-1) -1 +x/2</p>
-<p>则该节点之前的元素个数为： m-count/2</p>
-<p>该节点之后的元素个数为：m+count/2</p>
-<p>array.length = 节点之前元素+节点+节点之后元素 = 2m+1</p>
-<p>m = (array.length-1)/2</p>
-<p>可得该节点下标为其之前的元素个数：</p>
-<p>(array.length -1)/2 -count/2…………………………………………………………(1)</p>
-<p>由于java浮点数转int总是截断小数点后的数（即1/2取值为0）：</p>
-<p>若count =1：</p>
-<p> 则array.length为偶数;array.length-1为奇数；</p>
-<p> (array.length-1)/2 = (array.length)/2 -1;</p>
-<p> 同时count/2舍去；</p>
-<p> (1)式可转换为 array.length/2 -1;</p>
-<p>若count = 2 :</p>
-<p> 则array.length为奇数;array.length-1为偶数;</p>
-<p> (array.length-1)/2 = (array.length)/2;</p>
-<p>count/2 = 1;</p>
-<p>(2)式也可转换为array.length/2 - 1;</p>
-<h3 id="为什么某节点的左子节点的坐标-该节点坐标i-2-1？"><a href="#为什么某节点的左子节点的坐标-该节点坐标i-2-1？" class="headerlink" title="为什么某节点的左子节点的坐标 = 该节点坐标i*2+1？"></a>为什么某节点的左子节点的坐标 = 该节点坐标i*2+1？</h3><p>将上个问题的最末父节点看作二叉树中的某一节点，则上个问题中count=1情况下的array.length即为子节点的坐标。</p>
-<p>可得关系：</p>
-<p> （子节点坐标-1）/2 = 父节点坐标。</p>
-<p> 即 父节点坐标的左子节点坐标 = 父节点坐标 * 2 + 1</p>
+        <h2 id="为何有内部类"><a href="#为何有内部类" class="headerlink" title="为何有内部类"></a>为何有内部类</h2><p>如果我们需要一个类不暴露在整个环境下，只在某个类或者方法内局部使用，我们一般使用内部类。<br>比如我们有一个树类，需要树叶类做数据传输，那树叶类完全可以封装在树类的内部。    </p>
+<a id="more"></a>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>内部类主要是写在类或方法的内部的类。包含内部类的类叫做该内部类的外部类。  </p>
+<h2 id="成员内部类"><a href="#成员内部类" class="headerlink" title="成员内部类"></a>成员内部类</h2><p>在类的内部像成员变量一样书写的类叫做成员内部类。成员内部类主要用于内部的数据传输。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>成员内部类和其外部类的静态变量和方法是可以相互调用的，而其成员变量和非静态方法调用关系如下：<br>我们可以在内部类中调用外部类的属性和方法,如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String outerClassProperty; </span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">outerClassMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">innerClassMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">			System.out.println(outerClassProperty);</span><br><span class="line">			outerClassMethod();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们也可以在外部类中实例化内部类，调用其变量和方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">outerClassMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">		InnerClass innerClass = <span class="keyword">new</span> InnerClass();</span><br><span class="line">		innerClass.innerClassMethod();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">innerClassMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是由于成员内部类只能在其外部类的非静态方法下实例化，所以一个成员内部类对象，有且只有对应一个外部类对象。而一个外部类对象，则可能拥有多个内部类对象。  </p>
+<p>需要注意，在内部类和外部类变量或方法名相同的情况下，内部类方法中会默认调用内部类的变量或方法，如果需要调用外部类的同名变量，需要使用<strong>外部类.this.变量/方法名</strong>:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name = <span class="string">"outer"</span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">printName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		InnerClass inner = <span class="keyword">new</span> InnerClass();</span><br><span class="line">		inner.innerClassMethod();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		<span class="keyword">private</span> String name = <span class="string">"inner"</span>;</span><br><span class="line">		<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">innerClassMethod</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(name); <span class="comment">// inner</span></span><br><span class="line">			System.out.println(OuterClass.<span class="keyword">this</span>.name); <span class="comment">// outer</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		OuterClass outerClass = <span class="keyword">new</span> OuterClass();</span><br><span class="line">		outerClass.printName();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在上面的例子中，我们在OuterClass中新建了一个main方法来运行程序。<br>在main方法中实例化了一个outerClass ，调用它的printName()方法。<br>在printName中实例化内部类InnerClass,调用他的innerClassMethod方法。<br>我们发现，在innerClassMethod中，直接调用name,是取到的InnerClass的name。<br>而通过OuterClass.this.name调用的则是OuterClass的name。  </p>
+<h2 id="静态内部类"><a href="#静态内部类" class="headerlink" title="静态内部类"></a>静态内部类</h2><p>在类的内部新建带有static 标识的类叫做静态内部类。语法如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>你可以完全把静态内部类看做写在外部类中的一个独立的类。一个静态内部类的对象不一定对应一个唯一的外部类。所以我们不能直接取用外部类的成员变量和方法(只能实例化外部类对象)。同时，如果一个内部类不是private的，我们可以使用外部类.内部类的方式实例化:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OuterClass.InnerClass inner = <span class="keyword">new</span> OuterClass.InnerClass();</span><br></pre></td></tr></table></figure></p>
+<p>一般来讲，我们使用静态内部类来对静态方法进行细分,比如我们可以将所有的基金相关公式放在一个外部类Formula中,然后使用静态内部类将具体公式进行细分:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Formula</span></span>&#123;</span><br><span class="line">	<span class="comment">// 认购</span></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Subscription</span></span>&#123;</span><br><span class="line">		<span class="comment">// some subscription method</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 赎回</span></span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Redemption</span></span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">someRedemptionMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="comment">// do something</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在调用的时候，我们直接使用外部类.内部类.方法即可:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Formula.Redemption.someRedemptionMethod();</span><br></pre></td></tr></table></figure></p>
+<h2 id="局部内部类"><a href="#局部内部类" class="headerlink" title="局部内部类"></a>局部内部类</h2><p>在方法内部的类，叫做局部内部类，局部内部类只能在方法中使用，所以不可加范围修饰符:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OuterClass</span></span>&#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">someMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">		...</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;</span><br><span class="line">			...</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>局部内部类主要用于方法内部进行处理，实际应用较少。  </p>
+<h2 id="匿名内部类"><a href="#匿名内部类" class="headerlink" title="匿名内部类"></a>匿名内部类</h2><p>匿名内部类是在实例化某个类时，在构造方法后添加大括号。主要用于在里面重写类的方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[])</span></span>&#123;</span><br><span class="line">	OuterClass outerClass = <span class="keyword">new</span> OuterClass()&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">overrideMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">			...</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>匿名内部类在实例化的时候被创造。这导致它不能复用，只贡献给一个对象。以后在java swing 和 线程中会用到。在编码过程中，如果我们不希望单独封装一个子类，而直接实例化抽象类或接口的对象时，可以采用匿名内部类来重写抽象方法:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		Animal animal = <span class="keyword">new</span> Animal()&#123;</span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.println(<span class="string">"miao miao"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">		animal.speak();<span class="comment">//miao miao</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -432,16 +407,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/原创/" rel="tag"># 原创</a>
-          
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
-            <a href="/tags/排序算法/" rel="tag"># 排序算法</a>
-          
-        </div>
-      
 
       
       
@@ -451,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/23/转载-编码那点事/" rel="next" title="(转载)编码那点事">
-                <i class="fa fa-chevron-left"></i> (转载)编码那点事
+              <a href="/2018/09/18/java基础-十八-抽象类和接口/" rel="next" title="java基础(十八)抽象类和接口">
+                <i class="fa fa-chevron-left"></i> java基础(十八)抽象类和接口
               </a>
             
           </div>
@@ -460,10 +425,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/25/idea开发常用指令/" rel="prev" title="idea开发常用指令">
-                idea开发常用指令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -595,7 +556,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#文章简介"><span class="nav-number">1.</span> <span class="nav-text">文章简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java实现"><span class="nav-number">2.</span> <span class="nav-text">java实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序思想"><span class="nav-number">3.</span> <span class="nav-text">排序思想</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顶堆的概念"><span class="nav-number">3.1.</span> <span class="nav-text">顶堆的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序的实现步骤"><span class="nav-number">3.2.</span> <span class="nav-text">堆排序的实现步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数学思考"><span class="nav-number">4.</span> <span class="nav-text">数学思考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么最末父节点的坐标为array-length-2-1"><span class="nav-number">4.1.</span> <span class="nav-text">为什么最末父节点的坐标为array.length/2-1?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么某节点的左子节点的坐标-该节点坐标i-2-1？"><span class="nav-number">4.2.</span> <span class="nav-text">为什么某节点的左子节点的坐标 = 该节点坐标i*2+1？</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为何有内部类"><span class="nav-number">1.</span> <span class="nav-text">为何有内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内部类"><span class="nav-number">2.</span> <span class="nav-text">内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成员内部类"><span class="nav-number">3.</span> <span class="nav-text">成员内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态内部类"><span class="nav-number">4.</span> <span class="nav-text">静态内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局部内部类"><span class="nav-number">5.</span> <span class="nav-text">局部内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#匿名内部类"><span class="nav-number">6.</span> <span class="nav-text">匿名内部类</span></a></li></ol></div>
             
 
           </div>
