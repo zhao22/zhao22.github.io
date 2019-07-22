@@ -2,6 +2,36 @@
 <search> 
   
     
+    <entry>
+      <title>springboot-mybatis环境搭建</title>
+      <link href="/2019/07/22/spring-mybatis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2019/07/22/spring-mybatis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      <content type="html"><![CDATA[<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul><li>Java环境 1.8  </li><li>构建工具 Maven  </li><li>数据库 mysql 5.6.34  </li><li>springboot  </li></ul>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 环境搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>springboot-mybatis环境搭建</title>
+      <link href="/2019/07/22/springboot-mybatis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+      <url>/2019/07/22/springboot-mybatis%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+      <content type="html"><![CDATA[<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><ul><li>Java环境 1.8  </li><li>构建工具 Maven  </li><li>数据库 mysql 5.6.34  </li><li>springboot  </li></ul>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 环境搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
   
   
 </search>
