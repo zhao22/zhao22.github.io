@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="springboot," />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="mysql的配置首先在maven中引入依赖:   1234&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 然后在配置文件中配置: 123456spring:  datasour">
-<meta name="keywords" content="springboot">
+<meta name="description" content="字符串的声明shell中的字符串可以用单引号，也可以用双引号，也可以不用引号 单引号1str=&apos;this is a string&apos; 单引号字符串的限制:  单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的    单引号字串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但可成对出现，作为字符串拼接使用。     双引号1str=&quot;this is a string&quot; 双引号的优">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="springboot[2]mysql的配置及JPA的使用">
-<meta property="og:url" content="http://yoursite.com/2019/07/23/springboot-2/index.html">
+<meta property="og:title" content="shell中的字符串">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/shell-2/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="mysql的配置首先在maven中引入依赖:   1234&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 然后在配置文件中配置: 123456spring:  datasour">
+<meta property="og:description" content="字符串的声明shell中的字符串可以用单引号，也可以用双引号，也可以不用引号 单引号1str=&apos;this is a string&apos; 单引号字符串的限制:  单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的    单引号字串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但可成对出现，作为字符串拼接使用。     双引号1str=&quot;this is a string&quot; 双引号的优">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-30T12:01:36.494Z">
+<meta property="og:updated_time" content="2019-08-07T12:03:39.952Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="springboot[2]mysql的配置及JPA的使用">
-<meta name="twitter:description" content="mysql的配置首先在maven中引入依赖:   1234&amp;lt;dependency&amp;gt;  &amp;lt;groupId&amp;gt;mysql&amp;lt;/groupId&amp;gt;  &amp;lt;artifactId&amp;gt;mysql-connector-java&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 然后在配置文件中配置: 123456spring:  datasour">
+<meta name="twitter:title" content="shell中的字符串">
+<meta name="twitter:description" content="字符串的声明shell中的字符串可以用单引号，也可以用双引号，也可以不用引号 单引号1str=&apos;this is a string&apos; 单引号字符串的限制:  单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的    单引号字串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但可成对出现，作为字符串拼接使用。     双引号1str=&quot;this is a string&quot; 双引号的优">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/23/springboot-2/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/07/shell-2/"/>
 
 
 
 
 
-  <title>springboot[2]mysql的配置及JPA的使用 | Sean's Blog</title>
+  <title>shell中的字符串 | Sean's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/23/springboot-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/shell-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">springboot[2]mysql的配置及JPA的使用</h1>
+          <h1 class="post-title" itemprop="name headline">shell中的字符串</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-23T20:51:23+08:00">
-                2019-07-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-07T18:54:48+08:00">
+                2019-08-07
               </time>
             
 
@@ -354,48 +354,120 @@
       
 
       
-        <a id="more"></a>
-<h3 id="mysql的配置"><a href="#mysql的配置" class="headerlink" title="mysql的配置"></a>mysql的配置</h3><p>首先在maven中引入依赖:  </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后在配置文件中配置:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    driver-class-name:</span> <span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="attr">    username:</span> <span class="string">root</span></span><br><span class="line"><span class="attr">    password:</span> <span class="number">123456</span></span><br><span class="line"><span class="attr">    url:</span> <span class="attr">jdbc:mysql://127.0.0.1/database_name?characterEncoding=utf-8&amp;useSSL=false</span></span><br></pre></td></tr></table></figure>
-<h3 id="JPA的使用"><a href="#JPA的使用" class="headerlink" title="JPA的使用"></a>JPA的使用</h3><h4 id="基础配置使用"><a href="#基础配置使用" class="headerlink" title="基础配置使用"></a>基础配置使用</h4><p>首先在maven中引入依赖:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>然后在配置文件中设置(打印sql):  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jpa:</span><br><span class="line">  show-sql: true</span><br></pre></td></tr></table></figure>
-<p>新建entity包并创建文件:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductCategory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br><span class="line">    <span class="keyword">private</span> Integer categoryId;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String categoryName;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer categoryType;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>如果类名和表名的关系不是驼峰转下划线的关系的话，我们可以使用@Table注解来配置表名:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Table</span>(name = <span class="string">"t_product_category"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductCategory</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>新建repository包并创建Repository接口:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductCategoryRepository</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">ProductCategory</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">List&lt;ProductCategory&gt; <span class="title">findByCategoryTypeIn</span><span class="params">(List&lt;Integer&gt; categoryTypeList)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="DynamicUpdate注解说明"><a href="#DynamicUpdate注解说明" class="headerlink" title="DynamicUpdate注解说明"></a>DynamicUpdate注解说明</h4><p>在实际业务场景中，我们经常会从数据库中查出一条数据，对其做一些修改后再更新数据库，如果我们更新时将原来的update_time传入，就会使数据库默认的update_time失效。<br>这时我们可以为entity类加上DynamicUpdate注解自动更新数据库时间。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductCategory</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h4><p>我们可以写一个测试类来测试表的增删改查:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductCategoryTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ProductCategoryRepository repository;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findOneTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ProductCategory one = repository.findById(<span class="number">1</span>).orElse(<span class="keyword">null</span>);</span><br><span class="line">        Assert.assertNotNull(one);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saveTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ProductCategory productCategory = <span class="keyword">new</span> ProductCategory();</span><br><span class="line">        productCategory.setCategoryName(<span class="string">"女生最爱"</span>);</span><br><span class="line">        productCategory.setCategoryType(<span class="number">3</span>);</span><br><span class="line">        repository.save(productCategory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ProductCategory productCategory = <span class="keyword">new</span> ProductCategory();</span><br><span class="line">        productCategory.setCategoryId(<span class="number">2</span>);</span><br><span class="line">        productCategory.setCategoryName(<span class="string">"男生最爱"</span>);</span><br><span class="line">        productCategory.setCategoryType(<span class="number">3</span>);</span><br><span class="line">        repository.save(productCategory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">findByCategoryTypeInList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; list = Arrays.asList(<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">        List&lt;ProductCategory&gt; productCategories = repository.findByCategoryTypeIn(list);</span><br><span class="line">        Assert.assertNotEquals(productCategories.size(), <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="常见错误"><a href="#常见错误" class="headerlink" title="常见错误"></a>常见错误</h4><p><strong>如果编辑器报错</strong>:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Inferred type &apos;S&apos; for type parameter &apos;S&apos; is not within its bound;</span><br></pre></td></tr></table></figure>
-<p>这是由于使用SpringBoot是2版本但直接调用了find方法如下:  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ProductCategory one = repository.findById(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
-<p>这在SpringBoot 2.X中已经不允许了。  </p>
-<ol>
-<li><p>将版本换回1.5.4。  </p>
+        <h2 id="字符串的声明"><a href="#字符串的声明" class="headerlink" title="字符串的声明"></a>字符串的声明</h2><p>shell中的字符串可以用单引号，也可以用双引号，也可以不用引号</p>
+<h3 id="单引号"><a href="#单引号" class="headerlink" title="单引号"></a>单引号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str='this is a string'</span><br></pre></td></tr></table></figure>
+<p>单引号字符串的限制:</p>
+<ul>
+<li><p>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的  </p>
 </li>
-<li><p>写成以下形式:  </p>
+<li><p>单引号字串中不能出现单独一个的单引号(对单引号使用转义符后也不行)，但可成对出现，作为字符串拼接使用。  </p>
 </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ProductCategory one = repository.findById(<span class="number">1</span>).orElse(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure>
-<p><strong>如果编辑器报错</strong>:  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Table &apos;sell.hibernate_sequence&apos; doesn&apos;t exist</span><br></pre></td></tr></table></figure>
-<p>如果我们使用以下写法就会报错，这也是因为SpringBoot2.X使用了hibernate5导致的。  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GeneratedValue</span></span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>版本切换  </p>
+</ul>
+<h3 id="双引号"><a href="#双引号" class="headerlink" title="双引号"></a>双引号</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str="this is a string"</span><br></pre></td></tr></table></figure>
+<p>双引号的优点:  </p>
+<ul>
+<li><p>双引号里可以有变量</p>
 </li>
-<li><p>写成如下形式:  </p>
+<li><p>双引号里可以出现转义字符</p>
 </li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)</span><br></pre></td></tr></table></figure>
+</ul>
+<h2 id="获取字符串的长度"><a href="#获取字符串的长度" class="headerlink" title="获取字符串的长度"></a>获取字符串的长度</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string="abcd"</span><br><span class="line">echo $&#123;#string&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="提取子字符串"><a href="#提取子字符串" class="headerlink" title="提取子字符串"></a>提取子字符串</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string="Stopping by Woods on a Snowy Evening, Whose woods these are I think I know."</span><br><span class="line">echo %&#123;string:12:5&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="查找字符串"><a href="#查找字符串" class="headerlink" title="查找字符串"></a>查找字符串</h2><p>查找字符i或o的位置(哪个字母先出现就计算哪个):  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string="Stopping by Woods on a Snowy Evening, Whose woods these are I think I know."</span><br><span class="line">echo `expr index "$string" io`</span><br></pre></td></tr></table></figure>
+<p>注意: 以上脚本 `是反引号</p>
+<h2 id="字符串的替换"><a href="#字符串的替换" class="headerlink" title="字符串的替换"></a>字符串的替换</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>${变量名#匹配规则}</td>
+<td>从变量开头进行规则匹配,将符合最短的数据删除</td>
+</tr>
+<tr>
+<td>${变量名##匹配规则</td>
+<td>从变量开头进行规则匹配,将符合最长的数据删除</td>
+</tr>
+<tr>
+<td>${变量名%匹配规则}</td>
+<td>从变量尾部进行规则匹配,将符合最短的数据删除</td>
+</tr>
+<tr>
+<td>${变量名%%匹配规则}</td>
+<td>从变量尾部进行规则匹配，将符合最长的数据删除</td>
+</tr>
+<tr>
+<td>${变量名/旧字符串/新字符串}</td>
+<td>变量内容符合旧字符串，则第一个旧字符串会被新字符串取代</td>
+</tr>
+<tr>
+<td>${变量名//旧字符串/新字符串}</td>
+<td>变量内容符合旧字符串，则全部的旧字符串会被新字符串取代</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串的测试"><a href="#字符串的测试" class="headerlink" title="字符串的测试"></a>字符串的测试</h2><h2 id="变量测试"><a href="#变量测试" class="headerlink" title="变量测试"></a>变量测试</h2><p>变量测试表达式可以在变量为空或没有配置时返回特定的表达式，具体操作如下:</p>
+<table>
+<thead>
+<tr>
+<th>变量配置方式</th>
+<th>str没有配置</th>
+<th>Str为空字符串</th>
+<th>Str已配置且非空</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>var=${str-expr}</td>
+<td>var=expr</td>
+<td>var=</td>
+<td>var=$str</td>
+<td></td>
+</tr>
+<tr>
+<td>var=${str=expr}</td>
+<td>var=expr</td>
+<td>var=</td>
+<td>var=$str</td>
+<td></td>
+</tr>
+<tr>
+<td>var=${str:-expr}</td>
+<td>var=expr</td>
+<td>var=expr</td>
+<td>var=$str</td>
+<td></td>
+</tr>
+<tr>
+<td>var=${str:=expr</td>
+<td>var=expr</td>
+<td>var=expr</td>
+<td>var=$str</td>
+<td></td>
+</tr>
+<tr>
+<td>var=${str+expr}</td>
+<td>var=</td>
+<td>var=expr</td>
+<td>var=expr</td>
+<td></td>
+</tr>
+<tr>
+<td>var=${str:+expr}</td>
+<td>var=</td>
+<td>var=</td>
+<td>var=expr</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> !bin/bash</span><br><span class="line"><span class="meta">#</span> 单引号创建字符串</span><br><span class="line">str='Two roads diverged in a yellow wood,'</span><br><span class="line">echo $str</span><br><span class="line"><span class="meta">#</span> 双引号创建字符串</span><br><span class="line">str="And sorry I could not travel both"</span><br><span class="line">echo $str</span><br><span class="line"><span class="meta">#</span> 双引号拼接字符串</span><br><span class="line">var_and="And"</span><br><span class="line">str1=$var_and" sorry I could not travel both"</span><br><span class="line">str2="$var_and be one traveler, long I stood"</span><br><span class="line">echo $str1 $str2</span><br><span class="line"><span class="meta">#</span> 单引号拼接字符串</span><br><span class="line">str1=$var_and' looked down one as far as I could'</span><br><span class="line">str2='$var_and To where it bent in the undergrowth'</span><br><span class="line">echo $str1 $str2</span><br><span class="line"><span class="meta">#</span> 获取字符串的长度</span><br><span class="line">echo $&#123;#str1&#125;</span><br><span class="line"><span class="meta">#</span> 提取子字符串</span><br><span class="line">echo $&#123;str1:11:4&#125;</span><br><span class="line"><span class="meta">#</span> 查找子字符串</span><br><span class="line">echo `expr index "$str1" Aok`</span><br><span class="line"><span class="meta">#</span> 字符串的替换</span><br><span class="line">str='Two roads diverged in a yellow wood,'</span><br><span class="line">echo $&#123;str#*o&#125;</span><br><span class="line">echo $&#123;str##*o&#125;</span><br><span class="line">echo $&#123;str%o*&#125;</span><br><span class="line">echo $&#123;str%%o*&#125;</span><br><span class="line">echo $&#123;str/w/f&#125;</span><br><span class="line">echo $&#123;str//w/f&#125;</span><br><span class="line"><span class="meta">#</span> 变量的测试</span><br><span class="line">str_empty=""</span><br><span class="line">echo '-'</span><br><span class="line">echo $&#123;str_null-null&#125;</span><br><span class="line">echo $&#123;str_empty-null&#125;</span><br><span class="line">echo $&#123;str-null&#125;</span><br><span class="line">echo '='</span><br><span class="line">echo $&#123;str_null=null&#125;</span><br><span class="line">echo $&#123;str_empty=null&#125;</span><br><span class="line">echo $&#123;str=null&#125;</span><br><span class="line">echo ':-'</span><br><span class="line">echo $&#123;str_null:-null&#125;</span><br><span class="line">echo $&#123;str_empty:-null&#125;</span><br><span class="line">echo $&#123;str:-null&#125;</span><br><span class="line">echo ':='</span><br><span class="line">echo $&#123;str_null:=null&#125;</span><br><span class="line">echo $&#123;str_empty:=null&#125;</span><br><span class="line">echo $&#123;str:=null&#125;</span><br><span class="line">echo '+'</span><br><span class="line">echo $&#123;str_null+null&#125;</span><br><span class="line">echo $&#123;str_empty+null&#125;</span><br><span class="line">echo $&#123;str+null&#125;</span><br><span class="line">echo ':+'</span><br><span class="line">echo $&#123;str_null:+null&#125;</span><br><span class="line">echo $&#123;str_empty:+null&#125;</span><br><span class="line">echo $&#123;str:+null&#125;</span><br></pre></td></tr></table></figure>
+<p>测试结果:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Two roads diverged in a yellow wood,</span><br><span class="line">And sorry I could not travel both</span><br><span class="line">And sorry I could not travel both And be one traveler, long I stood</span><br><span class="line">And looked down one as far as I could $var_and To where it bent in the undergrowth</span><br><span class="line">37</span><br><span class="line">down</span><br><span class="line">1</span><br><span class="line">roads diverged in a yellow wood,</span><br><span class="line">d,</span><br><span class="line">Two roads diverged in a yellow wo</span><br><span class="line">Tw</span><br><span class="line">Tfo roads diverged in a yellow wood,</span><br><span class="line">Tfo roads diverged in a yellof food,</span><br><span class="line">-</span><br><span class="line">null</span><br><span class="line"></span><br><span class="line">Two roads diverged in a yellow wood,</span><br><span class="line">=</span><br><span class="line">null</span><br><span class="line"></span><br><span class="line">Two roads diverged in a yellow wood,</span><br><span class="line">:-</span><br><span class="line">null</span><br><span class="line">null</span><br><span class="line">Two roads diverged in a yellow wood,</span><br><span class="line">:=</span><br><span class="line">null</span><br><span class="line">null</span><br><span class="line">Two roads diverged in a yellow wood,</span><br><span class="line">+</span><br><span class="line">null</span><br><span class="line">null</span><br><span class="line">null</span><br><span class="line">:+</span><br><span class="line">null</span><br><span class="line">null</span><br><span class="line">null</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -413,7 +485,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/springboot/" rel="tag"># springboot</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
         </div>
       
@@ -426,8 +498,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/10/springboot-1/" rel="next" title="springboot[1]logback的使用与配置">
-                <i class="fa fa-chevron-left"></i> springboot[1]logback的使用与配置
+              <a href="/2019/08/07/shell-1/" rel="next" title="shell中的变量">
+                <i class="fa fa-chevron-left"></i> shell中的变量
               </a>
             
           </div>
@@ -435,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/06/linux-install-1-md/" rel="prev" title="Centos7 安装MySQL">
-                Centos7 安装MySQL <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +629,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql的配置"><span class="nav-number">1.</span> <span class="nav-text">mysql的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JPA的使用"><span class="nav-number">2.</span> <span class="nav-text">JPA的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础配置使用"><span class="nav-number">2.1.</span> <span class="nav-text">基础配置使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DynamicUpdate注解说明"><span class="nav-number">2.2.</span> <span class="nav-text">DynamicUpdate注解说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试方法"><span class="nav-number">2.3.</span> <span class="nav-text">测试方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见错误"><span class="nav-number">2.4.</span> <span class="nav-text">常见错误</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的声明"><span class="nav-number">1.</span> <span class="nav-text">字符串的声明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单引号"><span class="nav-number">1.1.</span> <span class="nav-text">单引号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双引号"><span class="nav-number">1.2.</span> <span class="nav-text">双引号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取字符串的长度"><span class="nav-number">2.</span> <span class="nav-text">获取字符串的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取子字符串"><span class="nav-number">3.</span> <span class="nav-text">提取子字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找字符串"><span class="nav-number">4.</span> <span class="nav-text">查找字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的替换"><span class="nav-number">5.</span> <span class="nav-text">字符串的替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串的测试"><span class="nav-number">6.</span> <span class="nav-text">字符串的测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量测试"><span class="nav-number">7.</span> <span class="nav-text">变量测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试脚本"><span class="nav-number">8.</span> <span class="nav-text">测试脚本</span></a></li></ol></div>
             
 
           </div>
