@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sean&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/08/page/2/index.html">
+<meta name="description" content="sed简介sed(Stream Editor), 流编辑器。对标准输出或文件逐行进行处理。   sed的语法格式12stdout|sed[option] &quot;pattern command&quot;sed [option] &quot;pattern command&quot; file sed参数列表   选项 含义 说明     -n quiet/silent 经过sed处理过的行才会被列出来   -e script 直接">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell中的sed">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/shell-10/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="sed简介sed(Stream Editor), 流编辑器。对标准输出或文件逐行进行处理。   sed的语法格式12stdout|sed[option] &quot;pattern command&quot;sed [option] &quot;pattern command&quot; file sed参数列表   选项 含义 说明     -n quiet/silent 经过sed处理过的行才会被列出来   -e script 直接">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-08T11:06:22.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sean&#39;s Blog">
+<meta name="twitter:title" content="shell中的sed">
+<meta name="twitter:description" content="sed简介sed(Stream Editor), 流编辑器。对标准输出或文件逐行进行处理。   sed的语法格式12stdout|sed[option] &quot;pattern command&quot;sed [option] &quot;pattern command&quot; file sed参数列表   选项 含义 说明     -n quiet/silent 经过sed处理过的行才会被列出来   -e script 直接">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/08/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/08/shell-10/"/>
 
 
 
 
 
-  <title>Archive | Sean's Blog</title>
+  <title>shell中的sed | Sean's Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,300 +273,259 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">shell中的sed</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:37:23+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 19 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/07/shell-1/" itemprop="url">
-              
-                <span itemprop="name">shell中的变量</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-07T18:14:05+08:00"
-              content="2019-08-07" >
-          08-07
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-6-md/" itemprop="url">
-              
-                <span itemprop="name">CentOS切换阿里yum镜像源</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T20:33:52+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-5-md/" itemprop="url">
-              
-                <span itemprop="name">CentOS安装nginx</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T20:29:23+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="sed简介"><a href="#sed简介" class="headerlink" title="sed简介"></a>sed简介</h2><p>sed(Stream Editor), 流编辑器。对标准输出或文件逐行进行处理。  </p>
+<h3 id="sed的语法格式"><a href="#sed的语法格式" class="headerlink" title="sed的语法格式"></a>sed的语法格式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stdout|sed[option] "pattern command"</span><br><span class="line">sed [option] "pattern command" file</span><br></pre></td></tr></table></figure>
+<h2 id="sed参数列表"><a href="#sed参数列表" class="headerlink" title="sed参数列表"></a>sed参数列表</h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-n</td>
+<td>quiet/silent</td>
+<td>经过sed处理过的行才会被列出来</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>script</td>
+<td>直接在命令行进行sed编辑，默认选项</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>script-file</td>
+<td>直接运行script-file内的sed命令</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>redxp-extended</td>
+<td>支持扩展正则表达式</td>
+</tr>
+<tr>
+<td>-i</td>
+<td></td>
+<td>直接编辑源文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sed中的编辑命令"><a href="#sed中的编辑命令" class="headerlink" title="sed中的编辑命令"></a>sed中的编辑命令</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>编辑命令</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查询</td>
+<td>p</td>
+<td>打印</td>
+</tr>
+<tr>
+<td>增加</td>
+<td>a</td>
+<td>行后追加</td>
+</tr>
+<tr>
+<td>增加</td>
+<td>i</td>
+<td>行前追加</td>
+</tr>
+<tr>
+<td>增加</td>
+<td>r</td>
+<td>将文件内容追加到匹配行后面</td>
+</tr>
+<tr>
+<td>增加</td>
+<td>w</td>
+<td>匹配行写入外部文件</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>d</td>
+<td>删除</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>s/old/new</td>
+<td>将行内第一个old替换为new</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>s/old/new/g</td>
+<td>将行内全部的old替换为new</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>s/old/new/2g</td>
+<td>将行内前2个old替换为new</td>
+</tr>
+<tr>
+<td>修改</td>
+<td>s/old/new/ig</td>
+<td>将行内old全部替换为new， 忽略大小写</td>
+</tr>
+</tbody>
+</table>
+<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><h3 id="替换-c"><a href="#替换-c" class="headerlink" title="替换(c)"></a>替换(c)</h3><h4 id="将第一行替换为shell"><a href="#将第一行替换为shell" class="headerlink" title="将第一行替换为shell"></a>将第一行替换为shell</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1c shell' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="将第1-3行替换为java"><a href="#将第1-3行替换为java" class="headerlink" title="将第1-3行替换为java"></a>将第1-3行替换为java</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1,3c java' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="嵌入正则表达式，-用-包住。替换所有包含win的行变为python"><a href="#嵌入正则表达式，-用-包住。替换所有包含win的行变为python" class="headerlink" title="嵌入正则表达式， 用 //包住。替换所有包含win的行变为python"></a>嵌入正则表达式， 用 //包住。替换所有包含win的行变为python</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '/win/c python' sed.txt</span><br></pre></td></tr></table></figure>
+<h3 id="删除-d"><a href="#删除-d" class="headerlink" title="删除(d)"></a>删除(d)</h3><h4 id="删除第二行"><a href="#删除第二行" class="headerlink" title="删除第二行"></a>删除第二行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '2d' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="删除最后一行-表示最后一行"><a href="#删除最后一行-表示最后一行" class="headerlink" title="删除最后一行($表示最后一行)"></a>删除最后一行($表示最后一行)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '$d' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="删除1-3行"><a href="#删除1-3行" class="headerlink" title="删除1-3行"></a>删除1-3行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1, 3d' sed.txt</span><br></pre></td></tr></table></figure>
+<h3 id="插入-i"><a href="#插入-i" class="headerlink" title="插入(i)"></a>插入(i)</h3><h4 id="所有行之前插入"><a href="#所有行之前插入" class="headerlink" title="所有行之前插入#\"></a>所有行之前插入#\</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 'i##' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="1-3行之前插入0000"><a href="#1-3行之前插入0000" class="headerlink" title="1-3行之前插入0000"></a>1-3行之前插入0000</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1,3i0000' sed.txt</span><br></pre></td></tr></table></figure>
+<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><h4 id="替换文本中的每一行的第一个0-为-9"><a href="#替换文本中的每一行的第一个0-为-9" class="headerlink" title="替换文本中的每一行的第一个0 为 9"></a>替换文本中的每一行的第一个0 为 9</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 's/0/9/' sed.txt</span><br></pre></td></tr></table></figure>
+<h4 id="替换文本中的所有0-为-9"><a href="#替换文本中的所有0-为-9" class="headerlink" title="替换文本中的所有0 为 9"></a>替换文本中的所有0 为 9</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 's/0/9/g' sed.txt</span><br></pre></td></tr></table></figure>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-4-md/" itemprop="url">
-              
-                <span itemprop="name">CentOS安装Tomcat</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T20:17:03+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-3-md/" itemprop="url">
-              
-                <span itemprop="name">CentOS7安装Java</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T20:06:27+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-2-md/" itemprop="url">
-              
-                <span itemprop="name">修改MySQL默认密码策略</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T19:51:56+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/06/linux-install-1-md/" itemprop="url">
-              
-                <span itemprop="name">Centos7 安装MySQL</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-06T19:26:49+08:00"
-              content="2019-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/08/shell-9/" rel="next" title="shell中的grep">
+                <i class="fa fa-chevron-left"></i> shell中的grep
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/08/shell-11/" rel="prev" title="shell中的awk">
+                shell中的awk <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2019/08/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2019/08/">1</a><span class="page-number current">2</span>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -569,6 +533,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -589,8 +557,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -641,6 +618,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sed简介"><span class="nav-number">1.</span> <span class="nav-text">sed简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sed的语法格式"><span class="nav-number">1.1.</span> <span class="nav-text">sed的语法格式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed参数列表"><span class="nav-number">2.</span> <span class="nav-text">sed参数列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sed中的编辑命令"><span class="nav-number">3.</span> <span class="nav-text">sed中的编辑命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试脚本"><span class="nav-number">4.</span> <span class="nav-text">测试脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#替换-c"><span class="nav-number">4.1.</span> <span class="nav-text">替换(c)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#将第一行替换为shell"><span class="nav-number">4.1.1.</span> <span class="nav-text">将第一行替换为shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#将第1-3行替换为java"><span class="nav-number">4.1.2.</span> <span class="nav-text">将第1-3行替换为java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#嵌入正则表达式，-用-包住。替换所有包含win的行变为python"><span class="nav-number">4.1.3.</span> <span class="nav-text">嵌入正则表达式， 用 //包住。替换所有包含win的行变为python</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除-d"><span class="nav-number">4.2.</span> <span class="nav-text">删除(d)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#删除第二行"><span class="nav-number">4.2.1.</span> <span class="nav-text">删除第二行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除最后一行-表示最后一行"><span class="nav-number">4.2.2.</span> <span class="nav-text">删除最后一行($表示最后一行)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除1-3行"><span class="nav-number">4.2.3.</span> <span class="nav-text">删除1-3行</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入-i"><span class="nav-number">4.3.</span> <span class="nav-text">插入(i)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#所有行之前插入"><span class="nav-number">4.3.1.</span> <span class="nav-text">所有行之前插入#\</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3行之前插入0000"><span class="nav-number">4.3.2.</span> <span class="nav-text">1-3行之前插入0000</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#替换"><span class="nav-number">4.4.</span> <span class="nav-text">替换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#替换文本中的每一行的第一个0-为-9"><span class="nav-number">4.4.1.</span> <span class="nav-text">替换文本中的每一行的第一个0 为 9</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#替换文本中的所有0-为-9"><span class="nav-number">4.4.2.</span> <span class="nav-text">替换文本中的所有0 为 9</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -781,6 +774,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
