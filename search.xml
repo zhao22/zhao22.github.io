@@ -3,6 +3,66 @@
   
     
     <entry>
+      <title>shell中的grep</title>
+      <link href="/2019/08/08/shell-9/"/>
+      <url>/2019/08/08/shell-9/</url>
+      <content type="html"><![CDATA[<h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p><h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p><p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p><p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p><h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul><li><p>第一种形式: grep[option][pattern][file1,file2…]</p></li><li><p>第二种形式: command | grep [option][pattern]</p></li></ul><h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table><thead><tr><th>选项</th><th>含义</th></tr></thead><tbody><tr><td>-v</td><td>不显示匹配行信息</td></tr><tr><td>-i</td><td>搜索时忽略大小写</td></tr><tr><td>-n</td><td>显示行号</td></tr><tr><td>-r</td><td>递归搜索</td></tr><tr><td>-E</td><td>支持扩展正则表达式</td></tr><tr><td>-F</td><td>不按正则表达式匹配，按照字符串字面意思匹配</td></tr><tr><td>-A</td><td>查看匹配行及匹配行后几行的信息</td></tr><tr><td>-B</td><td>查看匹配行及匹配行前几行的信息</td></tr></tbody></table>]]></content>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>shell中的find</title>
+      <link href="/2019/08/08/shell-8/"/>
+      <url>/2019/08/08/shell-8/</url>
+      <content type="html"><![CDATA[<h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [路径] [选项] [操作]</span><br></pre></td></tr></table></figure><h2 id="选项参数对照表"><a href="#选项参数对照表" class="headerlink" title="选项参数对照表"></a>选项参数对照表</h2><table><thead><tr><th>选项</th><th>含义</th></tr></thead><tbody><tr><td>-name</td><td>根据文件名查找</td></tr><tr><td>-iname</td><td>根据文件名查找(忽略大小写)</td></tr><tr><td>-perm</td><td>根据文件权限查找</td></tr><tr><td>-prune</td><td>该选项可以排除某些查找目录</td></tr><tr><td>-user</td><td>根据文件属主查找</td></tr><tr><td>-group</td><td>根据文件属组查找</td></tr><tr><td>-mtime -n \</td><td>+n</td><td>根据文件更改时间查找</td></tr><tr><td>-nogroup</td><td>查找无有效属组的文件</td></tr><tr><td>-nouser</td><td>查找无有效属主的文件</td></tr><tr><td>-newer file1 ! file2</td><td>查找更改时间比file1新但比file2旧的文件</td></tr><tr><td>-type</td><td>按文件类型查找</td></tr><tr><td>-size -n +n</td><td>按文件大小查找</td></tr><tr><td>-mindepth n</td><td>从n级子目录开始搜索</td></tr><tr><td>-maxdepth n</td><td>最多搜索到n级子目录</td></tr></tbody></table><h2 id="type"><a href="#type" class="headerlink" title="-type"></a>-type</h2><table><thead><tr><th>类别</th><th>含义</th></tr></thead><tbody><tr><td>f</td><td>文件</td></tr><tr><td>d</td><td>目录</td></tr><tr><td>c</td><td>字符设备文件</td></tr><tr><td>b</td><td>块设备文件</td></tr><tr><td>l</td><td>链接文件</td></tr><tr><td>p</td><td>管道文件</td></tr></tbody></table><h2 id="size"><a href="#size" class="headerlink" title="-size"></a>-size</h2><table><thead><tr><th>类别</th><th>含义</th></tr></thead><tbody><tr><td>+n</td><td>大小大于n</td></tr><tr><td>-n</td><td>大小小于n</td></tr></tbody></table><h2 id="mtime"><a href="#mtime" class="headerlink" title="-mtime"></a>-mtime</h2><table><thead><tr><th>类别</th><th>含义</th></tr></thead><tbody><tr><td>-time</td><td>time天以内的文件</td></tr><tr><td>+time</td><td>time天以外的文件</td></tr></tbody></table><h2 id="find-locate-whereis-which的区别"><a href="#find-locate-whereis-which的区别" class="headerlink" title="find locate whereis which的区别"></a>find locate whereis which的区别</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>在磁盘中查找对应文件</p><h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h3><h4 id="文件查找命令，所属软件包mlocate"><a href="#文件查找命令，所属软件包mlocate" class="headerlink" title="文件查找命令，所属软件包mlocate"></a>文件查找命令，所属软件包mlocate</h4><h4 id="不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找"><a href="#不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找" class="headerlink" title="不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找"></a>不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找</h4><ol><li>数据库文件一般每日更新，也可通过命令(updatedb)即时更新。  </li><li>用户更新/var/lib/mlocate/mlocate.db  </li><li>所使用配置文件/etc/updatedb.conf  </li><li>该任务在后台cron计划任务中定期执行</li></ol><h4 id="find是默认全部匹配，locate则是默认部分匹配"><a href="#find是默认全部匹配，locate则是默认部分匹配" class="headerlink" title="find是默认全部匹配，locate则是默认部分匹配"></a>find是默认全部匹配，locate则是默认部分匹配</h4><h3 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h3><p>只能查询二进制文件，帮助文档文件，源代码文件。</p><table><thead><tr><th>选项</th><th>含义</th></tr></thead><tbody><tr><td>-b</td><td>只返回二进制文件</td></tr><tr><td>-m</td><td>只返回帮助文档文件</td></tr><tr><td>-s</td><td>只返回源代码文件</td></tr></tbody></table><h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>仅查找二进制程序文件</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>shell中的函数</title>
+      <link href="/2019/08/08/shell-7/"/>
+      <url>/2019/08/08/shell-7/</url>
+      <content type="html"><![CDATA[<h2 id="函数简介"><a href="#函数简介" class="headerlink" title="函数简介"></a>函数简介</h2><p>shell中函数的定义格式如下:  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[function] funname [()]</span><br><span class="line">&#123;</span><br><span class="line">    action;</span><br><span class="line"></span><br><span class="line">    [return int;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>说明:  </p><ol><li><p>可以带function fun() 定义，也可以直接fun()定义，不带任何参数。  </p></li><li><p>参数返回，可以显示加: return 返回， 如果不加， 将以最后一条命令运行结果，作为返回值。  return后跟数值n(0-255)  </p></li></ol><h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">demoFun() &#123;</span><br><span class="line">    echo "Hello World!"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demoFun</span><br></pre></td></tr></table></figure><p>执行结果:  </p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>shell中的expr</title>
+      <link href="/2019/08/08/shell-6/"/>
+      <url>/2019/08/08/shell-6/</url>
+      <content type="html"><![CDATA[<h2 id="expr简介"><a href="#expr简介" class="headerlink" title="expr简介"></a>expr简介</h2><p>expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。  </p><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 表达式</span><br></pre></td></tr></table></figure><p>表达式说明:</p><ul><li><p>用空格隔开每个项</p></li><li><p>用/(反斜杠)放在shell特定的字符前面</p></li><li><p>对包含空格和其他特殊字符的字符串要用引号括起来</p></li></ul><h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><h4 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr length "this is a test"</span><br></pre></td></tr></table></figure><h4 id="抓取字串"><a href="#抓取字串" class="headerlink" title="抓取字串"></a>抓取字串</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr substr "this is a test" 3 5</span><br></pre></td></tr></table></figure><h4 id="抓取第一个字符串出现的位置"><a href="#抓取第一个字符串出现的位置" class="headerlink" title="抓取第一个字符串出现的位置"></a>抓取第一个字符串出现的位置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr index "sarasara" a</span><br></pre></td></tr></table></figure><h4 id="整数数学运算"><a href="#整数数学运算" class="headerlink" title="整数数学运算"></a>整数数学运算</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 14 % 9</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+        <tags>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>shell中的有类型变量</title>
       <link href="/2019/08/08/shell-5/"/>
       <url>/2019/08/08/shell-5/</url>

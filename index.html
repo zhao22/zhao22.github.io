@@ -283,6 +283,730 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/shell-9/" itemprop="url">shell中的grep</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:21:08+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p>
+<h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p>
+<p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p>
+<p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p>
+<h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul>
+<li><p>第一种形式: grep[option][pattern][file1,file2…]</p>
+</li>
+<li><p>第二种形式: command | grep [option][pattern]</p>
+</li>
+</ul>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>不显示匹配行信息</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>搜索时忽略大小写</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归搜索</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>支持扩展正则表达式</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>不按正则表达式匹配，按照字符串字面意思匹配</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>查看匹配行及匹配行后几行的信息</td>
+</tr>
+<tr>
+<td>-B</td>
+<td>查看匹配行及匹配行前几行的信息</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/shell-8/" itemprop="url">shell中的find</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:08:55+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [路径] [选项] [操作]</span><br></pre></td></tr></table></figure>
+<h2 id="选项参数对照表"><a href="#选项参数对照表" class="headerlink" title="选项参数对照表"></a>选项参数对照表</h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-name</td>
+<td>根据文件名查找</td>
+</tr>
+<tr>
+<td>-iname</td>
+<td>根据文件名查找(忽略大小写)</td>
+</tr>
+<tr>
+<td>-perm</td>
+<td>根据文件权限查找</td>
+</tr>
+<tr>
+<td>-prune</td>
+<td>该选项可以排除某些查找目录</td>
+</tr>
+<tr>
+<td>-user</td>
+<td>根据文件属主查找</td>
+</tr>
+<tr>
+<td>-group</td>
+<td>根据文件属组查找</td>
+</tr>
+<tr>
+<td>-mtime -n \</td>
+<td>+n</td>
+<td>根据文件更改时间查找</td>
+</tr>
+<tr>
+<td>-nogroup</td>
+<td>查找无有效属组的文件</td>
+</tr>
+<tr>
+<td>-nouser</td>
+<td>查找无有效属主的文件</td>
+</tr>
+<tr>
+<td>-newer file1 ! file2</td>
+<td>查找更改时间比file1新但比file2旧的文件</td>
+</tr>
+<tr>
+<td>-type</td>
+<td>按文件类型查找</td>
+</tr>
+<tr>
+<td>-size -n +n</td>
+<td>按文件大小查找</td>
+</tr>
+<tr>
+<td>-mindepth n</td>
+<td>从n级子目录开始搜索</td>
+</tr>
+<tr>
+<td>-maxdepth n</td>
+<td>最多搜索到n级子目录</td>
+</tr>
+</tbody>
+</table>
+<h2 id="type"><a href="#type" class="headerlink" title="-type"></a>-type</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>f</td>
+<td>文件</td>
+</tr>
+<tr>
+<td>d</td>
+<td>目录</td>
+</tr>
+<tr>
+<td>c</td>
+<td>字符设备文件</td>
+</tr>
+<tr>
+<td>b</td>
+<td>块设备文件</td>
+</tr>
+<tr>
+<td>l</td>
+<td>链接文件</td>
+</tr>
+<tr>
+<td>p</td>
+<td>管道文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="size"><a href="#size" class="headerlink" title="-size"></a>-size</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+n</td>
+<td>大小大于n</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>大小小于n</td>
+</tr>
+</tbody>
+</table>
+<h2 id="mtime"><a href="#mtime" class="headerlink" title="-mtime"></a>-mtime</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-time</td>
+<td>time天以内的文件</td>
+</tr>
+<tr>
+<td>+time</td>
+<td>time天以外的文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="find-locate-whereis-which的区别"><a href="#find-locate-whereis-which的区别" class="headerlink" title="find locate whereis which的区别"></a>find locate whereis which的区别</h2><h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><p>在磁盘中查找对应文件</p>
+<h3 id="locate"><a href="#locate" class="headerlink" title="locate"></a>locate</h3><h4 id="文件查找命令，所属软件包mlocate"><a href="#文件查找命令，所属软件包mlocate" class="headerlink" title="文件查找命令，所属软件包mlocate"></a>文件查找命令，所属软件包mlocate</h4><h4 id="不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找"><a href="#不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找" class="headerlink" title="不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找"></a>不同于find命令再整块磁盘中搜索，locate命令在数据库文件中查找</h4><ol>
+<li>数据库文件一般每日更新，也可通过命令(updatedb)即时更新。  </li>
+<li>用户更新/var/lib/mlocate/mlocate.db  </li>
+<li>所使用配置文件/etc/updatedb.conf  </li>
+<li>该任务在后台cron计划任务中定期执行</li>
+</ol>
+<h4 id="find是默认全部匹配，locate则是默认部分匹配"><a href="#find是默认全部匹配，locate则是默认部分匹配" class="headerlink" title="find是默认全部匹配，locate则是默认部分匹配"></a>find是默认全部匹配，locate则是默认部分匹配</h4><h3 id="whereis"><a href="#whereis" class="headerlink" title="whereis"></a>whereis</h3><p>只能查询二进制文件，帮助文档文件，源代码文件。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-b</td>
+<td>只返回二进制文件</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>只返回帮助文档文件</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>只返回源代码文件</td>
+</tr>
+</tbody>
+</table>
+<h3 id="which"><a href="#which" class="headerlink" title="which"></a>which</h3><p>仅查找二进制程序文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/shell-7/" itemprop="url">shell中的函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:00:01+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="函数简介"><a href="#函数简介" class="headerlink" title="函数简介"></a>函数简介</h2><p>shell中函数的定义格式如下:  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[function] funname [()]</span><br><span class="line">&#123;</span><br><span class="line">    action;</span><br><span class="line"></span><br><span class="line">    [return int;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明:  </p>
+<ol>
+<li><p>可以带function fun() 定义，也可以直接fun()定义，不带任何参数。  </p>
+</li>
+<li><p>参数返回，可以显示加: return 返回， 如果不加， 将以最后一条命令运行结果，作为返回值。  return后跟数值n(0-255)  </p>
+</li>
+</ol>
+<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line">demoFun() &#123;</span><br><span class="line">    echo "Hello World!"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">demoFun</span><br></pre></td></tr></table></figure>
+<p>执行结果:  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello World!</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/08/shell-6/" itemprop="url">shell中的expr</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T17:46:48+08:00">
+                2019-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="expr简介"><a href="#expr简介" class="headerlink" title="expr简介"></a>expr简介</h2><p>expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。  </p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 表达式</span><br></pre></td></tr></table></figure>
+<p>表达式说明:</p>
+<ul>
+<li><p>用空格隔开每个项</p>
+</li>
+<li><p>用/(反斜杠)放在shell特定的字符前面</p>
+</li>
+<li><p>对包含空格和其他特殊字符的字符串要用引号括起来</p>
+</li>
+</ul>
+<h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><h4 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr length "this is a test"</span><br></pre></td></tr></table></figure>
+<h4 id="抓取字串"><a href="#抓取字串" class="headerlink" title="抓取字串"></a>抓取字串</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr substr "this is a test" 3 5</span><br></pre></td></tr></table></figure>
+<h4 id="抓取第一个字符串出现的位置"><a href="#抓取第一个字符串出现的位置" class="headerlink" title="抓取第一个字符串出现的位置"></a>抓取第一个字符串出现的位置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr index "sarasara" a</span><br></pre></td></tr></table></figure>
+<h4 id="整数数学运算"><a href="#整数数学运算" class="headerlink" title="整数数学运算"></a>整数数学运算</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 14 % 9</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1223,570 +1947,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-5-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/06/linux-install-5-md/" itemprop="url">CentOS安装nginx</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T20:29:23+08:00">
-                2019-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="依赖项和必要组件"><a href="#依赖项和必要组件" class="headerlink" title="依赖项和必要组件"></a>依赖项和必要组件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">yum install -y make cmake gcc gcc-c++  </span><br><span class="line"></span><br><span class="line">yum install -y pcre pcre-devel</span><br><span class="line"></span><br><span class="line">yum install -y zlib zlib-devel</span><br><span class="line"></span><br><span class="line">yum install -y openssl openssl-devel</span><br></pre></td></tr></table></figure>
-<h3 id="下载安装nginx"><a href="#下载安装nginx" class="headerlink" title="下载安装nginx"></a>下载安装nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.12.2.tar.gz</span><br></pre></td></tr></table></figure>
-<p>其他版本访问: <a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">http://nginx.org/en/download.html</a></p>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf nginx-1.12.2.tar.gz &amp;&amp; cd nginx-1.12.2</span><br></pre></td></tr></table></figure>
-<h3 id="编译配置"><a href="#编译配置" class="headerlink" title="编译配置"></a>编译配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure &amp;&amp; make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
-<h3 id="创建全局命令"><a href="#创建全局命令" class="headerlink" title="创建全局命令"></a>创建全局命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx</span><br></pre></td></tr></table></figure>
-<h3 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
-<h3 id="重新加载配置"><a href="#重新加载配置" class="headerlink" title="重新加载配置"></a>重新加载配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-4-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/06/linux-install-4-md/" itemprop="url">CentOS安装Tomcat</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T20:17:03+08:00">
-                2019-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="下载解压tomcat"><a href="#下载解压tomcat" class="headerlink" title="下载解压tomcat"></a>下载解压tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5.tar.gz</span><br><span class="line">tar xvf apache-tomcat-9.0.5.tar.gz -C /usr/local/</span><br><span class="line">mv /usr/local/apache-tomcat-9.0.5/ /usr/local/tomcat/</span><br></pre></td></tr></table></figure>
-<h3 id="Tomcat-目录结构说明"><a href="#Tomcat-目录结构说明" class="headerlink" title="Tomcat 目录结构说明"></a>Tomcat 目录结构说明</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">目录</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">bin</td>
-<td style="text-align:center">启动命令目录</td>
-</tr>
-<tr>
-<td style="text-align:center">conf</td>
-<td style="text-align:center">配置文件目录</td>
-</tr>
-<tr>
-<td style="text-align:center">lib</td>
-<td style="text-align:center">库文件目录</td>
-</tr>
-<tr>
-<td style="text-align:center">logs</td>
-<td style="text-align:center">日志文件目录</td>
-</tr>
-<tr>
-<td style="text-align:center">temp</td>
-<td style="text-align:center">临时缓存文件</td>
-</tr>
-<tr>
-<td style="text-align:center">webapps</td>
-<td style="text-align:center">web应用目录</td>
-</tr>
-<tr>
-<td style="text-align:center">work</td>
-<td style="text-align:center">工作缓存目录</td>
-</tr>
-</tbody>
-</table>
-<h3 id="修改Tomcat环境变量"><a href="#修改Tomcat环境变量" class="headerlink" title="修改Tomcat环境变量"></a>修改Tomcat环境变量</h3><p>环境变量可以写在全局脚本中，但多个tomcat会有冲突。建议在 <strong>startup.sh</strong> 和 <strong>shutdown.sh</strong> 脚本前面加入以下内容:  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export TOMCAT_HOME=/usr/local/tomcat</span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat</span><br><span class="line">export CLASS_PATH=$JAVA_HOME/bin/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tool.jar</span><br><span class="line">export PATH=$PATH:/usr/local/java/bin:/usr/local/tomcat/bin</span><br></pre></td></tr></table></figure>
-<h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tomcat/bin/startup.sh</span><br></pre></td></tr></table></figure>
-<h3 id="查看进程状态"><a href="#查看进程状态" class="headerlink" title="查看进程状态"></a>查看进程状态</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 'tomcat' | grep -v grep</span><br></pre></td></tr></table></figure>
-<h3 id="关闭tomcat"><a href="#关闭tomcat" class="headerlink" title="关闭tomcat"></a>关闭tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tomcat/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
-<p>pid是查看进程状态中查找出来的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-3-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/06/linux-install-3-md/" itemprop="url">CentOS7安装Java</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T20:06:27+08:00">
-                2019-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="下载Java"><a href="#下载Java" class="headerlink" title="下载Java"></a>下载Java</h3><ol>
-<li><p>访问 <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a>  </p>
-</li>
-<li><p>点击 <strong>Downloads</strong> , <strong>Accept License Agreement</strong>  </p>
-</li>
-<li><p>选择 <strong>Linux x64</strong> , <strong>jdk-***-x64.tar.gz</strong>  </p>
-</li>
-<li><p>下载途中暂停, 复制下载链接。  </p>
-</li>
-</ol>
-<h3 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h3><h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">mkdir Java</span><br><span class="line">cd Java</span><br></pre></td></tr></table></figure>
-<p>此时将刚才的链接 wget 到Linux服务器上。  </p>
-<h4 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-\*\*\*-x64.tar.gz</span><br></pre></td></tr></table></figure>
-<h4 id="重命名目录"><a href="#重命名目录" class="headerlink" title="重命名目录"></a>重命名目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv jdk1.8.0_171 jdk1.8</span><br></pre></td></tr></table></figure>
-<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><h4 id="添加系统环境变量"><a href="#添加系统环境变量" class="headerlink" title="添加系统环境变量"></a>添加系统环境变量</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>添加</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">JAVA_HOME=/usr/local/java/jdk1.8</span><br><span class="line">JRE_HOME=/usr/local/java/jdk1.8/jre</span><br><span class="line">PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</span><br><span class="line">CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib</span><br><span class="line">export JAVA_HOME JRE_HOME PATH CLASSPATH</span><br></pre></td></tr></table></figure>
-<h4 id="读取新的配置"><a href="#读取新的配置" class="headerlink" title="读取新的配置"></a>读取新的配置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<h4 id="查看java版本"><a href="#查看java版本" class="headerlink" title="查看java版本"></a>查看java版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-2-md/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/06/linux-install-2-md/" itemprop="url">修改MySQL默认密码策略</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T19:51:56+08:00">
-                2019-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="修改密码策略"><a href="#修改密码策略" class="headerlink" title="修改密码策略"></a>修改密码策略</h3><h4 id="validate-password-policy"><a href="#validate-password-policy" class="headerlink" title="validate_password_policy"></a>validate_password_policy</h4><p>控制validate_password验证策略<br>0: LOW 1: MEDIUM 2:STRONG</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> validate_password_policy = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="validate-password-length"><a href="#validate-password-length" class="headerlink" title="validate_password_length"></a>validate_password_length</h4><p>密码长度的最小值(这个值最小是4)</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> validate_password_length = <span class="number">6</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="validate-password-number-count"><a href="#validate-password-number-count" class="headerlink" title="validate_password_number_count"></a>validate_password_number_count</h4><p>密码中数字的最小个数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> validate_password_number_count = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="validate-password-mixed-case-count"><a href="#validate-password-mixed-case-count" class="headerlink" title="validate_password_mixed_case_count"></a>validate_password_mixed_case_count</h4><p>密码中大小写的最小个数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">GLOBAL</span> validate_password_mixed_case_count = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="validate-password-special-char-count"><a href="#validate-password-special-char-count" class="headerlink" title="validate_password_special_char_count"></a>validate_password_special_char_count</h4><p>密码中特殊字符的最小个数</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> validate_password_special_char_count = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-<h4 id="validate-password-dictionary-file"><a href="#validate-password-dictionary-file" class="headerlink" title="validate_password_dictionary_file"></a>validate_password_dictionary_file</h4><p>字典文件</p>
-<h3 id="策略解释"><a href="#策略解释" class="headerlink" title="策略解释"></a>策略解释</h3><h4 id="LOW"><a href="#LOW" class="headerlink" title="LOW"></a>LOW</h4><p>校验级别最低，只校验密码长度，只要长度跟validate_password_length一样即可，默认长度是8位。  </p>
-<h4 id="MEDIUM"><a href="#MEDIUM" class="headerlink" title="MEDIUM"></a>MEDIUM</h4><p>除了校验LOW的内容，还要校验数字个数，大小写个数，特殊字符个数。  </p>
-<h4 id="STRONG"><a href="#STRONG" class="headerlink" title="STRONG"></a>STRONG</h4><p>除了校验MEDIUM的内容，还要校验密码中任意连续4个或以上的字符不得是字典中的单词。  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1837,7 +1997,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

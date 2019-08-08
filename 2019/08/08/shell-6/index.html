@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="linux,MySQL,linux环境配置," />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
-<meta name="keywords" content="linux,MySQL,linux环境配置">
+<meta name="description" content="expr简介expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。   语法1expr 表达式 表达式说明:  用空格隔开每个项  用/(反斜杠)放在shell特定的字符前面  对包含空格和其他特殊字符的字符串要用引号括起来   常见用法计算字符串长度1expr length &quot;this is a test&quot; 抓取字串1expr subs">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7 安装MySQL">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/linux-install-1-md/index.html">
+<meta property="og:title" content="shell中的expr">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/shell-6/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
+<meta property="og:description" content="expr简介expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。   语法1expr 表达式 表达式说明:  用空格隔开每个项  用/(反斜杠)放在shell特定的字符前面  对包含空格和其他特殊字符的字符串要用引号括起来   常见用法计算字符串长度1expr length &quot;this is a test&quot; 抓取字串1expr subs">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T05:32:17.654Z">
+<meta property="og:updated_time" content="2019-08-08T09:59:52.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7 安装MySQL">
-<meta name="twitter:description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
+<meta name="twitter:title" content="shell中的expr">
+<meta name="twitter:description" content="expr简介expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。   语法1expr 表达式 表达式说明:  用空格隔开每个项  用/(反斜杠)放在shell特定的字符前面  对包含空格和其他特殊字符的字符串要用引号括起来   常见用法计算字符串长度1expr length &quot;this is a test&quot; 抓取字串1expr subs">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/06/linux-install-1-md/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/08/shell-6/"/>
 
 
 
 
 
-  <title>Centos7 安装MySQL | Sean's Blog</title>
+  <title>shell中的expr | Sean's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-1-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos7 安装MySQL</h1>
+          <h1 class="post-title" itemprop="name headline">shell中的expr</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T19:26:49+08:00">
-                2019-08-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T17:46:48+08:00">
+                2019-08-08
               </time>
             
 
@@ -354,23 +354,21 @@
       
 
       
-        <h3 id="下载MySQL源安装包"><a href="#下载MySQL源安装包" class="headerlink" title="下载MySQL源安装包"></a>下载MySQL源安装包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="安装MySQL源"><a href="#安装MySQL源" class="headerlink" title="安装MySQL源"></a>安装MySQL源</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="检查MySQL源是否安装成功"><a href="#检查MySQL源是否安装成功" class="headerlink" title="检查MySQL源是否安装成功"></a>检查MySQL源是否安装成功</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist enabled | grep "mysql.*-community.*"</span><br></pre></td></tr></table></figure>
-<h3 id="修改源，改变默认安装的MySQL版本"><a href="#修改源，改变默认安装的MySQL版本" class="headerlink" title="修改源，改变默认安装的MySQL版本"></a>修改源，改变默认安装的MySQL版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/mysql-community.repo</span><br></pre></td></tr></table></figure>
-<p>如果要使用5.6，就将5.6下方的 <strong>enabled=1</strong> ，其他的设为 <strong>enabled=0</strong> 。</p>
-<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-<h3 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
-<h3 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<h3 id="修改本地登录密码"><a href="#修改本地登录密码" class="headerlink" title="修改本地登录密码"></a>修改本地登录密码</h3><h4 id="查看MySQL密码"><a href="#查看MySQL密码" class="headerlink" title="查看MySQL密码"></a>查看MySQL密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'temporary password' /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-<h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
-<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'MyNewPass1!'</span>;</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'root'</span>@<span class="string">'localhost'</span>=<span class="keyword">password</span>(<span class="string">'MyNewPass1!'</span>);</span><br></pre></td></tr></table></figure>
-<p>或 5.7以上的版本使用:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'MyNewPass1!'</span>)<span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span> ;</span><br></pre></td></tr></table></figure>
-<h4 id="检查密码"><a href="#检查密码" class="headerlink" title="检查密码"></a>检查密码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%password%'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'REMOTE_USER'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'MyNewPassword2!'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="expr简介"><a href="#expr简介" class="headerlink" title="expr简介"></a>expr简介</h2><p>expr命令是一个手工命令行计数器，用于在UNIX/LINUX下求表达式变量的值，一般用于整数值，也可用于字符串。  </p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 表达式</span><br></pre></td></tr></table></figure>
+<p>表达式说明:</p>
+<ul>
+<li><p>用空格隔开每个项</p>
+</li>
+<li><p>用/(反斜杠)放在shell特定的字符前面</p>
+</li>
+<li><p>对包含空格和其他特殊字符的字符串要用引号括起来</p>
+</li>
+</ul>
+<h3 id="常见用法"><a href="#常见用法" class="headerlink" title="常见用法"></a>常见用法</h3><h4 id="计算字符串长度"><a href="#计算字符串长度" class="headerlink" title="计算字符串长度"></a>计算字符串长度</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr length "this is a test"</span><br></pre></td></tr></table></figure>
+<h4 id="抓取字串"><a href="#抓取字串" class="headerlink" title="抓取字串"></a>抓取字串</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr substr "this is a test" 3 5</span><br></pre></td></tr></table></figure>
+<h4 id="抓取第一个字符串出现的位置"><a href="#抓取第一个字符串出现的位置" class="headerlink" title="抓取第一个字符串出现的位置"></a>抓取第一个字符串出现的位置</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr index "sarasara" a</span><br></pre></td></tr></table></figure>
+<h4 id="整数数学运算"><a href="#整数数学运算" class="headerlink" title="整数数学运算"></a>整数数学运算</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">expr 14 % 9</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -388,11 +386,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          
-            <a href="/tags/linux环境配置/" rel="tag"># linux环境配置</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
         </div>
       
@@ -405,8 +399,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/springboot-2/" rel="next" title="springboot[2]mysql的配置及JPA的使用">
-                <i class="fa fa-chevron-left"></i> springboot[2]mysql的配置及JPA的使用
+              <a href="/2019/08/08/shell-5/" rel="next" title="shell中的有类型变量">
+                <i class="fa fa-chevron-left"></i> shell中的有类型变量
               </a>
             
           </div>
@@ -415,8 +409,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/06/linux-install-2-md/" rel="prev" title="修改MySQL默认密码策略">
-                修改MySQL默认密码策略 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/08/shell-7/" rel="prev" title="shell中的函数">
+                shell中的函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载MySQL源安装包"><span class="nav-number">1.</span> <span class="nav-text">下载MySQL源安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL源"><span class="nav-number">2.</span> <span class="nav-text">安装MySQL源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查MySQL源是否安装成功"><span class="nav-number">3.</span> <span class="nav-text">检查MySQL源是否安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改源，改变默认安装的MySQL版本"><span class="nav-number">4.</span> <span class="nav-text">修改源，改变默认安装的MySQL版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">5.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动MySQL服务"><span class="nav-number">6.</span> <span class="nav-text">启动MySQL服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开机启动"><span class="nav-number">7.</span> <span class="nav-text">开机启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改本地登录密码"><span class="nav-number">8.</span> <span class="nav-text">修改本地登录密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL密码"><span class="nav-number">8.1.</span> <span class="nav-text">查看MySQL密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接MySQL"><span class="nav-number">8.2.</span> <span class="nav-text">连接MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改密码"><span class="nav-number">8.3.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查密码"><span class="nav-number">8.4.</span> <span class="nav-text">检查密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加远程登录用户"><span class="nav-number">9.</span> <span class="nav-text">添加远程登录用户</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#expr简介"><span class="nav-number">1.</span> <span class="nav-text">expr简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见用法"><span class="nav-number">1.2.</span> <span class="nav-text">常见用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算字符串长度"><span class="nav-number">1.2.1.</span> <span class="nav-text">计算字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抓取字串"><span class="nav-number">1.2.2.</span> <span class="nav-text">抓取字串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#抓取第一个字符串出现的位置"><span class="nav-number">1.2.3.</span> <span class="nav-text">抓取第一个字符串出现的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#整数数学运算"><span class="nav-number">1.2.4.</span> <span class="nav-text">整数数学运算</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

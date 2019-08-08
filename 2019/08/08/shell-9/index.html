@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="linux,MySQL,linux环境配置," />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
-<meta name="keywords" content="linux,MySQL,linux环境配置">
+<meta name="description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7 安装MySQL">
-<meta property="og:url" content="http://yoursite.com/2019/08/06/linux-install-1-md/index.html">
+<meta property="og:title" content="shell中的grep">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/shell-9/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
+<meta property="og:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T05:32:17.654Z">
+<meta property="og:updated_time" content="2019-08-08T10:31:25.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7 安装MySQL">
-<meta name="twitter:description" content="下载MySQL源安装包1wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm 安装MySQL源1yum localinstall mysql57-community-release-el7-8.noarch.rpm 检查MySQL源是否安装成功1yum repolist enabled | grep &quot;my">
+<meta name="twitter:title" content="shell中的grep">
+<meta name="twitter:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/06/linux-install-1-md/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/08/shell-9/"/>
 
 
 
 
 
-  <title>Centos7 安装MySQL | Sean's Blog</title>
+  <title>shell中的grep | Sean's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-1-md/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Centos7 安装MySQL</h1>
+          <h1 class="post-title" itemprop="name headline">shell中的grep</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T19:26:49+08:00">
-                2019-08-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:21:08+08:00">
+                2019-08-08
               </time>
             
 
@@ -354,23 +354,58 @@
       
 
       
-        <h3 id="下载MySQL源安装包"><a href="#下载MySQL源安装包" class="headerlink" title="下载MySQL源安装包"></a>下载MySQL源安装包</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="安装MySQL源"><a href="#安装MySQL源" class="headerlink" title="安装MySQL源"></a>安装MySQL源</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum localinstall mysql57-community-release-el7-8.noarch.rpm</span><br></pre></td></tr></table></figure>
-<h3 id="检查MySQL源是否安装成功"><a href="#检查MySQL源是否安装成功" class="headerlink" title="检查MySQL源是否安装成功"></a>检查MySQL源是否安装成功</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum repolist enabled | grep "mysql.*-community.*"</span><br></pre></td></tr></table></figure>
-<h3 id="修改源，改变默认安装的MySQL版本"><a href="#修改源，改变默认安装的MySQL版本" class="headerlink" title="修改源，改变默认安装的MySQL版本"></a>修改源，改变默认安装的MySQL版本</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/yum.repos.d/mysql-community.repo</span><br></pre></td></tr></table></figure>
-<p>如果要使用5.6，就将5.6下方的 <strong>enabled=1</strong> ，其他的设为 <strong>enabled=0</strong> 。</p>
-<h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install mysql-community-server</span><br></pre></td></tr></table></figure>
-<h3 id="启动MySQL服务"><a href="#启动MySQL服务" class="headerlink" title="启动MySQL服务"></a>启动MySQL服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
-<h3 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl enable mysqld</span><br><span class="line">systemctl daemon-reload</span><br></pre></td></tr></table></figure>
-<h3 id="修改本地登录密码"><a href="#修改本地登录密码" class="headerlink" title="修改本地登录密码"></a>修改本地登录密码</h3><h4 id="查看MySQL密码"><a href="#查看MySQL密码" class="headerlink" title="查看MySQL密码"></a>查看MySQL密码</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'temporary password' /var/log/mysqld.log</span><br></pre></td></tr></table></figure>
-<h4 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br></pre></td></tr></table></figure>
-<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'MyNewPass1!'</span>;</span><br></pre></td></tr></table></figure>
-<p>或</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> <span class="keyword">PASSWORD</span> <span class="keyword">FOR</span> <span class="string">'root'</span>@<span class="string">'localhost'</span>=<span class="keyword">password</span>(<span class="string">'MyNewPass1!'</span>);</span><br></pre></td></tr></table></figure>
-<p>或 5.7以上的版本使用:</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> mysql.user <span class="keyword">set</span> authentication_string=<span class="keyword">password</span>(<span class="string">'MyNewPass1!'</span>)<span class="keyword">where</span> <span class="keyword">user</span>=<span class="string">'root'</span> ;</span><br></pre></td></tr></table></figure>
-<h4 id="检查密码"><a href="#检查密码" class="headerlink" title="检查密码"></a>检查密码</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">'%password%'</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="添加远程登录用户"><a href="#添加远程登录用户" class="headerlink" title="添加远程登录用户"></a>添加远程登录用户</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> ALL <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> *.* <span class="keyword">TO</span> <span class="string">'REMOTE_USER'</span>@<span class="string">'%'</span> <span class="keyword">IDENTIFIED</span> <span class="keyword">BY</span> <span class="string">'MyNewPassword2!'</span> <span class="keyword">WITH</span> <span class="keyword">GRANT</span> <span class="keyword">OPTION</span>;</span><br></pre></td></tr></table></figure>
+        <h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p>
+<h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p>
+<p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p>
+<p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p>
+<h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul>
+<li><p>第一种形式: grep[option][pattern][file1,file2…]</p>
+</li>
+<li><p>第二种形式: command | grep [option][pattern]</p>
+</li>
+</ul>
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>不显示匹配行信息</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>搜索时忽略大小写</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归搜索</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>支持扩展正则表达式</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>不按正则表达式匹配，按照字符串字面意思匹配</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>查看匹配行及匹配行后几行的信息</td>
+</tr>
+<tr>
+<td>-B</td>
+<td>查看匹配行及匹配行前几行的信息</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -388,11 +423,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/linux/" rel="tag"># linux</a>
-          
-            <a href="/tags/MySQL/" rel="tag"># MySQL</a>
-          
-            <a href="/tags/linux环境配置/" rel="tag"># linux环境配置</a>
+            <a href="/tags/shell/" rel="tag"># shell</a>
           
         </div>
       
@@ -405,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/23/springboot-2/" rel="next" title="springboot[2]mysql的配置及JPA的使用">
-                <i class="fa fa-chevron-left"></i> springboot[2]mysql的配置及JPA的使用
+              <a href="/2019/08/08/shell-8/" rel="next" title="shell中的find">
+                <i class="fa fa-chevron-left"></i> shell中的find
               </a>
             
           </div>
@@ -414,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/06/linux-install-2-md/" rel="prev" title="修改MySQL默认密码策略">
-                修改MySQL默认密码策略 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -540,7 +567,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载MySQL源安装包"><span class="nav-number">1.</span> <span class="nav-text">下载MySQL源安装包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL源"><span class="nav-number">2.</span> <span class="nav-text">安装MySQL源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查MySQL源是否安装成功"><span class="nav-number">3.</span> <span class="nav-text">检查MySQL源是否安装成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改源，改变默认安装的MySQL版本"><span class="nav-number">4.</span> <span class="nav-text">修改源，改变默认安装的MySQL版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装MySQL"><span class="nav-number">5.</span> <span class="nav-text">安装MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动MySQL服务"><span class="nav-number">6.</span> <span class="nav-text">启动MySQL服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开机启动"><span class="nav-number">7.</span> <span class="nav-text">开机启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改本地登录密码"><span class="nav-number">8.</span> <span class="nav-text">修改本地登录密码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL密码"><span class="nav-number">8.1.</span> <span class="nav-text">查看MySQL密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接MySQL"><span class="nav-number">8.2.</span> <span class="nav-text">连接MySQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改密码"><span class="nav-number">8.3.</span> <span class="nav-text">修改密码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检查密码"><span class="nav-number">8.4.</span> <span class="nav-text">检查密码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加远程登录用户"><span class="nav-number">9.</span> <span class="nav-text">添加远程登录用户</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-和-egrep"><span class="nav-number">1.</span> <span class="nav-text">grep 和 egrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本正则和扩展正则"><span class="nav-number">1.1.</span> <span class="nav-text">基本正则和扩展正则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-语法格式"><span class="nav-number">2.</span> <span class="nav-text">grep 语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用参数"><span class="nav-number">2.1.</span> <span class="nav-text">常用参数</span></a></li></ol></li></ol></div>
             
 
           </div>
