@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="shell," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
-<meta name="keywords" content="shell">
-<meta property="og:type" content="article">
-<meta property="og:title" content="shell中的grep">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/shell-9/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sean&#39;s Blog">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T10:31:25.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell中的grep">
-<meta name="twitter:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
+<meta name="twitter:title" content="Sean&#39;s Blog">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/08/shell-9/"/>
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
 
 
 
 
 
-  <title>shell中的grep | Sean's Blog</title>
+  <title>Sean's Blog</title>
   
 
 
@@ -145,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -272,9 +268,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -287,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/springboot-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +300,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">shell中的grep</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/10/springboot-1/" itemprop="url">springboot[1]logback的使用与配置</a></h1>
         
 
         <div class="post-meta">
@@ -316,8 +314,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:21:08+08:00">
-                2019-08-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-10T20:04:57+08:00">
+                2019-07-10
               </time>
             
 
@@ -354,59 +352,77 @@
       
 
       
-        <h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p>
-<h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p>
-<p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p>
-<p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p>
-<h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul>
-<li><p>第一种形式: grep[option][pattern][file1,file2…]</p>
-</li>
-<li><p>第二种形式: command | grep [option][pattern]</p>
-</li>
+        
+          
+            <a id="more"></a>
+<h3 id="日志框架的作用"><a href="#日志框架的作用" class="headerlink" title="日志框架的作用"></a>日志框架的作用</h3><ul>
+<li>定制输出目标<br>可以选择输出到控制台或文件等  </li>
+<li>定制输出格式<br>可以为输出内容配置公用的格式  </li>
+<li>携带上下文信息<br>可以携带类信息，时间信息等上下文信息  </li>
+<li>运行时选择性输出<br>可以只输出部分等级，部分类的日志  </li>
+<li>灵活的配置<br>可以选择按天滚动等  </li>
+<li>优异的性能<br>System.out.println会添加synchronized方法锁，会极大地影响系统性能  </li>
 </ul>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
+<h3 id="logback所需jar包"><a href="#logback所需jar包" class="headerlink" title="logback所需jar包"></a>logback所需jar包</h3><p>springboot在spring-boot-starter-web中内嵌了logback的模块,所以不用额外引用包.若不使用springboot,需要导入如下两个包:  </p>
+<ol>
+<li><p>logback-core-xxx.jar  </p>
+</li>
+<li><p>logback-classic-xxx.jar  </p>
+</li>
+</ol>
+<p>包的依赖关系可以使用如下指令来查看:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn dependency:tree</span><br></pre></td></tr></table></figure>
+<h3 id="Spring-Test中使用Logback"><a href="#Spring-Test中使用Logback" class="headerlink" title="Spring Test中使用Logback"></a>Spring Test中使用Logback</h3><p>普通引入:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Logger logger = LoggerFactory.getLogger(LoggerTest.class);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        logger.debug(<span class="string">"debug..."</span>); <span class="comment">// 系统默认的日志级别是info.这里不会打印</span></span><br><span class="line">        logger.info(<span class="string">"info..."</span>);</span><br><span class="line">        logger.error(<span class="string">"error..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>lombok简化引入:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoggerTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        log.debug(<span class="string">"debug..."</span>);</span><br><span class="line">        log.info(<span class="string">"info..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用配置文件"><a href="#使用配置文件" class="headerlink" title="使用配置文件"></a>使用配置文件</h3><p>在resources目录下新建logback-spring.xml就可以对日志进行配置了。日志基本内容如下:  </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 控制台输出 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"consoleLog"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">layout</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span></span><br><span class="line">                %d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; %-5level [%thread]%c %M %L: %m%n</span><br><span class="line">            <span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">layout</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- INFO及WARN等级输出 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"fileInfoLog"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表示忽略ERROR等级的输出 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.filter.LevelFilter"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">level</span>&gt;</span>ERROR<span class="tag">&lt;/<span class="name">level</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">onMatch</span>&gt;</span>DENY<span class="tag">&lt;/<span class="name">onMatch</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">onMismatch</span>&gt;</span>ACCEPT<span class="tag">&lt;/<span class="name">onMismatch</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoder</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span></span><br><span class="line">                %msg%n</span><br><span class="line">            <span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">encoder</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--滚动策略(按时间滚动,默认按天滚动)--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--输出路径--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">fileNamePattern</span>&gt;</span>./log/info-%d.log<span class="tag">&lt;/<span class="name">fileNamePattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- ERROR等级输出 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">appender</span> <span class="attr">name</span>=<span class="string">"fileErrorLog"</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 表示输出ERROR等级及以上的日志文件 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filter</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.classic.filter.ThresholdFilter"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">level</span>&gt;</span>ERROR<span class="tag">&lt;/<span class="name">level</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">encoder</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">pattern</span>&gt;</span></span><br><span class="line">                %msg%n</span><br><span class="line">            <span class="tag">&lt;/<span class="name">pattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">encoder</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--滚动策略--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">rollingPolicy</span> <span class="attr">class</span>=<span class="string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--路径--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">fileNamePattern</span>&gt;</span>./log/error-%d.log<span class="tag">&lt;/<span class="name">fileNamePattern</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">rollingPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">appender</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">root</span> <span class="attr">level</span>=<span class="string">"info"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"consoleLog"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"fileInfoLog"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">appender-ref</span> <span class="attr">ref</span>=<span class="string">"fileErrorLog"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">root</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="常用pattern说明"><a href="#常用pattern说明" class="headerlink" title="常用pattern说明"></a>常用pattern说明</h4><table>
 <thead>
 <tr>
-<th>选项</th>
-<th>含义</th>
+<th>pattern</th>
+<th style="text-align:center">意义</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>-v</td>
-<td>不显示匹配行信息</td>
+<td>%d{pattern}</td>
+<td style="text-align:center">日期</td>
 </tr>
 <tr>
-<td>-i</td>
-<td>搜索时忽略大小写</td>
+<td>%m 或 %msg</td>
+<td style="text-align:center">信息</td>
 </tr>
 <tr>
-<td>-n</td>
-<td>显示行号</td>
+<td>%c{length}</td>
+<td style="text-align:center">logger名,默认输出全路径,当length大于路径长度输出全路径,length为0只输出类名,否则输出路径首字母及类名</td>
 </tr>
 <tr>
-<td>-r</td>
-<td>递归搜索</td>
+<td>%M</td>
+<td style="text-align:center">method</td>
 </tr>
 <tr>
-<td>-E</td>
-<td>支持扩展正则表达式</td>
+<td>%L</td>
+<td style="text-align:center">行号</td>
 </tr>
 <tr>
-<td>-F</td>
-<td>不按正则表达式匹配，按照字符串字面意思匹配</td>
+<td>%thread</td>
+<td style="text-align:center">线程名称</td>
 </tr>
 <tr>
-<td>-A</td>
-<td>查看匹配行及匹配行后几行的信息</td>
+<td>%-5level</td>
+<td style="text-align:center">等级</td>
 </tr>
 <tr>
-<td>-B</td>
-<td>查看匹配行及匹配行前几行的信息</td>
+<td>%n</td>
+<td style="text-align:center">换行</td>
 </tr>
 </tbody>
 </table>
 
+          
+        
       
     </div>
     
@@ -421,40 +437,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/shell/" rel="tag"># shell</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/08/08/shell-8/" rel="next" title="shell中的find">
-                <i class="fa fa-chevron-left"></i> shell中的find
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/08/shell-10/" rel="prev" title="shell中的sed">
-                shell中的sed <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -464,11 +454,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+  </nav>
+
 
 
           </div>
@@ -476,10 +469,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -500,17 +489,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -561,22 +541,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-和-egrep"><span class="nav-number">1.</span> <span class="nav-text">grep 和 egrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本正则和扩展正则"><span class="nav-number">1.1.</span> <span class="nav-text">基本正则和扩展正则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-语法格式"><span class="nav-number">2.</span> <span class="nav-text">grep 语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用参数"><span class="nav-number">2.1.</span> <span class="nav-text">常用参数</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -717,10 +681,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
