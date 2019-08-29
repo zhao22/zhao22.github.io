@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="shell," />
+  <meta name="keywords" content="linux问题总结," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
-<meta name="keywords" content="shell">
+<meta name="description" content="修改时间说明有时需要修改服务器的时间来测试某些定时任务，具体操作手段如下: 查看当前时间及时区1date -R 修改日期为2019年08月24日1date -s 08/24/2019 修改时间为下午18:00:001date -s 18:00:00 将当前时间写入BIOS,避免重启后失效1hwclock -w 或 1hwclock --systohc 查看BIOS时间1hwclock --show">
+<meta name="keywords" content="linux问题总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell中的grep">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/shell-9/index.html">
+<meta property="og:title" content="linux问题总结-linux时间调整">
+<meta property="og:url" content="http://yoursite.com/2019/08/29/linux-question-1/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
+<meta property="og:description" content="修改时间说明有时需要修改服务器的时间来测试某些定时任务，具体操作手段如下: 查看当前时间及时区1date -R 修改日期为2019年08月24日1date -s 08/24/2019 修改时间为下午18:00:001date -s 18:00:00 将当前时间写入BIOS,避免重启后失效1hwclock -w 或 1hwclock --systohc 查看BIOS时间1hwclock --show">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T10:31:25.558Z">
+<meta property="og:updated_time" content="2019-08-29T05:52:05.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell中的grep">
-<meta name="twitter:description" content="grep 和 egrepegrep 和 grep -E 等价， 支持扩展正则表达式   基本正则和扩展正则扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符   基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义   扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义 grep 语法格式 第一种形式: grep[opt">
+<meta name="twitter:title" content="linux问题总结-linux时间调整">
+<meta name="twitter:description" content="修改时间说明有时需要修改服务器的时间来测试某些定时任务，具体操作手段如下: 查看当前时间及时区1date -R 修改日期为2019年08月24日1date -s 08/24/2019 修改时间为下午18:00:001date -s 18:00:00 将当前时间写入BIOS,避免重启后失效1hwclock -w 或 1hwclock --systohc 查看BIOS时间1hwclock --show">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/08/shell-9/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/08/29/linux-question-1/"/>
 
 
 
 
 
-  <title>shell中的grep | Sean's Blog</title>
+  <title>linux问题总结-linux时间调整 | Sean's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-9/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/linux-question-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">shell中的grep</h1>
+          <h1 class="post-title" itemprop="name headline">linux问题总结-linux时间调整</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:21:08+08:00">
-                2019-08-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T13:23:04+08:00">
+                2019-08-29
               </time>
             
 
@@ -354,58 +354,15 @@
       
 
       
-        <h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p>
-<h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p>
-<p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p>
-<p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p>
-<h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul>
-<li><p>第一种形式: grep[option][pattern][file1,file2…]</p>
-</li>
-<li><p>第二种形式: command | grep [option][pattern]</p>
-</li>
-</ul>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-v</td>
-<td>不显示匹配行信息</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>搜索时忽略大小写</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>显示行号</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归搜索</td>
-</tr>
-<tr>
-<td>-E</td>
-<td>支持扩展正则表达式</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>不按正则表达式匹配，按照字符串字面意思匹配</td>
-</tr>
-<tr>
-<td>-A</td>
-<td>查看匹配行及匹配行后几行的信息</td>
-</tr>
-<tr>
-<td>-B</td>
-<td>查看匹配行及匹配行前几行的信息</td>
-</tr>
-</tbody>
-</table>
+        <h2 id="修改时间说明"><a href="#修改时间说明" class="headerlink" title="修改时间说明"></a>修改时间说明</h2><p>有时需要修改服务器的时间来测试某些定时任务，具体操作手段如下:</p>
+<h3 id="查看当前时间及时区"><a href="#查看当前时间及时区" class="headerlink" title="查看当前时间及时区"></a>查看当前时间及时区</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -R</span><br></pre></td></tr></table></figure>
+<h3 id="修改日期为2019年08月24日"><a href="#修改日期为2019年08月24日" class="headerlink" title="修改日期为2019年08月24日"></a>修改日期为2019年08月24日</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s 08/24/2019</span><br></pre></td></tr></table></figure>
+<h3 id="修改时间为下午18-00-00"><a href="#修改时间为下午18-00-00" class="headerlink" title="修改时间为下午18:00:00"></a>修改时间为下午18:00:00</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">date -s 18:00:00</span><br></pre></td></tr></table></figure>
+<h3 id="将当前时间写入BIOS-避免重启后失效"><a href="#将当前时间写入BIOS-避免重启后失效" class="headerlink" title="将当前时间写入BIOS,避免重启后失效"></a>将当前时间写入BIOS,避免重启后失效</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock -w</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --systohc</span><br></pre></td></tr></table></figure>
+<h3 id="查看BIOS时间"><a href="#查看BIOS时间" class="headerlink" title="查看BIOS时间"></a>查看BIOS时间</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --show</span><br></pre></td></tr></table></figure>
+<h3 id="用硬件时钟同步系统时钟"><a href="#用硬件时钟同步系统时钟" class="headerlink" title="用硬件时钟同步系统时钟"></a>用硬件时钟同步系统时钟</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hwclock --hctosys</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -423,7 +380,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/shell/" rel="tag"># shell</a>
+            <a href="/tags/linux问题总结/" rel="tag"># linux问题总结</a>
           
         </div>
       
@@ -436,8 +393,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/shell-8/" rel="next" title="shell中的find">
-                <i class="fa fa-chevron-left"></i> shell中的find
+              <a href="/2019/08/13/jvm-15/" rel="next" title="jvm字节码执行引擎">
+                <i class="fa fa-chevron-left"></i> jvm字节码执行引擎
               </a>
             
           </div>
@@ -445,10 +402,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/08/shell-10/" rel="prev" title="shell中的sed">
-                shell中的sed <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-和-egrep"><span class="nav-number">1.</span> <span class="nav-text">grep 和 egrep</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本正则和扩展正则"><span class="nav-number">1.1.</span> <span class="nav-text">基本正则和扩展正则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grep-语法格式"><span class="nav-number">2.</span> <span class="nav-text">grep 语法格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常用参数"><span class="nav-number">2.1.</span> <span class="nav-text">常用参数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改时间说明"><span class="nav-number">1.</span> <span class="nav-text">修改时间说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前时间及时区"><span class="nav-number">1.1.</span> <span class="nav-text">查看当前时间及时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改日期为2019年08月24日"><span class="nav-number">1.2.</span> <span class="nav-text">修改日期为2019年08月24日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改时间为下午18-00-00"><span class="nav-number">1.3.</span> <span class="nav-text">修改时间为下午18:00:00</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将当前时间写入BIOS-避免重启后失效"><span class="nav-number">1.4.</span> <span class="nav-text">将当前时间写入BIOS,避免重启后失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看BIOS时间"><span class="nav-number">1.5.</span> <span class="nav-text">查看BIOS时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用硬件时钟同步系统时钟"><span class="nav-number">1.6.</span> <span class="nav-text">用硬件时钟同步系统时钟</span></a></li></ol></li></ol></div>
             
 
           </div>
