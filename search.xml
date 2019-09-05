@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>MySQL问题总结-SHOW PROCESSLIST</title>
+      <link href="/2019/09/05/mysql-1/"/>
+      <url>/2019/09/05/mysql-1/</url>
+      <content type="html"><![CDATA[<h2 id="以下两条指令可以用来查看当前库有哪些正在运行的线程"><a href="#以下两条指令可以用来查看当前库有哪些正在运行的线程" class="headerlink" title="以下两条指令可以用来查看当前库有哪些正在运行的线程"></a>以下两条指令可以用来查看当前库有哪些正在运行的线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHOW [FULL] PROCESSLIST;</span><br><span class="line">SELECT * FROM information_schema.processlist;</span><br></pre></td></tr></table></figure><ol><li><p>如果操作员有PROCESS权限，则可以查看所有的线程，否则只能查看当前用的线程。  </p></li><li><p>如果没有使用FULL关键字，只能查看Info字段的前100个字符。</p></li></ol><h2 id="操作将会显示以下字段"><a href="#操作将会显示以下字段" class="headerlink" title="操作将会显示以下字段"></a>操作将会显示以下字段</h2><table><thead><tr><th style="text-align:center">字段</th><th style="text-align:center">含义</th></tr></thead><tbody><tr><td style="text-align:center">id</td><td style="text-align:center">ID标识,要kill一个语句使用此字段</td></tr><tr><td style="text-align:center">user</td><td style="text-align:center">使用线程的用户</td></tr><tr><td style="text-align:center">host</td><td style="text-align:center">使用线程的IP和端口号</td></tr><tr><td style="text-align:center">db</td><td style="text-align:center">数据库名</td></tr><tr><td style="text-align:center">command</td><td style="text-align:center">连接状态,主要有休眠(sleep)、查询(query)、连接(connect)</td></tr><tr><td style="text-align:center">time</td><td style="text-align:center">连接持续时间，单位是秒</td></tr><tr><td style="text-align:center">state</td><td style="text-align:center">显示当前sql语句的状态</td></tr><tr><td style="text-align:center">info</td><td style="text-align:center">显示这个sql语句</td></tr></tbody></table><h2 id="state-主要状态和描述"><a href="#state-主要状态和描述" class="headerlink" title="state 主要状态和描述"></a>state 主要状态和描述</h2><table><thead><tr><th style="text-align:center">状态</th><th style="text-align:center">描述</th></tr></thead><tbody><tr><td style="text-align:center">Checking table</td><td style="text-align:center">正在检查数据表(自动)</td></tr><tr><td style="text-align:center">Closing tables</td><td style="text-align:center">正在将表中修改的数据刷新到磁盘中，同时正在关闭已经用完的表。这是一个很快的操作，如果不是这样的话，应该确认磁盘空间是否已经满了或者磁盘是否正处于重负中</td></tr><tr><td style="text-align:center">Connect Out</td><td style="text-align:center">复制从服务器正在连接主服务器</td></tr><tr><td style="text-align:center">Copying to tmp table on disk</td><td style="text-align:center">由于临时结果集大于tmp_table_size.正在将临时表从内存存储转为磁盘存储以节省内存</td></tr><tr><td style="text-align:center">Creating tmp table</td><td style="text-align:center">正在创建临时表以存放部分查询结果</td></tr><tr><td style="text-align:center">deleting from main table</td><td style="text-align:center">服务器正在执行多表删除中的第一部分，刚删除第一个表</td></tr><tr><td style="text-align:center">deleting from reference tables</td><td style="text-align:center">服务器正在执行多表删除中的第二部分，正在删除其他表的记录</td></tr><tr><td style="text-align:center">Flushing tables</td><td style="text-align:center">正在执行FLUSH TABLES,等待其他线程关闭数据表</td></tr><tr><td style="text-align:center">Killed</td><td style="text-align:center">发送了一个kill请求给某线程，那么这个线程将会检查kill标志位，同时会放弃下一个kill请求。MySQL会在每次的主循环中检查kill标志位，不过有些情况下该线程可能会过一小段时间才能关闭。如果该线程被其他线程锁住，那么kill请求会在锁释放时马上生效</td></tr><tr><td style="text-align:center">Locked</td><td style="text-align:center">被其他查询锁住了</td></tr><tr><td style="text-align:center">Sending data</td><td style="text-align:center">正在处理SELECT查询的记录，同时正在把结果发送给客户端</td></tr><tr><td style="text-align:center">Sorting for group</td><td style="text-align:center">正在为GROUP BY做排序</td></tr><tr><td style="text-align:center">Sorting for order</td><td style="text-align:center">正在为ORDER BY做排序</td></tr><tr><td style="text-align:center">Opening tables</td><td style="text-align:center">正在尝试打开一个表，这个过程应该会很快，除非收到其他因素的干扰。例如，在执行ALTER TABLE或LOCK TABLE语句行完之前，数据表无法被其他线程打开。</td></tr><tr><td style="text-align:center">Removing duplicates</td><td style="text-align:center">正在执行一个SELECT DISTINCT方式的查询，但是MySQL无法在前一个阶段优化掉那些重复的记录。因此MySQL需要再次去掉重复的记录，然后再把结果发送给客户端。</td></tr><tr><td style="text-align:center">Reopen table</td><td style="text-align:center">获得了对一个表的锁，必须在表结构修改后才能获得这个锁，已经释放锁，关闭数据表，正尝试重新打开数据表。</td></tr><tr><td style="text-align:center">Repair by sorting</td><td style="text-align:center">修复指令正在排序以创建索引</td></tr><tr><td style="text-align:center">Repair with keycache</td><td style="text-align:center">修复指令正在利用索引缓存一个一个地创建新索引。它会比Repair by sorting慢些。</td></tr><tr><td style="text-align:center">Searching rows for update</td><td style="text-align:center">正在将符合条件的记录找出来用于更新,一定在UPDATE要修改相关记录前就完成</td></tr><tr><td style="text-align:center">Sleeping</td><td style="text-align:center">正在等待客户端发送新请求</td></tr><tr><td style="text-align:center">System lock</td><td style="text-align:center">正在等待取得一个外部的系统锁。如果当前没有运行多个mysqld服务器同时请求一个表，可以通过增加–skip-external-locking来禁止外部系统锁</td></tr><tr><td style="text-align:center">Upgrading lock</td><td style="text-align:center">INSERT DELAYED正在尝试取得一个锁以插入新记录</td></tr><tr><td style="text-align:center">Updating</td><td style="text-align:center">正在修改匹配的记录</td></tr><tr><td style="text-align:center">User Lock</td><td style="text-align:center">正在等待GET_LOCK()</td></tr><tr><td style="text-align:center">Waiting for tables</td><td style="text-align:center">线程得到通知，数据表结构已经被修改了，需要重新打开数据表以取得新的结构。为了重新打开数据表，必须等到所有其他线程关闭这个表。以下几种情况会产生这个通知:FLUSH, ALTER,RENAME,REPAIR,ANALYZE,OPTIMIZE</td></tr><tr><td style="text-align:center">waiting for handler insert</td><td style="text-align:center">INSERT DELAYED已经处理完了所有待处理的插入操作，正在等待新的请求</td></tr></tbody></table>]]></content>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>linux问题总结-linux时间调整</title>
       <link href="/2019/08/29/linux-question-1/"/>
       <url>/2019/08/29/linux-question-1/</url>
@@ -486,9 +501,9 @@
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> Java </tag>
             
-            <tag> java </tag>
+            <tag> linux </tag>
             
             <tag> linux环境配置 </tag>
             
@@ -524,9 +539,9 @@
             
             <tag> linux </tag>
             
-            <tag> linux环境配置 </tag>
-            
             <tag> MySQL </tag>
+            
+            <tag> linux环境配置 </tag>
             
         </tags>
       
