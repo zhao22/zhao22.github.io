@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
+<meta name="description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步: 调用者会等到方法调用返回后才能继续后面的行为 异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞: 线程1和线程2不能同时进行 非阻塞: 线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务">
 <meta name="keywords" content="多线程,IO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同步与异步,阻塞与非阻塞">
 <meta property="og:url" content="http://yoursite.com/2019/09/09/thread-1/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
+<meta property="og:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步: 调用者会等到方法调用返回后才能继续后面的行为 异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞: 线程1和线程2不能同时进行 非阻塞: 线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T05:34:09.564Z">
+<meta property="og:updated_time" content="2019-09-09T05:48:16.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同步与异步,阻塞与非阻塞">
-<meta name="twitter:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
+<meta name="twitter:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步: 调用者会等到方法调用返回后才能继续后面的行为 异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞: 线程1和线程2不能同时进行 非阻塞: 线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务">
 
 
 
@@ -355,11 +355,11 @@
 
       
         <h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p>
-<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>调用者会等到方法调用返回后才能继续后面的行为</p>
-<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p>
-<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行</p>
-<h3 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h3><p>线程1和线程2不能同时进行</p>
-<h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><p>线程1和线程2可以同时进行</p>
+<p>同步: 调用者会等到方法调用返回后才能继续后面的行为</p>
+<p>异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的<strong>多个线程</strong>是否可以同时执行</p>
+<p>阻塞: 线程1和线程2不能同时进行</p>
+<p>非阻塞: 线程1和线程2可以同时进行</p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p>
 <p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p>
 <h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p>
@@ -531,7 +531,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步"><span class="nav-number">1.</span> <span class="nav-text">同步与异步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步"><span class="nav-number">1.1.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.2.</span> <span class="nav-text">异步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞与非阻塞"><span class="nav-number">2.</span> <span class="nav-text">阻塞与非阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞"><span class="nav-number">2.1.</span> <span class="nav-text">阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞"><span class="nav-number">2.2.</span> <span class="nav-text">非阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞"><span class="nav-number">3.1.</span> <span class="nav-text">同步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">同步非阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步阻塞"><span class="nav-number">3.3.</span> <span class="nav-text">异步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步非阻塞"><span class="nav-number">3.4.</span> <span class="nav-text">异步非阻塞</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步"><span class="nav-number">1.</span> <span class="nav-text">同步与异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞与非阻塞"><span class="nav-number">2.</span> <span class="nav-text">阻塞与非阻塞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞"><span class="nav-number">3.1.</span> <span class="nav-text">同步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">同步非阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步阻塞"><span class="nav-number">3.3.</span> <span class="nav-text">异步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步非阻塞"><span class="nav-number">3.4.</span> <span class="nav-text">异步非阻塞</span></a></li></ol></li></ol></div>
             
 
           </div>
