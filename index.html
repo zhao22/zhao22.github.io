@@ -283,6 +283,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/constitute-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/09/constitute-1/" itemprop="url">计算机组成原理[1]二进制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T14:15:30+08:00">
+                2019-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>我们常用的计数方式是十进制，这可能来源于我们拥有10根手指。在计算机界，由于电子管只有开和关两种状态，用以表示十进制比较复杂。于是采用二进制进行计算。  </p>
+<p>二进制遵循逢二进一的原理，每一位只有 0 和 1 两个数字，这样的一位称为 binary digit (二进制位), 缩写为 bit(比特)。是计算机的最小单位。</p>
+<p>由于二进制每一位包含的信息较少，所以二进制只能使用更多位数来表示其他进制的信息。  </p>
+<p>比如二进制的10表示十进制的2，二进制的100表示十进制的4.  </p>
+<h3 id="二进制与十进制正整数的转换"><a href="#二进制与十进制正整数的转换" class="headerlink" title="二进制与十进制正整数的转换"></a>二进制与十进制正整数的转换</h3><p>由于二进制和十进制不存在倍数关系，所以转换时需要一定的计算。</p>
+<h4 id="二进制转十进制"><a href="#二进制转十进制" class="headerlink" title="二进制转十进制"></a>二进制转十进制</h4><p>任何进制都遵循以下规律:</p>
+<p>x进制在y位上数值为z,z占权重为:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z * x ^ (y - 1)</span><br></pre></td></tr></table></figure>
+<p>而整个数字就是所有位的权重和。</p>
+<p>比如十进制数345就是由以下公式计算而来:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 * 10 ^ 2 + 4 * 10 ^ 1 + 5 * 10 ^ 0</span><br></pre></td></tr></table></figure>
+<p>同理，二进制数我们也可以使用按位计算并求和的方式转换为十进制。二进制有以下特点:</p>
+<ol>
+<li><p>进制x = 2</p>
+</li>
+<li><p>z等于1或者0 (为0时可以忽略不计，为1时权重等于 2 ^ (y - 1))</p>
+</li>
+</ol>
+<p>所以二进制数1001011转换为10进制的计算如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ 6 + 2 ^ 3 + 2 ^ 1 + 2 ^ 0</span><br></pre></td></tr></table></figure>
+<p>最终得到: 75</p>
+<h3 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h3><p>十进制转二进制使用如下计算方式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不断将数字除以2，若余数为0，则在高位添加0，若余数为1,则在高位添加1</span><br></pre></td></tr></table></figure>
+<p>这是由于，任何一个十进制的正整数都可以表示为多个底数为2，指数不同的幂的和：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ x + 2 ^ y + ... + 2 ^ z</span><br></pre></td></tr></table></figure>
+<p>在不断除以2的过程中，会将低位计算并剔除。</p>
+<p>除到第2 ^ y 时,此时公式为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ x / 2 ^ y + ... + 2 ^ y / 2 ^ y</span><br></pre></td></tr></table></figure>
+<p>由于 2 ^ (x - y) 肯定为偶数, 而 2 ^ y / 2 ^ y 为1，此时，若存在 2 ^ y这个加数，则余数为1，不存在则余数为0。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/thread-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -367,7 +515,7 @@
 <h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p>
 <p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p>
 <h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p>
-<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口通知主线程执行特定操作)</p>
 
           
         
@@ -2530,140 +2678,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/jvm-9/" itemprop="url">jvm类文件的结构3-类索引、父类索引与接口索引集合</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T09:40:26+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Class文件索引简介"><a href="#Class文件索引简介" class="headerlink" title="Class文件索引简介"></a>Class文件索引简介</h2><p>类索引(this_class)和父类索引(super_class)都是一个u2类型的数据，而接口索引集合(interfaces)是一组u2类型的数据的集合。  </p>
-<p>Class文件中由这三项数据来确定这个类的继承关系：  </p>
-<ol>
-<li><p>类索引用于确定这个类的全限定名。  </p>
-</li>
-<li><p>父类索引用于确定这个类的父类的权限定名。  </p>
-</li>
-<li><p>接口索引集合用来描述这个类实现了哪些接口，这些被实现的接口将按implements语句(如果这个类本身是一个接口，则应当是extends语句)后的接口顺序从左到右排列在接口的索引集合中。  </p>
-</li>
-</ol>
-<h2 id="索引的结构描述"><a href="#索引的结构描述" class="headerlink" title="索引的结构描述"></a>索引的结构描述</h2><p>类索引、父类索引和接口索引集合按顺序排列在访问标志之后。  </p>
-<h3 id="类索引和父类索引"><a href="#类索引和父类索引" class="headerlink" title="类索引和父类索引"></a>类索引和父类索引</h3><p>类索引和父类索引用两个u2类型的索引值表示，它们各自指向一个类型为CONSTANT_Class_info的类描述符常量，通过CONSTANT_Class_info类型的常量中的索引值可以找到定义在CONSTANT_Utf8_info类型的常量中的全限定名字符串。  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">索引/父类索引        常量池                           常量池</span><br><span class="line">this_class  ---&gt;  CONSTANT_Class_info index----&gt;   CONSTANT_Utf8_info (记录类的全限定名)</span><br></pre></td></tr></table></figure>
-<h3 id="接口索引集合"><a href="#接口索引集合" class="headerlink" title="接口索引集合"></a>接口索引集合</h3><p>接口索引集合，入口第一项————u2类型的数据为接口计数器(interfaces_count)，表示索引表的容量。  </p>
-<p>如果该类没有实现任何接口，那么该计数器值为0，后面接口的索引表不再占用任何字节。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2714,7 +2728,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2727,7 +2741,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

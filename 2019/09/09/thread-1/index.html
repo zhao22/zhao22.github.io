@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Sean&#39;s Blog">
 <meta property="og:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步: 调用者会等到方法调用返回后才能继续后面的行为 异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞: 线程1和线程2不能同时进行 非阻塞: 线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-09T05:48:16.072Z">
+<meta property="og:updated_time" content="2019-09-09T05:53:50.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同步与异步,阻塞与非阻塞">
 <meta name="twitter:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步: 调用者会等到方法调用返回后才能继续后面的行为 异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞: 线程1和线程2不能同时进行 非阻塞: 线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务">
@@ -367,7 +367,7 @@
 <h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p>
 <p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p>
 <h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p>
-<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口通知主线程执行特定操作)</p>
 
       
     </div>
@@ -409,6 +409,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/09/constitute-1/" rel="prev" title="计算机组成原理[1]二进制">
+                计算机组成原理[1]二进制 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -485,7 +489,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -498,7 +502,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

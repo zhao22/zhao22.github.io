@@ -283,6 +283,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/jvm-9/" itemprop="url">jvm类文件的结构3-类索引、父类索引与接口索引集合</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T09:40:26+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Class文件索引简介"><a href="#Class文件索引简介" class="headerlink" title="Class文件索引简介"></a>Class文件索引简介</h2><p>类索引(this_class)和父类索引(super_class)都是一个u2类型的数据，而接口索引集合(interfaces)是一组u2类型的数据的集合。  </p>
+<p>Class文件中由这三项数据来确定这个类的继承关系：  </p>
+<ol>
+<li><p>类索引用于确定这个类的全限定名。  </p>
+</li>
+<li><p>父类索引用于确定这个类的父类的权限定名。  </p>
+</li>
+<li><p>接口索引集合用来描述这个类实现了哪些接口，这些被实现的接口将按implements语句(如果这个类本身是一个接口，则应当是extends语句)后的接口顺序从左到右排列在接口的索引集合中。  </p>
+</li>
+</ol>
+<h2 id="索引的结构描述"><a href="#索引的结构描述" class="headerlink" title="索引的结构描述"></a>索引的结构描述</h2><p>类索引、父类索引和接口索引集合按顺序排列在访问标志之后。  </p>
+<h3 id="类索引和父类索引"><a href="#类索引和父类索引" class="headerlink" title="类索引和父类索引"></a>类索引和父类索引</h3><p>类索引和父类索引用两个u2类型的索引值表示，它们各自指向一个类型为CONSTANT_Class_info的类描述符常量，通过CONSTANT_Class_info类型的常量中的索引值可以找到定义在CONSTANT_Utf8_info类型的常量中的全限定名字符串。  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">索引/父类索引        常量池                           常量池</span><br><span class="line">this_class  ---&gt;  CONSTANT_Class_info index----&gt;   CONSTANT_Utf8_info (记录类的全限定名)</span><br></pre></td></tr></table></figure>
+<h3 id="接口索引集合"><a href="#接口索引集合" class="headerlink" title="接口索引集合"></a>接口索引集合</h3><p>接口索引集合，入口第一项————u2类型的数据为接口计数器(interfaces_count)，表示索引表的容量。  </p>
+<p>如果该类没有实现任何接口，那么该计数器值为0，后面接口的索引表不再占用任何字节。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/jvm-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2150,177 +2284,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/08/shell-9/" itemprop="url">shell中的grep</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:21:08+08:00">
-                2019-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="grep-和-egrep"><a href="#grep-和-egrep" class="headerlink" title="grep 和 egrep"></a>grep 和 egrep</h2><p>egrep 和 grep -E 等价， 支持扩展正则表达式  </p>
-<h3 id="基本正则和扩展正则"><a href="#基本正则和扩展正则" class="headerlink" title="基本正则和扩展正则"></a>基本正则和扩展正则</h3><p>扩展正则表达式与基础正则表达式的唯一区别在于： ? + () {} 这几个字符  </p>
-<p>基础正则表达式中，如果需要? + () {} 表达特殊含义， 需要将他们转义  </p>
-<p>扩展正则表达式中，如果需要? + () {} 不表达特殊含义，需要将他们转义</p>
-<h2 id="grep-语法格式"><a href="#grep-语法格式" class="headerlink" title="grep 语法格式"></a>grep 语法格式</h2><ul>
-<li><p>第一种形式: grep[option][pattern][file1,file2…]</p>
-</li>
-<li><p>第二种形式: command | grep [option][pattern]</p>
-</li>
-</ul>
-<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-v</td>
-<td>不显示匹配行信息</td>
-</tr>
-<tr>
-<td>-i</td>
-<td>搜索时忽略大小写</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>显示行号</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>递归搜索</td>
-</tr>
-<tr>
-<td>-E</td>
-<td>支持扩展正则表达式</td>
-</tr>
-<tr>
-<td>-F</td>
-<td>不按正则表达式匹配，按照字符串字面意思匹配</td>
-</tr>
-<tr>
-<td>-A</td>
-<td>查看匹配行及匹配行后几行的信息</td>
-</tr>
-<tr>
-<td>-B</td>
-<td>查看匹配行及匹配行前几行的信息</td>
-</tr>
-</tbody>
-</table>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2371,7 +2334,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2384,7 +2347,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

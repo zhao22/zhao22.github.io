@@ -3,10 +3,25 @@
   
     
     <entry>
+      <title>计算机组成原理[1]二进制</title>
+      <link href="/2019/09/09/constitute-1/"/>
+      <url>/2019/09/09/constitute-1/</url>
+      <content type="html"><![CDATA[<h2 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h2><p>我们常用的计数方式是十进制，这可能来源于我们拥有10根手指。在计算机界，由于电子管只有开和关两种状态，用以表示十进制比较复杂。于是采用二进制进行计算。  </p><p>二进制遵循逢二进一的原理，每一位只有 0 和 1 两个数字，这样的一位称为 binary digit (二进制位), 缩写为 bit(比特)。是计算机的最小单位。</p><p>由于二进制每一位包含的信息较少，所以二进制只能使用更多位数来表示其他进制的信息。  </p><p>比如二进制的10表示十进制的2，二进制的100表示十进制的4.  </p><h3 id="二进制与十进制正整数的转换"><a href="#二进制与十进制正整数的转换" class="headerlink" title="二进制与十进制正整数的转换"></a>二进制与十进制正整数的转换</h3><p>由于二进制和十进制不存在倍数关系，所以转换时需要一定的计算。</p><h4 id="二进制转十进制"><a href="#二进制转十进制" class="headerlink" title="二进制转十进制"></a>二进制转十进制</h4><p>任何进制都遵循以下规律:</p><p>x进制在y位上数值为z,z占权重为:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z * x ^ (y - 1)</span><br></pre></td></tr></table></figure><p>而整个数字就是所有位的权重和。</p><p>比如十进制数345就是由以下公式计算而来:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 * 10 ^ 2 + 4 * 10 ^ 1 + 5 * 10 ^ 0</span><br></pre></td></tr></table></figure><p>同理，二进制数我们也可以使用按位计算并求和的方式转换为十进制。二进制有以下特点:</p><ol><li><p>进制x = 2</p></li><li><p>z等于1或者0 (为0时可以忽略不计，为1时权重等于 2 ^ (y - 1))</p></li></ol><p>所以二进制数1001011转换为10进制的计算如下:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ 6 + 2 ^ 3 + 2 ^ 1 + 2 ^ 0</span><br></pre></td></tr></table></figure><p>最终得到: 75</p><h3 id="十进制转二进制"><a href="#十进制转二进制" class="headerlink" title="十进制转二进制"></a>十进制转二进制</h3><p>十进制转二进制使用如下计算方式:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">不断将数字除以2，若余数为0，则在高位添加0，若余数为1,则在高位添加1</span><br></pre></td></tr></table></figure><p>这是由于，任何一个十进制的正整数都可以表示为多个底数为2，指数不同的幂的和：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ x + 2 ^ y + ... + 2 ^ z</span><br></pre></td></tr></table></figure><p>在不断除以2的过程中，会将低位计算并剔除。</p><p>除到第2 ^ y 时,此时公式为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2 ^ x / 2 ^ y + ... + 2 ^ y / 2 ^ y</span><br></pre></td></tr></table></figure><p>由于 2 ^ (x - y) 肯定为偶数, 而 2 ^ y / 2 ^ y 为1，此时，若存在 2 ^ y这个加数，则余数为1，不存在则余数为0。</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>同步与异步,阻塞与非阻塞</title>
       <link href="/2019/09/09/thread-1/"/>
       <url>/2019/09/09/thread-1/</url>
-      <content type="html"><![CDATA[<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p><p>同步: 调用者会等到方法调用返回后才能继续后面的行为</p><p>异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p><h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的<strong>多个线程</strong>是否可以同时执行</p><p>阻塞: 线程1和线程2不能同时进行</p><p>非阻塞: 线程1和线程2可以同时进行</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p><h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，同时主线程对请求结果进行轮询，发现收到请求结果后，执行后续操作)</p><h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p><h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>]]></content>
+      <content type="html"><![CDATA[<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p><p>同步: 调用者会等到方法调用返回后才能继续后面的行为</p><p>异步: 调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p><h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的<strong>多个线程</strong>是否可以同时执行</p><p>阻塞: 线程1和线程2不能同时进行</p><p>非阻塞: 线程1和线程2可以同时进行</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p><h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，同时主线程对请求结果进行轮询，发现收到请求结果后，执行后续操作)</p><h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p><h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口通知主线程执行特定操作)</p>]]></content>
       
       
         <tags>
