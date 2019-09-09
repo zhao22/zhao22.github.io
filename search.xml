@@ -3,6 +3,23 @@
   
     
     <entry>
+      <title>同步与异步,阻塞与非阻塞</title>
+      <link href="/2019/09/09/thread-1/"/>
+      <url>/2019/09/09/thread-1/</url>
+      <content type="html"><![CDATA[<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p><h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>调用者会等到方法调用返回后才能继续后面的行为</p><h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p><h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行</p><h3 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h3><p>线程1和线程2不能同时进行</p><h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><p>线程1和线程2可以同时进行</p><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p><h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，同时主线程对请求结果进行轮询，发现收到请求结果后，执行后续操作)</p><h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p><p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p><h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p><p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 多线程 </tag>
+            
+            <tag> IO </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>MySQL问题总结-SHOW PROCESSLIST</title>
       <link href="/2019/09/05/mysql-1/"/>
       <url>/2019/09/05/mysql-1/</url>
@@ -12,6 +29,8 @@
         <tags>
             
             <tag> MySQL </tag>
+            
+            <tag> MySQL问题总结 </tag>
             
         </tags>
       
@@ -539,9 +558,9 @@
             
             <tag> linux </tag>
             
-            <tag> MySQL </tag>
-            
             <tag> linux环境配置 </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       

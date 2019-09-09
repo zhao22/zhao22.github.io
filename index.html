@@ -283,6 +283,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/thread-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/09/thread-1/" itemprop="url">同步与异步,阻塞与非阻塞</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T11:32:59+08:00">
+                2019-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>调用者会等到方法调用返回后才能继续后面的行为</p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行</p>
+<h3 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h3><p>线程1和线程2不能同时进行</p>
+<h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><p>线程1和线程2可以同时进行</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p>
+<p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p>
+<h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，同时主线程对请求结果进行轮询，发现收到请求结果后，执行后续操作)</p>
+<h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p>
+<p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p>
+<h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/05/mysql-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2531,287 +2664,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/jvm-8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/08/jvm-8/" itemprop="url">jvm类文件的结构2-常量池与类访问的标志</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T19:53:06+08:00">
-                2019-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="常量池"><a href="#常量池" class="headerlink" title="常量池"></a>常量池</h2><p>紧接着版本号的是常量池<br>常量池有以下几点特征：</p>
-<ol>
-<li><p>常量池是Class文件结构中与其他项目关联最多的数据类型</p>
-</li>
-<li><p>常量池是占用Class文件空间最大的数据项目之一  </p>
-</li>
-<li><p>常量池是Class文件中第一个出现的表类型数据项目</p>
-</li>
-</ol>
-<h3 id="计数值"><a href="#计数值" class="headerlink" title="计数值"></a>计数值</h3><p>由于常量池中常量的数量是不固定的， 所以在常量池的入口需要放置一项u2类型的数据，代表常量池容量计数值(constant_pool_count)。与Java语言习惯不一样的是，这个容量计数是从1而不是0开始的。<br>制定Class文件格式规范时，将第0项常量空出来是有特殊考虑的：<br>某些指向常量池的索引值的数据在特定情况下需要表达“不引用任何一个常量池项目”，就可以把索引值置为0来表示。<br>Class文件结构中只有常量池的容量计数是从1开始的，对于其他集合类型，包括接口索引集合、字段表集合、方法表集合等的容量计数都与一般习惯相同，是从0开始的。  </p>
-<h3 id="字面量和符号引用"><a href="#字面量和符号引用" class="headerlink" title="字面量和符号引用"></a>字面量和符号引用</h3><p>常量池之中主要存放两大类常量：字面量(Literal)和符号引用(Symbolic References)。  </p>
-<h4 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h4><p>字面量比较接近于Java语言层面的常量概念，如文本字符串、被声明为final的常量值等。</p>
-<h4 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h4><p>符号引用主要属于编译原理方面的概念， 包括了下面三类常量：</p>
-<ul>
-<li><p>类和接口的全限定名(Fully Qualified Name)</p>
-</li>
-<li><p>字段的名称和描述符(Descriptor)</p>
-</li>
-<li><p>方法的名称和描述符</p>
-</li>
-</ul>
-<p>Java代码在进行Javac编译的时候，并不像C和C++那样有“连接”这一步骤，而是在虚拟机加载Class文件的时候进行动态连接。<br>也就是说，在Class文件中不会保存各个方法和字段的最终内存布局信息，因此这些字段和方法的符号引用不经过转换的话是无法直接被虚拟机使用的。当虚拟机运行时，需要从常量池获得对应的符号引用，再在类创建时或运行时解析并翻译到具体的内存地址之中。  </p>
-<h3 id="常量表"><a href="#常量表" class="headerlink" title="常量表"></a>常量表</h3><p>常量池中的每一项常量都是一个表，共有11种结构各不相同的表结构数据，这11种表都有一个共同的特点，就是表开始的第一位是一个u1类型的标志位(tag，取值为1至12，缺少标志为2的数据类型)，代表当前这个常量属于哪种常量类型  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">标志</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">CONSTANT_Utf8_info</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">UTF-8编码的字符串</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Integer_info</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">整型字面量</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Float_info</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">浮点型字面量</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Long_info</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">长整型字面量</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Double_info</td>
-<td style="text-align:center">6</td>
-<td style="text-align:center">双精度浮点型字面量</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Class_info</td>
-<td style="text-align:center">7</td>
-<td style="text-align:center">类或接口的符号引用</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_String_info</td>
-<td style="text-align:center">8</td>
-<td style="text-align:center">字符串类型字面量</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Fieldref_info</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">字段的符号引用</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_Methodref_info</td>
-<td style="text-align:center">10</td>
-<td style="text-align:center">类中方法的符号引用</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_InterfaceMethodref_info</td>
-<td style="text-align:center">11</td>
-<td style="text-align:center">接口中方法的符号引用</td>
-</tr>
-<tr>
-<td style="text-align:center">CONSTANT_NameAndType_info</td>
-<td style="text-align:center">12</td>
-<td style="text-align:center">字段或方法的部分符号引用</td>
-</tr>
-</tbody>
-</table>
-<h4 id="常量表的具体内容"><a href="#常量表的具体内容" class="headerlink" title="常量表的具体内容"></a>常量表的具体内容</h4><h5 id="CONSTANT-Utf8-info"><a href="#CONSTANT-Utf8-info" class="headerlink" title="CONSTANT_Utf8_info"></a>CONSTANT_Utf8_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为1|<br>|length|u2|UTF-8编码的字符串占用的字节数|<br>|bytes|u1|长度为length的UTF-8编码的字符串|</p>
-<h5 id="CONSTANT-Integer-info"><a href="#CONSTANT-Integer-info" class="headerlink" title="CONSTANT_Integer_info"></a>CONSTANT_Integer_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为3|<br>|bytes|u4|按照高位在前存储的int值|</p>
-<h5 id="CONSTANT-Float-info"><a href="#CONSTANT-Float-info" class="headerlink" title="CONSTANT_Float_info"></a>CONSTANT_Float_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为4|<br>|bytes|u4|按照高位在前存储的float值|</p>
-<h5 id="CONSTANT-Long-info"><a href="#CONSTANT-Long-info" class="headerlink" title="CONSTANT_Long_info"></a>CONSTANT_Long_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为5|<br>|bytes|u8|按照高位在前存储的long值|</p>
-<h5 id="CONSTANT-Double-info"><a href="#CONSTANT-Double-info" class="headerlink" title="CONSTANT_Double_info"></a>CONSTANT_Double_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为6|<br>|bytes|u8|按照高位在前存储的double值|</p>
-<h5 id="CONSTANT-Class-info"><a href="#CONSTANT-Class-info" class="headerlink" title="CONSTANT_Class_info"></a>CONSTANT_Class_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为7|<br>|index|u2|指向全限定名常量项的索引|</p>
-<h5 id="CONSTANT-String-info"><a href="#CONSTANT-String-info" class="headerlink" title="CONSTANT_String_info"></a>CONSTANT_String_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为8|<br>|index|u2|指向字符串字面量的索引|</p>
-<h5 id="CONSTANT-Fieldref-info"><a href="#CONSTANT-Fieldref-info" class="headerlink" title="CONSTANT_Fieldref_info"></a>CONSTANT_Fieldref_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为9|<br>|index|u2|指向声明字段的类或接口描述符CONSTANT_Class_info的索引项|<br>|index|u2|指向字段描述符CONSTANT_NameAndType的索引项|</p>
-<h5 id="CONSTANT-Methodref-info"><a href="#CONSTANT-Methodref-info" class="headerlink" title="CONSTANT_Methodref_info"></a>CONSTANT_Methodref_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为10|<br>|index|u2|指向声明字段的类或接口描述符CONSTANT_Class_info的索引项|<br>|index|u2|指向字段描述符CONSTANT_NameAndType的索引项|</p>
-<h5 id="CONSTANT-InterfaceMethodref-info"><a href="#CONSTANT-InterfaceMethodref-info" class="headerlink" title="CONSTANT_InterfaceMethodref_info"></a>CONSTANT_InterfaceMethodref_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为11|<br>|index|u2|指向声明字段的类或接口描述符CONSTANT_Class_info的索引项|<br>|index|u2|指向字段描述符CONSTANT_NameAndType的索引项|</p>
-<h5 id="CONSTANT-NameAndType-info"><a href="#CONSTANT-NameAndType-info" class="headerlink" title="CONSTANT_NameAndType_info"></a>CONSTANT_NameAndType_info</h5><p>|项目|类型|描述|<br>|tag|u1|值为12|<br>|index|u2|指向该字段或方法名称常量项的索引|<br>|index|u2|指向该字段或方法描述符常量项的索引|</p>
-<h3 id="javap-verbose"><a href="#javap-verbose" class="headerlink" title="javap -verbose"></a>javap -verbose</h3><p>我们可以使用javap -verbose来查看一个Class文件的字节码信息。  </p>
-<h2 id="访问标志"><a href="#访问标志" class="headerlink" title="访问标志"></a>访问标志</h2><p>常量池之后的2个字节代表访问标志(access_flags)，这个标志用于识别一些类或接口层次的访问信息，包括:  </p>
-<ul>
-<li><p>这个Class是类还是接口</p>
-</li>
-<li><p>是否定义为public类型</p>
-</li>
-</ul>
-<p>….</p>
-<p>以下是Java中的访问标志:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标志名称</th>
-<th style="text-align:center">标志值</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ACC_PUBLIC</td>
-<td style="text-align:center">0x0001</td>
-<td style="text-align:center">是否为public类型</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_FINAL</td>
-<td style="text-align:center">0x0010</td>
-<td style="text-align:center">是否被声明为final，只有类可设置</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_SUPER</td>
-<td style="text-align:center">0x0020</td>
-<td style="text-align:center">是否允许使用invokespecial字节码指令，JDK1.2之后编译出来的类这个标志为真</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_INTERFACE</td>
-<td style="text-align:center">0x0200</td>
-<td style="text-align:center">标识这是一个接口</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_ABSTRACT</td>
-<td style="text-align:center">0x0400</td>
-<td style="text-align:center">是否为abstract类型，对于接口或抽象类来说，这个值为真，其他类值为假</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_SYNTHETIC</td>
-<td style="text-align:center">0x1000</td>
-<td style="text-align:center">标识这个类并非由用户代码产生的</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_ANNOTATION</td>
-<td style="text-align:center">0x2000</td>
-<td style="text-align:center">标识这是一个注解</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_ENUM</td>
-<td style="text-align:center">0x4000</td>
-<td style="text-align:center">标识这是一个枚举</td>
-</tr>
-</tbody>
-</table>
-<p>access_flags一共有32个标志位可以使用，当前只定义了其中的8个。<br>没有使用到的标志位要求一律为0。<br>这些标志位以或的方式集成到一起。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2862,7 +2714,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2875,7 +2727,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

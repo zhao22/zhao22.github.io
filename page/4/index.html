@@ -283,6 +283,172 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-4-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/06/linux-install-4-md/" itemprop="url">CentOS安装Tomcat</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-06T20:17:03+08:00">
+                2019-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="下载解压tomcat"><a href="#下载解压tomcat" class="headerlink" title="下载解压tomcat"></a>下载解压tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-9/v9.0.5/bin/apache-tomcat-9.0.5.tar.gz</span><br><span class="line">tar xvf apache-tomcat-9.0.5.tar.gz -C /usr/local/</span><br><span class="line">mv /usr/local/apache-tomcat-9.0.5/ /usr/local/tomcat/</span><br></pre></td></tr></table></figure>
+<h3 id="Tomcat-目录结构说明"><a href="#Tomcat-目录结构说明" class="headerlink" title="Tomcat 目录结构说明"></a>Tomcat 目录结构说明</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">目录</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">bin</td>
+<td style="text-align:center">启动命令目录</td>
+</tr>
+<tr>
+<td style="text-align:center">conf</td>
+<td style="text-align:center">配置文件目录</td>
+</tr>
+<tr>
+<td style="text-align:center">lib</td>
+<td style="text-align:center">库文件目录</td>
+</tr>
+<tr>
+<td style="text-align:center">logs</td>
+<td style="text-align:center">日志文件目录</td>
+</tr>
+<tr>
+<td style="text-align:center">temp</td>
+<td style="text-align:center">临时缓存文件</td>
+</tr>
+<tr>
+<td style="text-align:center">webapps</td>
+<td style="text-align:center">web应用目录</td>
+</tr>
+<tr>
+<td style="text-align:center">work</td>
+<td style="text-align:center">工作缓存目录</td>
+</tr>
+</tbody>
+</table>
+<h3 id="修改Tomcat环境变量"><a href="#修改Tomcat环境变量" class="headerlink" title="修改Tomcat环境变量"></a>修改Tomcat环境变量</h3><p>环境变量可以写在全局脚本中，但多个tomcat会有冲突。建议在 <strong>startup.sh</strong> 和 <strong>shutdown.sh</strong> 脚本前面加入以下内容:  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export TOMCAT_HOME=/usr/local/tomcat</span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat</span><br><span class="line">export CLASS_PATH=$JAVA_HOME/bin/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tool.jar</span><br><span class="line">export PATH=$PATH:/usr/local/java/bin:/usr/local/tomcat/bin</span><br></pre></td></tr></table></figure>
+<h3 id="启动Tomcat"><a href="#启动Tomcat" class="headerlink" title="启动Tomcat"></a>启动Tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tomcat/bin/startup.sh</span><br></pre></td></tr></table></figure>
+<h3 id="查看进程状态"><a href="#查看进程状态" class="headerlink" title="查看进程状态"></a>查看进程状态</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep 'tomcat' | grep -v grep</span><br></pre></td></tr></table></figure>
+<h3 id="关闭tomcat"><a href="#关闭tomcat" class="headerlink" title="关闭tomcat"></a>关闭tomcat</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/tomcat/bin/shutdown.sh</span><br></pre></td></tr></table></figure>
+<p>或</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill -9 pid</span><br></pre></td></tr></table></figure>
+<p>pid是查看进程状态中查找出来的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/06/linux-install-3-md/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1073,7 +1239,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1086,7 +1252,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

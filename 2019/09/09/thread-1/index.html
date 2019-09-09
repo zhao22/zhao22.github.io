@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="多线程,IO," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sean&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta name="description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
+<meta name="keywords" content="多线程,IO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="同步与异步,阻塞与非阻塞">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/thread-1/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-09T05:34:09.564Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sean&#39;s Blog">
+<meta name="twitter:title" content="同步与异步,阻塞与非阻塞">
+<meta name="twitter:description" content="同步与异步同步与异步主要描述在单线程中，执行者是否具备主动通知功能: 同步调用者会等到方法调用返回后才能继续后面的行为 异步调用者不需要等到方法返回，方法执行完毕后会主动通知调用者 阻塞与非阻塞阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行 阻塞线程1和线程2不能同时进行 非阻塞线程1和线程2可以同时进行 示例同步阻塞小明把水壶放到火上，然后在那傻等水开   (客户端请求服务器，在服务器返回">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/09/thread-1/"/>
 
 
 
 
 
-  <title>Archive | Sean's Blog</title>
+  <title>同步与异步,阻塞与非阻塞 | Sean's Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,410 +273,162 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 36 posts in total. Keep on posting.
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/thread-1/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">同步与异步,阻塞与非阻塞</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-09T11:32:59+08:00">
+                2019-09-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/09/thread-1/" itemprop="url">
-              
-                <span itemprop="name">同步与异步,阻塞与非阻塞</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-09T11:32:59+08:00"
-              content="2019-09-09" >
-          09-09
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/05/mysql-1/" itemprop="url">
-              
-                <span itemprop="name">MySQL问题总结-SHOW PROCESSLIST</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-05T15:33:06+08:00"
-              content="2019-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/29/linux-question-1/" itemprop="url">
-              
-                <span itemprop="name">linux问题总结-linux时间调整</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-29T13:23:04+08:00"
-              content="2019-08-29" >
-          08-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><p>同步与异步主要描述在<strong>单线程</strong>中，执行者是否具备主动通知功能:</p>
+<h3 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h3><p>调用者会等到方法调用返回后才能继续后面的行为</p>
+<h3 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h3><p>调用者不需要等到方法返回，方法执行完毕后会主动通知调用者</p>
+<h2 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h2><p>阻塞与非阻塞主要关心调用者的多个线程是否可以同时执行</p>
+<h3 id="阻塞"><a href="#阻塞" class="headerlink" title="阻塞"></a>阻塞</h3><p>线程1和线程2不能同时进行</p>
+<h3 id="非阻塞"><a href="#非阻塞" class="headerlink" title="非阻塞"></a>非阻塞</h3><p>线程1和线程2可以同时进行</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><h3 id="同步阻塞"><a href="#同步阻塞" class="headerlink" title="同步阻塞"></a>同步阻塞</h3><p>小明把水壶放到火上，然后在那傻等水开  </p>
+<p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作)</p>
+<h3 id="同步非阻塞"><a href="#同步非阻塞" class="headerlink" title="同步非阻塞"></a>同步非阻塞</h3><p>小明把水壶放到火上，然后去客厅看电视，时不时的去厨房看看水开没有</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，同时主线程对请求结果进行轮询，发现收到请求结果后，执行后续操作)</p>
+<h3 id="异步阻塞"><a href="#异步阻塞" class="headerlink" title="异步阻塞"></a>异步阻塞</h3><p>小明把响水壶放到火上，然后在那傻等水开</p>
+<p>(客户端请求服务器，在服务器返回前，客户端不执行任何操作，服务器返回时，通过回调通知客户端执行后续操作)</p>
+<h3 id="异步非阻塞"><a href="#异步非阻塞" class="headerlink" title="异步非阻塞"></a>异步非阻塞</h3><p>小明把响水水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去处理</p>
+<p>(客户端新开一个线程请求服务器，主线程执行其他操作，服务器返回时，调用回调客户端的回调接口执行特定操作)</p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/13/jvm-15/" itemprop="url">
-              
-                <span itemprop="name">jvm字节码执行引擎</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-13T20:11:04+08:00"
-              content="2019-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/12/jvm-14/" itemprop="url">
-              
-                <span itemprop="name">jvm类加载器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-12T16:07:12+08:00"
-              content="2019-08-12" >
-          08-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/jvm-13/" itemprop="url">
-              
-                <span itemprop="name">jvm类加载的过程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-09T20:29:24+08:00"
-              content="2019-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/jvm-12/" itemprop="url">
-              
-                <span itemprop="name">jvm类加载机制概述</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-09T19:28:31+08:00"
-              content="2019-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/jvm-11/" itemprop="url">
-              
-                <span itemprop="name">jvm类文件的结构5-属性表集合</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-09T12:19:30+08:00"
-              content="2019-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/jvm-10/" itemprop="url">
-              
-                <span itemprop="name">jvm类文件的结构4-字段表集合和方法表集合</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-09T10:31:54+08:00"
-              content="2019-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/08/09/jvm-9/" itemprop="url">
-              
-                <span itemprop="name">jvm类文件的结构3-类索引、父类索引与接口索引集合</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-08-09T09:40:26+08:00"
-              content="2019-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/多线程/" rel="tag"># 多线程</a>
+          
+            <a href="/tags/IO/" rel="tag"># IO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/05/mysql-1/" rel="next" title="MySQL问题总结-SHOW PROCESSLIST">
+                <i class="fa fa-chevron-left"></i> MySQL问题总结-SHOW PROCESSLIST
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2019/page/4/">4</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -679,6 +436,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -699,8 +460,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -751,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步"><span class="nav-number">1.</span> <span class="nav-text">同步与异步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步"><span class="nav-number">1.1.</span> <span class="nav-text">同步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步"><span class="nav-number">1.2.</span> <span class="nav-text">异步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#阻塞与非阻塞"><span class="nav-number">2.</span> <span class="nav-text">阻塞与非阻塞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞"><span class="nav-number">2.1.</span> <span class="nav-text">阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非阻塞"><span class="nav-number">2.2.</span> <span class="nav-text">非阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞"><span class="nav-number">3.1.</span> <span class="nav-text">同步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞"><span class="nav-number">3.2.</span> <span class="nav-text">同步非阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步阻塞"><span class="nav-number">3.3.</span> <span class="nav-text">异步阻塞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步非阻塞"><span class="nav-number">3.4.</span> <span class="nav-text">异步非阻塞</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -891,6 +677,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
