@@ -283,6 +283,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/19/springboot-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/19/springboot-3/" itemprop="url">项目搭建[3]lombok的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-19T19:33:29+08:00">
+                2019-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Lombok简介"><a href="#Lombok简介" class="headerlink" title="Lombok简介"></a>Lombok简介</h2><p>Lombok可以通过添加注解简化代码。Lombok主要采用 <strong>JSR 269</strong> 技术，在编译时增加相应的字节码信息。  </p>
+<h3 id="注解处理技术简介"><a href="#注解处理技术简介" class="headerlink" title="注解处理技术简介"></a>注解处理技术简介</h3><h4 id="运行时解析"><a href="#运行时解析" class="headerlink" title="运行时解析"></a>运行时解析</h4><p>运行时能够解析的注解，必须将@Retention设置为RUNTIME，这样就可以通过反射拿到该注解。</p>
+<p>java.lang.reflect反射包中提供了一个接口AnnotatedElement，该接口定义了获取注解信息的几个方法，Class、Constructor、Field、Method、Package等都实现了该接口。  </p>
+<h4 id="编译时解析"><a href="#编译时解析" class="headerlink" title="编译时解析"></a>编译时解析</h4><h5 id="Annotation-Processing-Tool-apt"><a href="#Annotation-Processing-Tool-apt" class="headerlink" title="Annotation Processing Tool(apt)"></a>Annotation Processing Tool(apt)</h5><p>apt自JDK1.5产生，JDK1.7已标记为过期，不推荐使用，JDK8中已彻底删除，自JDK1.6开始，可以使用Pluggable Annotation Processing API来替换它，apt被替换主要有两点原因:</p>
+<ul>
+<li><p>api 都在com.sun.mirror非标准包下</p>
+</li>
+<li><p>没有继承到javac中，需要额外运行</p>
+</li>
+</ul>
+<h5 id="Pluggable-Annotation-Processing-API-JSR-269"><a href="#Pluggable-Annotation-Processing-API-JSR-269" class="headerlink" title="Pluggable Annotation Processing API(JSR 269)"></a>Pluggable Annotation Processing API(JSR 269)</h5><p>JSR 269自JDK6加入，作为apt的替代方案，它解决了apt的两个问题，javac在执行的时候会调用实现了该API的程序，这样就可以对编译器做一些增强，此时javac执行过程如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.java文件 ---&gt; Parse and Enter ---&gt; Annotation Processing ---&gt; Analyse and Generate ---&gt; .class文件</span><br><span class="line">                    ^                                                |</span><br><span class="line">                    |________________________________________________+</span><br></pre></td></tr></table></figure>
+<h3 id="Lombok使用-JSR-269"><a href="#Lombok使用-JSR-269" class="headerlink" title="Lombok使用 JSR 269"></a>Lombok使用 JSR 269</h3><p>Lombok本质上就是一个实现了”JSR 269 API”的程序。在使用javac的过程中，它产生作用的具体过程如下:</p>
+<ol>
+<li><p>javac对源代码进行分析，生成了一棵抽象语法树(AST)</p>
+</li>
+<li><p>运行过程中调用实现了”JSR 269 API”的Lombok程序</p>
+</li>
+<li><p>此时Lombok就对第一步得到的AST进行处理，找到@Data注解所在类对应的语法树(AST)，然后修改该语法树(AST)，增加getter和setter方法定义的相应树节点</p>
+</li>
+<li><p>javac使用修改后的抽象语法树(AST)生成字节码文件，即给class增加新的节点(代码块)</p>
+</li>
+</ol>
+<h2 id="Lombok常用注解"><a href="#Lombok常用注解" class="headerlink" title="Lombok常用注解"></a>Lombok常用注解</h2><h3 id="Data"><a href="#Data" class="headerlink" title="@Data"></a>@Data</h3><p>@Data注解在类上，会为类的所有属性自动生成setter/getter、equals、canEqual、hashCode、toString方法，如为final属性，则不会为该属性生成setter方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Setter-Getter"><a href="#Setter-Getter" class="headerlink" title="@Setter/@Getter"></a>@Setter/@Getter</h3><p>注解在属性上，为单个属性提供set/get方法；注解在类上，为该类所有的属性提供set/get方法，都提供默认构造方法。</p>
+<p>可以增加value属性，通过AccessLevel限制该方法的作用域。</p>
+<h3 id="Log4j"><a href="#Log4j" class="headerlink" title="@Log4j"></a>@Log4j</h3><p>注解在类上；为类提供一个 属性名为 log 的 log4j 日志对象，提供默认构造方法。</p>
+<h3 id="NoArgsConstructor-AllArgsConstructor"><a href="#NoArgsConstructor-AllArgsConstructor" class="headerlink" title="@NoArgsConstructor/@AllArgsConstructor"></a>@NoArgsConstructor/@AllArgsConstructor</h3><p>@NoArgsConstructor: 注解在类上；为类提供一个无参的构造方法。</p>
+<p>@AllArgsConstructor: 注解在类上；为类提供一个全参的构造方法，加了这个注解后，类中不提供默认构造方法了。</p>
+<h3 id="EqualsAndHashCode"><a href="#EqualsAndHashCode" class="headerlink" title="@EqualsAndHashCode"></a>@EqualsAndHashCode</h3><p>注解在类上, 可以生成 equals、canEqual、hashCode 方法。</p>
+<h3 id="ToString"><a href="#ToString" class="headerlink" title="@ToString"></a>@ToString</h3><p>这个注解用在类上，可以生成所有参数的 toString 方法，还会生成默认的构造方法。</p>
+<h3 id="Cleanup"><a href="#Cleanup" class="headerlink" title="@Cleanup"></a>@Cleanup</h3><p>这个注解用在变量前面，可以保证此变量代表的资源会被自动关闭，默认是调用资源的 close() 方法，如果该资源有其它关闭方法，可使用 @Cleanup(“methodName”) 来指定要调用的方法，也会生成默认的构造方法</p>
+<h3 id="NonNull"><a href="#NonNull" class="headerlink" title="@NonNull"></a>@NonNull</h3><p>注解在属性上，会自动产生一个关于此参数的非空检查，如果参数为空，则抛出一个空指针异常，也会有一个默认的无参构造方法。</p>
+<h3 id="Log4j-Slf4j"><a href="#Log4j-Slf4j" class="headerlink" title="@Log4j/@Slf4j"></a>@Log4j/@Slf4j</h3><p>根据使用框架的不同，选用不同的注解。Lombok会自动为方法提供logger对象的创建语句。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/constitute-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2290,394 +2444,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/jvm-10/" itemprop="url">jvm类文件的结构4-字段表集合和方法表集合</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T10:31:54+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h2><h2 id="字段表集合的信息"><a href="#字段表集合的信息" class="headerlink" title="字段表集合的信息"></a>字段表集合的信息</h2><p>字段表(field_info)用于描述接口或类中声明的变量。  </p>
-<p>字段(field包括了类级变量或实例级变量，但不包括方法内部声明的变量)</p>
-<p>Java中描述一个字段包含以下信息:  </p>
-<ol>
-<li><p>字段的作用域(public、pivate、 protected修饰符)</p>
-</li>
-<li><p>类级变量还是实例级变量(static修饰符)</p>
-</li>
-<li><p>可变性(final)</p>
-</li>
-<li><p>并发可见性(volatile修饰符，是否强制从主内存读写)</p>
-</li>
-<li><p>可否序列化(transient修饰符)</p>
-</li>
-<li><p>字段数据类型(基本类型、对象、数组)、字段名称。  </p>
-</li>
-</ol>
-<p>这些信息大概可分为两类:  </p>
-<ol>
-<li><p>修饰符. 修饰符只有有和无两种状态，适合使用标志位表示</p>
-</li>
-<li><p>无法确定的信息。引用常量池中的常量来描述。  </p>
-</li>
-</ol>
-<h3 id="字段表集合的结构"><a href="#字段表集合的结构" class="headerlink" title="字段表集合的结构"></a>字段表集合的结构</h3><table>
-<thead>
-<tr>
-<th style="text-align:center">类型</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">u2</td>
-<td style="text-align:center">access_flags</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">u2</td>
-<td style="text-align:center">name_index</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">u2</td>
-<td style="text-align:center">descriptor_index</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">u2</td>
-<td style="text-align:center">attributes_count</td>
-<td style="text-align:center">1</td>
-</tr>
-<tr>
-<td style="text-align:center">attribute_info</td>
-<td style="text-align:center">attributes</td>
-<td style="text-align:center">attributes_count</td>
-</tr>
-</tbody>
-</table>
-<h4 id="access-flags"><a href="#access-flags" class="headerlink" title="access_flags"></a>access_flags</h4><p>字段修饰符在access_flags项目中，也是以或的形式拼接各类修饰符</p>
-<h5 id="字段访问标志"><a href="#字段访问标志" class="headerlink" title="字段访问标志"></a>字段访问标志</h5><table>
-<thead>
-<tr>
-<th style="text-align:center">标志名称</th>
-<th style="text-align:center">标志值</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ACC_PUBLIC</td>
-<td style="text-align:center">0x0001</td>
-<td style="text-align:center">字段是否public</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_PRIVATE</td>
-<td style="text-align:center">0x0002</td>
-<td style="text-align:center">字段是否private</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_PROTECTED</td>
-<td style="text-align:center">0x0004</td>
-<td style="text-align:center">字段是否protected</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_STATIC</td>
-<td style="text-align:center">0x0008</td>
-<td style="text-align:center">字段是否static</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_FINAL</td>
-<td style="text-align:center">0x0010</td>
-<td style="text-align:center">字段是否final</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_VOLATILE</td>
-<td style="text-align:center">0x0040</td>
-<td style="text-align:center">字段是否volatile</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_TRANSIENT</td>
-<td style="text-align:center">0x0080</td>
-<td style="text-align:center">字段是否transient</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_SYNTHETIC</td>
-<td style="text-align:center">0x1000</td>
-<td style="text-align:center">字段是否由编译器自动产生的</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_ENUM</td>
-<td style="text-align:center">0x4000</td>
-<td style="text-align:center">字段是否enum</td>
-</tr>
-</tbody>
-</table>
-<h4 id="name-index和descriptor-index"><a href="#name-index和descriptor-index" class="headerlink" title="name_index和descriptor_index"></a>name_index和descriptor_index</h4><p>它们都是对常量池的引用，分别代表着字段的简单名称及字段和方法的描述符。</p>
-<h5 id="全限定名、简单名称、描述符"><a href="#全限定名、简单名称、描述符" class="headerlink" title="全限定名、简单名称、描述符"></a>全限定名、简单名称、描述符</h5><h6 id="权限定名"><a href="#权限定名" class="headerlink" title="权限定名"></a>权限定名</h6><p>格式如: org/fenixsoft/clazz/TestClass。将类全名的”.”替换成了”/“，为了使连续的多个全限定名之间不产生混淆，在使用时最后会加上；  </p>
-<h6 id="简单名称"><a href="#简单名称" class="headerlink" title="简单名称"></a>简单名称</h6><p>简单名称就是指没有类型和参数修饰的方法或字段名称，这个类中的inc()方法和m字段的简单名称分别是”inc”和”m”。  </p>
-<h6 id="描述符"><a href="#描述符" class="headerlink" title="描述符"></a>描述符</h6><p>用来描述字段的数据类型、方法的参数列表(包括数量、类型以及顺序)和返回值。  </p>
-<p>根据描述符规则，基本数据类型(byte、char、double、float、int、long、short、boolean)及代表无返回值的void类型都用一个大写字符来表示，而对象类型则用字符L加对象的全限定名来表示。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标识字符</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">B</td>
-<td style="text-align:center">基本类型byte</td>
-</tr>
-<tr>
-<td style="text-align:center">C</td>
-<td style="text-align:center">基本类型char</td>
-</tr>
-<tr>
-<td style="text-align:center">D</td>
-<td style="text-align:center">基本类型double</td>
-</tr>
-<tr>
-<td style="text-align:center">F</td>
-<td style="text-align:center">基本类型float</td>
-</tr>
-<tr>
-<td style="text-align:center">I</td>
-<td style="text-align:center">基本类型int</td>
-</tr>
-<tr>
-<td style="text-align:center">J</td>
-<td style="text-align:center">基本类型long</td>
-</tr>
-<tr>
-<td style="text-align:center">S</td>
-<td style="text-align:center">基本类型short</td>
-</tr>
-<tr>
-<td style="text-align:center">Z</td>
-<td style="text-align:center">基本类型boolean</td>
-</tr>
-<tr>
-<td style="text-align:center">V</td>
-<td style="text-align:center">特殊类型void</td>
-</tr>
-<tr>
-<td style="text-align:center">L</td>
-<td style="text-align:center">对象类型，如Ljava/lang/Object</td>
-</tr>
-</tbody>
-</table>
-<p>对于数组类型，每一维度将使用一个前置的”[“字符来描述  </p>
-<p>如一个定义为”java.lang.String[][]“类型的二维数组，将被记录为: “[[Ljava/lang/String;”  </p>
-<p>一个整型数组”int[]”将被记录为”[I”。  </p>
-<p>用描述符描述方法时，按照先参数列表，后返回值的顺序。参数列表按照参数的严格顺序放在一组小括号”()”之内。</p>
-<p>如方法void inc()的描述符为”()V”</p>
-<p>方法java.lang.String toString()的描述符为”()Ljava/lang/String;”</p>
-<p>方法int indexOf(char[] soure, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex)的描述符为”([CII[CIII)I”。  </p>
-<h4 id="attribute-info"><a href="#attribute-info" class="headerlink" title="attribute_info"></a>attribute_info</h4><p>将在属性表中详细讲解</p>
-<h3 id="字段表总结"><a href="#字段表总结" class="headerlink" title="字段表总结"></a>字段表总结</h3><p>字段表集合中不会列出超类或父接口中继承而来的字段，但有可能列出原本Java代码之中不存在的字段，譬如在内部类中为了保持对外部类的访问性，会自动添加指向外部类实例的字段。  </p>
-<p>另外，在Java语言中字段是无法重载的，两个字段的数据类型、修饰符不管是否相同，都必须使用不一样的名称，但是对于字节码来讲，如果两个字段的描述符不一致，那字段重名就是合法的。  </p>
-<h2 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h2><h2 id="方法表描述"><a href="#方法表描述" class="headerlink" title="方法表描述"></a>方法表描述</h2><p>方法表描述和字段的描述基本一致，包括了:</p>
-<ul>
-<li><p>访问标志(access_flags)</p>
-</li>
-<li><p>名称索引(name_index)</p>
-</li>
-<li><p>描述符索引(descriptor_index)</p>
-</li>
-<li><p>属性表集合(attributes)</p>
-</li>
-</ul>
-<p>不同之处主要在于访问标志和属性表集合的可选项。  </p>
-<p>方法中没有 <strong>volatile</strong> 和 <strong>transient</strong>,但是多了 <strong>synchronized</strong>、<strong>native</strong>、<strong>strictfp</strong>、<strong>abstract</strong>。如下:  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">标志名称</th>
-<th style="text-align:center">标志值</th>
-<th style="text-align:center">含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">ACC_PUBLIC</td>
-<td style="text-align:center">0x0001</td>
-<td style="text-align:center">方法是否为public</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_PRIVATE</td>
-<td style="text-align:center">0x0002</td>
-<td style="text-align:center">方法是否为private</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_PROTECTED</td>
-<td style="text-align:center">0x0004</td>
-<td style="text-align:center">方法是否为protected</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_STATIC</td>
-<td style="text-align:center">0x0008</td>
-<td style="text-align:center">方法是否为static</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_FINAL</td>
-<td style="text-align:center">0x0010</td>
-<td style="text-align:center">方法是否为final</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_SYNCHRONIZED</td>
-<td style="text-align:center">0x0020</td>
-<td style="text-align:center">方法是否为synchronized</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_BRIDGE</td>
-<td style="text-align:center">0x0040</td>
-<td style="text-align:center">方法是否为编译器产生的桥接方法</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_VARARGS</td>
-<td style="text-align:center">0x0080</td>
-<td style="text-align:center">方法是否接受不定参数</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_NATIVE</td>
-<td style="text-align:center">0x0100</td>
-<td style="text-align:center">方法是否为native</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_ABSTRACT</td>
-<td style="text-align:center">0x0400</td>
-<td style="text-align:center">方法是否为abstract</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_STRICT</td>
-<td style="text-align:center">0x0800</td>
-<td style="text-align:center">方法是否为strictfp</td>
-</tr>
-<tr>
-<td style="text-align:center">ACC_SYNTHETIC</td>
-<td style="text-align:center">0x1000</td>
-<td style="text-align:center">方法是否为编译器自动产生的</td>
-</tr>
-</tbody>
-</table>
-<p>而方法里的Java代码，经过编译器编译成字节码指令之后，存放在方法属性表集合中的一个名为”Code”的属性里面。  </p>
-<h3 id="方法表总结"><a href="#方法表总结" class="headerlink" title="方法表总结"></a>方法表总结</h3><p>如果父类方法在子类中没有被重写(Override)，方法表集合中就不会出现来自父类的方法信息。 但有可能会出现由编译器自动添加的方法，最典型的是类构造器”\&lt;clinit>“方法和实例构造器”\&lt;init>“方法。  </p>
-<p>在Java语言中，要重载(Overload)一个方法，除了要与原方法具有相同的简单名称之外，还要求必须拥有一个与原方法不同的特征签名。<br>特征签名就是各个参数在常量池中的字段符号引用的集合，也就是因为返回值不会包含在特征签名之中，因此Java语言里面是无法仅仅依靠返回值的不同来对一个已有方法进行重载的。<br>但是在Class文件格式之中，特征签名的范围更大一些，只要描述符不是完全一致的两个方法也可以共存。 也就是说，如果两个方法有相同的名称和特征签名，但返回值不同，那么也是可以合法共存于同一个Class文件中的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2728,7 +2494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

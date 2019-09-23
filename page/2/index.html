@@ -283,6 +283,394 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/09/jvm-10/" itemprop="url">jvm类文件的结构4-字段表集合和方法表集合</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T10:31:54+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="字段表集合"><a href="#字段表集合" class="headerlink" title="字段表集合"></a>字段表集合</h2><h2 id="字段表集合的信息"><a href="#字段表集合的信息" class="headerlink" title="字段表集合的信息"></a>字段表集合的信息</h2><p>字段表(field_info)用于描述接口或类中声明的变量。  </p>
+<p>字段(field包括了类级变量或实例级变量，但不包括方法内部声明的变量)</p>
+<p>Java中描述一个字段包含以下信息:  </p>
+<ol>
+<li><p>字段的作用域(public、pivate、 protected修饰符)</p>
+</li>
+<li><p>类级变量还是实例级变量(static修饰符)</p>
+</li>
+<li><p>可变性(final)</p>
+</li>
+<li><p>并发可见性(volatile修饰符，是否强制从主内存读写)</p>
+</li>
+<li><p>可否序列化(transient修饰符)</p>
+</li>
+<li><p>字段数据类型(基本类型、对象、数组)、字段名称。  </p>
+</li>
+</ol>
+<p>这些信息大概可分为两类:  </p>
+<ol>
+<li><p>修饰符. 修饰符只有有和无两种状态，适合使用标志位表示</p>
+</li>
+<li><p>无法确定的信息。引用常量池中的常量来描述。  </p>
+</li>
+</ol>
+<h3 id="字段表集合的结构"><a href="#字段表集合的结构" class="headerlink" title="字段表集合的结构"></a>字段表集合的结构</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">access_flags</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">name_index</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">descriptor_index</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">u2</td>
+<td style="text-align:center">attributes_count</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">attribute_info</td>
+<td style="text-align:center">attributes</td>
+<td style="text-align:center">attributes_count</td>
+</tr>
+</tbody>
+</table>
+<h4 id="access-flags"><a href="#access-flags" class="headerlink" title="access_flags"></a>access_flags</h4><p>字段修饰符在access_flags项目中，也是以或的形式拼接各类修饰符</p>
+<h5 id="字段访问标志"><a href="#字段访问标志" class="headerlink" title="字段访问标志"></a>字段访问标志</h5><table>
+<thead>
+<tr>
+<th style="text-align:center">标志名称</th>
+<th style="text-align:center">标志值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ACC_PUBLIC</td>
+<td style="text-align:center">0x0001</td>
+<td style="text-align:center">字段是否public</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_PRIVATE</td>
+<td style="text-align:center">0x0002</td>
+<td style="text-align:center">字段是否private</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_PROTECTED</td>
+<td style="text-align:center">0x0004</td>
+<td style="text-align:center">字段是否protected</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_STATIC</td>
+<td style="text-align:center">0x0008</td>
+<td style="text-align:center">字段是否static</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_FINAL</td>
+<td style="text-align:center">0x0010</td>
+<td style="text-align:center">字段是否final</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_VOLATILE</td>
+<td style="text-align:center">0x0040</td>
+<td style="text-align:center">字段是否volatile</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_TRANSIENT</td>
+<td style="text-align:center">0x0080</td>
+<td style="text-align:center">字段是否transient</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_SYNTHETIC</td>
+<td style="text-align:center">0x1000</td>
+<td style="text-align:center">字段是否由编译器自动产生的</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_ENUM</td>
+<td style="text-align:center">0x4000</td>
+<td style="text-align:center">字段是否enum</td>
+</tr>
+</tbody>
+</table>
+<h4 id="name-index和descriptor-index"><a href="#name-index和descriptor-index" class="headerlink" title="name_index和descriptor_index"></a>name_index和descriptor_index</h4><p>它们都是对常量池的引用，分别代表着字段的简单名称及字段和方法的描述符。</p>
+<h5 id="全限定名、简单名称、描述符"><a href="#全限定名、简单名称、描述符" class="headerlink" title="全限定名、简单名称、描述符"></a>全限定名、简单名称、描述符</h5><h6 id="权限定名"><a href="#权限定名" class="headerlink" title="权限定名"></a>权限定名</h6><p>格式如: org/fenixsoft/clazz/TestClass。将类全名的”.”替换成了”/“，为了使连续的多个全限定名之间不产生混淆，在使用时最后会加上；  </p>
+<h6 id="简单名称"><a href="#简单名称" class="headerlink" title="简单名称"></a>简单名称</h6><p>简单名称就是指没有类型和参数修饰的方法或字段名称，这个类中的inc()方法和m字段的简单名称分别是”inc”和”m”。  </p>
+<h6 id="描述符"><a href="#描述符" class="headerlink" title="描述符"></a>描述符</h6><p>用来描述字段的数据类型、方法的参数列表(包括数量、类型以及顺序)和返回值。  </p>
+<p>根据描述符规则，基本数据类型(byte、char、double、float、int、long、short、boolean)及代表无返回值的void类型都用一个大写字符来表示，而对象类型则用字符L加对象的全限定名来表示。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标识字符</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">B</td>
+<td style="text-align:center">基本类型byte</td>
+</tr>
+<tr>
+<td style="text-align:center">C</td>
+<td style="text-align:center">基本类型char</td>
+</tr>
+<tr>
+<td style="text-align:center">D</td>
+<td style="text-align:center">基本类型double</td>
+</tr>
+<tr>
+<td style="text-align:center">F</td>
+<td style="text-align:center">基本类型float</td>
+</tr>
+<tr>
+<td style="text-align:center">I</td>
+<td style="text-align:center">基本类型int</td>
+</tr>
+<tr>
+<td style="text-align:center">J</td>
+<td style="text-align:center">基本类型long</td>
+</tr>
+<tr>
+<td style="text-align:center">S</td>
+<td style="text-align:center">基本类型short</td>
+</tr>
+<tr>
+<td style="text-align:center">Z</td>
+<td style="text-align:center">基本类型boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">V</td>
+<td style="text-align:center">特殊类型void</td>
+</tr>
+<tr>
+<td style="text-align:center">L</td>
+<td style="text-align:center">对象类型，如Ljava/lang/Object</td>
+</tr>
+</tbody>
+</table>
+<p>对于数组类型，每一维度将使用一个前置的”[“字符来描述  </p>
+<p>如一个定义为”java.lang.String[][]“类型的二维数组，将被记录为: “[[Ljava/lang/String;”  </p>
+<p>一个整型数组”int[]”将被记录为”[I”。  </p>
+<p>用描述符描述方法时，按照先参数列表，后返回值的顺序。参数列表按照参数的严格顺序放在一组小括号”()”之内。</p>
+<p>如方法void inc()的描述符为”()V”</p>
+<p>方法java.lang.String toString()的描述符为”()Ljava/lang/String;”</p>
+<p>方法int indexOf(char[] soure, int sourceOffset, int sourceCount, char[] target, int targetOffset, int targetCount, int fromIndex)的描述符为”([CII[CIII)I”。  </p>
+<h4 id="attribute-info"><a href="#attribute-info" class="headerlink" title="attribute_info"></a>attribute_info</h4><p>将在属性表中详细讲解</p>
+<h3 id="字段表总结"><a href="#字段表总结" class="headerlink" title="字段表总结"></a>字段表总结</h3><p>字段表集合中不会列出超类或父接口中继承而来的字段，但有可能列出原本Java代码之中不存在的字段，譬如在内部类中为了保持对外部类的访问性，会自动添加指向外部类实例的字段。  </p>
+<p>另外，在Java语言中字段是无法重载的，两个字段的数据类型、修饰符不管是否相同，都必须使用不一样的名称，但是对于字节码来讲，如果两个字段的描述符不一致，那字段重名就是合法的。  </p>
+<h2 id="方法表集合"><a href="#方法表集合" class="headerlink" title="方法表集合"></a>方法表集合</h2><h2 id="方法表描述"><a href="#方法表描述" class="headerlink" title="方法表描述"></a>方法表描述</h2><p>方法表描述和字段的描述基本一致，包括了:</p>
+<ul>
+<li><p>访问标志(access_flags)</p>
+</li>
+<li><p>名称索引(name_index)</p>
+</li>
+<li><p>描述符索引(descriptor_index)</p>
+</li>
+<li><p>属性表集合(attributes)</p>
+</li>
+</ul>
+<p>不同之处主要在于访问标志和属性表集合的可选项。  </p>
+<p>方法中没有 <strong>volatile</strong> 和 <strong>transient</strong>,但是多了 <strong>synchronized</strong>、<strong>native</strong>、<strong>strictfp</strong>、<strong>abstract</strong>。如下:  </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">标志名称</th>
+<th style="text-align:center">标志值</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ACC_PUBLIC</td>
+<td style="text-align:center">0x0001</td>
+<td style="text-align:center">方法是否为public</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_PRIVATE</td>
+<td style="text-align:center">0x0002</td>
+<td style="text-align:center">方法是否为private</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_PROTECTED</td>
+<td style="text-align:center">0x0004</td>
+<td style="text-align:center">方法是否为protected</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_STATIC</td>
+<td style="text-align:center">0x0008</td>
+<td style="text-align:center">方法是否为static</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_FINAL</td>
+<td style="text-align:center">0x0010</td>
+<td style="text-align:center">方法是否为final</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_SYNCHRONIZED</td>
+<td style="text-align:center">0x0020</td>
+<td style="text-align:center">方法是否为synchronized</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_BRIDGE</td>
+<td style="text-align:center">0x0040</td>
+<td style="text-align:center">方法是否为编译器产生的桥接方法</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_VARARGS</td>
+<td style="text-align:center">0x0080</td>
+<td style="text-align:center">方法是否接受不定参数</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_NATIVE</td>
+<td style="text-align:center">0x0100</td>
+<td style="text-align:center">方法是否为native</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_ABSTRACT</td>
+<td style="text-align:center">0x0400</td>
+<td style="text-align:center">方法是否为abstract</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_STRICT</td>
+<td style="text-align:center">0x0800</td>
+<td style="text-align:center">方法是否为strictfp</td>
+</tr>
+<tr>
+<td style="text-align:center">ACC_SYNTHETIC</td>
+<td style="text-align:center">0x1000</td>
+<td style="text-align:center">方法是否为编译器自动产生的</td>
+</tr>
+</tbody>
+</table>
+<p>而方法里的Java代码，经过编译器编译成字节码指令之后，存放在方法属性表集合中的一个名为”Code”的属性里面。  </p>
+<h3 id="方法表总结"><a href="#方法表总结" class="headerlink" title="方法表总结"></a>方法表总结</h3><p>如果父类方法在子类中没有被重写(Override)，方法表集合中就不会出现来自父类的方法信息。 但有可能会出现由编译器自动添加的方法，最典型的是类构造器”\&lt;clinit>“方法和实例构造器”\&lt;init>“方法。  </p>
+<p>在Java语言中，要重载(Overload)一个方法，除了要与原方法具有相同的简单名称之外，还要求必须拥有一个与原方法不同的特征签名。<br>特征签名就是各个参数在常量池中的字段符号引用的集合，也就是因为返回值不会包含在特征签名之中，因此Java语言里面是无法仅仅依靠返回值的不同来对一个已有方法进行重载的。<br>但是在Class文件格式之中，特征签名的范围更大一些，只要描述符不是完全一致的两个方法也可以共存。 也就是说，如果两个方法有相同的名称和特征签名，但返回值不同，那么也是可以合法共存于同一个Class文件中的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2056,234 +2444,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/shell-10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/08/shell-10/" itemprop="url">shell中的sed</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T18:37:23+08:00">
-                2019-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="sed简介"><a href="#sed简介" class="headerlink" title="sed简介"></a>sed简介</h2><p>sed(Stream Editor), 流编辑器。对标准输出或文件逐行进行处理。  </p>
-<h3 id="sed的语法格式"><a href="#sed的语法格式" class="headerlink" title="sed的语法格式"></a>sed的语法格式</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stdout|sed[option] "pattern command"</span><br><span class="line">sed [option] "pattern command" file</span><br></pre></td></tr></table></figure>
-<h2 id="sed参数列表"><a href="#sed参数列表" class="headerlink" title="sed参数列表"></a>sed参数列表</h2><table>
-<thead>
-<tr>
-<th>选项</th>
-<th>含义</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-n</td>
-<td>quiet/silent</td>
-<td>经过sed处理过的行才会被列出来</td>
-</tr>
-<tr>
-<td>-e</td>
-<td>script</td>
-<td>直接在命令行进行sed编辑，默认选项</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>script-file</td>
-<td>直接运行script-file内的sed命令</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>redxp-extended</td>
-<td>支持扩展正则表达式</td>
-</tr>
-<tr>
-<td>-i</td>
-<td></td>
-<td>直接编辑源文件</td>
-</tr>
-</tbody>
-</table>
-<h2 id="sed中的编辑命令"><a href="#sed中的编辑命令" class="headerlink" title="sed中的编辑命令"></a>sed中的编辑命令</h2><table>
-<thead>
-<tr>
-<th>类别</th>
-<th>编辑命令</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>查询</td>
-<td>p</td>
-<td>打印</td>
-</tr>
-<tr>
-<td>增加</td>
-<td>a</td>
-<td>行后追加</td>
-</tr>
-<tr>
-<td>增加</td>
-<td>i</td>
-<td>行前追加</td>
-</tr>
-<tr>
-<td>增加</td>
-<td>r</td>
-<td>将文件内容追加到匹配行后面</td>
-</tr>
-<tr>
-<td>增加</td>
-<td>w</td>
-<td>匹配行写入外部文件</td>
-</tr>
-<tr>
-<td>删除</td>
-<td>d</td>
-<td>删除</td>
-</tr>
-<tr>
-<td>修改</td>
-<td>s/old/new</td>
-<td>将行内第一个old替换为new</td>
-</tr>
-<tr>
-<td>修改</td>
-<td>s/old/new/g</td>
-<td>将行内全部的old替换为new</td>
-</tr>
-<tr>
-<td>修改</td>
-<td>s/old/new/2g</td>
-<td>将行内前2个old替换为new</td>
-</tr>
-<tr>
-<td>修改</td>
-<td>s/old/new/ig</td>
-<td>将行内old全部替换为new， 忽略大小写</td>
-</tr>
-</tbody>
-</table>
-<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><h3 id="替换-c"><a href="#替换-c" class="headerlink" title="替换(c)"></a>替换(c)</h3><h4 id="将第一行替换为shell"><a href="#将第一行替换为shell" class="headerlink" title="将第一行替换为shell"></a>将第一行替换为shell</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1c shell' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="将第1-3行替换为java"><a href="#将第1-3行替换为java" class="headerlink" title="将第1-3行替换为java"></a>将第1-3行替换为java</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1,3c java' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="嵌入正则表达式，-用-包住。替换所有包含win的行变为python"><a href="#嵌入正则表达式，-用-包住。替换所有包含win的行变为python" class="headerlink" title="嵌入正则表达式， 用 //包住。替换所有包含win的行变为python"></a>嵌入正则表达式， 用 //包住。替换所有包含win的行变为python</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '/win/c python' sed.txt</span><br></pre></td></tr></table></figure>
-<h3 id="删除-d"><a href="#删除-d" class="headerlink" title="删除(d)"></a>删除(d)</h3><h4 id="删除第二行"><a href="#删除第二行" class="headerlink" title="删除第二行"></a>删除第二行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '2d' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="删除最后一行-表示最后一行"><a href="#删除最后一行-表示最后一行" class="headerlink" title="删除最后一行($表示最后一行)"></a>删除最后一行($表示最后一行)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '$d' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="删除1-3行"><a href="#删除1-3行" class="headerlink" title="删除1-3行"></a>删除1-3行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1, 3d' sed.txt</span><br></pre></td></tr></table></figure>
-<h3 id="插入-i"><a href="#插入-i" class="headerlink" title="插入(i)"></a>插入(i)</h3><h4 id="所有行之前插入"><a href="#所有行之前插入" class="headerlink" title="所有行之前插入#\"></a>所有行之前插入#\</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 'i##' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="1-3行之前插入0000"><a href="#1-3行之前插入0000" class="headerlink" title="1-3行之前插入0000"></a>1-3行之前插入0000</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed '1,3i0000' sed.txt</span><br></pre></td></tr></table></figure>
-<h3 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h3><h4 id="替换文本中的每一行的第一个0-为-9"><a href="#替换文本中的每一行的第一个0-为-9" class="headerlink" title="替换文本中的每一行的第一个0 为 9"></a>替换文本中的每一行的第一个0 为 9</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 's/0/9/' sed.txt</span><br></pre></td></tr></table></figure>
-<h4 id="替换文本中的所有0-为-9"><a href="#替换文本中的所有0-为-9" class="headerlink" title="替换文本中的所有0 为 9"></a>替换文本中的所有0 为 9</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed 's/0/9/g' sed.txt</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2334,7 +2494,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
