@@ -283,6 +283,336 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/spring-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/29/spring-1/" itemprop="url">spring[1]spring事务的7种传播行为</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T15:27:45+08:00">
+                2019-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="事务传播行为"><a href="#事务传播行为" class="headerlink" title="事务传播行为"></a>事务传播行为</h2><p>事务传播行为(propagation behavior) 指的就是当一个事务方法被另一个事务方法调用时，这个事务方法应该如何进行。</p>
+<h3 id="spring-的七种传播行为"><a href="#spring-的七种传播行为" class="headerlink" title="spring 的七种传播行为"></a>spring 的七种传播行为</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">传播行为</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">REQUIRED</td>
+<td style="text-align:center">表示当前方法必须运行在事务中。如果当前事务存在，方法将会在该事务中运行。否则，会启动一个新的事务</td>
+</tr>
+<tr>
+<td style="text-align:center">SUPPORTS</td>
+<td style="text-align:center">表示当前方法不需要事务上下文，但是如果存在当前事务的话，那么该方法会在这个事务中运行</td>
+</tr>
+<tr>
+<td style="text-align:center">MANDATORY</td>
+<td style="text-align:center">表示该方法必须在事务中运行，如果当前事务不存在，则会抛出一个异常</td>
+</tr>
+<tr>
+<td style="text-align:center">REQUIRED_NEW</td>
+<td style="text-align:center">表示当前方法必须运行在它自己的事务中。一个新的事务将被启动。如果存在当前事务，在该方法执行期间，当前事务会被挂起。如果使用JTATransactionManager的话，则需要访问TransactionManager</td>
+</tr>
+<tr>
+<td style="text-align:center">NOT_SUPPORTED</td>
+<td style="text-align:center">表示该方法不应该运行在事务中。如果存在当前事务，在该方法运行期间，当前事务将被挂起。如果使用JTATransactionManager的话，则需要访问TransactionManager</td>
+</tr>
+<tr>
+<td style="text-align:center">NEVER</td>
+<td style="text-align:center">表示当前方法不应该运行在事务上下文中。如果当前正有一个事务在运行，则会抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">NESTED</td>
+<td style="text-align:center">表示如果当前已经存在一个事务，那么该方法将会在嵌套事务中运行。嵌套的事务可以独立于当前事务进行单独地提交或回滚。如果当前事务不存在，那么其行为与PROPAGATION_REQUIRED一样。注意各厂商对这种传播行为的支持是有所差异的。可以参考资源管理器的文档来确认它们是否支持嵌套事务</td>
+</tr>
+</tbody>
+</table>
+<h3 id="NESTED-和-REQUIRED-NEW"><a href="#NESTED-和-REQUIRED-NEW" class="headerlink" title="NESTED 和 REQUIRED_NEW"></a>NESTED 和 REQUIRED_NEW</h3><p>REQUIRED_NEW 是为子方法创建一个新的事务, NESTED 是为子方法创建一个嵌套事务。</p>
+<p>在内层事务执行失败的时候，都不会引起外层事务的回滚。</p>
+<p>但在外层事务执行失败时，REQUIRED_NEW 注解的内部方法由于已经提交了，不会进行回滚。</p>
+<p>而NESTED将嵌套事务作为外层事务的一部分，会随着外层事务的失败而回滚。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/springboot-6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/29/springboot-6/" itemprop="url">项目搭建[6]Nginx负载均衡与Tomcat集群</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T14:01:46+08:00">
+                2019-09-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="单机部署多个Tomcat实例"><a href="#单机部署多个Tomcat实例" class="headerlink" title="单机部署多个Tomcat实例"></a>单机部署多个Tomcat实例</h2><h3 id="下载Tomcat并解压到相应的目录下"><a href="#下载Tomcat并解压到相应的目录下" class="headerlink" title="下载Tomcat并解压到相应的目录下"></a>下载Tomcat并解压到相应的目录下</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirrors.hust.edu.cn/apache/tomcat/tomcat-9/v9.0.7/bin/apache-tomcat-9.0.7.tar.gz</span><br><span class="line">tar -zxvf apache-tomcat-9.0.7.tar.gz</span><br></pre></td></tr></table></figure>
+<h3 id="拷贝多份Tomcat目录"><a href="#拷贝多份Tomcat目录" class="headerlink" title="拷贝多份Tomcat目录"></a>拷贝多份Tomcat目录</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp -r apache-tomcat-9.0.7 ./tomcat9-02</span><br><span class="line">mv apache-tomcat-9.0.7 ./tomcat9-01</span><br></pre></td></tr></table></figure>
+<h3 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile  # 在文件末尾增加如下内容</span><br><span class="line"></span><br><span class="line">export CATALINA_BASE=/usr/local/tomcat9-01</span><br><span class="line">export CATALINA_HOME=/usr/local/tomcat9-01</span><br><span class="line">export TOMCAT_HOME=/usr/local/tomcat9-01</span><br><span class="line"></span><br><span class="line">export CATALINA_2_BASE=/usr/local/tomcat9-02</span><br><span class="line">export CATALINA_2_HOME=/usr/local/tomcat9-02</span><br><span class="line">export TOMCAT_2_HOME=/usr/local/tomcat9-02</span><br><span class="line"></span><br><span class="line">source /ect/profile # 使配置文件生效</span><br></pre></td></tr></table></figure>
+<h3 id="编辑第二个Tomcat的bin下的catalina-sh文件"><a href="#编辑第二个Tomcat的bin下的catalina-sh文件" class="headerlink" title="编辑第二个Tomcat的bin下的catalina.sh文件"></a>编辑第二个Tomcat的bin下的catalina.sh文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local/tomcat9-02/bin/</span><br><span class="line">vim catalina.sh # 找到如下那行注释，在该注释下，增加两行配置</span><br><span class="line"><span class="meta">#</span> OS specific support. $var_must_be set to either true or false.</span><br><span class="line">export CATALINA_BASE=$CATALINA_2_BASE</span><br><span class="line">export CATALINA_HOME=$CATALINA_2_HOME</span><br></pre></td></tr></table></figure>
+<h3 id="编辑第二个Tomcat的conf下的server-xml文件"><a href="#编辑第二个Tomcat的conf下的server-xml文件" class="headerlink" title="编辑第二个Tomcat的conf下的server.xml文件"></a>编辑第二个Tomcat的conf下的server.xml文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd ../conf/</span><br><span class="line">vim server.xml</span><br><span class="line"><span class="meta">#</span> 第一个端口, Server port 节点端口</span><br><span class="line">&lt;Server port="9005" shutdown="SHUTDOWN"&gt;</span><br><span class="line"><span class="meta">#</span> 第二个端口, Connector port 节点端口, 也即是Tomcat访问端口</span><br><span class="line">&lt;Connector port="9080" protocol="HTTP/1.1"</span><br><span class="line">                      connectionTimeout="20000"</span><br><span class="line">                      redirectPort="8443" URIEncoding="UTF-8" /&gt;</span><br><span class="line"><span class="meta">#</span> 第三个端口, Connector port节点端口</span><br><span class="line">&lt;Connector port="9009" protocol="AJP/1.3" redirectPort="8443" /&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="执行-bin目录下的startup-sh"><a href="#执行-bin目录下的startup-sh" class="headerlink" title="执行 bin目录下的startup.sh"></a>执行 bin目录下的startup.sh</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ../bin/</span><br><span class="line">./startup.sh</span><br></pre></td></tr></table></figure>
+<h3 id="检查监听的端口号及进程"><a href="#检查监听的端口号及进程" class="headerlink" title="检查监听的端口号及进程"></a>检查监听的端口号及进程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">netstat -lntp | grep java</span><br><span class="line">ps -aux | grep java</span><br></pre></td></tr></table></figure>
+<h3 id="通过访问不同的端口，能够访问到Tomcat默认的首页"><a href="#通过访问不同的端口，能够访问到Tomcat默认的首页" class="headerlink" title="通过访问不同的端口，能够访问到Tomcat默认的首页"></a>通过访问不同的端口，能够访问到Tomcat默认的首页</h3><h2 id="Nginx负载均衡配置-常用策略简介"><a href="#Nginx负载均衡配置-常用策略简介" class="headerlink" title="Nginx负载均衡配置,常用策略简介"></a>Nginx负载均衡配置,常用策略简介</h2><h3 id="轮询-默认"><a href="#轮询-默认" class="headerlink" title="轮询(默认)"></a>轮询(默认)</h3><ul>
+<li><p>优点: 实现简单</p>
+</li>
+<li><p>缺点: 不考虑每台服务器的处理能力</p>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    # 需要负载的server列表</span><br><span class="line">    server www.xxx.com:8080;</span><br><span class="line">    server www.xxx.com:9080;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="权重-使用最多"><a href="#权重-使用最多" class="headerlink" title="权重(使用最多)"></a>权重(使用最多)</h3><ul>
+<li><p>优点: 考虑了每台服务器处理能力的不同，哪台机器性能高就给哪台机器的权重高一些</p>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    server www.xxx.com:8080 weight=15;</span><br><span class="line">    server www.xxx.com:9080 weight=10;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ip-hash"><a href="#ip-hash" class="headerlink" title="ip hash"></a>ip hash</h3><ul>
+<li><p>优点: 能实现同一个用户始终访问同一个服务器</p>
+</li>
+<li><p>缺点: 根据ip hash 不一定平均</p>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    # 需要负载的server列表</span><br><span class="line">    server www.xxx.com:8080;</span><br><span class="line">    server www.xxx.com:9080;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="url-hash-第三方插件"><a href="#url-hash-第三方插件" class="headerlink" title="url hash(第三方插件)"></a>url hash(第三方插件)</h3><ul>
+<li><p>优点: 能实现同一个服务访问同一个服务器，也就是根据url进行负载</p>
+</li>
+<li><p>缺点: 和ip hash一样，根据url hash分配请求不一定平均，请求频繁的url会请求到同一台服务器上。</p>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    # 需要负载的server 列表</span><br><span class="line">    server www.xxx.com:8080;</span><br><span class="line">    server www.xxx.com:9080;</span><br><span class="line">    hash $request_uri;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="fair-第三方插件"><a href="#fair-第三方插件" class="headerlink" title="fair (第三方插件)"></a>fair (第三方插件)</h3><ul>
+<li><p>特点: 按后端服务器的相应时间来分配请求，相应时间短的优先分配</p>
+</li>
+<li><p>配置:</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    # 需要负载的server列表</span><br><span class="line">    server www.xxx.com:8080;</span><br><span class="line">    server www.xxx.com:9080;</span><br><span class="line">    fair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="负载均衡参数简介"><a href="#负载均衡参数简介" class="headerlink" title="负载均衡参数简介"></a>负载均衡参数简介</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">upstream www.xxx.com &#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    # 需要负载的server列表</span><br><span class="line">    server www.xxx.com:8080 down; # down 表示当前的server暂时不参与负载</span><br><span class="line">    server www.xxx.com:9080 weight=2; # weight默认值为1,weight的值越大，负载的权重就越大</span><br><span class="line">    server www.xxx.com:7080 backup; # 其他所有的非backup机器，在down掉或者很忙的时候，才请求backup机器</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/springboot-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1575,528 +1905,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/12/jvm-14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/12/jvm-14/" itemprop="url">jvm类加载器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-12T16:07:12+08:00">
-                2019-08-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="类加载器介绍"><a href="#类加载器介绍" class="headerlink" title="类加载器介绍"></a>类加载器介绍</h2><p>虚拟机涉及团队把类加载阶段中的”通过一个类的权限定名来获取描述此类的二进制字节流”这个动作放到Java虚拟机外部去实现，以便让应用程序自己决定如何去获取所需要的类。实现这个动作的代码模块被称为”类加载器”。</p>
-<h2 id="类与类加载器"><a href="#类与类加载器" class="headerlink" title="类与类加载器"></a>类与类加载器</h2><p>类加载器虽然只用于实现类的加载动作，但它在Java程序中起到的作用却远远不限于类加载阶段。</p>
-<p>对于任意一个类，都需要由加载它的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性。这句话等同于:</p>
-<p>比较两个类是否”相等”，只有在这两个类是由同一个类加载器加载的前提之下才有意义，否则，即使这两个类是来源于同一个Class文件，只要加载它们的类加载器不同，那这两个类就必定不相等。  </p>
-<p>这里所指的”相等”，包括代表类的Class对象的equals()方法、isAssignableFrom() 方法、isInstance()方法的返回结果，也包括了使用instanceof关键字做对象所属关系判定等情况。如果没有注意到类加载器的影响，在某些情况下可能会产生具有迷惑性的结果。</p>
-<p>不同的类加载器对instanceof关键字运算结果的影响</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 类加载器与instanceof关键字演示</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassLoaderTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        ClassLoader myLoader = <span class="keyword">new</span> ClassLoader() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> Class&lt;?&gt; loadClass(String name) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    String fileName = name.substring(name.lastIndexOf(<span class="string">"."</span>) + <span class="number">1</span>) + <span class="string">".class"</span>;</span><br><span class="line">                    InputStream is = getClass().getResourceAsStream(fileName);</span><br><span class="line">                    <span class="keyword">if</span> (is == <span class="keyword">null</span>) &#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="keyword">super</span>.loadClass(name);</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">byte</span>[] b = <span class="keyword">new</span> <span class="keyword">byte</span>[is.available()];</span><br><span class="line">                    is.read(b);</span><br><span class="line">                    <span class="keyword">return</span> defineClass(name, b, <span class="number">0</span>, b.length);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> ClassNotFoundException(name);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        Object obj = myLoader.loadClass(<span class="string">"org.fenixsoft.classloading.ClassLoaderTest"</span>).newInstance();</span><br><span class="line">        System.out.println(obj.getClass());</span><br><span class="line">        System.out.println(obj <span class="keyword">instanceof</span> org.fenixsoft.classloading.ClassLoaderTest);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="双亲委派模型"><a href="#双亲委派模型" class="headerlink" title="双亲委派模型"></a>双亲委派模型</h2><h3 id="Java虚拟机角度的类加载器"><a href="#Java虚拟机角度的类加载器" class="headerlink" title="Java虚拟机角度的类加载器"></a>Java虚拟机角度的类加载器</h3><p>在Java虚拟机的角度讲，只存在两种不同的类加载器：</p>
-<ol>
-<li><p>启动类加载器(Bootstrap ClassLoader)，这个类加载器使用C++语言实现，是虚拟机自身的一部分；</p>
-</li>
-<li><p>其他类加载器，这些类加载器都由Java语言实现，独立于虚拟机外部，并且全都继承自抽象类java.lang.ClassLoader。</p>
-</li>
-</ol>
-<h3 id="开发人员角度的类加载器"><a href="#开发人员角度的类加载器" class="headerlink" title="开发人员角度的类加载器"></a>开发人员角度的类加载器</h3><p>从开发人员角度出发，绝大部分Java程序都会使用到以下三种系统提供的类加载器:  </p>
-<ul>
-<li><p>启动类加载器(Bootstrap ClassLoader): 这个类加载器负责将存放在\&lt;JAVA_HOME>\lib目录中的，或者被-Xbootclasspath参数所指定的路径中的，并且是虚拟机识别的(仅按照文件名识别，如rt.jar,名字不符合的类库即使放在lib目录中也不会被加载)类库加载到虚拟机内存中。启动类加载器无法被Java程序直接引用。</p>
-</li>
-<li><p>扩展类加载器(Extension ClassLoader): 这个加载器由sun.misc.Launcher$ExtClassLoader实现，它负责加载\&lt;JAVA_HOME>\lib\ext目录中的，或者被java.ext.dirs系统变量所指定的路径中的所有类库，开发者可以直接使用扩展类加载器。</p>
-</li>
-<li><p>应用程序类加载器(Application ClassLoader): 这个类加载器由sun.misc.Launcher$AppClassLoader来实现。由于这个类加载器是ClassLoader中的getSystemClassLoader()方法的返回值，所以一般也称它为系统类加载器。它负责加载用户类路径(ClassPath)上所指定的类库，开发者可以直接使用这个类加载器，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</p>
-</li>
-</ul>
-<h3 id="双亲委派模型简介"><a href="#双亲委派模型简介" class="headerlink" title="双亲委派模型简介"></a>双亲委派模型简介</h3><p>我们的应用程序都是由这三种类加载器互相配合进行加载的，如果有必要，还可以加入自己定义的类加载器：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">启动类加载器(Bootstrap ClassLoader) &lt;--- 扩展类加载器(Extension ClassLoader) &lt;--- 应用程序类加载器(Application ClassLoader) &lt;----多个用户自己定义的类加载器</span><br></pre></td></tr></table></figure>
-<p>类加载器之间的这种层次关系，就称为类加载器的<strong>双亲委派模型</strong>(Parents Delegation Model)。</p>
-<p>双亲委派模型要求除了顶层的启动类加载器外，其余的类加载器都应当有自己的父类加载器。这里类加载器之间的父子关系一般不会以继承(Inheritance)关系来实现，而是都使用组合(Composition)关系来复用父加载器的代码。</p>
-<p>类加载器的双亲委派模型在JDK1.2期间被引入并被广泛应用于之后几乎所有的Java程序中，但它并不是一个强制性的约束模型，而是Java设计者们推荐给开发者们的一种类加载器实现方式。  </p>
-<h4 id="双亲委派模型工作过程"><a href="#双亲委派模型工作过程" class="headerlink" title="双亲委派模型工作过程"></a>双亲委派模型工作过程</h4><p>如果一个类加载器收到了类加载的请求，它首先不会自己去尝试加载这个类，而是把这个请求委派给父类加载器去完成，每一个层次的类加载器都是如此，因此所有的加载请求最终都应该传送到顶层的启动类加载器中，只有当父加载器反馈自己无法完成这个加载请求(它的搜索范围中没有找到所需的类)时，子加载器才会尝试自己去加载。</p>
-<h4 id="双亲委派模型的优点"><a href="#双亲委派模型的优点" class="headerlink" title="双亲委派模型的优点"></a>双亲委派模型的优点</h4><p>使用双亲委派模型来组织类加载器之间的关系，有一个显而易见的好处就是Java类随着它的类加载器一起具备了一种带有优先级的层次关系。</p>
-<p>例如类java.lang.Object，它存放在rt.jar之中，无论哪一个类加载器要加载这个类，最终都是委派给启动类加载器进行加载，因此Object类在程序的各种类加载器环境中都是同一个类。  </p>
-<p>相反，如果没有使用双亲委派模型，由各个类加载器自行去加载的话，如果用户自己写了一个名为java.lang.Object的类，并放在程序的ClassPath中，那系统中将会出现多个不同的Object类，Java类型体系中最基础的行为也就无从保证，应用程序也将会变得一片混乱。</p>
-<h4 id="双亲委派模型的实现"><a href="#双亲委派模型的实现" class="headerlink" title="双亲委派模型的实现"></a>双亲委派模型的实现</h4><p>双亲委派模型的实现非常简单，实现双亲委派的代码都集中在java.lang.ClassLoader的loadClass()方法之中</p>
-<p>逻辑清晰易懂:  </p>
-<ol>
-<li><p>先检查是否已经被加载过</p>
-</li>
-<li><p>若没有加载则调用父加载器的loadClass()方法</p>
-</li>
-<li><p>若父加载器为空则默认使用启动类</p>
-</li>
-<li><p>如果父类加载失败，则在抛出ClassNotFoundException异常后，再调用自己的findClass() 方法进行加载。</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">synchronized</span> Class&lt;?&gt; loadClass(String name, <span class="keyword">boolean</span> resolve) <span class="keyword">throws</span> ClassNotFoundException &#123;</span><br><span class="line">    <span class="comment">// 首先， 检查请求的类是否已经被加载过了</span></span><br><span class="line">    Class c = findLoadedClass(name);</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (parent != <span class="keyword">null</span>) &#123;</span><br><span class="line">                c = parent.loadClass(name, <span class="keyword">false</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                c = findBootstrapClassOrNull(name);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            <span class="comment">// 如果父类加载器抛出ClassNotFoundException</span></span><br><span class="line">            <span class="comment">// 则说明父类加载器无法完成加载请求</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 在父类加载器无法加载的时候</span></span><br><span class="line">            <span class="comment">// 再调用本身的findClass方法来进行类加载</span></span><br><span class="line">            c = findClass(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="双亲委派模型的破坏"><a href="#双亲委派模型的破坏" class="headerlink" title="双亲委派模型的破坏"></a>双亲委派模型的破坏</h4><h5 id="为了兼容JDK1-2之前的自定义类加载器"><a href="#为了兼容JDK1-2之前的自定义类加载器" class="headerlink" title="为了兼容JDK1.2之前的自定义类加载器"></a>为了兼容JDK1.2之前的自定义类加载器</h5><p>为了向前兼容, JDK 1.2之后的java.lang.ClassLoader添加了一个新的protected方法findClass(),在此之前，用户去继承java.lang.ClassLoader的唯一目的就是为了重写loadClass()方法，因为虚拟机在进行类加载的时候会调用加载器的私有方法loadClassInternal()，而这个方法的唯一逻辑就是去调用自己的loadClass()。</p>
-<p>JDK1.2之后已不提倡用户再去覆盖loadClass() 方法，而应当把自己的类加载逻辑写到findClass()方法中，在loadClass()方法的逻辑里如果父类加载失败，则会调用自己的findClass()方法来完成加载，这样就可以保证新写出来的类加载器是符合双亲委派规则的。</p>
-<h5 id="基础类调用用户代码"><a href="#基础类调用用户代码" class="headerlink" title="基础类调用用户代码"></a>基础类调用用户代码</h5><p>JNDI服务的代码由启动类加载器去加载(在JDK1.3时代放进去的rt.jar),但JNDI的目的就是对资源进行集中管理和查找，它需要调用由独立厂商实现并部署在应用程序的JNDI接口提供者(SPI, Service Provider Interface)的代码，但启动类加载器不可能”认识”这些代码。</p>
-<p>Java设计团队引入了 <strong>线程上下文类加载器</strong>(Thread Context ClassLoader) 来解决这个困境。这个类加载器可以通过java.lang.Thread类的setContextClassLoader() 方法进行设置，如果创建线程时还未设置，它将会从父线程中继承一个，如果在应用程序的全局范围内都没有设置过，那么这个类加载器默认就是应用程序类加载器。</p>
-<p>JNDI服务使用这个线程上下文类加载器去加载所需要的SPI代码，也就是父类加载器请求子类加载器去完成类加载的动作。  </p>
-<h5 id="动态性的追求"><a href="#动态性的追求" class="headerlink" title="动态性的追求"></a>动态性的追求</h5><p>动态性的追求就是希望应用程序能像电脑外设那样，插上鼠标或U盘，不用重启机器就能立即使用。  </p>
-<p>OSGi是当前业界的Java模块化标准，OSGi实现模块化热部署的关键则是它自定义的类加载器机制的实现。每一个程序模块(OSGi中称为Bundle)都有一个自己的类加载器，当需要更换一个Bundle时，就把Bundle连同类加载器一起换掉以实现代码的热替换。</p>
-<p>在OSGi环境下，类加载器不再是双亲委派模型中的树状结构，而是进一步发展为网状结构，当收到类加载请求时，OSGi将按照下面的顺序进行类搜索:</p>
-<ol>
-<li><p>将以java.*开头的类，委派给父类加载器加载。</p>
-</li>
-<li><p>否则，将委派列表名单内的类，委派给父类加载器加载。</p>
-</li>
-<li><p>否则，将Import列表中的类，委派给Export这个类的Bundle的类加载器加载。</p>
-</li>
-<li><p>否则， 查找当前Bundle的ClassPath, 使用自己的类加载器加载。</p>
-</li>
-<li><p>否则，查找类是否在自己的Fragment Bundle中，如果在，则委派给Fragment Bundle的类加载器加载。</p>
-</li>
-<li><p>否则，查找Dynamic Import列表的Bundle，委派给对应Bundle的类加载器加载。</p>
-</li>
-<li><p>否则，类查找失败。</p>
-</li>
-</ol>
-<p>上面的查找顺序只有开头两点仍然符合双亲委派规则，其余的类查找都是在平级的类加载器中进行的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/jvm-13/" itemprop="url">jvm类加载的过程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T20:29:24+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="加载"><a href="#加载" class="headerlink" title="加载"></a>加载</h2><p>“加载”(Loading)阶段是”类加载(Class Loading)”的第一个阶段。<br>在加载阶段，虚拟机需要完成以下三件事情:</p>
-<ol>
-<li><p>通过一个类的全限定名来获取定义此类的二进制字节流。  </p>
-</li>
-<li><p>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。  </p>
-</li>
-<li><p>在Java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口。  </p>
-</li>
-</ol>
-<h3 id="类的获取方式"><a href="#类的获取方式" class="headerlink" title="类的获取方式"></a>类的获取方式</h3><p>通过一个类的全限定名来获取定义此类的二进制字节流，并没有指明二进制字节流要从一个Class文件中获取，准确地说是根本没有指明要从哪里获取及怎样获取，一般有以下获取方式:</p>
-<ul>
-<li><p>从ZIP包中读取，最终成为JAR、EAR、WAR格式的基础。</p>
-</li>
-<li><p>从网络中获取，这种场景最典型的应用是Applet。</p>
-</li>
-<li><p>运行时计算生成，这种场景使用得最多的就是动态代理技术，在java.lang.reflect.Proxy中，就是用了ProxyGenerator.generateProxyClass来为特定接口生成*$Proxy的代理类的二进制字节流。  </p>
-</li>
-<li><p>由其他文件生成，典型场景: JSP应用。</p>
-</li>
-<li><p>从数据库中读取，这种场景相对少见些，有些中间件服务器(如SAP Netweaver)可以选择把程序安装到数据库中来完成程序代码在集群间的分发。</p>
-</li>
-</ul>
-<p>相对于类加载的其他阶段，加载阶段获取类的二进制字节流的动作是开发期可控性最强的阶段，因为加载阶段既可以使用系统提供的类加载器来完成，也可以由用户自定义的类加载器去完成，开发人员们可以通过定义自己的类加载器去控制字节流的获取方式。  </p>
-<p>加载阶段完成后，虚拟机外部的二进制字节流就按照虚拟机所需的格式存储在方法区之中，方法区中的数据存储格式由虚拟机实现自行定义，虚拟机规范未规定此区域的具体数据结构。  </p>
-<p>然后在Java堆中实例化一个java.lang.Class类的对象，这个对象将作为程序访问方法区中的这些类型数据的外部接口。加载阶段与连接阶段的部分内容(如一部分字节码文件格式验证动作)是交叉进行的，加载阶段尚未完成，连接阶段可能已经开始，但这些夹在加载阶段之中进行的动作，仍然属于连接阶段的内容，这两个阶段的开始时间仍然保持着固定的先后顺序。  </p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><h3 id="验证工作的重要性"><a href="#验证工作的重要性" class="headerlink" title="验证工作的重要性"></a>验证工作的重要性</h3><p>验证是连接阶段的第一步，这一阶段的目的是为了确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全。  </p>
-<p>Java语言本身是相对安全的语言(相对C/C++),使用纯粹的Java代码无法做到诸如访问数组边界以外的数据、将一个对象转型为它并未实现的类型、跳转到不存在的代码行之类的事情，如果这样做了，编译器将拒绝编译。  </p>
-<p>但Class文件并不一定要求用Java源码编译而来，可以使用任何途径，包括用十六进制编辑器直接编写来产生Class文件。  </p>
-<p>在字节码的语言层面上，上述Java代码无法做到的事情都是可以实现的，至少语义上是可以表达出来的。虚拟机如果不检查输入的字节流，对其完全信任的话，很可能会因为载入了有害的字节流而导致系统崩溃，所以验证是虚拟机对自身保护的一项重要工作。  </p>
-<h3 id="验证过程"><a href="#验证过程" class="headerlink" title="验证过程"></a>验证过程</h3><p>尽管验证阶段的工作量在虚拟机的类加载子系统中占了很大一部分，但虚拟机规范对这个阶段仅仅要求如果验证到输入的字节流不符合Clas文件的存储格式，就抛出一个java.lang.VerifyError异常或其子类异常。  </p>
-<p>不同的虚拟机对类验证的实现可能会有所不同，但大致上都会完成下面四个阶段的检验过程:  </p>
-<h4 id="文件格式验证"><a href="#文件格式验证" class="headerlink" title="文件格式验证"></a>文件格式验证</h4><p>验证字节流是否符合Class文件格式的规范，并且能被当前版本的虚拟机处理。这一阶段一般包括以下验证点:</p>
-<ul>
-<li><p>是否以魔数0xCAFEBABE开头。  </p>
-</li>
-<li><p>主、次版本号是否在当前虚拟机处理范围之内。</p>
-</li>
-<li><p>常量池的常量中是否有不被支持的常量类型(检查常量tag标志)。</p>
-</li>
-<li><p>指向常量的各种索引值中是否有指向不存在的常量或不符合类型的常量。</p>
-</li>
-<li><p>CONSTANT_Utf8_info型的常量中是否有不符合UTF8编码的数据。  </p>
-</li>
-<li><p>Class文件中各个部分及文件本身是否有被删除的或附加的其他信息。  </p>
-</li>
-</ul>
-<p>……</p>
-<h4 id="元数据验证"><a href="#元数据验证" class="headerlink" title="元数据验证"></a>元数据验证</h4><p>第二阶段是对字节码描述的信息进行语义分析，以保证其描述的信息符合Java语言规范的要求，这个阶段可能包括的验证点如下：</p>
-<ul>
-<li><p>这个类是否有父类（除了java.lang.Object之外， 所有的类都应当有父类）</p>
-</li>
-<li><p>这个类的父类是否继承了不允许被继承的类（被final修饰的类）</p>
-</li>
-<li><p>如果这个类不是抽象类，是否实现了其父类或接口之中要求实现的所有方法。  </p>
-</li>
-<li><p>类中的字段、方法是否与父类产生了矛盾（例如覆盖了父类的final字段，或者出现不符合规则的方法重载，例如方法参数都一致，但返回值类型却不同等）。  </p>
-</li>
-</ul>
-<p>……</p>
-<p>第二阶段的主要目的是对类的元数据信息进行语义校验，保证不存在不符合Java语言规范的元数据信息。  </p>
-<h4 id="字节码验证"><a href="#字节码验证" class="headerlink" title="字节码验证"></a>字节码验证</h4><p>第三阶段是整个验证过程中最复杂的一个阶段，主要工作是进行数据流和控制流分析。在第二阶段对元数据信息中的数据类型做完校验后，这阶段将对类的方法体进行校验分析。这阶段的任务是保证被校验类的方法在运行时不会做出危害虚拟机安全的行为，如:  </p>
-<ul>
-<li><p>保证任意时刻操作数栈的数据类型与指令代码序列都能配合工作，例如不会出现类似这样的情况：在操作栈中放置了一个int类型的数据，使用时却按long类型来加载入本地变量表中。</p>
-</li>
-<li><p>保证跳转指令不会跳转到方法体以外的字节码指令上。  </p>
-</li>
-<li><p>保证方法体中的类型转换是有效的，例如可以把一个子类对象赋值给父类数据类型，这是安全的，但是把父类对象赋值给子类数据类型，甚至把对象赋值给与它毫无继承关系、完全不相干的一个数据类型，则是危险和不合法的。</p>
-</li>
-</ul>
-<p>……</p>
-<p>通过程序去校验程序逻辑是无法做到绝对准确的————不能通过程序准确地检查出程序是否能在有限的时间之内结束运行。  </p>
-<p>在JDK 1.6之后的Javac编译器中进行了一项优化，给方法体的Code属性的属性表中增加了一项名为”StackMapTable”属性，描述方法体中所有的基本块(Basic Block，按照控制流拆分的代码块)开始时本地变量表和操作栈应有的状态，这可以将字节码验证的类型推导转变为类型检查从而节省一些时间。</p>
-<p>当然，这个属性也存在被篡改的可能，在JDK1.6的HotSpot虚拟机中提供了-XX: -UseSplitVerifier选项来关闭掉这项优化。  </p>
-<h4 id="符号引用验证"><a href="#符号引用验证" class="headerlink" title="符号引用验证"></a>符号引用验证</h4><p>最后一个阶段的校验发生在虚拟机将符号引用转化为直接引用的时候，这个转化动作将在连接的第三个阶段————解析阶段中发生。符号引用验证可以看做是对类自身以外（常量池中的各种符号引用）的信息进行匹配性的校验，通常需要校验以下内容：</p>
-<ul>
-<li><p>符号引用中通过字符串描述的全限定名是否能找到对应的类。</p>
-</li>
-<li><p>在指定类中是否存在符合方法的字段描述符及简单名称所描述的方法和字段。</p>
-</li>
-<li><p>符号引用中的类、字段和方法的访问性(private、protected、public、default)是否可被当前类访问。</p>
-</li>
-</ul>
-<p>……</p>
-<p>符号引用验证的目的是确保解析动作能正常执行，如果无法通过符号引用验证，将会抛出一个java.lang.IncompatibleClassChangeError异常的子类，如java.lang.IllegalAccessError、java.lang.NoSuchFieldError、java.lang.NoSuchMethodError等。</p>
-<p>验证阶段对于虚拟机的类加载机制来说，是一个非常重要的、但不一定是必要的阶段。如果所运行的全部代码(包括自己写的、第三方包中的代码)都已经被反复使用和验证过，在实施阶段就可以考虑使用-Xverify: none参数来关闭大部分的类验证措施，以缩短虚拟机类加载的时间。</p>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些内存都将在方法区中进行分配。</p>
-<h3 id="只分配类变量"><a href="#只分配类变量" class="headerlink" title="只分配类变量"></a>只分配类变量</h3><p>这时候进行内存分配的仅包括类变量（被static修饰的变量），而不包括实例变量，实例变量将会在对象实例化时随着对象一起分配在Java堆中。</p>
-<h4 id="初始值”通常”是零值"><a href="#初始值”通常”是零值" class="headerlink" title="初始值”通常”是零值"></a>初始值”通常”是零值</h4><p>假设一个类变量的定义为:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br></pre></td></tr></table></figure>
-<p>那么变量value在准备阶段过后的初始值为0而不是123，因为这时候尚未开始执行任何Java方法，而把value赋值为123的putstatic指令是程序被编译后，存放于类构造器\&lt;clinit>()方法中，所以把value赋值为123的动作将在初始化阶段才会被执行。  </p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">数据类型</th>
-<th style="text-align:center">零值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">int</td>
-<td style="text-align:center">0</td>
-</tr>
-<tr>
-<td style="text-align:center">long</td>
-<td style="text-align:center">0L</td>
-</tr>
-<tr>
-<td style="text-align:center">short</td>
-<td style="text-align:center">(short)0</td>
-</tr>
-<tr>
-<td style="text-align:center">char</td>
-<td style="text-align:center">‘\u0000’</td>
-</tr>
-<tr>
-<td style="text-align:center">byte</td>
-<td style="text-align:center">(byte)0</td>
-</tr>
-<tr>
-<td style="text-align:center">boolean</td>
-<td style="text-align:center">false</td>
-</tr>
-<tr>
-<td style="text-align:center">float</td>
-<td style="text-align:center">0.0f</td>
-</tr>
-<tr>
-<td style="text-align:center">double</td>
-<td style="text-align:center">0.0d</td>
-</tr>
-<tr>
-<td style="text-align:center">reference</td>
-<td style="text-align:center">null</td>
-</tr>
-</tbody>
-</table>
-<h2 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h2><p>解析阶段是虚拟机将常量池内的符号引用替换为直接引用的过程。  </p>
-<p>符号引用在Class文件中以CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info等类型的常量。  </p>
-<p>符号引用与直接引用的区别：</p>
-<h3 id="符号引用"><a href="#符号引用" class="headerlink" title="符号引用"></a>符号引用</h3><p>符号引用(Symbolic References): 符号引用以一组符号来描述所引用的目标，符号可以是任何形式的字面量，只要使用时能无歧义地定位到目标即可。符号引用与虚拟机实现的内存布局无关，引用的目标并不一定已经加载到内存中。</p>
-<h3 id="直接引用"><a href="#直接引用" class="headerlink" title="直接引用"></a>直接引用</h3><p>直接引用(Direct References): 直接引用可以是直接指向目标的指针、相对偏移量或是一个能间接定位到目标的句柄。直接引用是与虚拟机实现的内存布局相关的，同一个符号引用在不同虚拟机实例上翻译出来的直接引用一般不会相同。如果有了直接引用，那引用的目标必定已经在内存中存在。</p>
-<h3 id="解析进行的时机"><a href="#解析进行的时机" class="headerlink" title="解析进行的时机"></a>解析进行的时机</h3><p>虚拟机规范之中并未规定解析阶段发生的具体时间，只要求了在执行anewarray、checkcast、getfield、getstatic、instanceof、invokeinterface、invokespecial、invokestatic、invokevirtual、multianewarray、new、putfield和putstatic这13个用于操作符号引用的字节码指令之前，先对它们所使用的符号引用进行解析。</p>
-<p>所以虚拟机实现会根据需要来判断，到底是在类被加载器加载时就对常量池中的符号引用进行解析，还是等到一个符号引用将要被使用前才去解析它。</p>
-<p>对同一个符号引用进行多次解析请求是很常见的事情，虚拟机实现可能会对第一次解析的结果进行缓存(在运行时常量池中记录直接引用，并把常量标识为已解析状态)从而避免解析动作重复进行。无论是否真正执行了多次解析动作，虚拟机需要保证的都是在同一个实体中，如果一个符号引用之前已经被成功解析过，那么后续的引用解析请求就应当一直成功;同样地，如果第一次解析失败了，其他指令对这个符号的解析请求也应该收到相同的异常。  </p>
-<h3 id="解析对应的对象"><a href="#解析对应的对象" class="headerlink" title="解析对应的对象"></a>解析对应的对象</h3><p>解析动作主要针对类或接口、字段、类方法、接口方法四类符号引用进行，分别对应于常量池的CONSTANT_Class_info、CONSTANT_Fieldref_info、CONSTANT_Methodref_info及CONSTANT_InterfaceMethodref_info四种常量类型。  </p>
-<h4 id="类或接口的解析"><a href="#类或接口的解析" class="headerlink" title="类或接口的解析"></a>类或接口的解析</h4><p>假设当前代码所处的类为D，如果要把一个从未解析过的符号引用N解析为一个类或接口C的直接引用，那虚拟机完成整个解析的过程需要包括以下3个步骤:</p>
-<ol>
-<li><p>如果C不是一个数组类型，那虚拟机将会把代表N的全限定名传递给D的类加载器去加载这个类C。在加载过程中，由于无数据验证、字节码验证的需要，又将可能触发其他类的加载动作，例如加载这个类的父类或实现的接口。一旦这个加载过程出现了任何异常，解析过程就将宣告失败。  </p>
-</li>
-<li><p>如果C是一个数组类型，并且数组的元素类型为对象，也就是N的描述符会是类似“[Ljava.lang.Integer”的形式，那将会按照第1点的规则加载数组元素类型。如果N的描述符如前面所假设的形式，需要加载的元素类型就是”java.lang.Integer”，接着由虚拟机生成一个代表此数组维度和元素的数组对象。</p>
-</li>
-<li><p>如果上面的步骤没有出现任何异常，那么C在虚拟机中实际上已经成为一个有效的类或接口了，但在解析完成之前还要进行符号引用验证，确认C是否具备对D的访问权限。如果发现不具备访问权限，将抛出java.lang.IllegalAccessError异常。</p>
-</li>
-</ol>
-<h4 id="字段解析"><a href="#字段解析" class="headerlink" title="字段解析"></a>字段解析</h4><p>要解析一个未被解析过的字段符号引用，首先将会对字段表内class_index项中索引的CONSTANT_Class_info符号引用进行解析，也就是字段所属的类或接口的符号引用。如果在解析这个类或接口符号引用的过程中出现了任何异常，都会导致字段符号引用解析的失败。如果解析成功完成，那将这个字段所属的类或接口用C表示，虚拟机规范要求按照如下步骤对C进行后续字段的搜索:</p>
-<ol>
-<li><p>如果C本身就包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用，查找结束。</p>
-</li>
-<li><p>否则，如果在C中实现了接口，将会按照继承关系从上往下递归搜索各个接口和它的父接口，如果接口中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用，查找结束。</p>
-</li>
-<li><p>否则，如果C不是java.lang.Object的话，将会按照继承关系从上往下递归搜索其父类，如果在父类中包含了简单名称和字段描述符都与目标相匹配的字段，则返回这个字段的直接引用，查找结束。</p>
-</li>
-<li><p>否则，查找失败，抛出java.lang.NoSuchFieldError异常。</p>
-</li>
-</ol>
-<p>如果查找过程成功返回了引用，将会对这个字段进行权限验证，如果发现不具备对字段的访问权限，将抛出java.lang.IllegalAccessError异常。</p>
-<p>在实际应用中，虚拟机的编译器实现可能会比上述规范要求得更加严格一些，如果有一个同名字段同时出现在C的接口和父类中，或者同时在自己或父类的多个接口中出现，那编译器将可能拒绝编译。</p>
-<h4 id="类方法解析"><a href="#类方法解析" class="headerlink" title="类方法解析"></a>类方法解析</h4><p>类方法解析的第一个步骤与字段解析一样，也是需要先解析出类方法表的class_index项中索引的方法所属的类或接口的符号引用，如果解析成功，我们依然用C表示这个类，接下来虚拟机将会按照如下步骤进行后续的类方法搜索:</p>
-<ol>
-<li><p>类方法和接口方法符号引用的常量类型定义是分开的，如果在类方法表中发现class_index中索引的C是个接口，那就直接抛出java.lang.IncompatibleClassChangeError异常。</p>
-</li>
-<li><p>如果通过了第一步，在类C中查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</p>
-</li>
-<li><p>否则，在类C的父类中递归查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</p>
-</li>
-<li><p>否则，在类C实现的接口列表及它们的父接口之中递归查找是否有简单名称和描述符都与目标相匹配的方法，如果存在匹配的方法，说明类C是一个抽象类，这时候查找结束抛出java.lang.AbstractMethodError异常。</p>
-</li>
-<li><p>否则，宣告方法查找失败，抛出java.lang.NoSuchMethodError。</p>
-</li>
-</ol>
-<p>最后，如果查找过程成功返回了直接引用，将会对这个方法进行权限验证；如果发现不具备对此方法的访问权限，将抛出java.lang.IllegalAccessError异常。</p>
-<h4 id="接口方法解析"><a href="#接口方法解析" class="headerlink" title="接口方法解析"></a>接口方法解析</h4><p>接口方法也是需要先解析出接口方法表的class_index项中索引的方法所属的类或接口的符号引用，如果解析成功，依然用C表示这个接口，接下来虚拟机将会按照如下步骤进行后续的接口方法搜索:</p>
-<ol>
-<li><p>与类方法解析相反，如果在接口方法表中发现class_index中的索引C是个类而不是接口，那就直接抛出java.lang.IncompatibleClassChangeError异常。</p>
-</li>
-<li><p>否则，在接口C中查找是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</p>
-</li>
-<li><p>否则，在接口C的父接口中递归查找，直到java.lang.Object类(查找范围会包括Object类)为止，看是否有简单名称和描述符都与目标相匹配的方法，如果有则返回这个方法的直接引用，查找结束。</p>
-</li>
-<li><p>否则， 宣告方法查找失败，抛出java.lang.NoSuchMethodError异常。</p>
-</li>
-</ol>
-<p>由于接口中的所有方法都是public的，所以不存在访问权限的问题，因此接口方法的符号解析应当不会抛出java.lang.IllegalAccessError异常。</p>
-<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>类初始化阶段是类加载过程的最后一步，前面的类加载过程中，除了在加载阶段用户应用程序可以通过自定义类加载器参与之外，其余动作完全由虚拟机主导和控制。到了初始化阶段，才真正开始执行类中定义的Java程序代码(或者说是字节码)。</p>
-<p>在准备阶段，变量已经赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员通过程序指定的主观计划去初始化类变量和其他资源，或者可以从另外一个角度来表达: 初始化阶段是执行类执行器\&lt;clinit>()方法的过程。</p>
-<h4 id="lt-clinit-方法"><a href="#lt-clinit-方法" class="headerlink" title="\&lt;clinit>()方法"></a>\&lt;clinit>()方法</h4><ol>
-<li><p>\&lt;clinit>()方法是由编译器自动收集类中的所有类变量的赋值动作和静态语句块(static{} 块)中的语句合并产生的，编译器收集的顺序是由语句在源文件中出现的顺序所决定的，静态语句块中只能访问到定义在静态语句块之前的变量，定义在它之后的变量，在前面的静态语句块中可以赋值，但是不能访问。</p>
-</li>
-<li><p>\&lt;clinit>()方法与类的构造函数(或者说实例构造器\&lt;clinit>()方法)不同，它不需要显式地调用父类构造器，虚拟机会保证在子类的\&lt;clinit>()方法执行之前，父类的\&lt;clinit>()方法已经执行完毕。因此在虚拟机中第一个被执行的\&lt;clinit>()方法的类肯定是java.lang.Object。</p>
-</li>
-<li><p>由于父类的\&lt;clinit>()方法先执行，也就意味着父类中定义的静态语句块要优先于子类的变量赋值操作。</p>
-</li>
-<li><p>\&lt;clinit>() 方法对于类或接口来说并不是必须的，如果一个类中没有静态语句块，也没有对变量的赋值操作，那么编译器可以不为这个类生成\&lt;clinit>() 方法。</p>
-</li>
-<li><p>接口中不能使用静态语句块，但仍然有变量初始化的赋值操作，因此接口与类一样都会生成\&lt;clinit>()方法。但接口与类不同的是，执行接口的\&lt;clinit>()方法不需要先执行父接口的\&lt;clinit>()方法。只有当父接口中定义的变量被使用时，父接口才会被初始化。另外，接口的实现类在初始化时也一样不会执行接口的\&lt;clinit>方法。</p>
-</li>
-<li><p>虚拟机会保证一个类的\&lt;clinit>() 方法在多线程环境中被正确地加锁和同步，如果多个线程同时去初始化一个类，那么只会有一个线程去执行这个类的\&lt;clinit>()方法，其他线程都需要阻塞等待，直到活动线程执行\&lt;clinit>()方法执行完毕。 如果在一个类的\&lt;clinit>()方法中有耗时很长的操作，那就可能造成多个进程阻塞，在实际应用中这种阻塞往往是很隐蔽的。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2142,7 +1955,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2155,7 +1968,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
