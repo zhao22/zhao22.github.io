@@ -3,6 +3,21 @@
   
     
     <entry>
+      <title>项目搭建[5]负载均衡与集群简介</title>
+      <link href="/2019/09/27/springboot-5/"/>
+      <url>/2019/09/27/springboot-5/</url>
+      <content type="html"><![CDATA[<h2 id="集群与负载均衡"><a href="#集群与负载均衡" class="headerlink" title="集群与负载均衡"></a>集群与负载均衡</h2><p>在单一服务器中执行WEB程序可能会遇到以下两个问题:</p><ol><li><p>网站接收大量请求时，单一服务器无法满足需要处理的负荷量。</p></li><li><p>如果该服务器出现故障，网站无法运作。</p></li></ol><h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><p>集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。</p><h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>负载均衡(Load Balance)即将负载压力根据某种算法合理分配到集群中的每一台计算机上，以减轻主服务器的压力，降低对主服务器的硬件和软件要求。</p><p>在负载均衡下，每台服务器都具有同等的地位，可以单独对外提供服务而无需其他服务器的辅助。通过负载分担技术，将外部发送来的请求按一定规则分配到对称结构中的某一台服务器上，而接收到请求的服务器都独立回应客户机的请求。</p><h2 id="常用负载均衡技术"><a href="#常用负载均衡技术" class="headerlink" title="常用负载均衡技术"></a>常用负载均衡技术</h2><h3 id="基于DNS的负载均衡"><a href="#基于DNS的负载均衡" class="headerlink" title="基于DNS的负载均衡"></a>基于DNS的负载均衡</h3><p>通过DNS服务中的随机名字解析来实现负载均衡，在DNS服务器中，可以为多个不同的地址配置一个名字，而最终查询这个名字的客户机将在解析这个名字时得到其中一个地址。因此，对于同一个名字，不同的客户机会得到不同的地址，他们也就访问不同地址上的Web服务器，从而达到负载均衡的目的。</p><h3 id="反向代理负载均衡"><a href="#反向代理负载均衡" class="headerlink" title="反向代理负载均衡"></a>反向代理负载均衡</h3><p>使用代理服务器可以将请求转发给内部的Web服务器，让代理服务器将请求均匀地转发给多台内部Web服务器之一上，从而达到负载均衡的目的。这种代理方式与普通的代理方式有所不同。</p><h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理是指客户端经过一些配置后，客户端向代理服务器发送一个请求，并且指定目标服务器，之后代理向目标服务器转交并且将获得的内容返回给客户端。常见场景如翻墙。</p><h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>对于客户端来说，反向代理就好像目标服务器。并且客户端不需要进行任何设置。客户端向反向代理发送请求，接着反向代理判断请求走向何处，并将请求转交给客户端，使得这些内容好像就是它自己的一样。一次客户端冰不会感知到反向代理后面的服务，也因此不需要客户端做任何设置，只需要把反向代理服务器当成真正的服务器就好了。</p><h3 id="基于NAT-Network-Address-Translation-的负载均衡技术"><a href="#基于NAT-Network-Address-Translation-的负载均衡技术" class="headerlink" title="基于NAT(Network Address Translation)的负载均衡技术"></a>基于NAT(Network Address Translation)的负载均衡技术</h3><p>私有(保留)地址的”内部”网络通过路由器发送数据包时，私有地址被转换成合法的IP地址，一个局域网只需使用少量的IP地址(甚至是1个)即可实现私有地址网络内所有计算机与Internet的通信需求。  </p><h2 id="集群演进"><a href="#集群演进" class="headerlink" title="集群演进"></a>集群演进</h2><h3 id="直接分发多台单机应用"><a href="#直接分发多台单机应用" class="headerlink" title="直接分发多台单机应用"></a>直接分发多台单机应用</h3><p>直接将单机应用部署到多态服务器上，通过Nginx进行分发是多数人首先想到的方式。这样的方式会遇到一些问题:</p><ol><li><p>Session登录信息共享问题</p></li><li><p>服务器定时任务并发的问题</p></li></ol><h3 id="ip-hash-policy"><a href="#ip-hash-policy" class="headerlink" title="ip hash policy"></a>ip hash policy</h3><p>采用 Nginx中的 ip hash policy，对请求的ip地址进行哈希处理，同一个ip只会被分配到同一台机器上。</p><ul><li><p>优点: 可以不改变现有的技术架构，直接实现横向扩展。</p></li><li><p>缺点: 1. 服务器负载不均衡，完全依赖 ip hash的计算。</p><pre><code>2. 客户机ip 动态变化频繁的情况下，无法进行服务。</code></pre></li></ul><h3 id="采用缓存服务器"><a href="#采用缓存服务器" class="headerlink" title="采用缓存服务器"></a>采用缓存服务器</h3><p>这是企业中常用的解决方案，使用redis或memcache等nosql数据库，实现一个缓存session的服务器，当请求过来的时候，所有的Tomcat Server都统一往这个服务器里读取session信息。这是企业中比较常用的一种解决方案。</p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> 项目搭建 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>项目搭建[4]maven环境隔离</title>
       <link href="/2019/09/25/springboot-4/"/>
       <url>/2019/09/25/springboot-4/</url>

@@ -283,6 +283,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/springboot-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/27/springboot-5/" itemprop="url">项目搭建[5]负载均衡与集群简介</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-27T17:40:43+08:00">
+                2019-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="集群与负载均衡"><a href="#集群与负载均衡" class="headerlink" title="集群与负载均衡"></a>集群与负载均衡</h2><p>在单一服务器中执行WEB程序可能会遇到以下两个问题:</p>
+<ol>
+<li><p>网站接收大量请求时，单一服务器无法满足需要处理的负荷量。</p>
+</li>
+<li><p>如果该服务器出现故障，网站无法运作。</p>
+</li>
+</ol>
+<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><p>集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。</p>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>负载均衡(Load Balance)即将负载压力根据某种算法合理分配到集群中的每一台计算机上，以减轻主服务器的压力，降低对主服务器的硬件和软件要求。</p>
+<p>在负载均衡下，每台服务器都具有同等的地位，可以单独对外提供服务而无需其他服务器的辅助。通过负载分担技术，将外部发送来的请求按一定规则分配到对称结构中的某一台服务器上，而接收到请求的服务器都独立回应客户机的请求。</p>
+<h2 id="常用负载均衡技术"><a href="#常用负载均衡技术" class="headerlink" title="常用负载均衡技术"></a>常用负载均衡技术</h2><h3 id="基于DNS的负载均衡"><a href="#基于DNS的负载均衡" class="headerlink" title="基于DNS的负载均衡"></a>基于DNS的负载均衡</h3><p>通过DNS服务中的随机名字解析来实现负载均衡，在DNS服务器中，可以为多个不同的地址配置一个名字，而最终查询这个名字的客户机将在解析这个名字时得到其中一个地址。因此，对于同一个名字，不同的客户机会得到不同的地址，他们也就访问不同地址上的Web服务器，从而达到负载均衡的目的。</p>
+<h3 id="反向代理负载均衡"><a href="#反向代理负载均衡" class="headerlink" title="反向代理负载均衡"></a>反向代理负载均衡</h3><p>使用代理服务器可以将请求转发给内部的Web服务器，让代理服务器将请求均匀地转发给多台内部Web服务器之一上，从而达到负载均衡的目的。这种代理方式与普通的代理方式有所不同。</p>
+<h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理是指客户端经过一些配置后，客户端向代理服务器发送一个请求，并且指定目标服务器，之后代理向目标服务器转交并且将获得的内容返回给客户端。常见场景如翻墙。</p>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>对于客户端来说，反向代理就好像目标服务器。并且客户端不需要进行任何设置。客户端向反向代理发送请求，接着反向代理判断请求走向何处，并将请求转交给客户端，使得这些内容好像就是它自己的一样。一次客户端冰不会感知到反向代理后面的服务，也因此不需要客户端做任何设置，只需要把反向代理服务器当成真正的服务器就好了。</p>
+<h3 id="基于NAT-Network-Address-Translation-的负载均衡技术"><a href="#基于NAT-Network-Address-Translation-的负载均衡技术" class="headerlink" title="基于NAT(Network Address Translation)的负载均衡技术"></a>基于NAT(Network Address Translation)的负载均衡技术</h3><p>私有(保留)地址的”内部”网络通过路由器发送数据包时，私有地址被转换成合法的IP地址，一个局域网只需使用少量的IP地址(甚至是1个)即可实现私有地址网络内所有计算机与Internet的通信需求。  </p>
+<h2 id="集群演进"><a href="#集群演进" class="headerlink" title="集群演进"></a>集群演进</h2><h3 id="直接分发多台单机应用"><a href="#直接分发多台单机应用" class="headerlink" title="直接分发多台单机应用"></a>直接分发多台单机应用</h3><p>直接将单机应用部署到多态服务器上，通过Nginx进行分发是多数人首先想到的方式。这样的方式会遇到一些问题:</p>
+<ol>
+<li><p>Session登录信息共享问题</p>
+</li>
+<li><p>服务器定时任务并发的问题</p>
+</li>
+</ol>
+<h3 id="ip-hash-policy"><a href="#ip-hash-policy" class="headerlink" title="ip hash policy"></a>ip hash policy</h3><p>采用 Nginx中的 ip hash policy，对请求的ip地址进行哈希处理，同一个ip只会被分配到同一台机器上。</p>
+<ul>
+<li><p>优点: 可以不改变现有的技术架构，直接实现横向扩展。</p>
+</li>
+<li><p>缺点: 1. 服务器负载不均衡，完全依赖 ip hash的计算。</p>
+<pre><code>2. 客户机ip 动态变化频繁的情况下，无法进行服务。
+</code></pre></li>
+</ul>
+<h3 id="采用缓存服务器"><a href="#采用缓存服务器" class="headerlink" title="采用缓存服务器"></a>采用缓存服务器</h3><p>这是企业中常用的解决方案，使用redis或memcache等nosql数据库，实现一个缓存session的服务器，当请求过来的时候，所有的Tomcat Server都统一往这个服务器里读取session信息。这是企业中比较常用的一种解决方案。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/springboot-4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1942,156 +2092,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/09/jvm-12/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/09/jvm-12/" itemprop="url">jvm类加载机制概述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T19:28:31+08:00">
-                2019-08-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="类加载机制概述"><a href="#类加载机制概述" class="headerlink" title="类加载机制概述"></a>类加载机制概述</h2><p>虚拟机把描述类的数据从Class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型，这就是虚拟机的类加载机制。  </p>
-<p>与那些在编译时需要进行连接工作的语言不同，在Java语言里面，类型的加载和连接过程都是在程序运行期间完成的，这样会在类加载时稍微增加一些性能开销，但是却能为Java应用程序提供高度的灵活性，Java中天生可以动态扩展的语言特性就是依赖运行期动态加载和动态连接这个特点实现的。</p>
-<h2 id="类加载的时机"><a href="#类加载的时机" class="headerlink" title="类加载的时机"></a>类加载的时机</h2><p>类的生命周期:  </p>
-<p>加载(Loading) –&gt; 验证(Verification) –&gt; 准备(Preparation) —&gt; 解析(Resolution) —&gt; 初始化(Initialization) —&gt; 使用(Using) —&gt; 卸载(Unloading)</p>
-<p>其中 验证，准备，解析统称为连接。  </p>
-<p>加载、验证、准备、初始化和卸载这五个阶段的顺序是确定的，类的加载过程必须按照这种顺序按部就班地开始。  </p>
-<p>而解析阶段则不一定:  它在某些情况下可以在初始化阶段之后再开始，这是为了支持Java语言的运行时绑定(也称为动态绑定或晚期绑定)。  </p>
-<p>这些阶段的各个步骤是互相交叉地混合式进行的，通常会在一个阶段执行的过程中调用或激活另外一个阶段。  </p>
-<p>虚拟机并没有强制约束什么时候执行加载，但严格规定了四种情况下必须立即对类进行”初始化”(而加载、验证、准备自然需要在此之前开始):  </p>
-<ol>
-<li><p>遇到new、getstatic、putstatic或invokestatic这4条字节码指令时，如果类没有进行过初始化，则需要先出发其初始化。生成这4条指令的最常见的Java代码场景是: 使用new关键字实例化对象的时候、读取或设置一个类的静态字段(被final修饰、已在编译期把结果放入常量池的静态字段除外)的时候，以及调用一个类的静态方法的时候。</p>
-</li>
-<li><p>使用java.lang.reflect包的方法对类进行发射调用的时候，如果类没有进行过初始化，则需要先触发其初始化。  </p>
-</li>
-<li><p>当初始化一个类的时候，如果发现其父类还没有进行过初始化，则需要先触发其父类的初始化。</p>
-</li>
-<li><p>当虚拟机启动时，用户需要指定一个要执行的主类(包含main()方法的那个类)，虚拟机会先初始化这个主类。  </p>
-</li>
-</ol>
-<p>这四种场景中的行为称为对一个类进行主动引用。除此之外所有引用类的方式，都不会触发初始化，称为被动引用。  </p>
-<h3 id="被动引用例子"><a href="#被动引用例子" class="headerlink" title="被动引用例子"></a>被动引用例子</h3><p>例一:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过子类引用父类的静态字段，不会导致子类初始化</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"SuperClass init!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> value = <span class="number">123</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">SuperClass</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"SubClass init!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotInitialization</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(SubClass.value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码运行之后，只会输出”SuperClass init!”，而不会输出”SubClass init!”。对于静态字段，只有直接定义这个字段的类才会被初始化，因此通过其子类来引用父类中定义的静态字段，只会触发父类的初始化而不会触发子类的初始化。至于是否要触发子类的加载和验证，在虚拟机规范中并未明确规定，这点取决于虚拟机的具体实现。</p>
-<p>例二:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 通过数组定义来引用类，不会触发此类的初始化</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotInitialization</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SuperClass[] sca = <span class="keyword">new</span> SuperClass[<span class="number">10</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>例三:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConstClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"ConstClass init!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String HELLOWORLD = <span class="string">"hello world"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 非主动使用类字段演示</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NotInitialization</span> </span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">         System.out.println(Constant.HELLOWORLD);</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-<p>上述代码运行之后，也没有输出”ConstClass init!”, 这是因为虽然在Java源码中引用了ConstClass类中的常量HELLOWORLD，但是在编译阶段将此常量的值”hello world”存储到了NotInitialization类的常量池中，对常量ConstClass.HELLOWORLD的引用实际都被转化为NotInitialization类对自身常量池的引用了。也就是说实际上NotInitialization的Class文件之中并没有ConstClass类的符号引用入口，这两个类在编译成Class之后就不存在任何联系了。  </p>
-<h2 id="接口的加载过程"><a href="#接口的加载过程" class="headerlink" title="接口的加载过程"></a>接口的加载过程</h2><p>接口的加载过程与类加载过程稍有一些不同，针对接口需要做一些特殊说明:</p>
-<p>接口也有初始化过程，这点与类是一致的，上面的代码都是用静态语句块”static{}”来输出初始化信息的，而接口中不能使用”static{}”语句块，但编译器仍然会为接口生成”\&lt;clinit>()”类构造器，用于初始化接口中所定义的成员变量。  </p>
-<p>接口与类真正有所区别的是前面讲述的四种”有且仅有”需要开始初始化场景中的第三种: 当一个类在初始化时，要求其父类全部都已经初始化过了，但是一个接口在初始化时，并不要求其父接口全部都完成了初始化，只有在真正使用到父接口的时候(如引用接口中定义的常量)才会初始化。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2142,7 +2142,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

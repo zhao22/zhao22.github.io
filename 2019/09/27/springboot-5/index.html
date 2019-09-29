@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,jvm," />
+  <meta name="keywords" content="项目搭建," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="垃圾收集简介垃圾收集(Garbage Collection, GC),并不是Java语言的伴生产物，1960年诞生于MIT的Lisp是第一门真正使用内存动态分配和垃圾收集技术的语言。GC主要关注三个重点:    哪些内存需要回收    什么时候回收    如何回收   哪些内存需要回收目前针对哪些内存需要回收这个问题，主要有两种算法:    引用计数算法    根搜索算法     引用计数算法很多">
-<meta name="keywords" content="Java,jvm">
+<meta name="description" content="集群与负载均衡在单一服务器中执行WEB程序可能会遇到以下两个问题:  网站接收大量请求时，单一服务器无法满足需要处理的负荷量。  如果该服务器出现故障，网站无法运作。   集群集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。 负载均衡负载均衡(Load Balance)即将负载压">
+<meta name="keywords" content="项目搭建">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm垃圾收集算法">
-<meta property="og:url" content="http://yoursite.com/2019/08/08/jvm-4/index.html">
+<meta property="og:title" content="项目搭建[5]负载均衡与集群简介">
+<meta property="og:url" content="http://yoursite.com/2019/09/27/springboot-5/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
-<meta property="og:description" content="垃圾收集简介垃圾收集(Garbage Collection, GC),并不是Java语言的伴生产物，1960年诞生于MIT的Lisp是第一门真正使用内存动态分配和垃圾收集技术的语言。GC主要关注三个重点:    哪些内存需要回收    什么时候回收    如何回收   哪些内存需要回收目前针对哪些内存需要回收这个问题，主要有两种算法:    引用计数算法    根搜索算法     引用计数算法很多">
+<meta property="og:description" content="集群与负载均衡在单一服务器中执行WEB程序可能会遇到以下两个问题:  网站接收大量请求时，单一服务器无法满足需要处理的负荷量。  如果该服务器出现故障，网站无法运作。   集群集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。 负载均衡负载均衡(Load Balance)即将负载压">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-08T11:48:17.764Z">
+<meta property="og:updated_time" content="2019-09-29T05:59:23.251Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="jvm垃圾收集算法">
-<meta name="twitter:description" content="垃圾收集简介垃圾收集(Garbage Collection, GC),并不是Java语言的伴生产物，1960年诞生于MIT的Lisp是第一门真正使用内存动态分配和垃圾收集技术的语言。GC主要关注三个重点:    哪些内存需要回收    什么时候回收    如何回收   哪些内存需要回收目前针对哪些内存需要回收这个问题，主要有两种算法:    引用计数算法    根搜索算法     引用计数算法很多">
+<meta name="twitter:title" content="项目搭建[5]负载均衡与集群简介">
+<meta name="twitter:description" content="集群与负载均衡在单一服务器中执行WEB程序可能会遇到以下两个问题:  网站接收大量请求时，单一服务器无法满足需要处理的负荷量。  如果该服务器出现故障，网站无法运作。   集群集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。 负载均衡负载均衡(Load Balance)即将负载压">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/08/08/jvm-4/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/27/springboot-5/"/>
 
 
 
 
 
-  <title>jvm垃圾收集算法 | Sean's Blog</title>
+  <title>项目搭建[5]负载均衡与集群简介 | Sean's Blog</title>
   
 
 
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/jvm-4/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/27/springboot-5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Sean">
@@ -304,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">jvm垃圾收集算法</h1>
+          <h1 class="post-title" itemprop="name headline">项目搭建[5]负载均衡与集群简介</h1>
         
 
         <div class="post-meta">
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T19:46:30+08:00">
-                2019-08-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-27T17:40:43+08:00">
+                2019-09-27
               </time>
             
 
@@ -354,69 +354,37 @@
       
 
       
-        <h3 id="垃圾收集简介"><a href="#垃圾收集简介" class="headerlink" title="垃圾收集简介"></a>垃圾收集简介</h3><p>垃圾收集(Garbage Collection, GC),并不是Java语言的伴生产物，1960年诞生于MIT的Lisp是第一门真正使用内存动态分配和垃圾收集技术的语言。<br>GC主要关注三个重点:  </p>
+        <h2 id="集群与负载均衡"><a href="#集群与负载均衡" class="headerlink" title="集群与负载均衡"></a>集群与负载均衡</h2><p>在单一服务器中执行WEB程序可能会遇到以下两个问题:</p>
 <ol>
-<li><p>哪些内存需要回收  </p>
+<li><p>网站接收大量请求时，单一服务器无法满足需要处理的负荷量。</p>
 </li>
-<li><p>什么时候回收  </p>
-</li>
-<li><p>如何回收</p>
+<li><p>如果该服务器出现故障，网站无法运作。</p>
 </li>
 </ol>
-<h3 id="哪些内存需要回收"><a href="#哪些内存需要回收" class="headerlink" title="哪些内存需要回收"></a>哪些内存需要回收</h3><p>目前针对哪些内存需要回收这个问题，主要有两种算法:  </p>
+<h3 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h3><p>集群(Cluster)是一组独立的计算机系统构成一个松耦合的多处理器系统，他们之间通过网络实现进程间的通信。应用程序可以通过网络共享内存进行消息传送，实现分布式计算机。</p>
+<h3 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h3><p>负载均衡(Load Balance)即将负载压力根据某种算法合理分配到集群中的每一台计算机上，以减轻主服务器的压力，降低对主服务器的硬件和软件要求。</p>
+<p>在负载均衡下，每台服务器都具有同等的地位，可以单独对外提供服务而无需其他服务器的辅助。通过负载分担技术，将外部发送来的请求按一定规则分配到对称结构中的某一台服务器上，而接收到请求的服务器都独立回应客户机的请求。</p>
+<h2 id="常用负载均衡技术"><a href="#常用负载均衡技术" class="headerlink" title="常用负载均衡技术"></a>常用负载均衡技术</h2><h3 id="基于DNS的负载均衡"><a href="#基于DNS的负载均衡" class="headerlink" title="基于DNS的负载均衡"></a>基于DNS的负载均衡</h3><p>通过DNS服务中的随机名字解析来实现负载均衡，在DNS服务器中，可以为多个不同的地址配置一个名字，而最终查询这个名字的客户机将在解析这个名字时得到其中一个地址。因此，对于同一个名字，不同的客户机会得到不同的地址，他们也就访问不同地址上的Web服务器，从而达到负载均衡的目的。</p>
+<h3 id="反向代理负载均衡"><a href="#反向代理负载均衡" class="headerlink" title="反向代理负载均衡"></a>反向代理负载均衡</h3><p>使用代理服务器可以将请求转发给内部的Web服务器，让代理服务器将请求均匀地转发给多台内部Web服务器之一上，从而达到负载均衡的目的。这种代理方式与普通的代理方式有所不同。</p>
+<h4 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h4><p>正向代理是指客户端经过一些配置后，客户端向代理服务器发送一个请求，并且指定目标服务器，之后代理向目标服务器转交并且将获得的内容返回给客户端。常见场景如翻墙。</p>
+<h4 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h4><p>对于客户端来说，反向代理就好像目标服务器。并且客户端不需要进行任何设置。客户端向反向代理发送请求，接着反向代理判断请求走向何处，并将请求转交给客户端，使得这些内容好像就是它自己的一样。一次客户端冰不会感知到反向代理后面的服务，也因此不需要客户端做任何设置，只需要把反向代理服务器当成真正的服务器就好了。</p>
+<h3 id="基于NAT-Network-Address-Translation-的负载均衡技术"><a href="#基于NAT-Network-Address-Translation-的负载均衡技术" class="headerlink" title="基于NAT(Network Address Translation)的负载均衡技术"></a>基于NAT(Network Address Translation)的负载均衡技术</h3><p>私有(保留)地址的”内部”网络通过路由器发送数据包时，私有地址被转换成合法的IP地址，一个局域网只需使用少量的IP地址(甚至是1个)即可实现私有地址网络内所有计算机与Internet的通信需求。  </p>
+<h2 id="集群演进"><a href="#集群演进" class="headerlink" title="集群演进"></a>集群演进</h2><h3 id="直接分发多台单机应用"><a href="#直接分发多台单机应用" class="headerlink" title="直接分发多台单机应用"></a>直接分发多台单机应用</h3><p>直接将单机应用部署到多态服务器上，通过Nginx进行分发是多数人首先想到的方式。这样的方式会遇到一些问题:</p>
 <ol>
-<li><p>引用计数算法  </p>
+<li><p>Session登录信息共享问题</p>
 </li>
-<li><p>根搜索算法  </p>
+<li><p>服务器定时任务并发的问题</p>
 </li>
 </ol>
-<h4 id="引用计数算法"><a href="#引用计数算法" class="headerlink" title="引用计数算法"></a>引用计数算法</h4><p>很多教科书判断对象是否存活的算法是:<br>给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；<br>任何时刻计数器都为0的对象就是不可能再被使用的。<br>Java中没有选用这种算法来管理内存，最主要的原因是它很难解决对象之间的相互循环引用的问题:<br>对象 objA 和 objB 都有字段instance，赋值令objA.instance = objB 及 objB.instance = objA，除此之外，这两个对象再无任何引用，实际上这两个对象已经不可能再被访问，但是它们因为互相引用着对方，导致它们的引用计数都不为0，于是引用计数算法无法通知GC收集器回收它们。  </p>
-<h4 id="根搜索算法"><a href="#根搜索算法" class="headerlink" title="根搜索算法"></a>根搜索算法</h4><p>再主流的商用程序语言中(Java 和 C#，Lisp)，都是使用根搜索算法(GC Roots Tracing) 判定对象是否存活的。  </p>
-<p>这个算法的基本思路是通过一系列名为”GC ROOT”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链(Reference Chain)，当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。  </p>
-<h5 id="GC-Roots对象"><a href="#GC-Roots对象" class="headerlink" title="GC Roots对象"></a>GC Roots对象</h5><p>在Java 语言里，可作为GC Roots的对象包括下面几种:  </p>
+<h3 id="ip-hash-policy"><a href="#ip-hash-policy" class="headerlink" title="ip hash policy"></a>ip hash policy</h3><p>采用 Nginx中的 ip hash policy，对请求的ip地址进行哈希处理，同一个ip只会被分配到同一台机器上。</p>
 <ul>
-<li><p>虚拟机栈(栈帧中的本地变量表)中的引用的对象。  </p>
+<li><p>优点: 可以不改变现有的技术架构，直接实现横向扩展。</p>
 </li>
-<li><p>方法区中的类静态属性引用的对象。  </p>
-</li>
-<li><p>方法区中的常量引用的对象。</p>
-</li>
-<li><p>本地方法栈中方JNI(即一般说的Native方法)的引用的对象。  </p>
-</li>
+<li><p>缺点: 1. 服务器负载不均衡，完全依赖 ip hash的计算。</p>
+<pre><code>2. 客户机ip 动态变化频繁的情况下，无法进行服务。
+</code></pre></li>
 </ul>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>无论是通过引用计数算法判断对象的引用数量， 还是通过跟搜索算法判断对象的引用链是否可达，判定对象是否存活都与”引用”有关。<br>在JDK 1.2之前，Java中的引用的定义很传统: 如果reference类型的数据中存储的数值代表的是另外一块内存的起始地址，就称这块内存代表着一个引用。 这种定义很存粹，但是太过狭隘，一个对象在这种定义下只有被引用或者没有被引用两种状态，我们希望能描述这样一类对象:<br>当内存空间还足够时，则能保留在内存之中；如果内存在进行垃圾收集后还是非常紧张，则可以抛弃这些对象。很多系统的缓存功能都符合这样的应用场景。<br> 在JDK1.2之后，Java对引用的概念进行了扩充， 将引用分为强引用(Strong Reference)、软引用(Soft Reference)、弱引用(Weak Reference)、虚引用(Phantom Reference)四种，这四种引用强度依次逐渐减弱。  </p>
-<h4 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h4><p>强引用就是指在程序代码中普遍存在的，类似”Object obj = new Object()”这类的引用，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。  </p>
-<h4 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h4><p>软引用用来描述一些还有用，但并非必需的对象。对于软引用关联的对象，在系统将要发生内存溢出异常之前，将会把这些对象列进回收范围之中并进行二次回收。如果这次回收还是没有足够的内存，才会抛出内存溢出异常。在JDK 1.2之后，提供了SoftReference类来实现软引用。  </p>
-<h4 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h4><p>弱引用也是用来描述非必需对象的，但是它的强度比软引用更弱一些，被弱引用关联的对象只能生存到下一次垃圾收集发生之前。当垃圾收集器工作时，无论当前内存是否足够，都会回收掉只被弱引用关联的对象。在JDK 1.2之后，提供了WeakReference类来实现弱引用。</p>
-<h4 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h4><p>虚引用也称为幽灵引用或者欢迎引用，它是最弱的一种引用关系。一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。为一个对象设置虚引用关联的唯一目的就是希望能在这个对象被收集器回收时受到一个系统通知。在JDK 1.2之后，提供了PhantomReference类来实现虚引用。</p>
-<h3 id="什么时候回收"><a href="#什么时候回收" class="headerlink" title="什么时候回收"></a>什么时候回收</h3><p>在根搜索算法中不可达对象，也并非是”非死不可”的，这时候它们暂时处于”缓刑”阶段，要真正宣告一个对象死亡，至少要经历两次标记过程：  </p>
-<ol>
-<li>如果对象在进行根搜索后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行 finalize() 方法。当对象没有覆盖finalize()方法，或者finalize()方法已经被虚拟机调用过，虚拟机将这两种情况都视为”没有必要执行”。<br>如果这个对象被判定为有必要执行 finalize() 方法，那么这个对象将会被放置在一个名为F-Queue的队列之中，并在稍后由一条由虚拟机自动建立的、低优先级的Finalizer线程去执行。这里所谓的”执行”是指虚拟机会触发这个方法，但并不承诺会等待它运行结束。这样做的原因是，如果一个对象在 finalize() 方法中执行缓慢，或者发生了死循环(更极端的情况)，将很可能会导致F-Queue队列中的其他对象永久处于等待状态，甚至导致整个内存回收系统崩溃。  </li>
-<li>finalize()方法是对像逃脱死亡命运的最后一次机会，稍后GC将对F-Queue中的对象进行第二次小规模的标记，如果对象要在 finalize() 中成功拯救自己 —— 只要重新与引用链上的一个对象建立关联即可，譬如把自己(this 关键字)赋值给某个类变量或对象的成员变量，那再第二次标记时它将被移除出”即将回收”的集合；如果这个时候对象还没有逃脱，那它将被回收。  </li>
-</ol>
-<h3 id="回收方法区"><a href="#回收方法区" class="headerlink" title="回收方法区"></a>回收方法区</h3><p>很多人认为方法区(或者HotSpot虚拟机中的永久代) 是没有垃圾收集的。Java虚拟机规范中确实说过可以不要求虚拟机再方法区实现垃圾收集，而且再方法区进行垃圾收集的”性价比”一般比较低：<br>在堆中，尤其是在新生代中，常规应用进行一次垃圾收集一般可以回收70% ~ 95%的空间，而永久代的垃圾收集效率远低于此。<br>永久代的垃圾收集主要回收两部分内容:  </p>
-<h4 id="废弃常量"><a href="#废弃常量" class="headerlink" title="废弃常量"></a>废弃常量</h4><p>回收废弃常量与回收Java堆中的对象非常相似。以常量池中字面量的回收为例，假如一个字符串”abc”已经进入了常量池中，但是当前系统没有任何一个String对象是叫做”abc”的，换句话说是没有任何String对象引用常量池中的”abc”常量，也没有其他地方引用了这个字面量，如果在这时候发生内存回收，这个”abc”常量就会被回收掉。 常量池中的其他类(接口)、方法、字段的符号引用也与此类似。  </p>
-<h4 id="无用的类"><a href="#无用的类" class="headerlink" title="无用的类"></a>无用的类</h4><p>判定一个常量是否是”废弃常量”比较简单，而要判定一个类是否是”无用的类”的条件则相对苛刻许多。类需要同时满足下面三个条件才能算是”无用的类”：  </p>
-<ol>
-<li><p>该类所有的实例都已经被回收，也就是Java堆中不存在该类的任何实例。  </p>
-</li>
-<li><p>加载该类的ClassLoader已经被回收。  </p>
-</li>
-<li><p>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法。  </p>
-</li>
-</ol>
-<h3 id="如何回收-垃圾收集算法"><a href="#如何回收-垃圾收集算法" class="headerlink" title="如何回收(垃圾收集算法)"></a>如何回收(垃圾收集算法)</h3><h4 id="标记-清除算法"><a href="#标记-清除算法" class="headerlink" title="标记-清除算法"></a>标记-清除算法</h4><p>最基础的收集算法是”标记-清除”(Mark-Sweep)算法，如它的名字一样，算法分为”标记”和”清除”两个阶段:<br>首先标记出所有需要回收的对象，在标记完成后统一回收掉所有被标记的对象，它的标记过程其实就是之前说明的标记判定。<br>它的主要缺点由两个:  </p>
-<ol>
-<li><p>效率问题，标记和清除过程的效率都不高。  </p>
-</li>
-<li><p>空间问题，标记清除后会产生大量不连续的内存碎片。空间碎片太多可能会导致，当程序在以后的运行过程中需要分配较大对象时无法找到足够的连续内存而不得不提前触发另一次垃圾收集动作。  </p>
-</li>
-</ol>
-<h4 id="复制算法"><a href="#复制算法" class="headerlink" title="复制算法"></a>复制算法</h4><p>为了解决效率问题，一种称为”复制”(Copying)的收集算法出现了，它将可用内存按容量划分为大小相等的两块，每次只使用其中的一块。当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用过的内存空间一次清理掉。这样使得每次都是对其中的一块进行内存回收。内存分配时也就不用考虑内存碎片等复杂情况，只要移动堆顶指针，按顺序分配内存即可，实现简单，运行高效。只是这种算法的代价是将内存缩小为原来的一半。<br>现在的商业虚拟机都采用这种收集算法来回收新生代，IBM的专门研究表明，新生代中的对象98%是朝生夕死的，所以并不需要按照1:1的比例来划分内存空间，而是将内存分为一块较大的 Eden 空间和两块较小的 Survivor 空间。每次使用Eden和其中的一块Survivor。当回收时，将Eden和Survivor中还存活着的对象一次性地拷贝到另外一块Survivor空间上，最后清理掉Eden和刚才用过地Survivor地空间。<br>HotSpot虚拟机默认Eden和Survivor的大小比例是8:1,也就是每次新生代中可用内存空间为整个新生代容量的90%(80%+10%)，只有10%的内存是会被”浪费”的。当然，98%的对象可回收只是一般场景下的数据，我们没有办法保证每次回收都只有不多于10%的对象存活，当Survivor空间不够用时，需要依赖其他内存(这里指老年代)进行分配担保(Handle Promotion)。</p>
-<h5 id="分配担保"><a href="#分配担保" class="headerlink" title="分配担保"></a>分配担保</h5><p>如果另外一块Survivor空间没有足够的空间存放上一次新生代收集下来的存活对象，这些对象将直接通过分配担保机制进入老年代。  </p>
-<h4 id="标记整理算法"><a href="#标记整理算法" class="headerlink" title="标记整理算法"></a>标记整理算法</h4><p>复制收集算法在对象存活率较高时就要执行较多的复制操作，效率将会变低。更关键的是，如果不想浪费50%的空间，就需要额外的空间进行分配担保，以应对被使用的内存中所有对象都100%存活的机端情况，所以在老年代一般不能直接选用这种算法。  </p>
-<p>根据老年代的特点，有人提出了另外一种”标记-整理”(Mark-Compact)算法，标记过程仍然与”标记-清除”算法一样，但后续步骤不是直接对可回收对象进行清理，而是让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。  </p>
-<h4 id="分代收集算法"><a href="#分代收集算法" class="headerlink" title="分代收集算法"></a>分代收集算法</h4><p>当前商业虚拟机的垃圾收集都采用”分代收集”(Generational Collection)算法，这种算法并没有什么新的思想，只是根据对象的存活周期的不同将内存划分为几块。一般是把Java堆分为新生代和老年代，这样就可以根据各个年代的特点采用最合适的收集算法。在新生代中，每次垃圾收集时都发现有大批对象死去，只有少量存活，那就选用复制算法，只需要符出少量存活对象的复制成本就可以完成收集。 而老年代中因为对象存活率高，没有额外空间对它进行分配担保，就必须使用”标记-清理”或”标记-整理”算法来进行回收。  </p>
+<h3 id="采用缓存服务器"><a href="#采用缓存服务器" class="headerlink" title="采用缓存服务器"></a>采用缓存服务器</h3><p>这是企业中常用的解决方案，使用redis或memcache等nosql数据库，实现一个缓存session的服务器，当请求过来的时候，所有的Tomcat Server都统一往这个服务器里读取session信息。这是企业中比较常用的一种解决方案。</p>
 
       
     </div>
@@ -434,9 +402,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
-          
-            <a href="/tags/jvm/" rel="tag"># jvm</a>
+            <a href="/tags/项目搭建/" rel="tag"># 项目搭建</a>
           
         </div>
       
@@ -449,8 +415,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/08/jvm-2/" rel="next" title="Java运行区域">
-                <i class="fa fa-chevron-left"></i> Java运行区域
+              <a href="/2019/09/25/springboot-4/" rel="next" title="项目搭建[4]maven环境隔离">
+                <i class="fa fa-chevron-left"></i> 项目搭建[4]maven环境隔离
               </a>
             
           </div>
@@ -458,10 +424,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/08/jvm-5/" rel="prev" title="jvm内存分配">
-                jvm内存分配 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -584,7 +546,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集简介"><span class="nav-number">1.</span> <span class="nav-text">垃圾收集简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哪些内存需要回收"><span class="nav-number">2.</span> <span class="nav-text">哪些内存需要回收</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引用计数算法"><span class="nav-number">2.1.</span> <span class="nav-text">引用计数算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#根搜索算法"><span class="nav-number">2.2.</span> <span class="nav-text">根搜索算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GC-Roots对象"><span class="nav-number">2.2.1.</span> <span class="nav-text">GC Roots对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用"><span class="nav-number">3.</span> <span class="nav-text">引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#强引用"><span class="nav-number">3.1.</span> <span class="nav-text">强引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软引用"><span class="nav-number">3.2.</span> <span class="nav-text">软引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#弱引用"><span class="nav-number">3.3.</span> <span class="nav-text">弱引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#虚引用"><span class="nav-number">3.4.</span> <span class="nav-text">虚引用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候回收"><span class="nav-number">4.</span> <span class="nav-text">什么时候回收</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回收方法区"><span class="nav-number">5.</span> <span class="nav-text">回收方法区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#废弃常量"><span class="nav-number">5.1.</span> <span class="nav-text">废弃常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无用的类"><span class="nav-number">5.2.</span> <span class="nav-text">无用的类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何回收-垃圾收集算法"><span class="nav-number">6.</span> <span class="nav-text">如何回收(垃圾收集算法)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标记-清除算法"><span class="nav-number">6.1.</span> <span class="nav-text">标记-清除算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#复制算法"><span class="nav-number">6.2.</span> <span class="nav-text">复制算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分配担保"><span class="nav-number">6.2.1.</span> <span class="nav-text">分配担保</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标记整理算法"><span class="nav-number">6.3.</span> <span class="nav-text">标记整理算法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分代收集算法"><span class="nav-number">6.4.</span> <span class="nav-text">分代收集算法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集群与负载均衡"><span class="nav-number">1.</span> <span class="nav-text">集群与负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#集群"><span class="nav-number">1.1.</span> <span class="nav-text">集群</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#负载均衡"><span class="nav-number">1.2.</span> <span class="nav-text">负载均衡</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用负载均衡技术"><span class="nav-number">2.</span> <span class="nav-text">常用负载均衡技术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于DNS的负载均衡"><span class="nav-number">2.1.</span> <span class="nav-text">基于DNS的负载均衡</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向代理负载均衡"><span class="nav-number">2.2.</span> <span class="nav-text">反向代理负载均衡</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#正向代理"><span class="nav-number">2.2.1.</span> <span class="nav-text">正向代理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#反向代理"><span class="nav-number">2.2.2.</span> <span class="nav-text">反向代理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于NAT-Network-Address-Translation-的负载均衡技术"><span class="nav-number">2.3.</span> <span class="nav-text">基于NAT(Network Address Translation)的负载均衡技术</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集群演进"><span class="nav-number">3.</span> <span class="nav-text">集群演进</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#直接分发多台单机应用"><span class="nav-number">3.1.</span> <span class="nav-text">直接分发多台单机应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ip-hash-policy"><span class="nav-number">3.2.</span> <span class="nav-text">ip hash policy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#采用缓存服务器"><span class="nav-number">3.3.</span> <span class="nav-text">采用缓存服务器</span></a></li></ol></li></ol></div>
             
 
           </div>
