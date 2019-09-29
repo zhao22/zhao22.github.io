@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="NoSQL,Redis," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Sean&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/tags/项目搭建/index.html">
+<meta name="description" content="Redis 基础命令   命令 描述     redis-cli -h host -p port -a password Redis连接指令   CONFIG GET configname 得到配置值   CONFIG SET configname configvalue 设置配置值   SELECT dbname 切换数据库   FLUSHDB 清空数据库[危险]   FLUSHALL 清空所有">
+<meta name="keywords" content="NoSQL,Redis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis[1]数据类型与常用命令">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/nosql-1/index.html">
 <meta property="og:site_name" content="Sean&#39;s Blog">
+<meta property="og:description" content="Redis 基础命令   命令 描述     redis-cli -h host -p port -a password Redis连接指令   CONFIG GET configname 得到配置值   CONFIG SET configname configvalue 设置配置值   SELECT dbname 切换数据库   FLUSHDB 清空数据库[危险]   FLUSHALL 清空所有">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-29T11:17:11.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Sean&#39;s Blog">
+<meta name="twitter:title" content="Redis[1]数据类型与常用命令">
+<meta name="twitter:description" content="Redis 基础命令   命令 描述     redis-cli -h host -p port -a password Redis连接指令   CONFIG GET configname 得到配置值   CONFIG SET configname configvalue 设置配置值   SELECT dbname 切换数据库   FLUSHDB 清空数据库[危险]   FLUSHALL 清空所有">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/项目搭建/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/nosql-1/"/>
 
 
 
 
 
-  <title>Tag: 项目搭建 | Sean's Blog</title>
+  <title>Redis[1]数据类型与常用命令 | Sean's Blog</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,194 +273,521 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>项目搭建<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/nosql-1/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/09/29/springboot-6/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[6]Nginx负载均衡与Tomcat集群</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Redis[1]数据类型与常用命令</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-29T14:01:46+08:00"
-              content="2019-09-29" >
-          09-29
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-29T16:20:27+08:00">
+                2019-09-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/27/springboot-5/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[5]负载均衡与集群简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-27T17:40:43+08:00"
-              content="2019-09-27" >
-          09-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/25/springboot-4/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[4]maven环境隔离</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-25T19:11:18+08:00"
-              content="2019-09-25" >
-          09-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/09/19/springboot-3/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[3]lombok的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-09-19T19:33:29+08:00"
-              content="2019-09-19" >
-          09-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/23/springboot-2/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[2]springboot的mysql的配置及JPA的使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-07-23T20:51:23+08:00"
-              content="2019-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/10/springboot-1/" itemprop="url">
-              
-                <span itemprop="name">项目搭建[1]logback的使用与配置</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-07-10T20:04:57+08:00"
-              content="2019-07-10" >
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="Redis-基础命令"><a href="#Redis-基础命令" class="headerlink" title="Redis 基础命令"></a>Redis 基础命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">redis-cli -h host -p port -a password</td>
+<td style="text-align:center">Redis连接指令</td>
+</tr>
+<tr>
+<td style="text-align:center">CONFIG GET configname</td>
+<td style="text-align:center">得到配置值</td>
+</tr>
+<tr>
+<td style="text-align:center">CONFIG SET configname configvalue</td>
+<td style="text-align:center">设置配置值</td>
+</tr>
+<tr>
+<td style="text-align:center">SELECT dbname</td>
+<td style="text-align:center">切换数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">FLUSHDB</td>
+<td style="text-align:center">清空数据库[危险]</td>
+</tr>
+<tr>
+<td style="text-align:center">FLUSHALL</td>
+<td style="text-align:center">清空所有数据库[危险]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis-键命令"><a href="#Redis-键命令" class="headerlink" title="Redis 键命令"></a>Redis 键命令</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">KEYS pattern</td>
+<td style="text-align:center">查找所有符合给定模式(pattern)的key[危险]</td>
+</tr>
+<tr>
+<td style="text-align:center">EXISTS key</td>
+<td style="text-align:center">检查key是否存在</td>
+</tr>
+<tr>
+<td style="text-align:center">TYPE key</td>
+<td style="text-align:center">查看key对应值的类型</td>
+</tr>
+<tr>
+<td style="text-align:center">RENAME key newkey</td>
+<td style="text-align:center">修改key的名称</td>
+</tr>
+<tr>
+<td style="text-align:center">DEL key</td>
+<td style="text-align:center">在key存在时删除key</td>
+</tr>
+<tr>
+<td style="text-align:center">MOVE key db</td>
+<td style="text-align:center">将键移到目标数据库</td>
+</tr>
+<tr>
+<td style="text-align:center">EXPIRE key</td>
+<td style="text-align:center">设置过期时间(秒)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Redis数据类型"><a href="#Redis数据类型" class="headerlink" title="Redis数据类型"></a>Redis数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">简介</th>
+<th style="text-align:center">特性</th>
+<th style="text-align:center">场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">String(字符串)</td>
+<td style="text-align:center">二进制安全</td>
+<td style="text-align:center">可以包含任何数据，比如jpg图片或者序列化的对象,一个键最大能存储512M</td>
+<td style="text-align:center">—</td>
+</tr>
+<tr>
+<td style="text-align:center">Hash(字典)</td>
+<td style="text-align:center">键值对集合，即编程语言中的Map类型</td>
+<td style="text-align:center">适合存储对象,并且可以像数据库中update一个属性一样只修改某一项属性值</td>
+<td style="text-align:center">存储、读取、修改用户属性</td>
+</tr>
+<tr>
+<td style="text-align:center">List(列表)</td>
+<td style="text-align:center">双向链表</td>
+<td style="text-align:center">增删快,提供了操作某一段元素的API</td>
+<td style="text-align:center">1. 最新消息排行等功能(如朋友圈的时间线)\n2. 消息队列</td>
+</tr>
+<tr>
+<td style="text-align:center">Set(集合)</td>
+<td style="text-align:center">哈希表实现,元素不重复</td>
+<td style="text-align:center">1. 添加、删除、查找的复杂度都是O(1)\n2.为集合提供了求交集、并集、差集等操作</td>
+<td style="text-align:center">1. 共同好友\n2.利用唯一性，统计访问网站的所有独立IP\n3.好友推荐时，根据tag求交集，大于某个阈值就可以推荐</td>
+</tr>
+<tr>
+<td style="text-align:center">Sorted Set(有序集合)</td>
+<td style="text-align:center">将Set中的元素增加一个权重参数score,元素按score有序排列</td>
+<td style="text-align:center">数据插入集合时，已经进行天然排序</td>
+<td style="text-align:center">1. 排行榜\n 2. 带权重的消息队列</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SET key value</td>
+<td style="text-align:center">设置key为指定的字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">APPEND key value</td>
+<td style="text-align:center">如果 key 已经存在，并且值为字符串，那么这个命令会把value追加到原来值(value)的结尾。如果不存在，那么类似SET</td>
+</tr>
+<tr>
+<td style="text-align:center">GET key</td>
+<td style="text-align:center">获取key值，不存在则返回nil</td>
+</tr>
+<tr>
+<td style="text-align:center">GETRANGE key start end</td>
+<td style="text-align:center">获取索引开始位置(包含)和结束位置(包含)所对应的值，索引从0开始</td>
+</tr>
+<tr>
+<td style="text-align:center">GETSET key value</td>
+<td style="text-align:center">设置新的key值，并获取设置之前的值，key不存在则设置，并返回nil</td>
+</tr>
+<tr>
+<td style="text-align:center">MGET key [key …]</td>
+<td style="text-align:center">批量获取key的值</td>
+</tr>
+<tr>
+<td style="text-align:center">MSET key value [key value…]</td>
+<td style="text-align:center">批量设置key的值</td>
+</tr>
+<tr>
+<td style="text-align:center">DECR key</td>
+<td style="text-align:center">数字类型key自减操作,key类型不是数字则报错</td>
+</tr>
+<tr>
+<td style="text-align:center">INCR key</td>
+<td style="text-align:center">数字类型key自增操作</td>
+</tr>
+<tr>
+<td style="text-align:center">STRLEN key</td>
+<td style="text-align:center">获取key值长度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">HSET key field value</td>
+<td style="text-align:center">设置hash表中字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">HMSET key field value [field value …]</td>
+<td style="text-align:center">批量设置hash表中字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">HSETNX key field value</td>
+<td style="text-align:center">只有当字段不存在的时候才设置hash表中字段值</td>
+</tr>
+<tr>
+<td style="text-align:center">HGET key field</td>
+<td style="text-align:center">获取hash表中字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">HMGET key field [field …]</td>
+<td style="text-align:center">批量获取hash表中字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">HGETALL key</td>
+<td style="text-align:center">获取hash表中的所有字段和值</td>
+</tr>
+<tr>
+<td style="text-align:center">HEXISTS key field</td>
+<td style="text-align:center">判断hash表中字段是否存在</td>
+</tr>
+<tr>
+<td style="text-align:center">HDEL key field [field …]</td>
+<td style="text-align:center">删除hash表中一个或多个字段</td>
+</tr>
+<tr>
+<td style="text-align:center">HLEN key</td>
+<td style="text-align:center">获取hash表中字段个数</td>
+</tr>
+<tr>
+<td style="text-align:center">HVALS key</td>
+<td style="text-align:center">获取hash表中所有字段的值</td>
+</tr>
+<tr>
+<td style="text-align:center">HKEYS key</td>
+<td style="text-align:center">获取hash表中所有的字段</td>
+</tr>
+<tr>
+<td style="text-align:center">HSTRLEN key field</td>
+<td style="text-align:center">获取hash表中指定字段的值的长度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">LPUSH key value [value …]</td>
+<td style="text-align:center">从列表左边放入一个或者多个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">LPUSHX key value</td>
+<td style="text-align:center">当列表存在时，从左边放入一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">RPUSH key value [value …]</td>
+<td style="text-align:center">从列表右边放入一个或者多个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">RPUSHX key value</td>
+<td style="text-align:center">列表存在时，从右边放入一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">LSET key index value</td>
+<td style="text-align:center">根据索引位置设置列表中元素的值</td>
+</tr>
+<tr>
+<td style="text-align:center">LINDEX key index</td>
+<td style="text-align:center">根据列表索引获取元素值，索引从0开始</td>
+</tr>
+<tr>
+<td style="text-align:center">LINSERT key BEFORE\</td>
+<td style="text-align:center">AFTER pivot value</td>
+<td>在列表中，基于某个基准点插入值</td>
+</tr>
+<tr>
+<td style="text-align:center">LLEN key</td>
+<td style="text-align:center">获取列表长度</td>
+</tr>
+<tr>
+<td style="text-align:center">LRANGE key start stop</td>
+<td style="text-align:center">根据索引获取列表中的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">LREM key count value</td>
+<td style="text-align:center">从key移除前count个出现值为value的元素(count &gt; 0 前到后, count &lt; 0 后到前, count = 0 移除所有)</td>
+</tr>
+<tr>
+<td style="text-align:center">LPOP key</td>
+<td style="text-align:center">删除列表左边的一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">RPOP key</td>
+<td style="text-align:center">删除列表右边的一个元素</td>
+</tr>
+</tbody>
+</table>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">SADD key member [member …]</td>
+<td style="text-align:center">添加一个或多个元素到集合中</td>
+</tr>
+<tr>
+<td style="text-align:center">SREM key member [member …]</td>
+<td style="text-align:center">删除一个或多个集合中的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">SCARD key</td>
+<td style="text-align:center">获取集合中元素数量</td>
+</tr>
+<tr>
+<td style="text-align:center">SMEMBERS key</td>
+<td style="text-align:center">返回集合中所有的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">SINTER key [key …]</td>
+<td style="text-align:center">获取两个或两个以上集合的交集</td>
+</tr>
+<tr>
+<td style="text-align:center">SUNION key [key …]</td>
+<td style="text-align:center">获取两个或两个以上集合的并集</td>
+</tr>
+<tr>
+<td style="text-align:center">SDIFF key [key …]</td>
+<td style="text-align:center">获取两个或者两个以上集合的差集</td>
+</tr>
+<tr>
+<td style="text-align:center">SISMEMBER key member</td>
+<td style="text-align:center">判断元素是否是在指定集合中</td>
+</tr>
+<tr>
+<td style="text-align:center">SMOVE source destination member</td>
+<td style="text-align:center">移动一个集合中的元素到另一个集合</td>
+</tr>
+</tbody>
+</table>
+<h2 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">ZADD key score member [score member]</td>
+<td style="text-align:center">向一个有序集合添加成员</td>
+</tr>
+<tr>
+<td style="text-align:center">ZCARD key</td>
+<td style="text-align:center">获取有序集合中元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center">ZCOUNT key min max</td>
+<td style="text-align:center">指定分数范围的元素个数</td>
+</tr>
+<tr>
+<td style="text-align:center">ZINCRBY key increment member</td>
+<td style="text-align:center">为有序集的元素的score值加上指定的increment</td>
+</tr>
+<tr>
+<td style="text-align:center">ZRANGE key start stop [WITHSCORES]</td>
+<td style="text-align:center">根据有序看分数区间获取集合中的元素</td>
+</tr>
+<tr>
+<td style="text-align:center">ZRANK key member</td>
+<td style="text-align:center">得到成员的排名</td>
+</tr>
+<tr>
+<td style="text-align:center">ZREM key member [member …]</td>
+<td style="text-align:center">删除有序集合中一个或多个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">ZSCORE key member</td>
+<td style="text-align:center">查询元素在集合中的分数</td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NoSQL/" rel="tag"># NoSQL</a>
+          
+            <a href="/tags/Redis/" rel="tag"># Redis</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/29/spring-1/" rel="next" title="spring[1]spring事务的7种传播行为">
+                <i class="fa fa-chevron-left"></i> spring[1]spring事务的7种传播行为
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/29/nosql-2/" rel="prev" title="Redis[2]多个数据库">
+                Redis[2]多个数据库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -463,6 +795,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -483,8 +819,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -535,6 +880,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-基础命令"><span class="nav-number">1.</span> <span class="nav-text">Redis 基础命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-键命令"><span class="nav-number">2.</span> <span class="nav-text">Redis 键命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis数据类型"><span class="nav-number">3.</span> <span class="nav-text">Redis数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">4.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hash"><span class="nav-number">5.</span> <span class="nav-text">hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-number">6.</span> <span class="nav-text">list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set"><span class="nav-number">7.</span> <span class="nav-text">set</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zset"><span class="nav-number">8.</span> <span class="nav-text">zset</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -675,6 +1036,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
