@@ -283,6 +283,310 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/05/mysql-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Sean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Sean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/05/mysql-1/" itemprop="url">MySQL问题总结-SHOW PROCESSLIST</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-05T15:33:06+08:00">
+                2019-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL问题总结/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL问题总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="以下两条指令可以用来查看当前库有哪些正在运行的线程"><a href="#以下两条指令可以用来查看当前库有哪些正在运行的线程" class="headerlink" title="以下两条指令可以用来查看当前库有哪些正在运行的线程"></a>以下两条指令可以用来查看当前库有哪些正在运行的线程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SHOW [FULL] PROCESSLIST;</span><br><span class="line">SELECT * FROM information_schema.processlist;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>如果操作员有PROCESS权限，则可以查看所有的线程，否则只能查看当前用的线程。  </p>
+</li>
+<li><p>如果没有使用FULL关键字，只能查看Info字段的前100个字符。</p>
+</li>
+</ol>
+<h2 id="操作将会显示以下字段"><a href="#操作将会显示以下字段" class="headerlink" title="操作将会显示以下字段"></a>操作将会显示以下字段</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">字段</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">id</td>
+<td style="text-align:center">ID标识,要kill一个语句使用此字段</td>
+</tr>
+<tr>
+<td style="text-align:center">user</td>
+<td style="text-align:center">使用线程的用户</td>
+</tr>
+<tr>
+<td style="text-align:center">host</td>
+<td style="text-align:center">使用线程的IP和端口号</td>
+</tr>
+<tr>
+<td style="text-align:center">db</td>
+<td style="text-align:center">数据库名</td>
+</tr>
+<tr>
+<td style="text-align:center">command</td>
+<td style="text-align:center">连接状态,主要有休眠(sleep)、查询(query)、连接(connect)</td>
+</tr>
+<tr>
+<td style="text-align:center">time</td>
+<td style="text-align:center">连接持续时间，单位是秒</td>
+</tr>
+<tr>
+<td style="text-align:center">state</td>
+<td style="text-align:center">显示当前sql语句的状态</td>
+</tr>
+<tr>
+<td style="text-align:center">info</td>
+<td style="text-align:center">显示这个sql语句</td>
+</tr>
+</tbody>
+</table>
+<h2 id="state-主要状态和描述"><a href="#state-主要状态和描述" class="headerlink" title="state 主要状态和描述"></a>state 主要状态和描述</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">状态</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Checking table</td>
+<td style="text-align:center">正在检查数据表(自动)</td>
+</tr>
+<tr>
+<td style="text-align:center">Closing tables</td>
+<td style="text-align:center">正在将表中修改的数据刷新到磁盘中，同时正在关闭已经用完的表。这是一个很快的操作，如果不是这样的话，应该确认磁盘空间是否已经满了或者磁盘是否正处于重负中</td>
+</tr>
+<tr>
+<td style="text-align:center">Connect Out</td>
+<td style="text-align:center">复制从服务器正在连接主服务器</td>
+</tr>
+<tr>
+<td style="text-align:center">Copying to tmp table on disk</td>
+<td style="text-align:center">由于临时结果集大于tmp_table_size.正在将临时表从内存存储转为磁盘存储以节省内存</td>
+</tr>
+<tr>
+<td style="text-align:center">Creating tmp table</td>
+<td style="text-align:center">正在创建临时表以存放部分查询结果</td>
+</tr>
+<tr>
+<td style="text-align:center">deleting from main table</td>
+<td style="text-align:center">服务器正在执行多表删除中的第一部分，刚删除第一个表</td>
+</tr>
+<tr>
+<td style="text-align:center">deleting from reference tables</td>
+<td style="text-align:center">服务器正在执行多表删除中的第二部分，正在删除其他表的记录</td>
+</tr>
+<tr>
+<td style="text-align:center">Flushing tables</td>
+<td style="text-align:center">正在执行FLUSH TABLES,等待其他线程关闭数据表</td>
+</tr>
+<tr>
+<td style="text-align:center">Killed</td>
+<td style="text-align:center">发送了一个kill请求给某线程，那么这个线程将会检查kill标志位，同时会放弃下一个kill请求。MySQL会在每次的主循环中检查kill标志位，不过有些情况下该线程可能会过一小段时间才能关闭。如果该线程被其他线程锁住，那么kill请求会在锁释放时马上生效</td>
+</tr>
+<tr>
+<td style="text-align:center">Locked</td>
+<td style="text-align:center">被其他查询锁住了</td>
+</tr>
+<tr>
+<td style="text-align:center">Sending data</td>
+<td style="text-align:center">正在处理SELECT查询的记录，同时正在把结果发送给客户端</td>
+</tr>
+<tr>
+<td style="text-align:center">Sorting for group</td>
+<td style="text-align:center">正在为GROUP BY做排序</td>
+</tr>
+<tr>
+<td style="text-align:center">Sorting for order</td>
+<td style="text-align:center">正在为ORDER BY做排序</td>
+</tr>
+<tr>
+<td style="text-align:center">Opening tables</td>
+<td style="text-align:center">正在尝试打开一个表，这个过程应该会很快，除非收到其他因素的干扰。例如，在执行ALTER TABLE或LOCK TABLE语句行完之前，数据表无法被其他线程打开。</td>
+</tr>
+<tr>
+<td style="text-align:center">Removing duplicates</td>
+<td style="text-align:center">正在执行一个SELECT DISTINCT方式的查询，但是MySQL无法在前一个阶段优化掉那些重复的记录。因此MySQL需要再次去掉重复的记录，然后再把结果发送给客户端。</td>
+</tr>
+<tr>
+<td style="text-align:center">Reopen table</td>
+<td style="text-align:center">获得了对一个表的锁，必须在表结构修改后才能获得这个锁，已经释放锁，关闭数据表，正尝试重新打开数据表。</td>
+</tr>
+<tr>
+<td style="text-align:center">Repair by sorting</td>
+<td style="text-align:center">修复指令正在排序以创建索引</td>
+</tr>
+<tr>
+<td style="text-align:center">Repair with keycache</td>
+<td style="text-align:center">修复指令正在利用索引缓存一个一个地创建新索引。它会比Repair by sorting慢些。</td>
+</tr>
+<tr>
+<td style="text-align:center">Searching rows for update</td>
+<td style="text-align:center">正在将符合条件的记录找出来用于更新,一定在UPDATE要修改相关记录前就完成</td>
+</tr>
+<tr>
+<td style="text-align:center">Sleeping</td>
+<td style="text-align:center">正在等待客户端发送新请求</td>
+</tr>
+<tr>
+<td style="text-align:center">System lock</td>
+<td style="text-align:center">正在等待取得一个外部的系统锁。如果当前没有运行多个mysqld服务器同时请求一个表，可以通过增加–skip-external-locking来禁止外部系统锁</td>
+</tr>
+<tr>
+<td style="text-align:center">Upgrading lock</td>
+<td style="text-align:center">INSERT DELAYED正在尝试取得一个锁以插入新记录</td>
+</tr>
+<tr>
+<td style="text-align:center">Updating</td>
+<td style="text-align:center">正在修改匹配的记录</td>
+</tr>
+<tr>
+<td style="text-align:center">User Lock</td>
+<td style="text-align:center">正在等待GET_LOCK()</td>
+</tr>
+<tr>
+<td style="text-align:center">Waiting for tables</td>
+<td style="text-align:center">线程得到通知，数据表结构已经被修改了，需要重新打开数据表以取得新的结构。为了重新打开数据表，必须等到所有其他线程关闭这个表。以下几种情况会产生这个通知:FLUSH, ALTER,RENAME,REPAIR,ANALYZE,OPTIMIZE</td>
+</tr>
+<tr>
+<td style="text-align:center">waiting for handler insert</td>
+<td style="text-align:center">INSERT DELAYED已经处理完了所有待处理的插入操作，正在等待新的请求</td>
+</tr>
+</tbody>
+</table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/linux-question-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2728,149 +3032,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/08/jvm-7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Sean">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Sean's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/08/jvm-7/" itemprop="url">jvm类文件的结构1-魔数与Class文件的版本</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-08T19:52:06+08:00">
-                2019-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/jvm/" itemprop="url" rel="index">
-                    <span itemprop="name">jvm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="魔数"><a href="#魔数" class="headerlink" title="魔数"></a>魔数</h2><p>每个Class文件的头4个字节称为魔数(Magic Number)，它的唯一作用是用于确定这个文件是否为一个能被虚拟机接受的Class文件。<br>很多文件存储标准中都使用魔数来进行身份识别，比如图片格式，如gif或jpeg等在文件头中都存有魔数。<br>使用魔数而不是扩展名来进行识别主要是基于安全考虑，因为文件扩展名可以自由地选择魔数值，只要这个魔数值还没有被广泛采用过而且不会引起混淆即可。<br>Class文件的魔数的获得很有”浪漫气息”，值为:  0xCAFEBABE<br>CA:202  FE:254  BA:186  BE:190</p>
-<h2 id="Class文件的版本"><a href="#Class文件的版本" class="headerlink" title="Class文件的版本"></a>Class文件的版本</h2><p>紧接着魔数的4个字节存储的是Class文件的版本号: 第5和第6个字节的次版本号(Minor Version)，第7个和第8个字节是主版本号(Major Version)。<br>Java的版本号是从45开始的，JDK1.1之后的每个JDK大版本发布主版本号向上加1(JDK 1.0~1.1 使用了45.0~45.3的版本号)<br>高版本的JDK能向下兼容以前版本的Class文件，但不能运行以后版本的Class文件，即使文件格式并未发生变化。<br>如JDK1.1能支持版本号为46.0以上的Class，而JDK1.2则能支持45.0~46.65535的Class文件。  </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2921,7 +3082,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
